@@ -1,1 +1,184 @@
-<!doctypehtml><html lang=en><link href=https://jaypalsapara.in/favicon.webp rel=icon type=image/webp><link href=https://jaypalsapara.in/favicon.webp rel=icon type=image/x-icon><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><title>Jaypal Sapara</title><meta content="Jaypal Sapara"name=title><meta content="Passionate web developer with expertise in various back-end and front-end technologies like Laravel, React, PHP, MySQL, JavaScript, Linux, and etc."name=description><meta content="Jaypal Sapara"name=author><meta content="Jaypal Sapara, Sapara Jaypal, jaypalsapara, saparajaypal, jaypal sapara, sapara jaypal, Web Developer, Laravel Developer, full stack developer, back-end developer, front-end developer"name=keywords><meta content="Jaypal Sapara"property=og:title><meta content="Passionate web developer with expertise in various back-end and front-end technologies like Laravel, React, PHP, MySQL, JavaScript, Linux, and etc."property=og:description><meta content=https://jaypalsapara.in/images/me/me.webp property=og:image><meta content=image/webp property=og:image:type><meta content=512 property=og:image:width><meta content=512 property=og:image:height><meta content=https://jaypalsapara.in/ property=og:url><meta content=website property=og:type><meta content="Jaypal Sapara"property=og:site_name><meta content=en_US property=og:locale><meta content=summary_large_image property=twitter:card><meta content=https://jaypalsapara.in/ property=twitter:url><meta content="Jaypal Sapara"property=twitter:title><meta content="Passionate web developer with expertise in various back-end and front-end technologies like Laravel, React, PHP, MySQL, JavaScript, Linux, and etc."property=twitter:description><meta content=https://jaypalsapara.in/images/me/me.webp property=twitter:image><link href=https://jaypalsapara.in/ rel=canonical><link href=/images/me/me.webp rel=preload type=image/webp as=image fetchpriority=high><link href=/fonts/InstrumentSans.woff2 rel=preload type=font/woff2 as=font fetchpriority=high crossorigin><link href=/fonts/GeistMono.woff2 rel=preload type=font/woff2 as=font fetchpriority=high crossorigin><meta content=#ffffff name=theme-color media="(prefers-color-scheme: light)"><script>const isDark="dark"===localStorage.theme||!("theme"in localStorage)&&window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.classList.toggle("dark",isDark),localStorage.theme=isDark?"dark":"light"</script><script crossorigin src=/assets/index.js type=module></script><link href=/assets/index.css rel=stylesheet crossorigin><body class="antialiased overflow-hidden"><div class="fixed grid h-lvh left-0 loader-frame place-content-center top-0 w-full z-[9999]"><svg class=loader-container height=35 id=loaderIcon viewBox="0 0 35 35"width=35><rect class=track fill=none height=32.5 stroke-width=5px width=32.5 x=2.5 y=2.5 /><rect class=car fill=none height=32.5 stroke-width=5px width=32.5 x=2.5 y=2.5 pathLength=100 /></svg></div><div id=root></div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- SEO -->
+    <meta name="title" content="Jaypal Sapara" />
+    <meta
+      name="description"
+      content="Full-Stack web developer with expertise in various technologies like Laravel, React, PHP, MySQL, JavaScript, Linux, and etc."
+    />
+    <meta name="author" content="Jaypal Sapara" />
+    <meta name="keywords" content="jaypal sapara, full stack developer, backend developer, frontend, developer, freelancer" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jaypalsapara.in" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jaypalsapara.in" />
+    <meta property="og:title" content="Jaypal Sapara" />
+    <meta
+      property="og:description"
+      content="Full-Stack web developer with expertise in various technologies like Laravel, React, PHP, MySQL, JavaScript, Linux, and etc."
+    />
+    <meta property="og:image" content="https://jaypalsapara.in/images/me/me-icon.webp" />
+    <meta property="og:image:secure_url" content="https://jaypalsapara.in/images/me/me-icon.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="1440" />
+    <meta property="og:image:height" content="1440" />
+    <meta property="og:image:alt" content="Jaypal Sapara - Full-Stack developer" />
+    <meta property="og:site_name" content="Jaypal Sapara" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@jaypal__sapara" />
+    <meta name="twitter:creator" content="@jaypal__sapara" />
+    <meta name="twitter:url" content="https://jaypalsapara.in" />
+    <meta name="twitter:title" content="Jaypal Sapara" />
+    <meta
+      name="twitter:description"
+      content="Full-Stack web developer with expertise in various technologies like Laravel, React, PHP, MySQL, JavaScript, Linux, and etc."
+    />
+    <meta name="twitter:image" content="https://jaypalsapara.in/images/me/me-icon.webp" />
+    <meta name="twitter:image:alt" content="Jaypal Sapara - Full-Stack developer" />
+    <meta name="twitter:domain" content="jaypalsapara.in" />
+
+    <!-- Social Media Verification -->
+    <link rel="me" href="https://www.linkedin.com/in/jaypal-sapara" />
+    <link rel="me" href="https://github.com/jaypalsapara" />
+    <link rel="me" href="https://x.com/jaypal__sapara" />
+    <link rel="me" href="https://www.youtube.com/@jaypal-sapara" />
+
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <!-- Theme -->
+    <script>
+      (function () {
+        const appearance = localStorage.getItem('appearance') || 'system';
+
+        if (appearance === 'system') {
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+          if (prefersDark) {
+            document.documentElement.classList.add('dark');
+          }
+        }
+      })();
+    </script>
+    <style>
+      html {
+        background-color: oklch(98.5% 0.001 106.423);
+      }
+
+      html.dark {
+        background-color: oklch(17.5% 0 0);
+      }
+    </style>
+
+    <!-- Fonts -->
+    <link rel="preload" fetchpriority="high" href="/fonts/InstrumentSans.woff2" crossorigin as="font" type="font/woff2" />
+    <link rel="preload" fetchpriority="high" href="/fonts/GeistMono.woff2" crossorigin as="font" type="font/woff2" />
+
+    <!-- Pre-Loaded -->
+    <link rel="preload" fetchpriority="high" as="image" href="/images/me/me.webp" type="image/webp" />
+    <link rel="preload" fetchpriority="high" as="image" href="/images/me/me-dark.webp" type="image/webp" />
+
+    <title>Jaypal Sapara</title>
+
+    <!-- Structured Data for Person -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://jaypalsapara.in/#person",
+        "name": "Jaypal Sapara",
+        "givenName": "Jaypal",
+        "familyName": "Sapara",
+        "url": "https://jaypalsapara.in",
+        "image": "https://jaypalsapara.in/images/me/me-icon.webp",
+        "jobTitle": "Full-Stack developer",
+        "sameAs": [
+          "https://www.linkedin.com/in/jaypal-sapara",
+          "https://github.com/jaypalsapara",
+          "https://x.com/jaypal__sapara",
+          "https://www.youtube.com/@jaypal-sapara"
+        ],
+        "knowsAbout": ["PHP", "Laravel", "Javascript", "React", "TailwindCSS", "Full Stack Developer"],
+        "nationality": {
+          "@type": "Country",
+          "name": "India"
+        }
+      }
+    </script>
+
+    <!-- Structured Data for Website -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://jaypalsapara.in/#website",
+        "url": "https://jaypalsapara.in",
+        "name": "Jaypal Sapara",
+        "description": "Full-Stack web developer with expertise in various technologies like Laravel, React, PHP, MySQL, JavaScript, Linux, and etc.",
+        "publisher": {
+          "@id": "https://jaypalsapara.in/#person"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://jaypalsapara.in/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <!-- Structured Data for WebPage -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://jaypalsapara.in#webpage",
+        "url": "https://jaypalsapara.in",
+        "name": "Jaypal Sapara",
+        "description": "Full-Stack web developer with expertise in various technologies like Laravel, React, PHP, MySQL, JavaScript, Linux, and etc.",
+        "isPartOf": {
+          "@id": "https://jaypalsapara.in/#website"
+        },
+        "about": {
+          "@id": "https://jaypalsapara.in/#person"
+        },
+        "inLanguage": "en-US"
+      }
+    </script>
+
+    <!-- Breadcrumb Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://jaypalsapara.in"
+          }
+        ]
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-LQ8es-Ej.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B5BH0VcT.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
