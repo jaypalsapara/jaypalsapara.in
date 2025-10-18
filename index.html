@@ -175,10 +175,27 @@
         ]
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-LQ8es-Ej.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-B5BH0VcT.css">
+
+    <!-- 404 redirect for github -->
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const redirect = params.get('redirect');
+      if (redirect) {
+        window.history.replaceState(null, '', redirect);
+      }
+    </script>
+    <script type="module" crossorigin src="/entries/index-DPJu3dHP.js"></script>
+    <link rel="modulepreload" crossorigin href="/chunks/vendor-DuSTz0DU.js">
+    <link rel="modulepreload" crossorigin href="/vendors/react-vendor-CeAGirAI.js">
+    <link rel="modulepreload" crossorigin href="/chunks/app-layout-D9dzwz9g.js">
+    <link rel="modulepreload" crossorigin href="/chunks/components-D9Gr_E3r.js">
+    <link rel="modulepreload" crossorigin href="/pages/page-project.tsx-Dw6wD6if.js">
+    <link rel="stylesheet" crossorigin href="/styles/react-vendor-CVQFwHps.css">
+    <link rel="stylesheet" crossorigin href="/styles/app-layout-BRwsAZQC.css">
+    <link rel="stylesheet" crossorigin href="/styles/components-BO0Qen-J.css">
+    <link rel="stylesheet" crossorigin href="/styles/index-DHW0Oey5.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
   </body>
 </html>

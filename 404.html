@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      // Redirect any unknown path back to index.html with correct URL
+      var redirect = window.location.pathname;
+      window.location.replace(window.location.origin + '/?redirect=' + redirect);
+    </script>
+  </head>
+  <body></body>
+</html>
