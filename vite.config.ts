@@ -12,6 +12,7 @@ export default defineConfig({
     sitemap({
       hostname: 'https://jaypalsapara.in',
       // dynamicRoutes: ['/about'],
+      generateRobotsTxt: false,
     }),
   ],
   resolve: {
