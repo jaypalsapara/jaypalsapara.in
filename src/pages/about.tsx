@@ -17,7 +17,11 @@ const About = () => {
           customers
         </p>
         <div className="col-span-full mt-14 grid grid-cols-subgrid lg:mt-16">
-          <img src="/images/me/jaypal.avif" alt="" className="col-span-full w-full rounded-xs object-cover object-top lg:aspect-video not-hover:grayscale transition-[filter]" />
+          <img
+            src="/images/me/jaypal.avif"
+            alt=""
+            className="col-span-full aspect-video w-full rounded-xs object-cover object-top transition-[filter] not-hover:grayscale"
+          />
         </div>
       </Wrapper>
       <OverflowLine />
