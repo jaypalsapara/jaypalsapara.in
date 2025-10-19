@@ -163,7 +163,7 @@ const ProductPopover = () => {
                 </div>
               </div>
               <picture className="mt-4 hidden overflow-hidden rounded-xs border border-border/30 lg:block">
-                <img src={product.banner} alt="" loading="lazy" className='aspect-[4/5] w-full' />
+                <img src={product.banner} alt="" loading="lazy" className="aspect-[4/5] w-full" />
               </picture>
             </div>
           </a>
