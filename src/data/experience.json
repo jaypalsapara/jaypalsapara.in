@@ -1,0 +1,22 @@
+[
+  {
+    "company": "Freelancing",
+    "role": "Web Developer",
+    "work": "Remote",
+    "description": "Working as full-stack developer and crafting seamless, high-performance web applications",
+    "duration": {
+      "start": "Oct 2024",
+      "end": "Present"
+    }
+  },
+  {
+    "company": "Arvaan TechnoLab",
+    "role": "Laravel Developer",
+    "work": "Full-Time",
+    "description": "I have done my job as a junior Laravel and PHP developer with mid-to advance project",
+    "duration": {
+      "start": "Apr 2022",
+      "end": "Oct 2024"
+    }
+  }
+]

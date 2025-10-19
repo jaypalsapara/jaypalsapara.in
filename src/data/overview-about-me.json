@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Degree",
+    "icon": "Award",
+    "description": "I pursued a bachelor's degree in computer application"
+  },
+  {
+    "name": "Languages",
+    "icon": "Languages",
+    "description": "English(Conversational), Hindi(Conversational), Gujarati(Native)"
+  },
+  {
+    "name": "Location",
+    "icon": "MapPin",
+    "description": "Surendranagar, Gujarat (India)"
+  }
+]

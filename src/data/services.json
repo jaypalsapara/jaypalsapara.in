@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Optimization",
+    "icon": "Rocket",
+    "description": "Accelerate your web app performance. Deliver a seamless, lightning-fast user experience."
+  },
+  {
+    "name": "Deployment",
+    "icon": "CloudUpload",
+    "description": "Deploy projects on a Linux-based server. Run it smoothly and securely in a production environment."
+  },
+  {
+    "name": "Bug Fixing",
+    "icon": "Bug",
+    "description": "Fixing bugs ensures a flawless user experience. Keep your app reliable and frustration-free."
+  },
+  {
+    "name": "Real-time Features",
+    "icon": "Activity",
+    "description": "Deliver real-time data to users. Enhance engagement with an interactive experience."
+  },
+  {
+    "name": "Development",
+    "icon": "Code",
+    "description": "Bring your vision to life with clean and optimized code. Building efficient and high-performing apps."
+  },
+  {
+    "name": "SEO",
+    "icon": "TrendingUp",
+    "description": "Boost your site or product visibility with basic SEO. Improve rankings and attract more organic traffic."
+  },
+  {
+    "name": "APIs",
+    "icon": "ArrowLeftRight",
+    "description": "Integrate APIs seamlessly into your apps. Enable data flow between frontend and backend"
+  },
+  {
+    "name": "Responsive site",
+    "icon": "MonitorSmartphone",
+    "description": "Perform flawlessly on all screens and deliver a responsive, visually appealing experience."
+  },
+
+  {
+    "name": "Custom Design",
+    "icon": "Palette",
+    "description": "Design stunning pages with efficient code. Engage users through visually and interactive layouts."
+  }
+]

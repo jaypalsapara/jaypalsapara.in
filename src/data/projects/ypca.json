@@ -1,0 +1,28 @@
+{
+  "title": "Yellow Pages California",
+  "description": "Yellow Pages California is an online business directory specifically for California, aiming to connect users with local businesses and services across the state. It functions as a digital directory, highlighting trusted enterprises with contact details, reviews, and business profiles.",
+  "thumbnail": "/images/projects/ypca/thumbnail.avif",
+  "link": "https://yellowpagescalifornia.com/",
+  "details": [
+    {
+      "title": "Role",
+      "text": "Full-Stack Developer"
+    },
+    {
+      "title": "Category",
+      "text": "Directory site"
+    },
+    {
+      "title": "Technology",
+      "text": "Laravel, PHP, MySql, JavaScript, jQuery, Tailwind, CSS, HTML"
+    }
+  ],
+  "media": [
+    {
+      "url": "/images/projects/ypca/image-1.avif"
+    },
+    {
+      "url": "/images/projects/ypca/image-2.avif"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "name": "RLMA Stack",
+    "text": "React, Laravel, PHP, MySql, Apache, Tailwind CSS",
+    "tech": ["react", "laravel", "mysql", "apache"]
+  },
+  {
+    "name": "LTMA Stack",
+    "text": "Laravel, PHP, MySql, Apache, HTML, Tailwind CSS",
+    "tech": ["laravel", "tailwind", "mysql", "apache"]
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "LinkedIn",
+    "icon": "/images/icons/linkedin.svg",
+    "url": "https://www.linkedin.com/in/jaypal-sapara"
+  },
+  {
+    "name": "GitHub",
+    "icon": "/images/icons/github.svg",
+    "url": "https://github.com/jaypalsapara"
+  },
+  {
+    "name": "X",
+    "icon": "/images/icons/x.svg",
+    "url": "https://x.com/jaypal__sapara"
+  },
+  {
+    "name": "YouTube",
+    "icon": "/images/icons/youtube.svg",
+    "url": "https://www.youtube.com/@jaypal-sapara"
+  }
+]

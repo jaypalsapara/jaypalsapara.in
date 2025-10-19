@@ -1,0 +1,160 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/GeistMono.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('/fonts/InstrumentSans.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@theme {
+  /* Fonts */
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono: 'Geist Mono', monospace;
+
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-accent-50: oklch(0.9711 0.0141 22.76);
+  --color-accent-100: oklch(0.9357 0.032351 24.7936);
+  --color-accent-200: oklch(0.8842 0.061 24.61);
+  --color-accent-300: oklch(0.809 0.108257 25.9419);
+  --color-accent-400: oklch(0.7167 0.1771 27.59);
+  --color-accent-500: oklch(0.6617 0.2254 29.78); /* accent dark */
+  --color-accent-600: oklch(0.6196 0.227 30.07); /* accent light */
+  --color-accent-700: oklch(0.536 0.2074 30.09);
+  --color-accent-800: oklch(0.4676 0.175 30.12);
+  --color-accent-900: oklch(0.4138 0.1449 29.81);
+  --color-accent-950: oklch(0.2696 0.0965 30.64);
+
+  --color-border: var(--border);
+}
+
+:root {
+  --background: oklch(98.5% 0.001 106.423);
+  --foreground: oklch(26.8% 0.007 34.298);
+
+  --primary: oklch(26.8% 0.007 34.298);
+  --primary-foreground: oklch(98.5% 0.001 106.423);
+
+  --accent: oklch(0.6196 0.227 30.07);
+  --accent-foreground: oklch(98.5% 0.001 106.423);
+
+  --border: oklch(87% 0 0);
+  --muted: oklch(92.3% 0.003 48.717);
+  --muted-foreground: oklch(55.6% 0 0);
+}
+
+.dark {
+  --background: oklch(17.5% 0 0);
+  --foreground: oklch(97% 0 0);
+
+  --primary: oklch(97% 0 0);
+  --primary-foreground: oklch(26.8% 0.007 34.298);
+
+  --accent: oklch(0.6617 0.2254 29.78);
+  --accent-foreground: oklch(97% 0 0);
+
+  --border: oklch(26.9% 0 0);
+  --muted: oklch(26.9% 0 0);
+  --muted-foreground: oklch(70.8% 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-feature-settings:
+      'ss02' 1,
+      'ss05' 1,
+      'ss09' 1;
+  }
+
+  body {
+    /* background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+    background-size: 10px 10px; */
+    /* background-color: var(--color-background); */
+    @apply overflow-x-hidden text-foreground;
+  }
+
+  h1 {
+    @apply text-5xl leading-[1.25] tracking-tight lg:text-6xl;
+  }
+  h2 {
+    @apply text-4xl leading-[1.5] tracking-tight lg:text-5xl;
+  }
+  h3 {
+    @apply text-3xl tracking-tight lg:text-4xl;
+  }
+  h4 {
+    @apply text-2xl lg:text-3xl;
+  }
+  h5 {
+    @apply text-xl lg:text-2xl;
+  }
+  h6 {
+    @apply text-lg lg:text-xl;
+  }
+  p {
+    @apply text-base leading-normal text-pretty;
+  }
+  small {
+    @apply text-sm leading-normal tracking-wide;
+  }
+
+  .lucide {
+    @apply size-4.5 stroke-[1.5];
+  }
+}
+
+@layer utilities {
+  .pad-x {
+    @apply px-4 lg:px-18;
+  }
+  .hide-scrollbar {
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  .highlight-line {
+    position: relative;
+  }
+  .highlight-line::before {
+    content: '';
+    height: 48px;
+    border-right: 3px solid var(--color-accent);
+    position: absolute;
+    @apply top-0 -left-4 lg:-left-18;
+  }
+}

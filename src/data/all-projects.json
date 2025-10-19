@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ypca",
+    "name": "Yellow Pages California",
+    "type": "Full-Stack",
+    "thumbnail": "/images/projects/ypca/thumbnail.avif"
+  },
+  {
+    "id": "1234-text",
+    "name": "1234Text",
+    "type": "Full-Stack",
+    "thumbnail": "/images/projects/1234text/thumbnail.avif"
+  },
+  {
+    "id": "simpsi-govern",
+    "name": "Simpsi Govern",
+    "type": "Full-Stack",
+    "thumbnail": "/images/projects/simpsi-govern/thumbnail.avif"
+  },
+  {
+    "id": "convert-to-webp",
+    "name": "Convert2Webp",
+    "type": "Full-Stack",
+    "thumbnail": "/images/projects/convert-to-webp/thumbnail.avif"
+  },
+  {
+    "id": "js-minifier",
+    "name": "JavaScript Minifier",
+    "type": "Full-Stack",
+    "thumbnail": "/images/projects/javascript-minifier/thumbnail.avif"
+  },
+  {
+    "id": "dots",
+    "name": "Dots",
+    "type": "Full-Stack",
+    "thumbnail": "/images/projects/dots/thumbnail.avif"
+  }
+]

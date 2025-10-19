@@ -1,0 +1,204 @@
+/* @reference "@/index.css"; */
+
+:root {
+  --cube: rgba(250, 250, 250, 0.4);
+  --cube-border: oklch(20.5% 0 0);
+  --cube-background: oklch(98.5% 0 0);
+}
+
+.dark {
+  --cube: rgba(23, 23, 23, 0.4);
+  --cube-border: oklch(43.9% 0 0);
+  --cube-background: oklch(20.5% 0 0);
+}
+
+.cube-container {
+  /* --cube-background: #fff; */
+  /* --cube-color: #f53003; */
+  --cube-width: 2.3;
+  --cube-height: 2.3;
+  --cube-depth: 1.2;
+  /* --cube-base: 1rem; */
+  --cube-translate-x: 0%;
+  --cube-translate-y: 0%;
+  --cube-rotate: 0deg;
+  /* --cube-border: var(--cube-border-dark, --cube-border-light); */
+  position: relative;
+}
+
+.cube {
+  position: relative;
+  width: calc(var(--cube-width) * var(--cube-base));
+  height: calc(var(--cube-height) * var(--cube-base));
+}
+
+.cube .cube .face {
+  background-blend-mode: soft-light;
+}
+
+.cube-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.face {
+  transform-origin: 0 0;
+  /* old value scaleY(0.864) */
+  transform: rotate(var(--cube-rotate)) skew(var(--cube-skew, -30deg)) scaleY(0.8656) translate(var(--cube-translate-x), var(--cube-translate-y));
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-color: var(--cube-border);
+  border-style: solid;
+}
+
+.left,
+.right {
+  width: calc(var(--cube-width) * var(--cube-base));
+  height: calc(var(--cube-depth) * var(--cube-base));
+}
+
+.left {
+  --cube-rotate: 90deg;
+}
+.right {
+  --cube-rotate: 90deg;
+  --cube-translate-x: -100%;
+  --cube-translate-y: calc(var(--cube-height) / var(--cube-depth, --cube-height) * -100%);
+}
+
+.top,
+.bottom,
+.shadow,
+.cube-label-left,
+.cube-label-right {
+  width: calc(var(--cube-depth) * var(--cube-base));
+  height: calc(var(--cube-height) * var(--cube-base));
+}
+
+.top {
+  --cube-rotate: 210deg;
+}
+
+.bottom,
+.shadow {
+  --cube-rotate: 210deg;
+  --cube-translate-x: calc((var(--cube-height) / var(--cube-depth, --cube-height)) * -100%);
+  --cube-translate-y: -100%;
+}
+
+.front,
+.back {
+  width: calc(var(--cube-width) * var(--cube-base));
+  height: calc(var(--cube-height) * var(--cube-base));
+}
+.back {
+  --cube-rotate: -30deg;
+  --cube-translate-x: calc((var(--cube-depth, --cube-width) / var(--cube-width)) * -100%);
+  --cube-translate-y: calc((var(--cube-depth, --cube-width) / var(--cube-width)) * -100%);
+}
+
+.front {
+  --cube-rotate: -30deg;
+}
+
+.cube-flat-front {
+  transform: translate(calc((var(--cube-inset) * 0.866) * var(--cube-base)), calc((var(--cube-inset) * 0.5) * var(--cube-base)));
+  box-shadow: none;
+}
+
+/* borders */
+.top,
+.bottom {
+  border-inline-width: 0.5px;
+}
+.left,
+.right {
+  border-block-width: 0.5px;
+}
+.top {
+  border-top-width: 0.5px;
+}
+.left {
+  border-right-width: 0.5px;
+}
+.bottom {
+  border-bottom-width: 0.5px;
+}
+
+.right {
+  border-left-width: 0.5px;
+}
+
+/* color */
+
+.face:not(.cube-flat-front, .shadow) {
+  background-color: color-mix(in oklab, var(--cube-background) 75%, transparent);
+}
+.outer-face.left {
+  background-color: color-mix(in oklab, var(--cube-background) 60%, rgba(0, 0, 0, 0.3));
+}
+.outer-face.bottom {
+  background-color: color-mix(in oklab, var(--cube-background) 80.4%, rgba(0, 0, 0, 0.17));
+}
+
+.outer-face.top {
+  border-bottom-width: 0.5px;
+}
+.outer-face.right {
+  border-left-width: 0;
+}
+
+.inner-face.top {
+  border-bottom-width: 0.5px;
+  background-color: color-mix(in oklab, var(--cube-color) 88%, transparent);
+}
+.inner-face.left {
+  background-color: color-mix(in oklab, var(--cube-color) 88%, transparent);
+}
+.inner-face.right {
+  border-left-width: 0px;
+  background-color: color-mix(in oklab, var(--cube-color) 88%, transparent);
+}
+.inner-face.bottom {
+  border-left-width: 0.01px;
+  background-color: color-mix(in oklab, var(--cube-color) 88%, transparent);
+}
+
+.inner-face.front {
+  border-right-width: 0.5px;
+  border-bottom-width: 0.5px;
+  background-color: color-mix(in oklab, var(--cube-background) 88%, transparent);
+  padding-inline: calc((var(--cube-width) * var(--cube-base)) / 8);
+  padding-block: calc((var(--cube-height) * var(--cube-base)) / 8);
+}
+/* variant fat and thin */
+.cube-container:is([data-variant='fat'], [data-variant='thin']) .inner-face.front {
+  background-color: color-mix(in oklab, var(--cube-color) 88%, transparent);
+}
+
+/* only thin */
+.cube-container[data-variant='thin'] .cube-flat-front > :not(.inner-face.front) {
+  display: none;
+}
+.cube-container[data-variant='thin'] .cube-flat-front > :is(.inner-face.front) {
+  border-top-width: 0.5px;
+  border-left-width: 0.5px;
+}
+
+.cube-thin .inner-face.front {
+  padding-left: calc((var(--cube-width) * var(--cube-base)) / 5);
+  padding-top: calc((var(--cube-height) * var(--cube-base)) / 5);
+  padding-right: calc((var(--cube-width) * var(--cube-base)) / 7);
+  padding-bottom: calc((var(--cube-height) * var(--cube-base)) / 7);
+}
+.cube-container[data-variant='thin'] .inner-face.front {
+  background-color: color-mix(in oklab, var(--cube-color) 97%, transparent);
+}
+
+.shadow {
+  background-color: #000;
+}

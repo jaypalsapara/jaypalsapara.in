@@ -1,0 +1,29 @@
+[
+  {
+    "name": "JS-Minifier",
+    "logo": "/images/products/js-minify.svg",
+    "subtitle": "Minimize the code and reduce file size",
+    "url": "https://jaypalsapara.github.io/tool-jsminify/",
+    "color": "#3b82f6",
+    "new_until": "2024-05-17",
+    "banner": "/images/products/js-minify-banner.webp"
+  },
+  {
+    "name": "Nth-Child Selector",
+    "logo": "/images/products/nth-child.svg",
+    "subtitle": "Generate nth-child CSS selectors",
+    "url": "https://jaypalsapara.github.io/nth-child-selector/",
+    "color": "#3e8fad",
+    "new_until": "2025-05-17",
+    "banner": "/images/products/nth-child-banner.webp"
+  },
+  {
+    "name": "Dots",
+    "logo": "/images/products/dots.svg",
+    "subtitle": "Track left days in the year",
+    "url": "https://jaypalsapara.github.io/dots/",
+    "color": "#5343c1",
+    "new_until": "2024-05-17",
+    "banner": "/images/products/dots-banner.webp"
+  }
+]

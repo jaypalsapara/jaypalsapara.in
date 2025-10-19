@@ -1,0 +1,15 @@
+@reference "../index.css";
+
+.cls-1 {
+  font-size: 12px;
+  font-variation-settings: 'wght' 400;
+  @apply fill-muted-foreground/80 font-mono;
+}
+
+.cls-2 {
+  fill: url(#New_Pattern);
+}
+
+.cls-3 {
+  fill: none;
+}

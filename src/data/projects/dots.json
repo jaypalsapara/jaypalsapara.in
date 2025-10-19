@@ -1,0 +1,28 @@
+{
+  "title": "Dots",
+  "description": "Dots is a year progress tracking web application designed to help you stay productive and focused. It visually displays how much of the year has passed and how many days are left until the year ends. This simple yet effective tool serves as a motivational aid for setting and tracking goals throughout the year.<br> Dots is also installable as a web app on both mobile and desktop devices, offering easy access anytime, anywhere. Stay on track and make every day count with Dots.",
+  "thumbnail": "/images/projects/ypca/thumbnail.avif",
+  "link": "https://jaypalsapara.github.io/dots",
+  "details": [
+    {
+      "title": "Role",
+      "text": "Front-end Developer"
+    },
+    {
+      "title": "Category",
+      "text": "Productivity Web App"
+    },
+    {
+      "title": "Technology",
+      "text": "React, JavaScript, Tailwind CSS"
+    }
+  ],
+  "media": [
+    {
+      "url": "/images/projects/dots/image-1.webp"
+    },
+    {
+      "url": "/images/projects/dots/image-2.webp"
+    }
+  ]
+}

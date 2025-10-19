@@ -1,0 +1,8 @@
+#floater {
+  transform: translate(-50%, -50%);
+  top: var(--y);
+  left: var(--x);
+  transition-property: transform;
+  transform-origin: 0 0;
+  transition: 450ms cubic-bezier(0.33, 1, 0.7, 1);
+}

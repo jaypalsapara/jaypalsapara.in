@@ -1,0 +1,32 @@
+[
+  {
+    "rating": 5,
+    "review": "He has worked really well, with open heart and gone beyond work requirement and my expectations. Best decision to hire such a talent.",
+    "user": {
+      "name": "Shivansh Babbar",
+      "sort_name": "SB",
+      "avatar": null
+    },
+    "type": "Individual"
+  },
+  {
+    "rating": 5,
+    "review": "Jaypal worked on our project in a timely manner, delivered perfectly working application.",
+    "user": {
+      "name": "Elena Battiston",
+      "sort_name": "EB",
+      "avatar": null
+    },
+    "type": "Individual"
+  },
+  {
+    "rating": 5,
+    "review": "It was good, faster and efficient.",
+    "user": {
+      "name": "Tatos Technologies",
+      "sort_name": "TT",
+      "avatar": null
+    },
+    "type": "Company"
+  }
+]

@@ -1,0 +1,174 @@
+{
+  "backend": [
+    {
+      "id": "laravel",
+      "name": "Laravel",
+      "type": "Framework",
+      "icon": "/images/technologies/laravel.svg",
+      "color": "#ff2d20",
+      "url": "https://laravel.com/",
+      "group": "backend"
+    },
+    {
+      "id": "php",
+      "name": "PHP",
+      "type": "Language",
+      "icon": "/images/technologies/php.svg",
+      "color": "#6280b6",
+      "url": "https://www.php.net/",
+      "group": "backend"
+    }
+  ],
+  "frontend": [
+    {
+      "id": "react",
+      "name": "React",
+      "type": "Framework",
+      "icon": "/images/technologies/react.svg",
+      "color": "#00d8ff",
+      "url": "https://react.dev/",
+      "group": "frontend"
+    },
+    {
+      "id": "js",
+      "name": "JavaScript",
+      "type": "Language",
+      "icon": "/images/technologies/js.svg",
+      "color": "#f7df1e",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "group": "frontend"
+    },
+    {
+      "id": "ts",
+      "name": "TypeScript",
+      "type": "Language",
+      "icon": "/images/technologies/ts.svg",
+      "color": "#007acc",
+      "url": "https://www.typescriptlang.org/",
+      "group": "frontend"
+    },
+    {
+      "id": "jq",
+      "name": "jQuery",
+      "type": "Library",
+      "icon": "/images/technologies/jquery.svg",
+      "color": "#0868ac",
+      "url": "https://jquery.com/",
+      "group": "frontend"
+    },
+    {
+      "id": "tailwind",
+      "name": "Tailwind CSS",
+      "type": "Framework",
+      "icon": "/images/technologies/tailwind.svg",
+      "color": "#00bcff",
+      "url": "https://tailwindcss.com/",
+      "group": "frontend"
+    },
+    {
+      "id": "bootstrap",
+      "name": "Bootstrap",
+      "type": "Framework",
+      "icon": "/images/technologies/bootstrap.svg",
+      "color": "#8c12fc",
+      "url": "https://getbootstrap.com/",
+      "group": "frontend"
+    },
+    {
+      "id": "css",
+      "name": "CSS",
+      "type": "Language",
+      "icon": "/images/technologies/css.svg",
+      "color": "#663399",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+      "group": "frontend"
+    },
+    {
+      "id": "html",
+      "name": "HTML",
+      "type": "Language",
+      "icon": "/images/technologies/html.svg",
+      "color": "#f1662a",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      "group": "frontend"
+    }
+  ],
+  "database": [
+    {
+      "id": "mysql",
+      "name": "MySql",
+      "type": "SQL Database",
+      "icon": "/images/technologies/mysql.svg",
+      "color": "#00618a",
+      "url": "https://www.mysql.com/",
+      "group": "database"
+    },
+    {
+      "id": "sqlite",
+      "name": "SQLite",
+      "type": "SQL Database",
+      "icon": "/images/technologies/sqlite.svg",
+      "color": "#49a6de",
+      "url": "https://sqlite.org/",
+      "group": "database"
+    }
+  ],
+  "cloud": [
+    {
+      "id": "aws",
+      "name": "Amazon Web Service",
+      "type": "Cloud",
+      "icon": "/images/technologies/aws.svg",
+      "color": "#ff9900",
+      "url": "https://aws.amazon.com/",
+      "group": "cloud"
+    },
+    {
+      "id": "cpanel",
+      "name": "cPanel",
+      "type": "Cloud",
+      "icon": "/images/technologies/cpanel.svg",
+      "color": "#ff6c2c",
+      "url": "https://cpanel.net/",
+      "group": "cloud"
+    },
+    {
+      "id": "apache",
+      "name": "Apache",
+      "type": "Server",
+      "icon": "/images/technologies/apache.svg",
+      "color": "#c92036",
+      "url": "https://www.apache.org/",
+      "group": "cloud"
+    }
+  ],
+  "tools": [
+    {
+      "id": "git",
+      "name": "Git",
+      "type": "Version-control",
+      "icon": "/images/technologies/git.svg",
+      "color": "#de4c36",
+      "url": "https://git-scm.com/",
+      "group": "tools"
+    },
+    {
+      "id": "postman",
+      "name": "Postman",
+      "type": "Api",
+      "icon": "/images/technologies/postman.svg",
+      "color": "#ff6c37",
+      "url": "https://www.postman.com/",
+      "group": "tools"
+    },
+    {
+      "id": "photoshop",
+      "name": "Photoshop",
+      "type": "Design",
+      "icon": "/images/technologies/photoshop.svg",
+      "color": "#31a8ff",
+      "url": "https://www.adobe.com/in/products/photoshop.html",
+      "group": "tools"
+    }
+  ]
+}

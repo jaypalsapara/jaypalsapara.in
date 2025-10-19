@@ -1,0 +1,31 @@
+{
+  "title": "JavaScript Minifier",
+  "description": "Sometimes, JavaScript files can become too large, which negatively impacts page load times and overall performance. Large files increase the amount of data transferred and slow down the user experience, especially on slower networks. To address this, minimizing your JavaScript code is essential.<br> Using tools like JS Minify, you can significantly reduce file size by removing unnecessary characters and spaces without affecting functionality.<br> This optimization leads to faster load times, improved efficiency, and a smoother user experience.",
+  "thumbnail": "/images/projects/ypca/thumbnail.avif",
+  "link": "https://yellowpagescalifornia.com/",
+  "details": [
+    {
+      "title": "Role",
+      "text": "Front-End Developer"
+    },
+    {
+      "title": "Category",
+      "text": "Tools"
+    },
+    {
+      "title": "Technology",
+      "text": "React, JavaScript, Tailwind CSS"
+    }
+  ],
+  "media": [
+    {
+      "url": "/images/projects/javascript-minifier/image-1.webp"
+    },
+    {
+      "url": "/images/projects/javascript-minifier/image-2.webp"
+    },
+    {
+      "url": "/images/projects/javascript-minifier/image-3.webp"
+    }
+  ]
+}

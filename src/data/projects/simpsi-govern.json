@@ -1,0 +1,45 @@
+{
+  "title": "Simpsi Govern",
+  "description": "Simpsi Govern is a management system designed to streamline organizational workflows.<br> As a super admin, you can create and manage various roles such as Organization Admin, Division Manager, Department Manager, Project Manager, and Reviewer.<br> You have full control over user permissions, allowing you to efficiently manage roles and responsibilities.<br> The platform also enables you to create items and assign them to reviewers for feedback.<br> Additionally, you can create your own organization, complete with a custom dynamic subdomain URL, tailored to your needs.",
+  "thumbnail": "/images/projects/ypca/thumbnail.avif",
+  "link": "https://yellowpagescalifornia.com/",
+  "details": [
+    {
+      "title": "Role",
+      "text": "Back-End Developer"
+    },
+    {
+      "title": "Category",
+      "text": "Management App"
+    },
+    {
+      "title": "Technology",
+      "text": "Laravel, PHP, MySql, RESTful API, JavaScript, jQuery, Bootstrap, CSS, HTML"
+    }
+  ],
+  "media": [
+    { "url": "/images/projects/simpsi-govern/image-1.webp" },
+    { "url": "/images/projects/simpsi-govern/image-2.png" },
+    { "url": "/images/projects/simpsi-govern/image-3.png" },
+    { "url": "/images/projects/simpsi-govern/image-4.png" },
+    { "url": "/images/projects/simpsi-govern/image-5.png" },
+    { "url": "/images/projects/simpsi-govern/image-6.png" },
+    { "url": "/images/projects/simpsi-govern/image-7.png" },
+    { "url": "/images/projects/simpsi-govern/image-8.png" },
+    { "url": "/images/projects/simpsi-govern/image-9.webp" },
+    { "url": "/images/projects/simpsi-govern/image-10.webp" },
+    { "url": "/images/projects/simpsi-govern/image-11.webp" },
+    { "url": "/images/projects/simpsi-govern/image-12.webp" },
+    { "url": "/images/projects/simpsi-govern/image-13.webp" },
+    { "url": "/images/projects/simpsi-govern/image-14.webp" },
+    { "url": "/images/projects/simpsi-govern/image-15.png" },
+    { "url": "/images/projects/simpsi-govern/image-16.png" },
+    { "url": "/images/projects/simpsi-govern/image-17.png" },
+    { "url": "/images/projects/simpsi-govern/image-18.png" },
+    { "url": "/images/projects/simpsi-govern/image-19.png" },
+    { "url": "/images/projects/simpsi-govern/image-20.png" },
+    { "url": "/images/projects/simpsi-govern/image-21.png" },
+    { "url": "/images/projects/simpsi-govern/image-22.png" },
+    { "url": "/images/projects/simpsi-govern/image-23.png" }
+  ]
+}

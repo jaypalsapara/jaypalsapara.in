@@ -1,0 +1,64 @@
+{
+  "payments": [
+    {
+      "name": "Stripe",
+      "type": "Payment gateway",
+      "icon": "/images/technologies/stripe.svg",
+      "color": "#635BFF",
+      "url": "https://stripe.com/",
+      "group": "payments"
+    },
+    {
+      "name": "Paypal",
+      "type": "Payment gateway",
+      "icon": "/images/technologies/paypal.svg",
+      "color": "#003087",
+      "url": "https://developer.paypal.com/home/",
+      "group": "payments"
+    },
+    {
+      "name": "Razorpay",
+      "type": "Payment gateway",
+      "icon": "/images/technologies/razorpay.svg",
+      "color": "#3395ff",
+      "url": "https://razorpay.com/",
+      "group": "payments"
+    }
+  ],
+  "authentication": [
+    {
+      "name": "Google Login",
+      "type": "Authentication",
+      "icon": "/images/technologies/google.svg",
+      "color": "#4285F4",
+      "url": "https://developers.google.com/identity/protocols/oauth2",
+      "group": "authentication"
+    },
+    {
+      "name": "Facebook Login",
+      "type": "Authentication",
+      "icon": "/images/technologies/facebook.svg",
+      "color": "#0866FF",
+      "url": "https://developers.facebook.com/docs/facebook-login/",
+      "group": "authentication"
+    },
+    {
+      "name": "Apple Login",
+      "type": "Authentication",
+      "icon": "/images/technologies/apple.svg",
+      "color": "#1d1d1f",
+      "url": "https://developer.apple.com/documentation/AuthenticationServices",
+      "group": "authentication"
+    }
+  ],
+  "other": [
+    {
+      "name": "Not found here?",
+      "type": "Tell what to integrate",
+      "icon": "/images/technologies/question.svg",
+      "color": "#ea3e32",
+      "url": "mailto:saparajaypalworking@gmail.com",
+      "group": "integration"
+    }
+  ]
+}
