@@ -1,4 +1,6 @@
 User-agent: *
-Allow: /
-
+Disallow: /
+Allow: /$
+Allow: /about
+Allow: /works
 Sitemap: https://jaypalsapara.in/sitemap.xml
