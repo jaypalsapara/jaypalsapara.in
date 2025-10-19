@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
-      "source": "/fonts/InstrumentSans.woff2",
+      "source": "/fonts/*",
       "headers": [
         {
           "key": "Cache-Control",
