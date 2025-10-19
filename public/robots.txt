@@ -1,6 +1,13 @@
 User-agent: *
 Disallow: /
+
+# Main routes
 Allow: /$
 Allow: /about
 Allow: /works
+Allow: /sitemap.xml
+
+# Allow assets (CSS, JS, images, etc.)
+Allow: /images/
+
 Sitemap: https://jaypalsapara.in/sitemap.xml
