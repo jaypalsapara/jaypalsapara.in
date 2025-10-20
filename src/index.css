@@ -102,8 +102,8 @@
 
   body {
     /* background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
-    background-size: 10px 10px; */
-    /* background-color: var(--color-background); */
+    background-size: 10px 10px;
+    background-color: var(--color-background); */
     @apply overflow-x-hidden text-foreground;
   }
 
