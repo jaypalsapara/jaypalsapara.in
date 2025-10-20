@@ -36,10 +36,14 @@ const HeroSection = () => {
           </a>
           <a href={'mailto:' + EMAIL} target="_blank">
             <Button variant="outline" className="w-full">
-              Email
+              Email me
             </Button>
           </a>
         </div>
+      </div>
+      <div className="col-span-full mt-8 flex items-center gap-4">
+        <span className="block size-2 rounded-xs bg-accent"></span>
+        <p className="text-muted-foreground">I am in Holiday</p>
       </div>
     </Wrapper>
   );
