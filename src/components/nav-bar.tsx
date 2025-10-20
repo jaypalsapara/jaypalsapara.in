@@ -50,6 +50,7 @@ const NavBar = () => {
           className="group relative ms-auto size-10 *:absolute *:w-[calc(100%-1rem)] *:-translate-1/2 *:border *:border-muted-foreground lg:hidden"
           popoverTarget="mobile-nav-popover"
           popoverTargetAction="toggle"
+          aria-label="Nav menu toggle"
         >
           <span className="top-[calc(50%+0.3rem)] group-open:top-1/2 group-open:rotate-45"></span>
           <span className="top-[calc(50%+0.3rem*-1)] group-open:top-1/2 group-open:-rotate-45"></span>
