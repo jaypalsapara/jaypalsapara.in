@@ -4,8 +4,6 @@ export type Appearance = 'light' | 'dark' | 'system';
 
 const defaultAppearance = 'light';
 
-let isFirstRender = true;
-
 const prefersDark = () => {
   if (typeof window === 'undefined') {
     return false;
@@ -24,9 +22,8 @@ const setCookie = (name: string, value: string, days = 365) => {
 };
 
 const applyTheme = (appearance: Appearance) => {
-  if (!document.startViewTransition || isFirstRender) {
+  if (!document.startViewTransition) {
     switchTheme(appearance);
-    isFirstRender = false;
     return;
   }
   document.startViewTransition(() => switchTheme(appearance));
