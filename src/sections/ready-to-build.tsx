@@ -15,7 +15,7 @@ const ReadyToBuild = () => {
         <FallingText
           text={text}
           highlightWords={highlightWords}
-          highlightClasses="text-accent-foreground bg-accent"
+          highlightClasses="text-accent"
           trigger="scroll"
           backgroundColor="transparent"
           wireframes={false}

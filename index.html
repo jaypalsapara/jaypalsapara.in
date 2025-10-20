@@ -61,7 +61,8 @@
     <!-- Theme -->
     <script>
       (function () {
-        const appearance = localStorage.getItem('appearance') || 'system';
+        const defaultAppearance = 'light';
+        const appearance = localStorage.getItem('appearance') || defaultAppearance;
 
         if (appearance === 'system') {
           const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
