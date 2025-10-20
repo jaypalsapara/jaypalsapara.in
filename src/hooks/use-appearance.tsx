@@ -52,7 +52,7 @@ const handleSystemThemeChange = () => {
 export function initializeTheme() {
   const savedAppearance = (localStorage.getItem('appearance') as Appearance) || defaultAppearance;
 
-  applyTheme(savedAppearance);
+  switchTheme(savedAppearance);
 
   // Add the event listener for system theme changes...
   mediaQuery()?.addEventListener('change', handleSystemThemeChange);
