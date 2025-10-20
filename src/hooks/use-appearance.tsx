@@ -22,12 +22,18 @@ const setCookie = (name: string, value: string, days = 365) => {
 };
 
 const applyTheme = (appearance: Appearance) => {
-  document.startViewTransition(() => {
-    const isDark = appearance === 'dark' || (appearance === 'system' && prefersDark());
+  if (!document.startViewTransition) {
+    switchTheme(appearance);
+    return;
+  }
+  document.startViewTransition(() => switchTheme(appearance));
+};
 
-    document.documentElement.classList.toggle('dark', isDark);
-    document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
-  });
+const switchTheme = (appearance: Appearance) => {
+  const isDark = appearance === 'dark' || (appearance === 'system' && prefersDark());
+
+  document.documentElement.classList.toggle('dark', isDark);
+  document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
 };
 
 const mediaQuery = () => {
