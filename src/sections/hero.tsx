@@ -7,17 +7,17 @@ const HeroSection = () => {
   return (
     <Wrapper className="pb-14 lg:pb-18">
       {/* Heading */}
-      <div className="col-span-full mt-14 lg:mt-18"></div>
+      <div className="col-span-full mt-10 lg:mt-18"></div>
       <div className="col-span-full flex justify-end">
         <Link to={'/about'}>
           <picture className="overflow-hidden rounded-xs grayscale">
             <img src="images/me/me.webp" alt="" className="aspect-video w-36 object-cover lg:w-62 dark:hidden" />
             <img src="images/me/me-dark.webp" alt="" className="hidden aspect-video w-36 object-cover lg:w-62 dark:block" />
-            <p className="mt-1.5 text-end text-muted-foreground">Freelancer</p>
+            <p className="mt-1.5 text-end text-sm text-muted-foreground lg:text-base">Freelancer</p>
           </picture>
         </Link>
       </div>
-      <h1 className="col-span-full mt-12 lg:mt-24">
+      <h1 className="col-span-full mt-12 lg:mt-18">
         <div className="highlight-line before:top-1.5 lg:before:top-3"></div>
         hi, i’m Jaypal a
         <br />
@@ -40,10 +40,6 @@ const HeroSection = () => {
             </Button>
           </a>
         </div>
-      </div>
-      <div className="col-span-full mt-8 flex items-center gap-4">
-        <span className="block size-2 rounded-xs bg-accent"></span>
-        <p className="text-muted-foreground">I am in Holiday</p>
       </div>
     </Wrapper>
   );

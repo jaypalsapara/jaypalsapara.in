@@ -108,10 +108,10 @@
   }
 
   h1 {
-    @apply text-5xl leading-[1.25] tracking-tight lg:text-6xl;
+    @apply text-5xl leading-[1.2] tracking-tight lg:text-6xl lg:leading-[1.25];
   }
   h2 {
-    @apply text-4xl leading-[1.5] tracking-tight lg:text-5xl;
+    @apply text-4xl leading-[1.15] tracking-tight lg:text-5xl lg:leading-[1.5];
   }
   h3 {
     @apply text-3xl tracking-tight lg:text-4xl;
