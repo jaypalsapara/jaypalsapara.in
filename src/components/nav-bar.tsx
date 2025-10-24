@@ -38,7 +38,7 @@ const NavBar = () => {
           </li>
           <li>
             <button popoverTarget="product-popover" popoverTargetAction="toggle" className="flex items-center gap-1.5 hover:text-foreground">
-              Products <ChevronDown className="text-accent" />
+              Products <ChevronDown className="text-accent stroke-2" />
             </button>
           </li>
           <li>
