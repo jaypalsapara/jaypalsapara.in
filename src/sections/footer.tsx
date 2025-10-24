@@ -19,6 +19,8 @@ export default function Footer() {
           <div className="mt-4 lg:max-w-md">
             <a
               href={'mailto:' + EMAIL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-between border-b py-4 font-medium transition-colors hover:border-foreground hover:text-foreground lg:py-2.5"
             >
               {EMAIL} <ArrowUpRight />
