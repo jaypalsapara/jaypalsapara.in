@@ -1,23 +1,31 @@
 import Button from '@/components/button';
 import Wrapper from '@/components/wrapper';
 import { EMAIL } from '@/data/defines';
+import { CalendarClock } from 'lucide-react';
 import { Link } from 'react-router';
 
 const HeroSection = () => {
   return (
     <Wrapper className="pb-14 lg:pb-18">
       {/* Heading */}
-      <div className="col-span-full mt-14 lg:mt-18"></div>
+      <div className="col-span-full mt-10 lg:mt-18"></div>
       <div className="col-span-full flex justify-end">
         <Link to={'/about'}>
           <picture className="overflow-hidden rounded-xs grayscale">
             <img src="images/me/me.webp" alt="" className="aspect-video w-36 object-cover lg:w-62 dark:hidden" />
             <img src="images/me/me-dark.webp" alt="" className="hidden aspect-video w-36 object-cover lg:w-62 dark:block" />
-            <p className="mt-1.5 text-end text-muted-foreground">Freelancer</p>
+            <p className="mt-1.5 text-end text-sm text-muted-foreground lg:text-base">Freelancer</p>
           </picture>
         </Link>
       </div>
-      <h1 className="col-span-full mt-12 lg:mt-24">
+      {/* Availability */}
+      <div className="col-span-full mt-12 flex items-center gap-3 lg:mt-18">
+        <CalendarClock className="text-accent" />
+        <p className="text-muted-foreground">
+          Available from 1<sup>st</sup> December
+        </p>
+      </div>
+      <h1 className="col-span-full mt-6">
         <div className="highlight-line before:top-1.5 lg:before:top-3"></div>
         hi, i’m Jaypal a
         <br />
@@ -36,7 +44,7 @@ const HeroSection = () => {
           </a>
           <a href={'mailto:' + EMAIL} target="_blank">
             <Button variant="outline" className="w-full">
-              Email
+              Email me
             </Button>
           </a>
         </div>

@@ -34,7 +34,7 @@ const Services = () => {
             const Icon = Icons[IconName];
             return (
               <div
-                className="pad-x col-span-2 flex flex-col gap-x-5 py-10 max-lg:not-last:border-b lg:col-span-4 lg:border-e lg:py-12 lg:nth-[-n+3]:border-t lg:nth-[3n]:border-e-0 lg:nth-last-[n+4]:border-b"
+                className="pad-x col-span-4 flex flex-col gap-x-5 py-10 max-lg:not-last:border-b md:col-span-2 lg:col-span-4 lg:border-e lg:py-12 lg:nth-[-n+3]:border-t lg:nth-[3n]:border-e-0 lg:nth-last-[n+4]:border-b"
                 key={`service-${data.name}`}
               >
                 <div className="grid size-12 place-content-center rounded-xs bg-accent-100/60 dark:bg-accent-900/28">

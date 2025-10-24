@@ -3,7 +3,7 @@ import { EMAIL } from '@/data/defines';
 import FeaturedProducts from '@/data/featured-product.json';
 import SocialLinks from '@/data/social-links.json';
 import type { CSSVariables } from '@/types/global';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ChevronDown } from 'lucide-react';
 import type { ToggleEvent } from 'react';
 import { NavLink, type NavLinkRenderProps } from 'react-router';
 import Button from './button';
@@ -15,6 +15,11 @@ const NavBar = () => {
   return (
     <>
       <nav className="pad-x sticky top-0 z-[9999999] col-span-12 flex h-16 items-center bg-background">
+        <NavLink to={'/'}>
+          <p className="text-xl font-bold text-accent">
+            JP <span>SAPARA</span>
+          </p>
+        </NavLink>
         <ul className="ml-auto hidden items-center gap-6 text-muted-foreground *:font-medium lg:flex">
           <li>
             <NavLink to={'/'} className={handleLinkClassName}>
@@ -32,8 +37,8 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li>
-            <button popoverTarget="product-popover" popoverTargetAction="toggle" className="hover:text-foreground">
-              Products
+            <button popoverTarget="product-popover" popoverTargetAction="toggle" className="flex items-center gap-1.5 hover:text-foreground">
+              Products <ChevronDown className="stroke-2 text-accent" />
             </button>
           </li>
           <li>
@@ -50,6 +55,7 @@ const NavBar = () => {
           className="group relative ms-auto size-10 *:absolute *:w-[calc(100%-1rem)] *:-translate-1/2 *:border *:border-muted-foreground lg:hidden"
           popoverTarget="mobile-nav-popover"
           popoverTargetAction="toggle"
+          aria-label="Nav menu toggle"
         >
           <span className="top-[calc(50%+0.3rem)] group-open:top-1/2 group-open:rotate-45"></span>
           <span className="top-[calc(50%+0.3rem*-1)] group-open:top-1/2 group-open:-rotate-45"></span>

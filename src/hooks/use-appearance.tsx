@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 
 export type Appearance = 'light' | 'dark' | 'system';
 
+const defaultAppearance = 'system';
+
 const prefersDark = () => {
   if (typeof window === 'undefined') {
     return false;
@@ -20,6 +22,14 @@ const setCookie = (name: string, value: string, days = 365) => {
 };
 
 const applyTheme = (appearance: Appearance) => {
+  if (!document.startViewTransition) {
+    switchTheme(appearance);
+    return;
+  }
+  document.startViewTransition(() => switchTheme(appearance));
+};
+
+const switchTheme = (appearance: Appearance) => {
   const isDark = appearance === 'dark' || (appearance === 'system' && prefersDark());
 
   document.documentElement.classList.toggle('dark', isDark);
@@ -36,20 +46,20 @@ const mediaQuery = () => {
 
 const handleSystemThemeChange = () => {
   const currentAppearance = localStorage.getItem('appearance') as Appearance;
-  applyTheme(currentAppearance || 'system');
+  applyTheme(currentAppearance || defaultAppearance);
 };
 
 export function initializeTheme() {
-  const savedAppearance = (localStorage.getItem('appearance') as Appearance) || 'system';
+  const savedAppearance = (localStorage.getItem('appearance') as Appearance) || defaultAppearance;
 
-  applyTheme(savedAppearance);
+  switchTheme(savedAppearance);
 
   // Add the event listener for system theme changes...
   mediaQuery()?.addEventListener('change', handleSystemThemeChange);
 }
 
 export function useAppearance() {
-  const initTheme = (localStorage.getItem('appearance') as Appearance) || 'system';
+  const initTheme = (localStorage.getItem('appearance') as Appearance) || defaultAppearance;
   const [appearance, setAppearance] = useState<Appearance>(initTheme);
 
   const updateAppearance = useCallback((mode: Appearance) => {

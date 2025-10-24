@@ -8,7 +8,7 @@
   {
     "id": "1234-text",
     "name": "1234Text",
-    "type": "Full-Stack",
+    "type": "Backend",
     "thumbnail": "/images/projects/1234text/thumbnail.avif"
   },
   {
@@ -26,7 +26,7 @@
   {
     "id": "js-minifier",
     "name": "JavaScript Minifier",
-    "type": "Full-Stack",
+    "type": "Frontend",
     "thumbnail": "/images/projects/javascript-minifier/thumbnail.avif"
   }
 ]

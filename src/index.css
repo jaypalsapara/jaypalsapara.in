@@ -59,7 +59,7 @@
 }
 
 :root {
-  --background: oklch(98.5% 0.001 106.423);
+  --background: oklch(100% 0 0);
   --foreground: oklch(26.8% 0.007 34.298);
 
   --primary: oklch(26.8% 0.007 34.298);
@@ -69,12 +69,12 @@
   --accent-foreground: oklch(98.5% 0.001 106.423);
 
   --border: oklch(87% 0 0);
-  --muted: oklch(92.3% 0.003 48.717);
+  --muted: oklch(93.403% 0.00011 271.152);
   --muted-foreground: oklch(55.6% 0 0);
 }
 
 .dark {
-  --background: oklch(17.5% 0 0);
+  --background: oklch(0.1867 0 0);
   --foreground: oklch(97% 0 0);
 
   --primary: oklch(97% 0 0);
@@ -102,16 +102,16 @@
 
   body {
     /* background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
-    background-size: 10px 10px; */
-    /* background-color: var(--color-background); */
+    background-size: 10px 10px;
+    background-color: var(--color-background); */
     @apply overflow-x-hidden text-foreground;
   }
 
   h1 {
-    @apply text-5xl leading-[1.25] tracking-tight lg:text-6xl;
+    @apply text-5xl leading-[1.2] tracking-tight lg:text-6xl lg:leading-[1.25];
   }
   h2 {
-    @apply text-4xl leading-[1.5] tracking-tight lg:text-5xl;
+    @apply text-4xl leading-[1.15] tracking-tight lg:text-5xl lg:leading-[1.5];
   }
   h3 {
     @apply text-3xl tracking-tight lg:text-4xl;
