@@ -1,5 +1,6 @@
 import Badge from '@/components/badge';
 import FooterClock from '@/components/footer-clock';
+import Jaypal from '@/components/jaypal';
 import SVG from '@/components/svg';
 import Wrapper from '@/components/wrapper';
 import { EMAIL, UPWORK_URL } from '@/data/defines';
@@ -95,9 +96,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="col-span-full mt-18">
-          <div className="flex aspect-[28.5/7] items-start overflow-hidden opacity-70 dark:opacity-50">
-            <SVG src="/images/jaypal.svg" />
-          </div>
+          <Jaypal />
         </div>
       </Wrapper>
     </footer>
