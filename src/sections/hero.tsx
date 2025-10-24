@@ -1,7 +1,7 @@
 import Button from '@/components/button';
 import Wrapper from '@/components/wrapper';
 import { EMAIL } from '@/data/defines';
-import { TentTree } from 'lucide-react';
+import { CalendarClock } from 'lucide-react';
 import { Link } from 'react-router';
 
 const HeroSection = () => {
@@ -19,9 +19,11 @@ const HeroSection = () => {
         </Link>
       </div>
       {/* Availability */}
-      <div className="col-span-full mt-12 flex items-center gap-4 lg:mt-18">
-        <TentTree className="text-accent" />
-        <p className="text-muted-foreground">Enjoining diwali holidays</p>
+      <div className="col-span-full mt-12 flex items-center gap-3 lg:mt-18">
+        <CalendarClock className="text-accent" />
+        <p className="text-muted-foreground">
+          Available from 1<sup>st</sup> December
+        </p>
       </div>
       <h1 className="col-span-full mt-6">
         <div className="highlight-line before:top-1.5 lg:before:top-3"></div>

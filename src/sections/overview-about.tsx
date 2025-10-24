@@ -11,7 +11,7 @@ type IconName = keyof typeof Icons;
 
 const OverviewAbout = () => {
   return (
-    <Wrapper className="gap-x-0 px-0 lg:px-0">
+    <Wrapper className="gap-x-0 px-0 lg:gap-x-0 lg:px-0">
       {Overview.map((data) => {
         const IconName = data.icon as IconName;
         const Icon = Icons[IconName];
