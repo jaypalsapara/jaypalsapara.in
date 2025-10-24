@@ -15,6 +15,11 @@ const NavBar = () => {
   return (
     <>
       <nav className="pad-x sticky top-0 z-[9999999] col-span-12 flex h-16 items-center bg-background">
+        <NavLink to={'/'}>
+          <p className="text-xl font-bold text-accent">
+            JP <span>SAPARA</span>
+          </p>
+        </NavLink>
         <ul className="ml-auto hidden items-center gap-6 text-muted-foreground *:font-medium lg:flex">
           <li>
             <NavLink to={'/'} className={handleLinkClassName}>
@@ -33,7 +38,7 @@ const NavBar = () => {
           </li>
           <li>
             <button popoverTarget="product-popover" popoverTargetAction="toggle" className="flex items-center gap-1.5 hover:text-foreground">
-              Products <ChevronDown className='text-accent' />
+              Products <ChevronDown className="text-accent" />
             </button>
           </li>
           <li>
