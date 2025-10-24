@@ -14,7 +14,7 @@ export default function Jaypal() {
             y: e.clientY - this.getBoundingClientRect().top,
           };
 
-          this.style.maskImage = `radial-gradient(circle at ${spotlight.x}px ${spotlight.y}px, black 0%, transparent 300px)`;
+          this.style.maskImage = `radial-gradient(circle at ${spotlight.x}px ${spotlight.y}px, black 0%, transparent 600px)`;
         },
         { signal: controller.signal },
       );
@@ -23,10 +23,14 @@ export default function Jaypal() {
   }, []);
   return (
     <div className="grid grid-cols-1 grid-rows-1">
-      <div className="z-10 flex aspect-[28.5/7] items-start overflow-hidden opacity-100 [grid-area:1/1] dark:opacity-100" ref={jaypalRef} style={{maskImage:`radial-gradient(circle at 0px 0px, black 0%, transparent 300px)`}}>
+      <div
+        className="z-10 flex aspect-[28.5/7] items-start overflow-hidden opacity-100 [grid-area:1/1] dark:opacity-70"
+        ref={jaypalRef}
+        style={{ maskImage: `radial-gradient(circle at 0px 0px, black 0%, transparent 600px)` }}
+      >
         <SVG src="/images/jaypal.svg" />
       </div>
-      <div className="flex aspect-[28.5/7] items-start overflow-hidden opacity-70 [grid-area:1/1] dark:opacity-10">
+      <div className="flex aspect-[28.5/7] items-start overflow-hidden opacity-50 [grid-area:1/1] dark:opacity-20">
         <SVG src="/images/jaypal.svg" />
       </div>
     </div>
