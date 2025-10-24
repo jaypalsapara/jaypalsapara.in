@@ -3,7 +3,7 @@ import { EMAIL } from '@/data/defines';
 import FeaturedProducts from '@/data/featured-product.json';
 import SocialLinks from '@/data/social-links.json';
 import type { CSSVariables } from '@/types/global';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ChevronDown } from 'lucide-react';
 import type { ToggleEvent } from 'react';
 import { NavLink, type NavLinkRenderProps } from 'react-router';
 import Button from './button';
@@ -32,8 +32,8 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li>
-            <button popoverTarget="product-popover" popoverTargetAction="toggle" className="hover:text-foreground">
-              Products
+            <button popoverTarget="product-popover" popoverTargetAction="toggle" className="flex items-center gap-1.5 hover:text-foreground">
+              Products <ChevronDown className='text-accent' />
             </button>
           </li>
           <li>
