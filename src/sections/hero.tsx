@@ -1,6 +1,7 @@
 import Button from '@/components/button';
 import Wrapper from '@/components/wrapper';
 import { EMAIL } from '@/data/defines';
+import { TentTree } from 'lucide-react';
 import { Link } from 'react-router';
 
 const HeroSection = () => {
@@ -17,7 +18,12 @@ const HeroSection = () => {
           </picture>
         </Link>
       </div>
-      <h1 className="col-span-full mt-12 lg:mt-18">
+      {/* Availability */}
+      <div className="col-span-full mt-12 flex items-center gap-4 lg:mt-18">
+        <TentTree className="text-accent" />
+        <p className="text-muted-foreground">Enjoining diwali holidays</p>
+      </div>
+      <h1 className="col-span-full mt-6">
         <div className="highlight-line before:top-1.5 lg:before:top-3"></div>
         hi, i’m Jaypal a
         <br />
