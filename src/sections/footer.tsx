@@ -9,7 +9,7 @@ import '@/styles/jaypal.css';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router';
 
-const Footer = () => {
+export default function Footer() {
   return (
     <footer>
       <Wrapper className="pt-18">
@@ -101,6 +101,4 @@ const Footer = () => {
       </Wrapper>
     </footer>
   );
-};
-
-export default Footer;
+}
