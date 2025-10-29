@@ -5,7 +5,7 @@
     "user": {
       "name": "Shivansh Babbar",
       "sort_name": "SB",
-      "avatar": null
+      "avatar": "/images/reviewers/shivansh.avif"
     },
     "type": "Individual"
   },
@@ -25,7 +25,7 @@
     "user": {
       "name": "Tatos Technologies",
       "sort_name": "TT",
-      "avatar": null
+      "avatar": "/images/reviewers/tt.avif"
     },
     "type": "Company"
   }
