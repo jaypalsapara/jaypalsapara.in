@@ -12,6 +12,7 @@ const About = lazy(() => import('@/pages/about'));
 const Project = lazy(() => import('@/pages/project'));
 const Works = lazy(() => import('@/pages/works'));
 const Ui = lazy(() => import('@/pages/ui'));
+const PageNotFound = lazy(() => import('@/pages/page-not-found'));
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
             <LoadingBlock />
           </div>
         ),
+        errorElement: <PageNotFound />,
         loader: async ({ params }) => {
           const { id } = params;
           const queryClient = new QueryClient();
@@ -63,6 +65,10 @@ const router = createBrowserRouter([
             queryFn: () => import(`@/data/all-projects.json`).then((res) => res.default),
           });
         },
+      },
+      {
+        path: '*',
+        Component: PageNotFound,
       },
     ],
   },
