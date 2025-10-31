@@ -1,3 +1,4 @@
+import Button from '@/components/button';
 import OverflowLine from '@/components/overflow-line';
 import Wrapper from '@/components/wrapper';
 import { QueryClient, QueryClientProvider, useSuspenseQuery } from '@tanstack/react-query';
@@ -54,6 +55,13 @@ const Page = () => {
               <p className="text-muted-foreground">{detail.text}</p>
             </div>
           ))}
+          {data.link && (
+            <a href={data.link} target="_blank" rel="noopener noreferrer" className="ms-auto w-full lg:w-auto">
+              <Button className="w-full self-center whitespace-nowrap lg:w-auto" variant="secondary">
+                Visit site
+              </Button>
+            </a>
+          )}
         </div>
         <div className="col-span-full mt-14 min-h-96 lg:mt-18">
           {data.media.map((media: MediaProps) => (

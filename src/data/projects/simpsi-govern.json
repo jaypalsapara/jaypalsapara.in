@@ -2,7 +2,7 @@
   "title": "Simpsi Govern",
   "description": "Simpsi Govern is a management system designed to streamline organizational workflows.<br> As a super admin, you can create and manage various roles such as Organization Admin, Division Manager, Department Manager, Project Manager, and Reviewer.<br> You have full control over user permissions, allowing you to efficiently manage roles and responsibilities.<br> The platform also enables you to create items and assign them to reviewers for feedback.<br> Additionally, you can create your own organization, complete with a custom dynamic subdomain URL, tailored to your needs.",
   "thumbnail": "/images/projects/ypca/thumbnail.avif",
-  "link": "https://yellowpagescalifornia.com/",
+  "link": null,
   "details": [
     {
       "title": "Role",
