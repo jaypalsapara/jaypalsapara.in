@@ -15,8 +15,18 @@
     "work": "Full-Time",
     "description": "I have done my job as a junior Laravel and PHP developer with mid-to advance project",
     "duration": {
-      "start": "Apr 2022",
+      "start": "Aug 2022",
       "end": "Oct 2024"
+    }
+  },
+  {
+    "company": "Arvaan TechnoLab",
+    "role": "PHP trainee",
+    "work": "Full-Time",
+    "description": "I joined as a PHP developer as a trainee",
+    "duration": {
+      "start": "Apr 2022",
+      "end": "Jul 2022"
     }
   }
 ]

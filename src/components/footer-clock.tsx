@@ -10,7 +10,7 @@ const FooterClock = () => {
   useEffect(() => {
     const updateClock = () => {
       const now = TZDate.tz('Asia/Kolkata');
-      if (timeRef.current) timeRef.current.textContent = `${now.getHours()}:${now.getMinutes()} (IST)`;
+      if (timeRef.current) timeRef.current.textContent = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')} (IST)`;
       if (dayRef.current) dayRef.current.textContent = `${dayNames[now.getDay()]}`;
     };
 

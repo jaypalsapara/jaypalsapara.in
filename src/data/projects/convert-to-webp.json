@@ -2,7 +2,7 @@
   "title": "Convert images to .webp type",
   "description": "This project focuses on converting images to the .webp format, a modern image format that offers superior compression. By converting images to .webp, file sizes are significantly reduced while maintaining nearly original visual quality.<br> This results in faster load times, reduced storage usage, and improved web performance.<br> It's an ideal solution for developers, designers, and content creators looking to optimize images without compromising quality.",
   "thumbnail": "/images/projects/ypca/thumbnail.avif",
-  "link": "https://yellowpagescalifornia.com/",
+  "link": null,
   "details": [
     {
       "title": "Role",

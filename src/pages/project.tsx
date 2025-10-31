@@ -1,6 +1,8 @@
+import Button from '@/components/button';
 import OverflowLine from '@/components/overflow-line';
 import Wrapper from '@/components/wrapper';
 import { QueryClient, QueryClientProvider, useSuspenseQuery } from '@tanstack/react-query';
+import { ArrowRight } from 'lucide-react';
 import { Link, useParams } from 'react-router';
 
 const queryClient = new QueryClient();
@@ -53,6 +55,13 @@ const Page = () => {
               <p className="text-muted-foreground">{detail.text}</p>
             </div>
           ))}
+          {data.link && (
+            <a href={data.link} target="_blank" rel="noopener noreferrer" className="ms-auto w-full lg:w-auto">
+              <Button className="w-full self-center whitespace-nowrap lg:w-auto" variant="secondary">
+                Visit site
+              </Button>
+            </a>
+          )}
         </div>
         <div className="col-span-full mt-14 min-h-96 lg:mt-18">
           {data.media.map((media: MediaProps) => (
@@ -64,11 +73,12 @@ const Page = () => {
       </Wrapper>
       <OverflowLine />
       {nextProject && (
-        <div className="pad-x py-8 lg:py-12">
-          <Link to={`/project/${nextProject.id}`}>
+        <div>
+          <Link to={`/project/${nextProject.id}`} className="pad-x flex items-center justify-between py-8 hover:bg-muted/25 lg:py-12">
             <h2>
               <span className="text-muted-foreground/60">Next.</span> {nextProject.name}
             </h2>
+            <ArrowRight className="size-6" />
           </Link>
         </div>
       )}

@@ -17,7 +17,7 @@ const FeaturedProject = () => {
         description="Here is my favorite project that truly showcases my skills, creativity, and potential in the best way possible."
       />
       {/* Projects */}
-      <SectionContent className="mt-10 lg:mt-9 lg:has-[:hover]:*:not-hover:text-muted-foreground">
+      <SectionContent className="mt-14 lg:mt-18 lg:has-[:hover]:*:not-hover:text-muted-foreground">
         {Projects.map((data, index) => (
           <Link to={`project/${data.id}`} key={`featured-project-${data.name}`} className="peer floating-trigger not-first:*:border-t">
             <Wrapper className="items-center py-5 lg:py-9 lg:transition-colors lg:hover:bg-muted/25">
