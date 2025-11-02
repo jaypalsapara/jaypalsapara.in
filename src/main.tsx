@@ -13,6 +13,7 @@ const Project = lazy(() => import('@/pages/project'));
 const Works = lazy(() => import('@/pages/works'));
 const Ui = lazy(() => import('@/pages/ui'));
 const PageNotFound = lazy(() => import('@/pages/page-not-found'));
+const Changelog = lazy(() => import(`@/pages/changelog`));
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,22 @@ const router = createBrowserRouter([
           await queryClient.prefetchQuery({
             queryKey: [`all-projects`],
             queryFn: () => import(`@/data/all-projects.json`).then((res) => res.default),
+          });
+        },
+      },
+      {
+        path: 'changelog',
+        Component: Changelog,
+        HydrateFallback: () => (
+          <div className="h-[calc(100dvh-4rem)]">
+            <LoadingBlock />
+          </div>
+        ),
+        loader: async () => {
+          const queryClient = new QueryClient();
+          await queryClient.prefetchQuery({
+            queryKey: [`changelog`],
+            queryFn: () => import(`@/data/changelog.json`).then((res) => res.default),
           });
         },
       },

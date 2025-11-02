@@ -66,7 +66,9 @@ export default function Footer() {
               Art Gallery <Badge variant="secondary" children="Soon" />
             </li>
             <li>
-              Changelogs <Badge variant="secondary" children="Soon" />
+              <Link to={'/changelog'} className="hover:text-foreground">
+                Changelog
+              </Link>
             </li>
             <li>
               <Link to={'/ui'} className="hover:text-foreground">

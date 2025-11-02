@@ -94,7 +94,7 @@ const InnerCube = ({ variant, icon, name }: { variant: VariantType; icon: string
       <div className="face inner-face bottom"></div>
       <div className="face inner-face back"></div>
       <div className={`face inner-face front flex items-center justify-center`}>
-        <img src={icon} alt={name} className="h-full w-full object-contain" />
+        <img src={icon} alt={name} className="h-full w-full bg-transparent object-contain" />
       </div>
       <div className="face inner-face top"></div>
       <div className="face inner-face left"></div>

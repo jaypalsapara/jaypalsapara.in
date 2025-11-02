@@ -66,7 +66,7 @@ const Page = () => {
         <div className="col-span-full mt-14 min-h-96 lg:mt-18">
           {data.media.map((media: MediaProps) => (
             <picture className="block rounded-xs border" key={`media-${media.url}`}>
-              <img src={media.url} alt="" className="w-full" loading="lazy" />
+              <img src={media.url} alt="" className="aspect-video w-full object-cover" loading="lazy" />
             </picture>
           ))}
         </div>

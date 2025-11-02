@@ -1,0 +1,20 @@
+@reference "../index.css";
+.timeline {
+  @apply space-y-[0.225rem];
+}
+.timeline-block {
+  @apply relative overflow-hidden ps-6 not-last:pb-4;
+}
+.timeline-title {
+  @apply relative;
+}
+
+.timeline-block::before {
+  content: '';
+  @apply absolute top-6 left-1 h-full border-r border-border;
+}
+
+.timeline-title::before {
+  content: '';
+  @apply absolute top-1.5 -left-6 size-[0.563rem] rounded-xs bg-foreground;
+}

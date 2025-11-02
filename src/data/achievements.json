@@ -2,11 +2,19 @@
   {
     "title": "Rising Talent",
     "subtitle": "Achieved from Upwork",
-    "icon": "ArrowUp"
+    "icon": "ArrowUp",
+    "description": "Rising Talent shows strong potential based on their profile and early success on Upwork."
   },
   {
     "title": "100% Job Success",
     "subtitle": "Achieved from Upwork",
-    "icon": "Crown"
+    "icon": "Crown",
+    "description": "Scores reflect a combination of several impacting factors."
+  },
+  {
+    "title": "Get An Invitation",
+    "subtitle": "Achieved from Upwork",
+    "icon": "Mailbox",
+    "description": "It represents your potential to attract clients through your work."
   }
 ]

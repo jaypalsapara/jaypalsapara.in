@@ -1,0 +1,22 @@
+[
+  {
+    "datetime": "2025-11-02 10:17:00",
+    "title": "Add new page",
+    "body": ["- Add changelog page to see all changes log"]
+  },
+  {
+    "datetime": "2025-11-01 11:57:00",
+    "title": "Add new screenshots and updates",
+    "body": ["- Add new screenshots of ypca project", "- Fix the aspect ratio of project screenshots", "- Add new badge 'Get An Invitation' in achievements"]
+  },
+  {
+    "datetime": "2025-10-26 11:57:00",
+    "title": "Improved dark mode",
+    "body": ["- Add two shaded background color for dark mode", "- Add smooth animation between theme switching"]
+  },
+  {
+    "datetime": "2025-10-23 00:00:00",
+    "title": "Refresh the site",
+    "body": ["Now it more cleaner, more structured, scalable, and more optimized"]
+  }
+]

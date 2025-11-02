@@ -7,7 +7,7 @@ import IntegrateData from '@/data/integration.json';
 import TechData from '@/data/technologies.json';
 import type { CSSVariables } from '@/types/global';
 import { Code2 } from 'lucide-react';
-import { useState, type ReactNode } from 'react';
+import { Activity, useState, type ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 const tabs = ['Core', 'Plug-ins'];
@@ -43,63 +43,67 @@ const Technologies = () => {
         </div>
 
         {/* Tech */}
-        <Wrapper className="mt-9 lg:mt-12" hidden={activeTab !== 'Core'}>
-          {Object.entries(TechData).map(([group, data]) => (
-            <Row key={`tech-group-${group}`}>
-              <GroupColumn name={group} />
-              <ItemsColumn>
-                {data?.map((tech) => (
-                  <a href={tech.url} target="_blank" rel="noopener noreferrer" key={`technology-${tech.name}`}>
-                    <CubeWrapper>
-                      <Cube
-                        name={tech.name}
-                        icon={tech.icon}
-                        style={
-                          {
-                            '--cube-color': `${tech.color}`,
-                            '--cube-base': '0.9rem',
-                          } as CSSVariables
-                        }
-                        className="ms-4 mt-6"
-                      />
-                      <CubeDetails name={tech.name} type={tech.type} />
-                    </CubeWrapper>
-                  </a>
-                ))}
-              </ItemsColumn>
-            </Row>
-          ))}
-        </Wrapper>
+        <Activity mode={activeTab === 'Core' ? 'visible' : 'hidden'}>
+          <Wrapper className="mt-9 lg:mt-12" hidden={activeTab !== 'Core'}>
+            {Object.entries(TechData).map(([group, data]) => (
+              <Row key={`tech-group-${group}`}>
+                <GroupColumn name={group} />
+                <ItemsColumn>
+                  {data?.map((tech) => (
+                    <a href={tech.url} target="_blank" rel="noopener noreferrer" key={`technology-${tech.name}`}>
+                      <CubeWrapper>
+                        <Cube
+                          name={tech.name}
+                          icon={tech.icon}
+                          style={
+                            {
+                              '--cube-color': `${tech.color}`,
+                              '--cube-base': '0.9rem',
+                            } as CSSVariables
+                          }
+                          className="ms-4 mt-6"
+                        />
+                        <CubeDetails name={tech.name} type={tech.type} />
+                      </CubeWrapper>
+                    </a>
+                  ))}
+                </ItemsColumn>
+              </Row>
+            ))}
+          </Wrapper>
+        </Activity>
 
         {/* Integrate */}
-        <Wrapper className="mt-9 lg:mt-12" hidden={activeTab !== 'Plug-ins'}>
-          {Object.entries(IntegrateData).map(([group, data]) => (
-            <Row key={`int-group-${group}`}>
-              <GroupColumn name={group} />
-              <ItemsColumn>
-                {data?.map((tech) => (
-                  <a href={tech.url} target="_blank" rel="noopener noreferrer" key={`integrate-${tech.name}`}>
-                    <CubeWrapper>
-                      <Cube
-                        name={tech.name}
-                        icon={tech.icon}
-                        variant="thin"
-                        style={
-                          {
-                            '--cube-color': `${tech.color}`,
-                            '--cube-base': '0.9rem',
-                          } as CSSVariables
-                        }
-                        className="ms-4 mt-6"
-                      />
-                      <CubeDetails name={tech.name} type={tech.type} />
-                    </CubeWrapper>
-                  </a>
-                ))}
-              </ItemsColumn>
-            </Row>
-          ))}
-        </Wrapper>
+        <Activity mode={activeTab === 'Plug-ins' ? 'visible' : 'hidden'}>
+          <Wrapper className="mt-9 lg:mt-12" hidden={activeTab !== 'Plug-ins'}>
+            {Object.entries(IntegrateData).map(([group, data]) => (
+              <Row key={`int-group-${group}`}>
+                <GroupColumn name={group} />
+                <ItemsColumn>
+                  {data?.map((tech) => (
+                    <a href={tech.url} target="_blank" rel="noopener noreferrer" key={`integrate-${tech.name}`}>
+                      <CubeWrapper>
+                        <Cube
+                          name={tech.name}
+                          icon={tech.icon}
+                          variant="thin"
+                          style={
+                            {
+                              '--cube-color': `${tech.color}`,
+                              '--cube-base': '0.9rem',
+                            } as CSSVariables
+                          }
+                          className="ms-4 mt-6"
+                        />
+                        <CubeDetails name={tech.name} type={tech.type} />
+                      </CubeWrapper>
+                    </a>
+                  ))}
+                </ItemsColumn>
+              </Row>
+            ))}
+          </Wrapper>
+        </Activity>
       </SectionContent>
     </>
   );
