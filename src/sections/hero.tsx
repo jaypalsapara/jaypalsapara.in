@@ -12,7 +12,7 @@ const HeroSection = () => {
       <div className="col-span-full flex justify-end">
         <Link to={'/about'}>
           <picture className="relative overflow-hidden rounded-xs">
-            <span className="absolute top-0 right-0 z-10 m-2 block size-2.5 rounded-xs border-t-2 border-r-2 border-accent"></span>
+            {/* <span className="absolute top-0 right-0 z-10 m-2 block size-2.5 rounded-xs border-t-2 border-r-2 border-accent"></span> */}
             <img src="images/me/me.webp" alt="" className="aspect-video w-36 object-cover lg:w-62 dark:hidden" />
             <img src="images/me/me-dark.webp" alt="" className="hidden aspect-video w-36 object-cover lg:w-62 dark:block" />
             <p className="mt-1.5 text-end text-sm text-muted-foreground lg:text-base">Freelancer</p>
