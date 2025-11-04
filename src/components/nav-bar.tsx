@@ -62,8 +62,8 @@ const NavBar = () => {
           popoverTargetAction="toggle"
           aria-label="Nav menu toggle"
         >
-          <span className="top-[calc(50%+0.3rem)] group-open:top-1/2 group-open:rotate-45"></span>
-          <span className="top-[calc(50%+0.3rem*-1)] group-open:top-1/2 group-open:-rotate-45"></span>
+          <span className="top-[calc(50%+0.3rem)] transition-transform ease-in-out group-open:top-1/2 group-open:rotate-45"></span>
+          <span className="top-[calc(50%+0.3rem*-1)] transition-transform ease-in-out group-open:top-1/2 group-open:-rotate-45"></span>
         </button>
       </nav>
 
@@ -71,7 +71,7 @@ const NavBar = () => {
       <MobileNavPopover />
       {/* Backdrop of navbar popovers */}
       <div
-        className="pointer-events-none fixed inset-0 z-50 bg-black/10 opacity-0 transition-opacity ease-in-out peer-open:pointer-events-auto peer-open:opacity-100"
+        className="pointer-events-none fixed inset-0 z-50 bg-black/10 opacity-0 transition-opacity ease-in-out peer-open:pointer-events-auto peer-open:opacity-100 dark:bg-black/40"
         id="navbar-backdrop"
       />
     </>
@@ -90,7 +90,11 @@ const MobileNavPopover = () => {
     ToggleButton?.toggleAttribute('open', isOpen);
   };
   return (
-    <Popover id="mobile-nav-popover" handlePopoverToggle={handlePopoverToggle} className="max-md:border-x-0">
+    <Popover
+      id="mobile-nav-popover"
+      handlePopoverToggle={handlePopoverToggle}
+      className="-translate-y-4 opacity-0 transition-all transition-discrete ease-in-out open:translate-y-0 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
+    >
       <div className="flex">
         <AppearanceToggle className="ms-auto grid size-7 place-content-center" />
       </div>
