@@ -37,8 +37,13 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li>
-            <button popoverTarget="product-popover" popoverTargetAction="toggle" className="flex items-center gap-1.5 hover:text-foreground">
-              Products <ChevronDown className="stroke-2 text-accent" />
+            <button
+              id="product-popover-toggle"
+              popoverTarget="product-popover"
+              popoverTargetAction="toggle"
+              className="flex items-center gap-1.5 hover:text-foreground"
+            >
+              Products <ChevronDown className="stroke-2 text-accent transition-transform ease-in-out" />
             </button>
           </li>
           <li>
@@ -143,10 +148,17 @@ const MobileNavPopover = () => {
  * Product popover
  */
 const ProductPopover = () => {
+  const handlePopoverToggle = (e: ToggleEvent) => {
+    const ToggleButton = document.querySelector(`#product-popover-toggle`);
+    const SVG = ToggleButton?.querySelector(`svg`);
+    const isOpen = e.newState === 'open';
+    SVG?.classList.toggle('rotate-180', isOpen);
+  };
   return (
     <Popover
       id="product-popover"
       className="peer max-h-max -translate-y-4 opacity-0 transition-all transition-discrete ease-in-out open:translate-y-0 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
+      handlePopoverToggle={handlePopoverToggle}
     >
       <div className="flex justify-between">
         <p className="font-medium">Featured products</p>
