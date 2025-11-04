@@ -15,8 +15,11 @@ const Experience = () => {
       />
       <SectionContent className="mb-14 lg:mb-18">
         <Wrapper>
-          {Experiences.map((data) => (
-            <div key={`experience-${data.company}`} className="col-span-full grid grid-cols-subgrid gap-y-2 not-first:pt-4 not-last:border-b not-last:pb-4">
+          {Experiences.map((data, index) => (
+            <div
+              key={`experience-${data.company}-${index}`}
+              className="col-span-full grid grid-cols-subgrid gap-y-2 not-first:pt-4 not-last:border-b not-last:pb-4"
+            >
               <div className="col-span-4 flex flex-col">
                 <p className="font-medium">{data.company}</p>
                 <small className="text-muted-foreground">{data.role}</small>
