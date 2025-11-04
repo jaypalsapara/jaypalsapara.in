@@ -64,6 +64,11 @@ const NavBar = () => {
 
       <ProductPopover />
       <MobileNavPopover />
+      {/* Backdrop of navbar popovers */}
+      <div
+        className="pointer-events-none fixed inset-0 z-50 bg-black/10 opacity-0 transition-opacity ease-in-out peer-open:pointer-events-auto peer-open:opacity-100"
+        id="navbar-backdrop"
+      />
     </>
   );
 };
@@ -139,7 +144,10 @@ const MobileNavPopover = () => {
  */
 const ProductPopover = () => {
   return (
-    <Popover id="product-popover" className="max-md:border-x-0">
+    <Popover
+      id="product-popover"
+      className="peer max-h-max -translate-y-4 opacity-0 transition-all transition-discrete ease-in-out open:translate-y-0 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
+    >
       <div className="flex justify-between">
         <p className="font-medium">Featured products</p>
         <button popoverTarget="product-popover" popoverTargetAction="hide" className="text-muted-foreground">
