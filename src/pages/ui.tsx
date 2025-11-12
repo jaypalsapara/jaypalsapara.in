@@ -1,5 +1,6 @@
 import Button from '@/components/button';
 import Cube from '@/components/cube';
+import useMeta from '@/hooks/use-meta';
 import useScrollTop from '@/hooks/use-scroll-top';
 import type { CSSVariables } from '@/types/global';
 import { Lock, Mail } from 'lucide-react';
@@ -7,6 +8,7 @@ import { type ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 const Ui = () => {
+  useMeta({ title: 'UI' });
   useScrollTop();
   return (
     <div className="flex min-h-screen flex-col gap-24 p-4">

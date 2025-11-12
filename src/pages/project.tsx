@@ -1,6 +1,7 @@
 import Button from '@/components/button';
 import OverflowLine from '@/components/overflow-line';
 import Wrapper from '@/components/wrapper';
+import useMeta from '@/hooks/use-meta';
 import { QueryClient, QueryClientProvider, useSuspenseQuery } from '@tanstack/react-query';
 import { ArrowRight } from 'lucide-react';
 import { Link, useParams } from 'react-router';
@@ -17,6 +18,7 @@ type MediaProps = {
 };
 
 const Project = () => {
+  useMeta({ title: 'Project' });
   return (
     <QueryClientProvider client={queryClient}>
       <Page />

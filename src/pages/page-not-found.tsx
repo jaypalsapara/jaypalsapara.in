@@ -1,7 +1,9 @@
 import Button from '@/components/button';
+import useMeta from '@/hooks/use-meta';
 import { Link } from 'react-router';
 
 export default function PageNotFound() {
+  useMeta({ title: 'Not found' });
   return (
     <div className="pad-x flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center py-18 text-center">
       <h1 className="text-accent">404</h1>

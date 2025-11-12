@@ -2,7 +2,7 @@
   {
     "datetime": "2025-11-12 17:11:00",
     "title": "Changes",
-    "body": ["- Change tab name 'Plug-ins' -> 'Add-on' in technologies section", "- Update packages"]
+    "body": ["- Change tab name 'Plug-ins' -> 'Add-on' in technologies section", "- Update packages", "- Add new useMeta() hook for change tab title"]
   },
   {
     "datetime": "2025-11-04 10:40:00",

@@ -1,4 +1,5 @@
 import Wrapper from '@/components/wrapper';
+import useMeta from '@/hooks/use-meta';
 import { QueryClient, QueryClientProvider, useSuspenseQuery } from '@tanstack/react-query';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router';
@@ -6,6 +7,7 @@ import { Link } from 'react-router';
 const queryClient = new QueryClient();
 
 const Works = () => {
+  useMeta({ title: 'Works' });
   return (
     <QueryClientProvider client={queryClient}>
       <Page />

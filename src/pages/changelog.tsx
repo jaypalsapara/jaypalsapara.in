@@ -1,4 +1,5 @@
 import Wrapper from '@/components/wrapper';
+import useMeta from '@/hooks/use-meta';
 import '@/styles/timeline.css';
 import { QueryClient, QueryClientProvider, useSuspenseQuery } from '@tanstack/react-query';
 
@@ -13,6 +14,7 @@ export default function Changelog() {
 }
 
 const Page = () => {
+  useMeta({ title: 'Changelog' });
   const { data } = useSuspenseQuery({
     queryKey: [`changelog`],
     queryFn: () => import(`@/data/changelog.json`).then((res) => res.default),

@@ -1,4 +1,5 @@
 import OverflowLine from '@/components/overflow-line';
+import useMeta from '@/hooks/use-meta';
 import FeaturedProject from '@/sections/featured-project';
 import HeroSection from '@/sections/hero';
 import Overview from '@/sections/overview';
@@ -9,6 +10,7 @@ import Technologies from '@/sections/technologies';
 import Testimonial from '@/sections/testimonial';
 
 const Home = () => {
+  useMeta({ title: null });
   return (
     <>
       <HeroSection />

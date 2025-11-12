@@ -1,10 +1,13 @@
 import OverflowLine from '@/components/overflow-line';
 import Wrapper from '@/components/wrapper';
+import useMeta from '@/hooks/use-meta';
 import Achievement from '@/sections/achievement';
 import Experience from '@/sections/experience';
 import OverviewAbout from '@/sections/overview-about';
 
 const About = () => {
+  useMeta({ title: 'About' });
+
   return (
     <>
       <Wrapper className="pb-14 lg:pb-18">
