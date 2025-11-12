@@ -10,7 +10,7 @@ import { Code2 } from 'lucide-react';
 import { Activity, useState, type ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-const tabs = ['Core', 'Plug-ins'];
+const tabs = ['Core', 'Add-on'];
 
 const Technologies = () => {
   const [activeTab, setActiveTab] = useState('Core');
@@ -74,8 +74,8 @@ const Technologies = () => {
         </Activity>
 
         {/* Integrate */}
-        <Activity mode={activeTab === 'Plug-ins' ? 'visible' : 'hidden'}>
-          <Wrapper className="mt-9 lg:mt-12" hidden={activeTab !== 'Plug-ins'}>
+        <Activity mode={activeTab === 'Add-on' ? 'visible' : 'hidden'}>
+          <Wrapper className="mt-9 lg:mt-12" hidden={activeTab !== 'Add-on'}>
             {Object.entries(IntegrateData).map(([group, data]) => (
               <Row key={`int-group-${group}`}>
                 <GroupColumn name={group} />
