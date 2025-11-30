@@ -3,7 +3,7 @@
     "name": "Invoice",
     "logo": "/images/products/invoice.svg",
     "subtitle": "Create beautiful invoices that encourage payment",
-    "url": "#",
+    "url": "https://jaypalsapara.github.io/invoiceapp/create",
     "color": "#a7c957",
     "new_until": "2026-03-28",
     "banner": "/images/products/invoice-banner.webp"
