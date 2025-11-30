@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge';
 const badgeVariants = cva('inline-block max-w-max rounded-xs text-xs font-medium', {
   variants: {
     variant: {
-      default: 'bg-accent-100 text-accent-700',
+      default: 'bg-accent-100/85 dark:bg-accent-900/28 text-accent-600',
       secondary: 'bg-muted text-muted-foreground',
     },
     size: {

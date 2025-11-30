@@ -9,6 +9,8 @@ import { NavLink, type NavLinkRenderProps } from 'react-router';
 import Button from './button';
 import Cube from './cube';
 import Popover from './popover';
+import Badge from './badge';
+import { isFuture, isPast } from 'date-fns';
 
 const handleLinkClassName = ({ isActive }: NavLinkRenderProps) => [isActive ? 'text-foreground' : null, 'hover:text-foreground'].join(' ');
 const NavBar = () => {
@@ -173,7 +175,7 @@ const ProductPopover = () => {
       <div className="-mx-4 mt-6 grid gap-x-4 lg:grid-cols-3 xl:grid-cols-4">
         {FeaturedProducts.map((product) => (
           <a href={product.url} target="_blank" rel="noopener noreferrer" className="contents" key={`featured-product-${product.name}`}>
-            <div className="group flex flex-col rounded-xs p-4 hover:bg-muted/50">
+            <div className="group flex flex-col rounded-xs p-4 hover:bg-muted/30 dark:hover:bg-muted/40">
               <div className="col-span-4 flex gap-5">
                 <Cube
                   name={product.name}
@@ -188,7 +190,7 @@ const ProductPopover = () => {
                   className="ms-7 mt-8.5"
                 />
                 <div className="flex flex-col">
-                  <p className="mt-2 font-medium">{product.name}</p>
+                  <p className="mt-2 font-medium">{product.name} {isFuture(product.new_until) && <Badge>New</Badge>}</p>
                   <small className="text-muted-foreground mt-1 text-pretty line-clamp-2">{product.subtitle}</small>
                 </div>
               </div>
