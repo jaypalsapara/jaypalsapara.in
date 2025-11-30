@@ -3,14 +3,14 @@ import { EMAIL } from '@/data/defines';
 import FeaturedProducts from '@/data/featured-product.json';
 import SocialLinks from '@/data/social-links.json';
 import type { CSSVariables } from '@/types/global';
+import { isFuture } from 'date-fns';
 import { ArrowUpRight, ChevronDown } from 'lucide-react';
 import type { ToggleEvent } from 'react';
 import { NavLink, type NavLinkRenderProps } from 'react-router';
+import Badge from './badge';
 import Button from './button';
 import Cube from './cube';
 import Popover from './popover';
-import Badge from './badge';
-import { isFuture, isPast } from 'date-fns';
 
 const handleLinkClassName = ({ isActive }: NavLinkRenderProps) => [isActive ? 'text-foreground' : null, 'hover:text-foreground'].join(' ');
 const NavBar = () => {
@@ -190,8 +190,11 @@ const ProductPopover = () => {
                   className="ms-7 mt-8.5"
                 />
                 <div className="flex flex-col">
-                  <p className="mt-2 font-medium">{product.name} {isFuture(product.new_until) && <Badge>New</Badge>}</p>
-                  <small className="text-muted-foreground mt-1 text-pretty line-clamp-2">{product.subtitle}</small>
+                  <div className="mt-2 flex flex-wrap items-center gap-1">
+                    <p className="font-medium">{product.name}</p>
+                    {isFuture(product.new_until) && <Badge children="New" />}
+                  </div>
+                  <small className="mt-1 line-clamp-2 text-pretty text-muted-foreground">{product.subtitle}</small>
                 </div>
               </div>
               <picture className="mt-4 hidden overflow-hidden rounded-xs border border-border/30 lg:block">
