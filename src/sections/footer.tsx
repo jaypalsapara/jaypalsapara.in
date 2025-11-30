@@ -83,7 +83,7 @@ export default function Footer() {
             <li className="font-medium text-foreground">Contribute</li>
             <li>
               <a
-                href="https://github.com/jaypalsapara/jaypalsapara.github.io/issues/new?template=1-bug-report.yml"
+                href="https://github.com/jaypalsapara/jaypalsapara.in/issues/new?template=1-bug-report.yml"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-foreground"
