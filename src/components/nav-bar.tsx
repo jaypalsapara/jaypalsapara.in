@@ -172,11 +172,11 @@ const ProductPopover = () => {
           Close
         </button>
       </div>
-      <div className="-mx-4 mt-6 grid gap-x-4 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="-mx-4 mt-6 grid gap-x-4 lg:grid-cols-4">
         {FeaturedProducts.map((product) => (
           <a href={product.url} target="_blank" rel="noopener noreferrer" className="contents" key={`featured-product-${product.name}`}>
             <div className="group flex flex-col rounded-xs p-4 hover:bg-muted/30 dark:hover:bg-muted/40">
-              <div className="col-span-4 flex gap-5">
+              <div className="col-span-4 flex gap-5 lg:flex-col lg:gap-y-2 xl:flex-row">
                 <Cube
                   name={product.name}
                   icon={product.logo}
@@ -191,7 +191,7 @@ const ProductPopover = () => {
                 />
                 <div className="flex flex-col">
                   <div className="mt-2 flex flex-wrap items-center gap-1">
-                    <p className="font-medium">{product.name}</p>
+                    <p className="line-clamp-1 font-medium">{product.name}</p>
                     {isFuture(product.new_until) && <Badge children="New" />}
                   </div>
                   <small className="mt-1 line-clamp-2 text-pretty text-muted-foreground">{product.subtitle}</small>

@@ -20,7 +20,7 @@
   {
     "name": "Nth-Child Selector",
     "logo": "/images/products/nth-child.svg",
-    "subtitle": "Generate nth-child CSS selectors",
+    "subtitle": "Generate nth-child CSS selectors and visualize",
     "url": "https://jaypalsapara.github.io/nth-child-selector/",
     "color": "#3e8fad",
     "new_until": "2025-05-17",
@@ -29,7 +29,7 @@
   {
     "name": "Dots",
     "logo": "/images/products/dots.svg",
-    "subtitle": "Track left days in the year with dots",
+    "subtitle": "Track left days in the year with simple dots",
     "url": "https://jaypalsapara.github.io/dots/",
     "color": "#5343c1",
     "new_until": "2024-05-17",
