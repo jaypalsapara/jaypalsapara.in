@@ -14,7 +14,7 @@ const handleLinkClassName = ({ isActive }: NavLinkRenderProps) => [isActive ? 't
 const NavBar = () => {
   return (
     <>
-      <nav className="pad-x sticky top-0 z-[9999999] col-span-12 flex h-16 items-center bg-background">
+      <nav className="pad-x sticky top-0 z-9999999 col-span-12 flex h-16 items-center bg-background">
         <NavLink to={'/'}>
           <p className="text-xl font-bold text-accent">
             JP <span>SAPARA</span>
