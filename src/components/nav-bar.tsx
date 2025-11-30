@@ -189,7 +189,7 @@ const ProductPopover = () => {
                 />
                 <div className="flex flex-col">
                   <p className="mt-2 font-medium">{product.name}</p>
-                  <small className="grid text-muted-foreground">{product.subtitle}</small>
+                  <small className="grid text-muted-foreground mt-1">{product.subtitle}</small>
                 </div>
               </div>
               <picture className="mt-4 hidden overflow-hidden rounded-xs border border-border/30 lg:block">
