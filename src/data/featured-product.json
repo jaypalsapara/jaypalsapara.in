@@ -11,7 +11,7 @@
   {
     "name": "JS-Minifier",
     "logo": "/images/products/js-minify.svg",
-    "subtitle": "Minimize the code and reduce file size",
+    "subtitle": "Minimize the code and reduce file size to fast load",
     "url": "https://jaypalsapara.github.io/tool-jsminify/",
     "color": "#3b82f6",
     "new_until": "2024-05-17",
@@ -29,7 +29,7 @@
   {
     "name": "Dots",
     "logo": "/images/products/dots.svg",
-    "subtitle": "Track left days in the year",
+    "subtitle": "Track left days in the year with dots",
     "url": "https://jaypalsapara.github.io/dots/",
     "color": "#5343c1",
     "new_until": "2024-05-17",
