@@ -6,7 +6,7 @@
     "url": "https://jaypalsapara.github.io/invoiceapp/create",
     "color": "#a7c957",
     "new_until": "2026-03-28",
-    "banner": "/images/products/invoice-banner.webp"
+    "banner": "/images/products/invoice-banner-v1.webp"
   },
   {
     "name": "JS-Minifier",
@@ -15,7 +15,7 @@
     "url": "https://jaypalsapara.github.io/tool-jsminify/",
     "color": "#3b82f6",
     "new_until": "2024-05-17",
-    "banner": "/images/products/js-minify-banner.webp"
+    "banner": "/images/products/js-minify-banner-v1.webp"
   },
   {
     "name": "Nth-Child Selector",
@@ -24,7 +24,7 @@
     "url": "https://jaypalsapara.github.io/nth-child-selector/",
     "color": "#3e8fad",
     "new_until": "2025-05-17",
-    "banner": "/images/products/nth-child-banner.webp"
+    "banner": "/images/products/nth-child-banner-v1.webp"
   },
   {
     "name": "Dots",
@@ -33,6 +33,6 @@
     "url": "https://jaypalsapara.github.io/dots/",
     "color": "#5343c1",
     "new_until": "2024-05-17",
-    "banner": "/images/products/dots-banner.webp"
+    "banner": "/images/products/dots-banner-v1.webp"
   }
 ]
