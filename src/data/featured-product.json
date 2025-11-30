@@ -1,5 +1,14 @@
 [
   {
+    "name": "Invoice",
+    "logo": "/images/products/invoice.svg",
+    "subtitle": "Create beautiful invoices that encourage payment",
+    "url": "#",
+    "color": "#a7c957",
+    "new_until": "2026-01-31",
+    "banner": "/images/products/invoice-banner.webp"
+  },
+  {
     "name": "JS-Minifier",
     "logo": "/images/products/js-minify.svg",
     "subtitle": "Minimize the code and reduce file size",

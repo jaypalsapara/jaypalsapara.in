@@ -189,11 +189,11 @@ const ProductPopover = () => {
                 />
                 <div className="flex flex-col">
                   <p className="mt-2 font-medium">{product.name}</p>
-                  <small className="text-muted-foreground">{product.subtitle}</small>
+                  <small className="grid text-muted-foreground">{product.subtitle}</small>
                 </div>
               </div>
               <picture className="mt-4 hidden overflow-hidden rounded-xs border border-border/30 lg:block">
-                <img src={product.banner} alt="" className="aspect-[4/5] w-full" />
+                <img src={product.banner} alt="" className="aspect-4/5 w-full" />
               </picture>
             </div>
           </a>
