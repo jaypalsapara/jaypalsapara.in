@@ -154,18 +154,30 @@
 
 .inner-face.top {
   border-bottom-width: 0.5px;
-  background-color: color-mix(in oklab, var(--cube-color) 88%, transparent);
+  background:
+    url('/images/cube-noise.svg') center center no-repeat,
+    color-mix(in oklab, var(--cube-color) 88%, transparent);
+  background-size: cover, auto;
 }
 .inner-face.left {
-  background-color: color-mix(in oklab, var(--cube-color) 88%, transparent);
+  background:
+    url('/images/cube-noise.svg') center center no-repeat,
+    color-mix(in oklab, var(--cube-color) 88%, transparent);
+  background-size: cover, auto;
 }
 .inner-face.right {
   border-left-width: 0px;
-  background-color: color-mix(in oklab, var(--cube-color) 88%, transparent);
+  background:
+    url('/images/cube-noise.svg') center center no-repeat,
+    color-mix(in oklab, var(--cube-color) 88%, transparent);
+  background-size: cover, auto;
 }
 .inner-face.bottom {
   border-left-width: 0.01px;
-  background-color: color-mix(in oklab, var(--cube-color) 88%, transparent);
+  background:
+    url('/images/cube-noise.svg') center center no-repeat,
+    color-mix(in oklab, var(--cube-color) 88%, transparent);
+  background-size: cover, auto;
 }
 
 .inner-face.front {
@@ -177,7 +189,10 @@
 }
 /* variant fat and thin */
 .cube-container:is([data-variant='fat'], [data-variant='thin']) .inner-face.front {
-  background-color: color-mix(in oklab, var(--cube-color) 88%, transparent);
+  background:
+    url('/images/cube-noise.svg') center center no-repeat,
+    color-mix(in oklab, var(--cube-color) 88%, transparent);
+  background-size: cover, auto;
 }
 
 /* only thin */
