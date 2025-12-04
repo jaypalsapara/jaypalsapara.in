@@ -22,7 +22,7 @@ export default function Achievement() {
         description="Consistently delivered high-quality results that exceeded client expectations. Each success sparked growth and trust."
       />
       <SectionContent className="mb-14 lg:mb-18">
-        <Wrapper className="gap-y-8">
+        <Wrapper className="gap-y-12">
           {Achievements.map((achievement) => {
             const IconName = achievement.icon as IconName;
             const Icon = Icons[IconName];
