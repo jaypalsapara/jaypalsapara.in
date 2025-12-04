@@ -56,7 +56,7 @@ const NavBar = () => {
             </a>
           </li>
         </ul>
-        <AppearanceToggle className="ms-4 hidden size-7 place-content-center lg:grid" />
+        <AppearanceToggle className="ms-5.5 hidden size-7 place-content-center lg:grid" />
         <button
           id="mobile-nav-toggle"
           className="group relative ms-auto size-10 *:absolute *:w-[calc(100%-1rem)] *:-translate-1/2 *:border *:border-muted-foreground lg:hidden"
