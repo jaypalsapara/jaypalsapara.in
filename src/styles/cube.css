@@ -179,6 +179,18 @@
   padding-inline: calc((var(--cube-width) * var(--cube-base)) / 8);
   padding-block: calc((var(--cube-height) * var(--cube-base)) / 8);
 }
+/* Only for fat for noise */
+.cube-container:is([data-variant='thin']) .inner-face.front {
+  background: url('/images/cube-noise.svg') no-repeat center;
+  background-color: color-mix(in oklab, var(--cube-color) 88%, transparent);
+}
+
+/* Only for default for noise */
+.cube-container:is(:not([data-variant='thin'], [data-variant='fat'])) :is(.inner-face.top, .inner-face.left) {
+  background: url('/images/cube-noise.svg') no-repeat center;
+  background-color: color-mix(in oklab, var(--cube-color) 88%, transparent);
+}
+
 /* variant fat and thin */
 .cube-container:is([data-variant='fat'], [data-variant='thin']) .inner-face.front {
   background-color: color-mix(in oklab, var(--cube-color) 88%, transparent);
