@@ -19,11 +19,11 @@
     "class-variance-authority": "^0.7.1",
     "date-fns": "^4.1.0",
     "ldrs": "^1.1.9",
-    "lucide-react": "^0.555.0",
+    "lucide-react": "^0.556.0",
     "matter-js": "^0.20.0",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
-    "react-router": "^7.10.0",
+    "react-router": "^7.10.1",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.17"
   },
@@ -45,7 +45,7 @@
     "prettier-plugin-tailwindcss": "^0.7.2",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.48.1",
-    "vite": "^7.2.6",
+    "vite": "^7.2.7",
     "vite-plugin-sitemap": "^0.8.2"
   }
 }
