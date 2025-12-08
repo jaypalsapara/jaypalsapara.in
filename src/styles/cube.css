@@ -55,6 +55,10 @@
   border-style: solid;
 }
 
+.dark .face {
+  border-color: color-mix(in oklab, color-mix(in oklab, var(--cube-color) 40%, #000) 70%, #fff 30%);
+}
+
 .left,
 .right {
   width: calc(var(--cube-width) * var(--cube-base));
