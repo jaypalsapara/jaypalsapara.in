@@ -15,18 +15,18 @@ const Testimonial = () => {
         description="What clients say about my work, and I would be truly happy to see you here, exploring the quality and dedication I bring to every project."
       />
       <SectionContent className="mb-14 lg:mb-18">
-        <Wrapper className="gap-y-6 lg:gap-x-6">
+        <Wrapper className="gap-y-6 lg:gap-x-10">
           {Testimonials.map((data, index) => (
             <div
               key={`testimonial-${index}`}
               className={twMerge(
                 'col-span-4 flex flex-col gap-4 rounded-xs border p-5',
                 data.is_highlight
-                  ? 'shadow-community-lg row-span-2 border-[oklch(0.2202_0_0)] bg-[oklch(0.2202_0_0)] dark:border-border dark:shadow-none!'
+                  ? 'shadow-community-lg z-10 row-span-2 border-[oklch(0.2202_0_0)] bg-[oklch(0.2202_0_0)] dark:border-border dark:shadow-none!'
                   : 'shadow-xs',
               )}
             >
-              <div className="mt-1.5 flex">
+              <div className="mt-1 flex">
                 {Array.from({ length: data.rating }).map((_, i) => (
                   <Star key={`testimonial-rating-${index}-${i}`} className={twMerge('fill-accent stroke-accent', data.is_highlight ? '' : '')} />
                 ))}
