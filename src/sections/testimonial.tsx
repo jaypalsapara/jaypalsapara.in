@@ -31,7 +31,7 @@ const Testimonial = () => {
                   <Star key={`testimonial-rating-${index}-${i}`} className={twMerge('fill-accent stroke-accent', data.is_highlight ? '' : '')} />
                 ))}
               </div>
-              <p className={twMerge(data.is_highlight ? 'text-lg text-background dark:text-foreground' : '')}>
+              <p className={twMerge(data.is_highlight ? 'text-lg leading-relaxed tracking-wide text-background dark:text-foreground' : '')}>
                 <q>{data.review}</q>
               </p>
               <div></div>
