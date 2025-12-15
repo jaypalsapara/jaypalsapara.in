@@ -44,7 +44,7 @@ const NavBar = () => {
                 id="product-popover-toggle"
                 popoverTarget="product-popover"
                 popoverTargetAction="toggle"
-                className="flex items-center gap-1.5 hover:text-foreground"
+                className="flex cursor-pointer items-center gap-1.5 hover:text-foreground"
               >
                 Products <ChevronDown className="stroke-2 text-accent transition-transform ease-in-out" />
               </button>
