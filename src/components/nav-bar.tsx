@@ -16,57 +16,57 @@ const handleLinkClassName = ({ isActive }: NavLinkRenderProps) => [isActive ? 't
 const NavBar = () => {
   return (
     <>
-      <nav className="pad-x sticky top-0 z-9999999 col-span-12 flex h-16 items-center bg-background">
-        <NavLink to={'/'}>
-          <p className="text-xl font-bold text-accent">
-            JP <span>SAPARA</span>
-          </p>
-        </NavLink>
-        <ul className="ml-auto hidden items-center gap-6 text-muted-foreground *:font-medium lg:flex">
-          <li>
-            <NavLink to={'/'} className={handleLinkClassName}>
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={'/about'} className={handleLinkClassName}>
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={'/works'} className={handleLinkClassName}>
-              Works
-            </NavLink>
-          </li>
-          <li>
-            <button
-              id="product-popover-toggle"
-              popoverTarget="product-popover"
-              popoverTargetAction="toggle"
-              className="flex items-center gap-1.5 hover:text-foreground"
-            >
-              Products <ChevronDown className="stroke-2 text-accent transition-transform ease-in-out" />
-            </button>
-          </li>
-          <li>
-            <a href={'mailto:' + EMAIL} target="_blank">
-              <Button size="small" className="font-medium">
-                Contact
-              </Button>
-            </a>
-          </li>
-        </ul>
-        <AppearanceToggle className="ms-5.5 hidden size-7 place-content-center lg:grid" />
-        <button
-          id="mobile-nav-toggle"
-          className="group relative ms-auto size-10 *:absolute *:w-[calc(100%-1rem)] *:-translate-1/2 *:border *:border-muted-foreground lg:hidden"
-          popoverTarget="mobile-nav-popover"
-          popoverTargetAction="toggle"
-          aria-label="Nav menu toggle"
-        >
-          <span className="top-[calc(50%+0.3rem)] transition-transform ease-in-out group-open:top-1/2 group-open:rotate-45"></span>
-          <span className="top-[calc(50%+0.3rem*-1)] transition-transform ease-in-out group-open:top-1/2 group-open:-rotate-45"></span>
-        </button>
+      <nav className="sticky top-0 z-9999999 col-span-12 flex h-16 items-center border-b bg-background">
+        <div className="pad-x mx-auto flex h-full w-full max-w-[1512px] items-center border-x">
+          <NavLink to={'/'}>
+            <p className="text-xl font-bold text-accent">
+              JP <span>SAPARA</span>
+            </p>
+          </NavLink>
+          <ul className="ml-auto mr-8 hidden items-center gap-6 text-muted-foreground *:font-medium lg:flex">
+            <li>
+              <NavLink to={'/'} className={handleLinkClassName}>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={'/about'} className={handleLinkClassName}>
+                About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={'/works'} className={handleLinkClassName}>
+                Works
+              </NavLink>
+            </li>
+            <li>
+              <button
+                id="product-popover-toggle"
+                popoverTarget="product-popover"
+                popoverTargetAction="toggle"
+                className="flex items-center gap-1.5 hover:text-foreground"
+              >
+                Products <ChevronDown className="stroke-2 text-accent transition-transform ease-in-out" />
+              </button>
+            </li>
+          </ul>
+          <a href={'mailto:' + EMAIL} target="_blank">
+            <Button className="font-medium" variant='outline'>
+              Contact me
+            </Button>
+          </a>
+          <AppearanceToggle className="ms-5.5 hidden size-7 place-content-center lg:grid" />
+          <button
+            id="mobile-nav-toggle"
+            className="group relative ms-auto size-10 *:absolute *:w-[calc(100%-1rem)] *:-translate-1/2 *:border *:border-muted-foreground lg:hidden"
+            popoverTarget="mobile-nav-popover"
+            popoverTargetAction="toggle"
+            aria-label="Nav menu toggle"
+          >
+            <span className="top-[calc(50%+0.3rem)] transition-transform ease-in-out group-open:top-1/2 group-open:rotate-45"></span>
+            <span className="top-[calc(50%+0.3rem*-1)] transition-transform ease-in-out group-open:top-1/2 group-open:-rotate-45"></span>
+          </button>
+        </div>
       </nav>
 
       <ProductPopover />
@@ -95,7 +95,7 @@ const MobileNavPopover = () => {
     <Popover
       id="mobile-nav-popover"
       handlePopoverToggle={handlePopoverToggle}
-      className="-translate-y-4 opacity-0 transition-all transition-discrete ease-in-out open:translate-y-0 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
+      className="-translate-y-4 border-t-0 opacity-0 transition-all transition-discrete ease-in-out open:translate-y-0 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
     >
       <div className="flex">
         <AppearanceToggle className="ms-auto grid size-7 place-content-center" />
@@ -163,7 +163,7 @@ const ProductPopover = () => {
   return (
     <Popover
       id="product-popover"
-      className="peer max-h-max -translate-y-4 opacity-0 transition-all transition-discrete ease-in-out open:translate-y-0 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
+      className="peer max-h-max -translate-y-4 border-t-0 opacity-0 transition-all transition-discrete ease-in-out open:translate-y-0 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
       handlePopoverToggle={handlePopoverToggle}
     >
       <div className="flex justify-between">

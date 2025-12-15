@@ -18,15 +18,17 @@ const AppLayout = () => {
   }, [pathname]);
 
   return (
-    <div className="mx-auto min-h-screen max-w-[1512px] bg-background lg:border-x">
-      {/* Header */}
+    <>
       <NavBar />
-      {/* Body */}
-      <Outlet />
-      {/* Footer */}
-      <OverflowLine />
-      <Footer />
-    </div>
+      <div className="mx-auto min-h-screen max-w-[1512px] bg-background lg:border-x">
+        {/* Header */}
+        {/* Body */}
+        <Outlet />
+        {/* Footer */}
+        <OverflowLine />
+        <Footer />
+      </div>
+    </>
   );
 };
 
