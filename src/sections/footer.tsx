@@ -34,14 +34,14 @@ export default function Footer() {
               Hire me on upwork <ArrowUpRight />
             </a>
           </div>
-          <div className="mt-8 -ml-1 flex flex-wrap gap-4">
+          <div className="mt-14 -ml-1 flex flex-wrap gap-4">
             {SocialLinks.map((social) => (
               <a href={social.url} target="_blank" rel="noopener noreferrer" className="group" key={`social-${social.name}`}>
                 <SVG src={social.icon} className="size-8 fill-muted-foreground/60 transition-colors group-hover:fill-foreground" />
               </a>
             ))}
           </div>
-          <p className="mt-6 text-muted-foreground">Build with love by me</p>
+          <p className="mt-14 text-muted-foreground">Build with love by me</p>
         </div>
         {/* Col-2 */}
         <div className="col-span-4 mt-14 lg:col-span-2 lg:mt-0">
