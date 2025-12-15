@@ -34,7 +34,7 @@ const HeroSection = () => {
         <br className="md:hidden" /> web developer
       </h1>
       {/* Subtitle */}
-      <p className="col-span-4 mt-6 lg:col-span-5">
+      <p className="col-span-4 mt-6 lg:col-span-6">
         Leading end-to-end project development aligned with the client's vision, including requirements consultation, solution design, development, and
         deployment, and delivering scalable solutions with timely and seamless execution.
       </p>
