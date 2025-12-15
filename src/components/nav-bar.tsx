@@ -17,13 +17,13 @@ const NavBar = () => {
   return (
     <>
       <nav className="sticky top-0 z-9999999 col-span-12 flex h-16 items-center border-b bg-background">
-        <div className="pad-x mx-auto flex h-full w-full max-w-[1512px] items-center border-x">
+        <div className="pad-x mx-auto flex h-full w-full max-w-[1512px] items-center lg:border-x">
           <NavLink to={'/'}>
             <p className="text-xl font-bold text-accent">
               JP <span>SAPARA</span>
             </p>
           </NavLink>
-          <ul className="ml-auto mr-8 hidden items-center gap-6 text-muted-foreground *:font-medium lg:flex">
+          <ul className="mr-8 ml-auto hidden items-center gap-6 text-muted-foreground *:font-medium lg:flex">
             <li>
               <NavLink to={'/'} className={handleLinkClassName}>
                 Home
@@ -50,8 +50,8 @@ const NavBar = () => {
               </button>
             </li>
           </ul>
-          <a href={'mailto:' + EMAIL} target="_blank">
-            <Button className="font-medium" variant='outline'>
+          <a href={'mailto:' + EMAIL} target="_blank" className="hidden lg:block">
+            <Button className="font-medium" variant="outline">
               Contact me
             </Button>
           </a>
@@ -73,7 +73,7 @@ const NavBar = () => {
       <MobileNavPopover />
       {/* Backdrop of navbar popovers */}
       <div
-        className="pointer-events-none fixed inset-0 z-50 bg-black/10 opacity-0 transition-opacity ease-in-out peer-open:pointer-events-auto peer-open:opacity-100 dark:bg-black/40"
+        className="pointer-events-none fixed inset-0 z-50 bg-linear-180 from-transparent to-border/75 opacity-0 transition-opacity ease-in-out peer-open:pointer-events-auto peer-open:opacity-100 dark:bg-black/40 dark:to-background/85"
         id="navbar-backdrop"
       />
     </>
@@ -197,7 +197,7 @@ const ProductPopover = () => {
                   <small className="mt-1 line-clamp-2 text-pretty text-muted-foreground">{product.subtitle}</small>
                 </div>
               </div>
-              <picture className="mt-4 hidden overflow-hidden rounded-xs border border-border/30 lg:block">
+              <picture className="mt-4 hidden overflow-hidden rounded-xs border border-border/60 lg:block">
                 <img src={product.banner} alt="" className="aspect-4/5 w-full" />
               </picture>
             </div>
