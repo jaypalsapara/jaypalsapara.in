@@ -4,7 +4,8 @@ Disallow: /
 # Main routes
 Allow: /$
 Allow: /about$
-Allow: /works$
 Allow: /sitemap.xml$
+Allow: /favicon.ico$
+Allow: /favicon.png$
 
 Sitemap: https://jaypalsapara.in/sitemap.xml

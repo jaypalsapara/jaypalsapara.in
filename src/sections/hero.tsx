@@ -20,7 +20,7 @@ const HeroSection = () => {
         </Link>
       </div>
       {/* Availability */}
-      <div className="col-span-full mt-12 flex items-center gap-3 lg:mt-18">
+      <div className="invisible col-span-full mt-12 flex items-center gap-3 lg:mt-18">
         <CalendarClock className="text-accent" />
         <p className="text-muted-foreground">
           Available from 1<sup>st</sup> December
@@ -34,8 +34,9 @@ const HeroSection = () => {
         <br className="md:hidden" /> web developer
       </h1>
       {/* Subtitle */}
-      <p className="col-span-4 mt-6 lg:col-span-5">
-        Leading the end-to-end development of a project based on the client's vision, covering consultation, coding, and deployment.
+      <p className="col-span-4 mt-6 lg:col-span-6">
+        Leading end-to-end project development aligned with the client's vision, including requirements consultation, solution design, development, and
+        deployment, and delivering scalable solutions with timely and seamless execution.
       </p>
       {/* CTA */}
       <div className="col-span-4 mt-14 lg:col-span-12">

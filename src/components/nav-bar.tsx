@@ -3,9 +3,11 @@ import { EMAIL } from '@/data/defines';
 import FeaturedProducts from '@/data/featured-product.json';
 import SocialLinks from '@/data/social-links.json';
 import type { CSSVariables } from '@/types/global';
+import { isFuture } from 'date-fns';
 import { ArrowUpRight, ChevronDown } from 'lucide-react';
 import type { ToggleEvent } from 'react';
 import { NavLink, type NavLinkRenderProps } from 'react-router';
+import Badge from './badge';
 import Button from './button';
 import Cube from './cube';
 import Popover from './popover';
@@ -14,64 +16,64 @@ const handleLinkClassName = ({ isActive }: NavLinkRenderProps) => [isActive ? 't
 const NavBar = () => {
   return (
     <>
-      <nav className="pad-x sticky top-0 z-[9999999] col-span-12 flex h-16 items-center bg-background">
-        <NavLink to={'/'}>
-          <p className="text-xl font-bold text-accent">
-            JP <span>SAPARA</span>
-          </p>
-        </NavLink>
-        <ul className="ml-auto hidden items-center gap-6 text-muted-foreground *:font-medium lg:flex">
-          <li>
-            <NavLink to={'/'} className={handleLinkClassName}>
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={'/about'} className={handleLinkClassName}>
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to={'/works'} className={handleLinkClassName}>
-              Works
-            </NavLink>
-          </li>
-          <li>
-            <button
-              id="product-popover-toggle"
-              popoverTarget="product-popover"
-              popoverTargetAction="toggle"
-              className="flex items-center gap-1.5 hover:text-foreground"
-            >
-              Products <ChevronDown className="stroke-2 text-accent transition-transform ease-in-out" />
-            </button>
-          </li>
-          <li>
-            <a href={'mailto:' + EMAIL} target="_blank">
-              <Button size="small" className="font-medium">
-                Contact
-              </Button>
-            </a>
-          </li>
-        </ul>
-        <AppearanceToggle className="ms-4 hidden size-7 place-content-center lg:grid" />
-        <button
-          id="mobile-nav-toggle"
-          className="group relative ms-auto size-10 *:absolute *:w-[calc(100%-1rem)] *:-translate-1/2 *:border *:border-muted-foreground lg:hidden"
-          popoverTarget="mobile-nav-popover"
-          popoverTargetAction="toggle"
-          aria-label="Nav menu toggle"
-        >
-          <span className="top-[calc(50%+0.3rem)] transition-transform ease-in-out group-open:top-1/2 group-open:rotate-45"></span>
-          <span className="top-[calc(50%+0.3rem*-1)] transition-transform ease-in-out group-open:top-1/2 group-open:-rotate-45"></span>
-        </button>
+      <nav className="sticky top-0 z-9999999 col-span-12 flex h-16 items-center border-b bg-background">
+        <div className="pad-x mx-auto flex h-full w-full max-w-[1512px] items-center lg:border-x">
+          <NavLink to={'/'}>
+            <p className="text-xl font-bold text-accent">
+              JP <span>SAPARA</span>
+            </p>
+          </NavLink>
+          <ul className="mr-8 ml-auto hidden items-center gap-6 text-muted-foreground *:font-medium lg:flex">
+            <li>
+              <NavLink to={'/'} className={handleLinkClassName}>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={'/about'} className={handleLinkClassName}>
+                About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={'/works'} className={handleLinkClassName}>
+                Works
+              </NavLink>
+            </li>
+            <li>
+              <button
+                id="product-popover-toggle"
+                popoverTarget="product-popover"
+                popoverTargetAction="toggle"
+                className="flex cursor-pointer items-center gap-1.5 hover:text-foreground"
+              >
+                Products <ChevronDown className="stroke-2 text-accent transition-transform ease-in-out" />
+              </button>
+            </li>
+          </ul>
+          <a href={'mailto:' + EMAIL} target="_blank" className="hidden lg:block">
+            <Button className="font-medium" variant="outline">
+              Contact me
+            </Button>
+          </a>
+          <AppearanceToggle className="ms-5.5 hidden size-7 place-content-center lg:grid" />
+          <button
+            id="mobile-nav-toggle"
+            className="group relative ms-auto size-10 *:absolute *:w-[calc(100%-1rem)] *:-translate-1/2 *:border *:border-muted-foreground lg:hidden"
+            popoverTarget="mobile-nav-popover"
+            popoverTargetAction="toggle"
+            aria-label="Nav menu toggle"
+          >
+            <span className="top-[calc(50%+0.3rem)] transition-transform ease-in-out group-open:top-1/2 group-open:rotate-45"></span>
+            <span className="top-[calc(50%+0.3rem*-1)] transition-transform ease-in-out group-open:top-1/2 group-open:-rotate-45"></span>
+          </button>
+        </div>
       </nav>
 
       <ProductPopover />
       <MobileNavPopover />
       {/* Backdrop of navbar popovers */}
       <div
-        className="pointer-events-none fixed inset-0 z-50 bg-black/10 opacity-0 transition-opacity ease-in-out peer-open:pointer-events-auto peer-open:opacity-100 dark:bg-black/40"
+        className="pointer-events-none fixed inset-0 z-50 bg-linear-180 from-transparent to-border/75 opacity-0 transition-opacity ease-in-out peer-open:pointer-events-auto peer-open:opacity-100 dark:bg-black/40 dark:to-background/85"
         id="navbar-backdrop"
       />
     </>
@@ -93,7 +95,7 @@ const MobileNavPopover = () => {
     <Popover
       id="mobile-nav-popover"
       handlePopoverToggle={handlePopoverToggle}
-      className="-translate-y-4 opacity-0 transition-all transition-discrete ease-in-out open:translate-y-0 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
+      className="-translate-y-4 border-t-0 opacity-0 transition-all transition-discrete ease-in-out open:translate-y-0 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
     >
       <div className="flex">
         <AppearanceToggle className="ms-auto grid size-7 place-content-center" />
@@ -161,7 +163,7 @@ const ProductPopover = () => {
   return (
     <Popover
       id="product-popover"
-      className="peer max-h-max -translate-y-4 opacity-0 transition-all transition-discrete ease-in-out open:translate-y-0 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
+      className="peer max-h-max -translate-y-4 border-t-0 opacity-0 transition-all transition-discrete ease-in-out open:translate-y-0 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
       handlePopoverToggle={handlePopoverToggle}
     >
       <div className="flex justify-between">
@@ -170,11 +172,11 @@ const ProductPopover = () => {
           Close
         </button>
       </div>
-      <div className="-mx-4 mt-6 grid gap-x-4 lg:grid-cols-3 xl:grid-cols-4">
+      <div className="-mx-4 mt-6 grid gap-x-4 lg:grid-cols-4">
         {FeaturedProducts.map((product) => (
           <a href={product.url} target="_blank" rel="noopener noreferrer" className="contents" key={`featured-product-${product.name}`}>
-            <div className="group flex flex-col rounded-xs p-4 hover:bg-muted/50">
-              <div className="col-span-4 flex gap-5">
+            <div className="group flex flex-col rounded-xs p-4 hover:bg-muted/30 dark:hover:bg-muted/40">
+              <div className="col-span-4 flex gap-5 lg:flex-col lg:gap-y-2 xl:flex-row">
                 <Cube
                   name={product.name}
                   icon={product.logo}
@@ -188,12 +190,15 @@ const ProductPopover = () => {
                   className="ms-7 mt-8.5"
                 />
                 <div className="flex flex-col">
-                  <p className="mt-2 font-medium">{product.name}</p>
-                  <small className="text-muted-foreground">{product.subtitle}</small>
+                  <div className="mt-2 flex flex-wrap items-center gap-1">
+                    <p className="line-clamp-1 font-medium">{product.name}</p>
+                    {isFuture(product.new_until) && <Badge children="New" />}
+                  </div>
+                  <small className="mt-1 line-clamp-2 text-pretty text-muted-foreground">{product.subtitle}</small>
                 </div>
               </div>
-              <picture className="mt-4 hidden overflow-hidden rounded-xs border border-border/30 lg:block">
-                <img src={product.banner} alt="" className="aspect-[4/5] w-full" />
+              <picture className="mt-4 hidden overflow-hidden rounded-xs border border-border/60 lg:block">
+                <img src={product.banner} alt="" className="aspect-4/5 w-full" />
               </picture>
             </div>
           </a>

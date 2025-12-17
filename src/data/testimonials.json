@@ -1,13 +1,25 @@
 [
   {
     "rating": 5,
+    "review": "Jaypal was fantastic to work with. He handled the entire backend development process with a high level of expertise and professionalism. His technical knowledge is excellent, his communication is clear, and he consistently delivered work on time. He approached every challenge calmly and provided effective solutions without hesitation. I’m extremely satisfied with the results and will definitely hire him again for future projects. Highly recommended!",
+    "user": {
+      "name": "Himanshu Gajera",
+      "sort_name": "HG",
+      "avatar": "/images/reviewers/himanshu-gajera.avif"
+    },
+    "type": "Individual",
+    "is_highlight": true
+  },
+  {
+    "rating": 5,
     "review": "He has worked really well, with open heart and gone beyond work requirement and my expectations. Best decision to hire such a talent.",
     "user": {
       "name": "Shivansh Babbar",
       "sort_name": "SB",
       "avatar": "/images/reviewers/shivansh.avif"
     },
-    "type": "Individual"
+    "type": "Individual",
+    "is_highlight": false
   },
   {
     "rating": 5,
@@ -17,7 +29,8 @@
       "sort_name": "EB",
       "avatar": null
     },
-    "type": "Individual"
+    "type": "Individual",
+    "is_highlight": false
   },
   {
     "rating": 5,
@@ -27,6 +40,7 @@
       "sort_name": "TT",
       "avatar": "/images/reviewers/tt.avif"
     },
-    "type": "Company"
+    "type": "Company",
+    "is_highlight": false
   }
 ]
