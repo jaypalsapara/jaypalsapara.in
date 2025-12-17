@@ -11,7 +11,7 @@ export default defineConfig({
     tailwindcss(),
     sitemap({
       hostname: 'https://jaypalsapara.in',
-      // dynamicRoutes: ['/about'],
+      dynamicRoutes: ['/about'],
       generateRobotsTxt: false,
     }),
   ],

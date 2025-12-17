@@ -2,7 +2,13 @@
   {
     "datetime": "2025-12-17 09:12:00",
     "title": "New changes and improvement",
-    "body": ["- Update nav bar layout", "- Add spacing between social icons and contact buttons", "- Change background color", "- Update packages"]
+    "body": [
+      "- Update nav bar layout",
+      "- Add spacing between social icons and contact buttons",
+      "- Change background color",
+      "- Update SEO",
+      "- Update packages"
+    ]
   },
   {
     "datetime": "2025-12-08 10:30:00",
