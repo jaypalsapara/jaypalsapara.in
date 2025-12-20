@@ -23,7 +23,11 @@ const About = () => {
           <picture className="relative col-span-6">
             <span className="absolute top-0 right-0 z-10 m-4 block size-4 rounded-xs border-t-2 border-r-2 border-accent"></span>
             <source srcSet="/images/about/img-1_mobile.avif" media="(width < 64rem)" />
-            <img src="/images/about/img-1.avif" alt="" className="aspect-9/16 lg:aspect-4/5 w-full rounded-xs object-cover object-top grayscale transition-[filter]" />
+            <img
+              src="/images/about/img-1.avif"
+              alt=""
+              className="aspect-9/16 w-full rounded-xs object-cover object-top grayscale transition-[filter] lg:aspect-4/5"
+            />
           </picture>
           <picture className="relative col-span-6 hidden lg:block">
             <span className="absolute top-0 right-0 z-10 m-4 block size-4 rounded-xs border-t-2 border-r-2 border-accent"></span>

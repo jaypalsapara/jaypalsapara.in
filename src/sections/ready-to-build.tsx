@@ -10,7 +10,7 @@ const highlightWords = ['E-commerce', 'SaaS', 'CMS', 'Business', 'Custom', 'Port
 
 const ReadyToBuild = () => {
   return (
-    <div className="grid dot-background">
+    <div className="dot-background grid">
       <div className="pointer-events-none h-[70vh] [grid-area:1/1] lg:pointer-events-auto">
         <FallingText
           text={text}
