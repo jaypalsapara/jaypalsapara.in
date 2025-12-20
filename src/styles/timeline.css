@@ -3,7 +3,7 @@
   @apply space-y-[0.225rem];
 }
 .timeline-block {
-  @apply relative overflow-hidden ps-6 not-last:pb-4;
+  @apply relative overflow-hidden ps-6 not-last:pb-8;
 }
 .timeline-title {
   @apply relative;

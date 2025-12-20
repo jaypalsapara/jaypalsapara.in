@@ -1,5 +1,16 @@
 [
   {
+    "datetime": "2025-12-20 17:03:00",
+    "title": "Update layouts",
+    "body": [
+      "- Update hero section overview layout",
+      "- Add dotted background in 'ready to build' section",
+      "- Change overview text",
+      "- Update 'build by me' text in footer",
+      "- Add space between changelogs"
+    ]
+  },
+  {
     "datetime": "2025-12-17 09:12:00",
     "title": "New changes and improvement",
     "body": [

@@ -41,7 +41,15 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          <p className="mt-14 text-muted-foreground">Build with love by me</p>
+          <p className="mt-14 text-muted-foreground">
+            © {new Date().getFullYear()} Jaypal Sapara
+            <br />
+            Built by me. Inspired by the{' '}
+            <a href="https://laravel.com" target="_blank" className="underline underline-offset-2">
+              Laravel
+            </a>{' '}
+            ecosystem
+          </p>
         </div>
         {/* Col-2 */}
         <div className="col-span-4 mt-14 lg:col-span-2 lg:mt-0">

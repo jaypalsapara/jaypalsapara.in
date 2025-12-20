@@ -162,11 +162,10 @@
       0px 41.78px 33.42px 0px var(--tw-shadow-color, #0000001b), 0px 100px 80px 0px var(--tw-shadow-color, #00000013);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
-  
+
   .dot-background {
-    background-image: radial-gradient(color-mix(in oklab, var(--color-border) 50%, transparent) 1.25px, transparent 1.25px);
-    background-size: 16px 16px;
     background-color: var(--color-background);
+    @apply bg-[radial-gradient(color-mix(in_oklab,var(--color-border)_50%,transparent)_0.063rem,transparent_0.063rem)] bg-size-[0.625rem_0.625rem] md:bg-[radial-gradient(color-mix(in_oklab,var(--color-border)_50%,transparent)_0.078rem,transparent_0.078rem)] md:bg-size-[1rem_1rem];
   }
 }
 
