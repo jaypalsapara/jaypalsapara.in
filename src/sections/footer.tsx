@@ -45,7 +45,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Jaypal Sapara
             <br />
             Built by me. Inspired by the{' '}
-            <a href="https://laravel.com" target="_blank" className="underline underline-offset-2">
+            <a href="https://laravel.com" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
               Laravel
             </a>{' '}
             ecosystem
