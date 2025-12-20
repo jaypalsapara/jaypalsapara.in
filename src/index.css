@@ -165,7 +165,7 @@
 
   .dot-background {
     background-color: var(--color-background);
-    @apply bg-[radial-gradient(color-mix(in_oklab,var(--color-border)_50%,transparent)_0.063rem,transparent_0.063rem)] bg-size-[0.625rem_0.625rem] md:bg-[radial-gradient(color-mix(in_oklab,var(--color-border)_50%,transparent)_0.078rem,transparent_0.078rem)] md:bg-size-[1rem_1rem];
+    @apply bg-[radial-gradient(color-mix(in_oklab,var(--color-border)_40%,transparent)_0.063rem,transparent_0.063rem)] bg-size-[1rem_1rem] md:bg-[radial-gradient(color-mix(in_oklab,var(--color-border)_50%,transparent)_0.078rem,transparent_0.078rem)];
   }
 }
 
