@@ -50,12 +50,12 @@ const FloatingImages = ({ thumbnails }: { thumbnails: string[] }) => {
 
   return (
     <div
-      className="bg-secondary-foreground pointer-events-none fixed top-0 left-0 z-50 aspect-video w-[clamp(200px,30vw,600px)] scale-0 overflow-hidden rounded-xs will-change-transform peer-hover:scale-100"
+      className="bg-secondary-foreground pointer-events-none fixed top-0 left-0 z-50 aspect-video w-80 scale-0 overflow-hidden rounded-xs transition-transform will-change-transform peer-hover:scale-100 md:w-lg lg:w-xl"
       id="floater"
       ref={floating}
       aria-hidden="true"
     >
-      <div className="floating-image-wrapper flex w-full shrink-0 flex-col bg-muted transition-transform duration-300 ease-in-out">
+      <div className="floating-image-wrapper flex w-full shrink-0 flex-col bg-muted transition-transform duration-300 ease-in-out will-change-transform">
         {thumbnails.map((path, index) => (
           <span
             key={`floating-child-${index}`}
