@@ -65,7 +65,7 @@ const OuterCube = ({ children }: { children: ReactNode }) => {
       }
     >
       <div className="face bg-black shadow"></div>
-      <div className="cube-wrapper transition-transform duration-300 group-hover:-translate-y-1">
+      <div className="cube-wrapper transition-transform duration-300 will-change-transform group-hover:-translate-y-1">
         <div className="face outer-face right"></div>
         <div className="face outer-face bottom"></div>
         <div className="face outer-face back"></div>
