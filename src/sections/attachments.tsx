@@ -4,10 +4,12 @@ import SectionContent from '@/components/section-content';
 import SectionHeader from '@/components/sectoin-header';
 import Wrapper from '@/components/wrapper';
 import AttachmentsData from '@/data/attachments.json';
-import { Download, Paperclip } from 'lucide-react';
+import { Download, Eye, Paperclip, SquareArrowOutUpRight } from 'lucide-react';
 
 const Icons = {
   Download,
+  Eye,
+  SquareArrowOutUpRight,
 } as const;
 
 type IconName = keyof typeof Icons;

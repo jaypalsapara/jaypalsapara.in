@@ -5,5 +5,19 @@
     "description": "You can see a summary of my career",
     "buttontext": "Download",
     "url": ""
+  },
+  {
+    "title": "Certificate",
+    "icon": "Eye",
+    "description": "You can see a summary of my career",
+    "buttontext": "View",
+    "url": ""
+  },
+  {
+    "title": "Certificate",
+    "icon": "SquareArrowOutUpRight",
+    "description": "You can see a summary of my career",
+    "buttontext": "Open",
+    "url": ""
   }
 ]
