@@ -2,6 +2,7 @@ import OverflowLine from '@/components/overflow-line';
 import Wrapper from '@/components/wrapper';
 import useMeta from '@/hooks/use-meta';
 import Achievement from '@/sections/achievement';
+import Attachments from '@/sections/attachments';
 import Experience from '@/sections/experience';
 import OverviewAbout from '@/sections/overview-about';
 
@@ -39,6 +40,8 @@ const About = () => {
       <Achievement />
       <OverflowLine />
       <Experience />
+      <OverflowLine />
+      <Attachments />
       <OverflowLine />
       <OverviewAbout />
     </>
