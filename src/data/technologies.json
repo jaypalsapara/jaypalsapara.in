@@ -111,6 +111,15 @@
       "color": "#49a6de",
       "url": "https://sqlite.org/",
       "group": "database"
+    },
+    {
+      "id": "indexeddb",
+      "name": "IndexedDB",
+      "type": "Local Database",
+      "icon": "/images/technologies/idb.svg",
+      "color": "#888888",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API",
+      "group": "database"
     }
   ],
   "cloud": [
