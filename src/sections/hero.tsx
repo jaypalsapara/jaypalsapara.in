@@ -1,6 +1,6 @@
 import Button from '@/components/button';
 import Wrapper from '@/components/wrapper';
-import { EMAIL } from '@/data/defines';
+import { EMAIL, SCHEDULE_CALL_URL } from '@/data/defines';
 import { CalendarClock } from 'lucide-react';
 import { Link } from 'react-router';
 
@@ -41,7 +41,7 @@ const HeroSection = () => {
       {/* CTA */}
       <div className="col-span-4 mt-14 lg:col-span-12">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
-          <a href="https://cal.com/jaypal-sapara?redirect=false" target="_blank" rel="noopener noreferrer">
+          <a href={SCHEDULE_CALL_URL} target="_blank" rel="noopener noreferrer">
             <Button className="w-full">Schedule a call</Button>
           </a>
           <a href={'mailto:' + EMAIL} target="_blank">
