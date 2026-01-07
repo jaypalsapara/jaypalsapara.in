@@ -73,7 +73,7 @@ const NavBar = () => {
       <MobileNavPopover />
       {/* Backdrop of navbar popovers */}
       <div
-        className="pointer-events-none fixed inset-0 z-50 bg-linear-180 from-transparent to-border/75 opacity-0 transition-opacity ease-in-out peer-open:pointer-events-auto peer-open:opacity-100 dark:bg-black/40 dark:to-background/85"
+        className="pointer-events-none fixed inset-0 z-50 bg-linear-180 from-background to-border/75 opacity-0 transition-opacity ease-in-out peer-open:pointer-events-auto peer-open:opacity-100 dark:bg-black/40 dark:to-background/85"
         id="navbar-backdrop"
       />
     </>
