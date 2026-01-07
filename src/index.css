@@ -128,10 +128,10 @@
     @apply text-lg lg:text-xl;
   }
   p {
-    @apply text-base leading-normal text-pretty;
+    @apply text-base leading-relaxed text-pretty;
   }
   small {
-    @apply text-sm leading-normal tracking-wide;
+    @apply text-sm leading-relaxed tracking-wide;
   }
 
   img {

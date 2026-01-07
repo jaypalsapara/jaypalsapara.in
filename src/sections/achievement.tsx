@@ -31,8 +31,8 @@ export default function Achievement() {
                 <div className="grid size-11 place-content-center rounded-xs bg-accent text-accent-foreground">
                   <Icon className="size-6 stroke-[1.8]" />
                 </div>
-                <div className="flex flex-col">
-                  <p className="font-medium">{achievement.title}</p>
+                <div className="flex flex-col gap-1">
+                  <p className="mt-[0.1875rem] leading-none font-medium">{achievement.title}</p>
                   <small className="text-muted-foreground">{achievement.subtitle}</small>
                 </div>
               </div>
