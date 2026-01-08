@@ -9,7 +9,7 @@ const HeroSection = () => {
     <Wrapper className="pb-14 lg:pb-18">
       {/* Heading */}
       <div className="col-span-full mt-10 lg:mt-18"></div>
-      <div className="col-span-full flex justify-end">
+      <div className="col-span-full hidden justify-end md:flex">
         <Link to={'/about'}>
           <picture className="relative overflow-hidden rounded-xs">
             {/* <span className="absolute top-0 right-0 z-10 m-2 block size-2.5 rounded-xs border-t-2 border-r-2 border-accent"></span> */}
@@ -20,7 +20,7 @@ const HeroSection = () => {
         </Link>
       </div>
       {/* Availability */}
-      <div className="invisible col-span-full mt-12 flex items-center gap-3 lg:mt-18">
+      <div className="col-span-full mt-12 hidden items-center gap-3 md:invisible md:flex lg:mt-18">
         <CalendarClock className="text-accent" />
         <p className="text-muted-foreground">
           Available from 1<sup>st</sup> December
@@ -50,6 +50,15 @@ const HeroSection = () => {
             </Button>
           </a>
         </div>
+      </div>
+      <div className="col-span-full mt-22 flex md:hidden justify-end">
+        <Link to={'/about'}>
+          <picture className="relative overflow-hidden rounded-xs">
+            {/* <span className="absolute top-0 right-0 z-10 m-2 block size-2.5 rounded-xs border-t-2 border-r-2 border-accent"></span> */}
+            <img src="images/me/me-light-cover.avif" alt="" className="aspect-video object-cover dark:hidden" />
+            <img src="images/me/me-dark-cover.avif" alt="" className="hidden aspect-video object-cover dark:block" />
+          </picture>
+        </Link>
       </div>
     </Wrapper>
   );
