@@ -22,7 +22,7 @@ const Testimonial = () => {
               className={twMerge(
                 'col-span-4 flex flex-col gap-4 rounded-xs border p-5',
                 data.is_highlight
-                  ? 'shadow-community-lg z-10 row-span-2 border-[oklch(0.2202_0_0)] bg-[oklch(0.2368_0_0)] dark:border-border dark:shadow-none!'
+                  ? 'shadow-community-lg z-10 row-span-2 border-[oklch(0.2202_0_0)] bg-[oklch(0.252_0_0)] dark:border-border dark:shadow-none!'
                   : 'shadow-xs',
               )}
             >

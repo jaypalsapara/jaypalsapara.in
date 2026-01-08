@@ -6,7 +6,7 @@ const buttonVariants = cva('cursor-pointer border-transparent transition-colors 
   variants: {
     variant: {
       default:
-        'bg-primary dark:bg-primary/7 dark:border-white/8 dark:hover:bg-primary/9 dark:text-primary text-primary-foreground hover:bg-primary/95 shadow-xs',
+        'bg-primary dark:bg-primary/8 dark:border-white/8 dark:hover:bg-primary/9 dark:text-primary text-primary-foreground hover:bg-primary/95 shadow-xs',
       secondary: 'bg-primary/8 hover:bg-primary/10 shadow-xs dark:bg-primary/6 dark:hover:bg-primary/8',
       outline: 'border-border bg-background hover:border-black/25 shadow-xs dark:hover:border-white/15',
       ghost: 'bg-transparent hover:bg-black/7 dark:hover:bg-white/7',
