@@ -51,7 +51,7 @@ const HeroSection = () => {
           </a>
         </div>
       </div>
-      <div className="col-span-full mt-22 flex md:hidden justify-end">
+      <div className="col-span-full mt-22 flex justify-end md:hidden">
         <Link to={'/about'}>
           <picture className="relative overflow-hidden rounded-xs">
             {/* <span className="absolute top-0 right-0 z-10 m-2 block size-2.5 rounded-xs border-t-2 border-r-2 border-accent"></span> */}
