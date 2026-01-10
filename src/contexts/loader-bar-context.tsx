@@ -8,7 +8,7 @@ interface LoaderBarContextProps {
 
 const LoaderBarContext = createContext<LoaderBarContextProps | undefined>(undefined);
 
-export const LoaderBarContainer = ({ children, props }: { children: ReactNode; props?: unknown }) => {
+export const LoaderBarContainer = ({ children }: { children: ReactNode }) => {
   const loaderBarRef = useRef<HTMLDivElement | null>(null);
   const loaderTimer = useRef<ReturnType<typeof setInterval> | null>(null);
   const loaderStartTimer = useRef<ReturnType<typeof setTimeout> | null>(null);

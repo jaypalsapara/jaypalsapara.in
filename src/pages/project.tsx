@@ -6,7 +6,7 @@ import { useLoaderBar } from '@/hooks/use-loader-bar';
 import useMeta from '@/hooks/use-meta';
 import { QueryClient, QueryClientProvider, useSuspenseQuery } from '@tanstack/react-query';
 import { ArrowRight } from 'lucide-react';
-import { Link, useParams } from 'react-router';
+import { useParams } from 'react-router';
 
 const queryClient = new QueryClient();
 
@@ -79,7 +79,11 @@ const Page = () => {
       <OverflowLine />
       {nextProject && (
         <div>
-          <PrefetchLink to={`/project/${nextProject.id}`} onClick={() => start()} className="pad-x flex items-center justify-between py-8 hover:bg-muted/25 lg:py-12">
+          <PrefetchLink
+            to={`/project/${nextProject.id}`}
+            onClick={() => start()}
+            className="pad-x flex items-center justify-between py-8 hover:bg-muted/25 lg:py-12"
+          >
             <h2>
               <span className="text-muted-foreground/60">Next.</span> {nextProject.name}
             </h2>
