@@ -1,15 +1,18 @@
 import Badge from '@/components/badge';
 import FooterClock from '@/components/footer-clock';
 import Jaypal from '@/components/jaypal';
+import PrefetchLink from '@/components/prefetch-link';
 import SVG from '@/components/svg';
 import Wrapper from '@/components/wrapper';
 import { EMAIL, UPWORK_URL } from '@/data/defines';
 import SocialLinks from '@/data/social-links.json';
+import { useLoaderBar } from '@/hooks/use-loader-bar';
 import '@/styles/jaypal.css';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router';
 
 export default function Footer() {
+  const { start } = useLoaderBar();
   return (
     <footer>
       <Wrapper className="pt-18">
@@ -56,27 +59,27 @@ export default function Footer() {
           <ul className="space-y-3 text-muted-foreground">
             <li className="font-medium text-foreground">Pages</li>
             <li>
-              <Link to={'/'} className="hover:text-foreground">
+              <Link to={'/'} onClick={() => start()} className="hover:text-foreground">
                 Home
               </Link>
             </li>
             <li>
-              <Link to={'/about'} className="hover:text-foreground">
+              <PrefetchLink to={'/about'} onClick={() => start()} className="hover:text-foreground">
                 About
-              </Link>
+              </PrefetchLink>
             </li>
             <li>
-              <Link to={'/works'} className="hover:text-foreground">
+              <PrefetchLink to={'/works'} onClick={() => start()} className="hover:text-foreground">
                 Works
-              </Link>
+              </PrefetchLink>
             </li>
             <li>
               Art Gallery <Badge variant="secondary" children="Soon" />
             </li>
             <li>
-              <Link to={'/changelog'} className="hover:text-foreground">
+              <PrefetchLink to={'/changelog'} onClick={() => start()} className="hover:text-foreground">
                 Changelog
-              </Link>
+              </PrefetchLink>
             </li>
             <li>
               <Link to={'/ui'} className="hover:text-foreground">
