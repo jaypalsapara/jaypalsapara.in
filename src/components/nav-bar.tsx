@@ -12,6 +12,7 @@ import Badge from './badge';
 import Button from './button';
 import Cube from './cube';
 import Popover from './popover';
+import PrefetchNavLink from './prefetch-navlink';
 
 const handleLinkClassName = ({ isActive }: NavLinkRenderProps) => [isActive ? 'text-foreground' : null, 'hover:text-foreground'].join(' ');
 const NavBar = () => {
@@ -33,14 +34,14 @@ const NavBar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={'/about'} onClick={() => start()} className={handleLinkClassName}>
+              <PrefetchNavLink to={'/about'} onClick={() => start()} className={handleLinkClassName}>
                 About
-              </NavLink>
+              </PrefetchNavLink>
             </li>
             <li>
-              <NavLink to={'/works'} onClick={() => start()} className={handleLinkClassName}>
+              <PrefetchNavLink to={'/works'} onClick={() => start()} className={handleLinkClassName}>
                 Works
-              </NavLink>
+              </PrefetchNavLink>
             </li>
             <li>
               <button
@@ -114,20 +115,20 @@ const MobileNavPopover = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to={'/about'} onClick={() => start()} className={handleLinkClassName}>
+          <PrefetchNavLink to={'/about'} onClick={() => start()} className={handleLinkClassName}>
             <div className="flex items-center justify-between pb-2 text-3xl">
               About
               <ArrowUpRight />
             </div>
-          </NavLink>
+          </PrefetchNavLink>
         </li>
         <li>
-          <NavLink to={'/works'} onClick={() => start()} className={handleLinkClassName}>
+          <PrefetchNavLink to={'/works'} onClick={() => start()} className={handleLinkClassName}>
             <div className="flex items-center justify-between pb-2 text-3xl">
               Work
               <ArrowUpRight />
             </div>
-          </NavLink>
+          </PrefetchNavLink>
         </li>
         <li>
           <button popoverTarget="product-popover" popoverTargetAction="toggle" className="flex w-full items-center justify-between pb-2 text-3xl">

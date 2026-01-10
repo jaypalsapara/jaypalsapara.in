@@ -26,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         Component: About,
+        loader: async () => {
+          new Image().src = '/images/about/img-1.avif';
+          new Image().src = '/images/about/img-2.avif';
+        },
       },
       {
         path: '/project/:id',
@@ -71,7 +75,15 @@ const router = createBrowserRouter([
           const queryClient = new QueryClient();
           await queryClient.prefetchQuery({
             queryKey: [`all-projects`],
-            queryFn: () => import(`@/data/all-projects.json`).then((res) => res.default),
+            queryFn: () =>
+              import(`@/data/all-projects.json`).then((res) => {
+                const data = res.default;
+                // Load first some images
+                if (data.length > 0) {
+                  data.slice(0, 5).forEach((item: { thumbnail: string }) => (new Image().src = item.thumbnail));
+                }
+                return data;
+              }),
           });
         },
       },

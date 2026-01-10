@@ -1,6 +1,7 @@
 import Badge from '@/components/badge';
 import FooterClock from '@/components/footer-clock';
 import Jaypal from '@/components/jaypal';
+import PrefetchLink from '@/components/prefetch-link';
 import SVG from '@/components/svg';
 import Wrapper from '@/components/wrapper';
 import { EMAIL, UPWORK_URL } from '@/data/defines';
@@ -63,22 +64,22 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link to={'/about'} onClick={() => start()} className="hover:text-foreground">
+              <PrefetchLink to={'/about'} onClick={() => start()} className="hover:text-foreground">
                 About
-              </Link>
+              </PrefetchLink>
             </li>
             <li>
-              <Link to={'/works'} onClick={() => start()} className="hover:text-foreground">
+              <PrefetchLink to={'/works'} onClick={() => start()} className="hover:text-foreground">
                 Works
-              </Link>
+              </PrefetchLink>
             </li>
             <li>
               Art Gallery <Badge variant="secondary" children="Soon" />
             </li>
             <li>
-              <Link to={'/changelog'} onClick={() => start()} className="hover:text-foreground">
+              <PrefetchLink to={'/changelog'} onClick={() => start()} className="hover:text-foreground">
                 Changelog
-              </Link>
+              </PrefetchLink>
             </li>
             <li>
               <Link to={'/ui'} className="hover:text-foreground">
