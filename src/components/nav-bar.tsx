@@ -2,10 +2,11 @@ import AppearanceToggle from '@/components/appearance-toggle';
 import { EMAIL } from '@/data/defines';
 import FeaturedProducts from '@/data/featured-product.json';
 import SocialLinks from '@/data/social-links.json';
+import { useLoaderBar } from '@/hooks/use-loader-bar';
 import type { CSSVariables } from '@/types/global';
 import { isFuture } from 'date-fns';
 import { ArrowUpRight, ChevronDown } from 'lucide-react';
-import type { ToggleEvent } from 'react';
+import { type ToggleEvent } from 'react';
 import { NavLink, type NavLinkRenderProps } from 'react-router';
 import Badge from './badge';
 import Button from './button';
@@ -14,6 +15,8 @@ import Popover from './popover';
 
 const handleLinkClassName = ({ isActive }: NavLinkRenderProps) => [isActive ? 'text-foreground' : null, 'hover:text-foreground'].join(' ');
 const NavBar = () => {
+  const { start } = useLoaderBar();
+
   return (
     <>
       <nav className="sticky top-0 z-9999999 col-span-12 flex h-16 items-center border-b bg-background">
@@ -25,17 +28,17 @@ const NavBar = () => {
           </NavLink>
           <ul className="mr-8 ml-auto hidden items-center gap-6 text-muted-foreground *:font-medium lg:flex">
             <li>
-              <NavLink to={'/'} className={handleLinkClassName}>
+              <NavLink to={'/'} onClick={() => start()} className={handleLinkClassName}>
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to={'/about'} className={handleLinkClassName}>
+              <NavLink to={'/about'} onClick={() => start()} className={handleLinkClassName}>
                 About
               </NavLink>
             </li>
             <li>
-              <NavLink to={'/works'} className={handleLinkClassName}>
+              <NavLink to={'/works'} onClick={() => start()} className={handleLinkClassName}>
                 Works
               </NavLink>
             </li>
