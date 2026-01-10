@@ -59,7 +59,7 @@
   --shadow-real:
     0 2px 2px rgba(0, 0, 0, 0.1), 0 6px 8px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(0, 0, 0, 0.1), 0 16px 18px rgba(0, 0, 0, 0.1), 0 32px 24px rgba(0, 0, 0, 0.1);
 
-  --animate-loader-bar-finish: loader-bar-finish 400ms ease-in forwards;
+  --animate-loader-bar-finish: loader-bar-finish 600ms 300ms ease-in-out forwards;
   --animate-loader-bar-start: loader-bar-start 3s ease-in forwards;
 }
 
@@ -167,7 +167,8 @@
       width: 100%;
     }
     100% {
-      transform: translateY(-200%);
+      opacity: 0;
+      /* transform: translateY(-200%); */
     }
   }
 }

@@ -89,6 +89,7 @@ export default NavBar;
  * Mobile navbar
  */
 const MobileNavPopover = () => {
+  const { start } = useLoaderBar();
   const handlePopoverToggle = (e: ToggleEvent) => {
     const ToggleButton = document.querySelector(`#mobile-nav-toggle`);
     const isOpen = e.newState === 'open';
@@ -105,7 +106,7 @@ const MobileNavPopover = () => {
       </div>
       <ul className="mt-8 flex flex-col gap-6 text-muted-foreground *:font-medium *:not-last:border-b *:*:hover:text-foreground">
         <li>
-          <NavLink to={'/'} className={handleLinkClassName}>
+          <NavLink to={'/'} onClick={() => start()} className={handleLinkClassName}>
             <div className="flex items-center justify-between pb-2 text-3xl">
               Home
               <ArrowUpRight />
@@ -113,7 +114,7 @@ const MobileNavPopover = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to={'/about'} className={handleLinkClassName}>
+          <NavLink to={'/about'} onClick={() => start()} className={handleLinkClassName}>
             <div className="flex items-center justify-between pb-2 text-3xl">
               About
               <ArrowUpRight />
@@ -121,7 +122,7 @@ const MobileNavPopover = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to={'/works'} className={handleLinkClassName}>
+          <NavLink to={'/works'} onClick={() => start()} className={handleLinkClassName}>
             <div className="flex items-center justify-between pb-2 text-3xl">
               Work
               <ArrowUpRight />
