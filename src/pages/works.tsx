@@ -1,9 +1,9 @@
+import PrefetchLink from '@/components/prefetch-link';
 import Wrapper from '@/components/wrapper';
 import { useLoaderBar } from '@/hooks/use-loader-bar';
 import useMeta from '@/hooks/use-meta';
 import { QueryClient, QueryClientProvider, useSuspenseQuery } from '@tanstack/react-query';
 import { ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router';
 
 const queryClient = new QueryClient();
 
@@ -36,7 +36,7 @@ const Page = () => {
         </p>
         <div className="col-span-full mt-14 grid gap-x-4 gap-y-12 lg:mt-18 lg:grid-cols-2">
           {data.map((project) => (
-            <Link to={`/project/${project.id}`} onClick={() => start()} className="group" key={`works-${project.id}`}>
+            <PrefetchLink to={`/project/${project.id}`} onClick={() => start()} className="group" key={`works-${project.id}`}>
               <div>
                 <picture className="grid aspect-video overflow-hidden rounded-xs">
                   <img src={project.thumbnail} alt="" className="inset-0 aspect-video object-cover transition-transform group-hover:scale-105" />
@@ -46,7 +46,7 @@ const Page = () => {
                   <ArrowUpRight />
                 </div>
               </div>
-            </Link>
+            </PrefetchLink>
           ))}
         </div>
       </Wrapper>

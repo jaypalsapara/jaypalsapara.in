@@ -1,5 +1,6 @@
 import Button from '@/components/button';
 import OverflowLine from '@/components/overflow-line';
+import PrefetchLink from '@/components/prefetch-link';
 import Wrapper from '@/components/wrapper';
 import { useLoaderBar } from '@/hooks/use-loader-bar';
 import useMeta from '@/hooks/use-meta';
@@ -78,12 +79,12 @@ const Page = () => {
       <OverflowLine />
       {nextProject && (
         <div>
-          <Link to={`/project/${nextProject.id}`} onClick={() => start()} className="pad-x flex items-center justify-between py-8 hover:bg-muted/25 lg:py-12">
+          <PrefetchLink to={`/project/${nextProject.id}`} onClick={() => start()} className="pad-x flex items-center justify-between py-8 hover:bg-muted/25 lg:py-12">
             <h2>
               <span className="text-muted-foreground/60">Next.</span> {nextProject.name}
             </h2>
             <ArrowRight className="size-6" />
-          </Link>
+          </PrefetchLink>
         </div>
       )}
     </>

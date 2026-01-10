@@ -42,7 +42,15 @@ const router = createBrowserRouter([
           await Promise.all([
             queryClient.prefetchQuery({
               queryKey: [`project_${id}`],
-              queryFn: () => import(`@/data/projects/${id}.json`).then((res) => res.default),
+              queryFn: () =>
+                import(`@/data/projects/${id}.json`).then((res) => {
+                  const data = res.default;
+                  // Load first 3 images
+                  if (data.media.length > 0) {
+                    data.media.slice(0, 3).forEach((img: { url: string }) => (new Image().src = img.url));
+                  }
+                  return data;
+                }),
             }),
             queryClient.prefetchQuery({
               queryKey: [`all-projects`],

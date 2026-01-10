@@ -2,20 +2,19 @@ import NavBar from '@/components/nav-bar';
 import OverflowLine from '@/components/overflow-line';
 import { APP_URL } from '@/constants/site';
 import { LoaderBarContainer } from '@/contexts/loader-bar-context';
-import { useLoaderBar } from '@/hooks/use-loader-bar';
 import Footer from '@/sections/footer';
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import { Outlet, useLocation } from 'react-router';
 
 const AppLayout = () => {
   const { pathname } = useLocation();
 
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   useEffect(() => {
     const mobileNav = document.querySelector(`#mobile-nav-popover`) as HTMLElement;
-    window.scrollTo({
-      top: 0,
-      behavior: 'instant', // or 'smooth' if you want animation
-    });
     // Hide mobile popover
     mobileNav?.hidePopover();
 
