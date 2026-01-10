@@ -41,7 +41,11 @@ const Testimonial = () => {
                   <small className={twMerge('text-muted-foreground', data.is_highlight ? 'text-[oklch(70.8%_0_0)]' : '')}>{data.type}</small>
                 </div>
                 <picture className="grid size-11 place-content-center overflow-hidden rounded-xs bg-muted text-muted-foreground">
-                  {data.user.avatar ? <img src={data.user.avatar} alt={data.user.avatar} className="inset-0 object-cover" /> : data.user.sort_name}
+                  {data.user.avatar ? (
+                    <img src={data.user.avatar} alt={data.user.avatar} className="inset-0 object-cover" loading="lazy" />
+                  ) : (
+                    data.user.sort_name
+                  )}
                 </picture>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import NavBar from '@/components/nav-bar';
 import OverflowLine from '@/components/overflow-line';
 import { APP_URL } from '@/constants/site';
+import { lazyImageObserver } from '@/constants/utils';
 import { LoaderBarContainer } from '@/contexts/loader-bar-context';
 import Footer from '@/sections/footer';
 import { useEffect, useLayoutEffect } from 'react';
@@ -9,12 +10,19 @@ import { Outlet, useLocation } from 'react-router';
 const AppLayout = () => {
   const { pathname } = useLocation();
 
+  /**
+   * Before paint
+   */
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  /**
+   * General
+   */
   useEffect(() => {
     const mobileNav = document.querySelector(`#mobile-nav-popover`) as HTMLElement;
+    
     // Hide mobile popover
     mobileNav?.hidePopover();
 
@@ -30,11 +38,14 @@ const AppLayout = () => {
     }
 
     canonicalLink.setAttribute('href', APP_URL + pathname);
+    const observer = lazyImageObserver();
 
     /**
      * Clean up
      */
-    return () => {};
+    return () => {
+      observer.disconnect();
+    };
   }, [pathname]);
 
   return (

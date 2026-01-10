@@ -8,6 +8,7 @@ interface CubeProps {
   variant?: VariantType;
   name: string;
   icon: string;
+  loading?: 'lazy' | 'eager';
   style?: React.CSSProperties;
   className?: string;
 }
@@ -37,14 +38,14 @@ const VariantStyle: Record<VariantType, CSSVariables> = {
   },
 };
 
-const Cube = ({ name, icon, style, variant = 'default', className }: CubeProps) => {
+const Cube = ({ name, icon, style, loading, variant = 'default', className }: CubeProps) => {
   if (variant && variant.trim() != '' && VariantStyle[variant]) {
     style = { ...VariantStyle[variant], ...style };
   }
   return (
     <div className={twMerge('cube-container', className)} data-variant={variant} style={style} title={name}>
       <OuterCube>
-        <InnerCube variant={variant} name={name} icon={icon} />
+        <InnerCube variant={variant} name={name} icon={icon} loading={loading} />
       </OuterCube>
     </div>
   );
@@ -77,7 +78,7 @@ const OuterCube = ({ children }: { children: ReactNode }) => {
   );
 };
 
-const InnerCube = ({ variant, icon, name }: { variant: VariantType; icon: string; name: string }) => {
+const InnerCube = ({ variant, icon, name, loading }: { variant: VariantType; icon: string; name: string; loading?: 'lazy' | 'eager' }) => {
   return (
     <div
       className={`face cube cube-flat-front ${variant?.trim() != '' ? `cube-${variant}` : ''}`}
@@ -94,7 +95,7 @@ const InnerCube = ({ variant, icon, name }: { variant: VariantType; icon: string
       <div className="face inner-face bottom"></div>
       <div className="face inner-face back"></div>
       <div className={`face inner-face front flex items-center justify-center`}>
-        <img src={icon} alt={name} className="h-full w-full bg-transparent object-contain" />
+        <img src={icon} alt={name} className="h-full w-full bg-transparent object-contain" loading={loading} />
       </div>
       <div className="face inner-face top"></div>
       <div className="face inner-face left"></div>

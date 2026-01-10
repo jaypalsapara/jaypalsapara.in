@@ -23,7 +23,7 @@ const Technologies = () => {
       />
 
       {/* showcase */}
-      <SectionContent className="mb-14 lg:mb-18">
+      <SectionContent className="mb-14 lg:mb-18" data-lazy-images='container'>
         <div className="pad-x">
           <div className="flex gap-4 border-b">
             {tabs.map((tab) => (
@@ -55,6 +55,7 @@ const Technologies = () => {
                         <Cube
                           name={tech.name}
                           icon={tech.icon}
+                          loading="lazy"
                           style={
                             {
                               '--cube-color': `${tech.color}`,
@@ -87,6 +88,7 @@ const Technologies = () => {
                           name={tech.name}
                           icon={tech.icon}
                           variant="thin"
+                          loading="lazy"
                           style={
                             {
                               '--cube-color': `${tech.color}`,
