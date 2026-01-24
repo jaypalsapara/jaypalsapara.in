@@ -30,12 +30,12 @@
       "group": "frontend"
     },
     {
-      "id": "js",
-      "name": "JavaScript",
-      "type": "Language",
-      "icon": "/images/technologies/js.svg",
-      "color": "#f7df1e",
-      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "id": "alpinejs",
+      "name": "AlpineJs",
+      "type": "Framework",
+      "icon": "/images/technologies/alpine-js.svg",
+      "color": "#77c1d2",
+      "url": "https://alpinejs.dev/",
       "group": "frontend"
     },
     {
@@ -45,6 +45,15 @@
       "icon": "/images/technologies/ts.svg",
       "color": "#007acc",
       "url": "https://www.typescriptlang.org/",
+      "group": "frontend"
+    },
+    {
+      "id": "js",
+      "name": "JavaScript",
+      "type": "Language",
+      "icon": "/images/technologies/js.svg",
+      "color": "#f7df1e",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
       "group": "frontend"
     },
     {
