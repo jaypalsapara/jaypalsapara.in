@@ -1,5 +1,17 @@
 [
   {
+    "datetime": "2026-01-29 17:00:00",
+    "title": "Visual of the site updated",
+    "body": [
+      "- Hero section text are changed",
+      "- Reduced padding in entire site",
+      "- Upshifted the product popover with rounded corner",
+      "- Left shifted the navbar menus",
+      "- Update the corner radius from xs to sm",
+      "- Update packages"
+    ]
+  },
+  {
     "datetime": "2026-01-10 13:40:00",
     "title": "Optimized and Improvement",
     "body": ["- Optimized site with reducing load time", "- Fixed the page change stutter"]
