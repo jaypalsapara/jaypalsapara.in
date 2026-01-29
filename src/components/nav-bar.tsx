@@ -180,7 +180,7 @@ const ProductPopover = () => {
       <div className="-mx-4 mt-6 grid lg:grid-cols-4">
         {FeaturedProducts.map((product) => (
           <a href={product.url} target="_blank" rel="noopener noreferrer" className="contents" key={`featured-product-${product.name}`}>
-            <div className="group flex flex-col rounded-xs p-4 hover:bg-muted/30 dark:hover:bg-muted/40">
+            <div className="group flex flex-col rounded-sm p-4 hover:bg-muted/30 dark:hover:bg-muted/40">
               <div className="col-span-4 flex gap-5 lg:flex-col lg:gap-y-2 xl:flex-row">
                 <Cube
                   name={product.name}
@@ -202,7 +202,7 @@ const ProductPopover = () => {
                   <small className="mt-1 line-clamp-2 text-pretty text-muted-foreground">{product.subtitle}</small>
                 </div>
               </div>
-              <picture className="mt-4 hidden overflow-hidden rounded-xs border border-border/60 lg:block">
+              <picture className="mt-4 hidden overflow-hidden rounded-sm border border-border/60 lg:block">
                 <img src={product.banner} alt="" className="aspect-4/5 w-full" />
               </picture>
             </div>

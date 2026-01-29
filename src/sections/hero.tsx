@@ -11,10 +11,10 @@ const HeroSection = () => {
       <div className="col-span-full mt-10 lg:mt-16"></div>
       <div className="col-span-full hidden justify-end md:flex">
         <Link to={'/about'}>
-          <picture className="relative overflow-hidden rounded-xs">
-            {/* <span className="absolute top-0 right-0 z-10 m-2 block size-2.5 rounded-xs border-t-2 border-r-2 border-accent"></span> */}
-            <img src="images/me/me-light-cover.avif" alt="" className="aspect-video w-40 object-cover lg:w-66 dark:hidden" />
-            <img src="images/me/me-dark-cover.avif" alt="" className="hidden aspect-video w-40 object-cover lg:w-66 dark:block" />
+          <picture className="relative overflow-hidden rounded-sm">
+            {/* <span className="absolute top-0 right-0 z-10 m-2 block size-2.5 rounded-sm border-t-2 border-r-2 border-accent"></span> */}
+            <img src="images/me/me-light-cover.avif" alt="" className="aspect-video w-40 object-cover lg:w-66 dark:hidden rounded-xs" />
+            <img src="images/me/me-dark-cover.avif" alt="" className="hidden aspect-video w-40 object-cover lg:w-66 dark:block rounded-xs" />
             <p className="mt-1.5 text-end text-sm text-muted-foreground lg:text-base">Jaypal Sapara</p>
           </picture>
         </Link>
@@ -59,10 +59,10 @@ const HeroSection = () => {
       </div>
       <div className="col-span-full mt-22 flex justify-end md:hidden">
         <Link to={'/about'}>
-          <picture className="relative overflow-hidden rounded-xs">
-            {/* <span className="absolute top-0 right-0 z-10 m-2 block size-2.5 rounded-xs border-t-2 border-r-2 border-accent"></span> */}
-            <img src="images/me/me-light-cover.avif" alt="" className="aspect-video object-cover dark:hidden" />
-            <img src="images/me/me-dark-cover.avif" alt="" className="hidden aspect-video object-cover dark:block" />
+          <picture className="relative overflow-hidden rounded-sm">
+            {/* <span className="absolute top-0 right-0 z-10 m-2 block size-2.5 rounded-sm border-t-2 border-r-2 border-accent"></span> */}
+            <img src="images/me/me-light-cover.avif" alt="" className="aspect-video object-cover dark:hidden rounded-xs" />
+            <img src="images/me/me-dark-cover.avif" alt="" className="hidden aspect-video object-cover dark:block rounded-xs" />
             <p className="mt-1.5 text-center text-sm text-muted-foreground lg:text-base">Jaypal Sapara</p>
           </picture>
         </Link>

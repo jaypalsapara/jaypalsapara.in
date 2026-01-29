@@ -2,7 +2,7 @@ import { cva } from 'class-variance-authority';
 import type { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-const badgeVariants = cva('inline-block max-w-max rounded-xs text-xs font-medium', {
+const badgeVariants = cva('inline-block max-w-max rounded-sm text-xs font-medium', {
   variants: {
     variant: {
       default: 'bg-accent-100/85 dark:bg-accent-900/28 text-accent-600',

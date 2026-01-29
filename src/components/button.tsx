@@ -2,7 +2,7 @@ import { cva } from 'class-variance-authority';
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-const buttonVariants = cva('cursor-pointer border-transparent transition-colors border inline-flex justify-center items-center gap-2 rounded-xs', {
+const buttonVariants = cva('cursor-pointer border-transparent transition-colors border inline-flex justify-center items-center gap-2 rounded-sm', {
   variants: {
     variant: {
       default:

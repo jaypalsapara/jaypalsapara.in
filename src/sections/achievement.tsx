@@ -28,7 +28,7 @@ export default function Achievement() {
             const Icon = Icons[IconName];
             return (
               <div className="col-span-3 flex gap-4" key={`achievement-${achievement.title}`} title={achievement.description}>
-                <div className="grid size-11 place-content-center rounded-xs bg-accent text-accent-foreground">
+                <div className="grid size-11 place-content-center rounded-sm bg-accent text-accent-foreground">
                   <Icon className="size-6 stroke-[1.8]" />
                 </div>
                 <div className="flex flex-col gap-1">

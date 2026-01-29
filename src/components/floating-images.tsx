@@ -50,7 +50,7 @@ const FloatingImages = ({ thumbnails }: { thumbnails: string[] }) => {
 
   return (
     <div
-      className="bg-secondary-foreground pointer-events-none fixed top-0 left-0 z-50 aspect-video w-80 scale-0 overflow-hidden rounded-xs transition-transform will-change-transform peer-hover:scale-100 md:w-lg lg:w-xl"
+      className="bg-secondary-foreground pointer-events-none fixed top-0 left-0 z-50 aspect-video w-80 scale-0 overflow-hidden rounded-sm transition-transform will-change-transform peer-hover:scale-100 md:w-lg lg:w-xl"
       id="floater"
       ref={floating}
       aria-hidden="true"

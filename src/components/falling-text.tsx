@@ -43,7 +43,7 @@ const FallingText: React.FC<FallingTextProps> = ({
       .map((word) => {
         const isHighlighted = highlightWords.some((hw) => word.startsWith(hw));
         const classes = twMerge(
-          'inline-block mx-[2px] bg-background text-base md:text-lg lg:text-xl px-2.5 py-2 border text-nowrap leading-none rounded-xs select-none',
+          'inline-block mx-[2px] bg-background text-base md:text-lg lg:text-xl px-2.5 py-2 border text-nowrap leading-none rounded-sm select-none',
           isHighlighted ? highlightClasses : '',
         );
         return `<span class="${classes}">${word}</span>`;

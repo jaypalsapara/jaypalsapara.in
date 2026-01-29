@@ -38,7 +38,7 @@ const Page = () => {
           {data.map((project) => (
             <PrefetchLink to={`/project/${project.id}`} onClick={() => start()} className="group" key={`works-${project.id}`}>
               <div>
-                <picture className="grid aspect-video overflow-hidden rounded-xs">
+                <picture className="grid aspect-video overflow-hidden rounded-sm">
                   <img src={project.thumbnail} alt="" className="inset-0 aspect-video object-cover transition-transform group-hover:scale-105" />
                 </picture>
                 <div className="mt-2 flex items-center justify-between">

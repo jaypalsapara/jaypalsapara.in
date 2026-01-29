@@ -20,7 +20,7 @@ const Testimonial = () => {
             <div
               key={`testimonial-${index}`}
               className={twMerge(
-                'col-span-4 flex flex-col gap-4 rounded-xs border p-5',
+                'col-span-4 flex flex-col gap-4 rounded-sm border p-5',
                 data.is_highlight
                   ? 'shadow-community-lg z-10 row-span-2 border-[oklch(0.2202_0_0)] bg-[oklch(0.252_0_0)] dark:border-border dark:shadow-none!'
                   : 'shadow-xs',
@@ -40,7 +40,7 @@ const Testimonial = () => {
                   <small className={twMerge('font-medium', data.is_highlight ? 'text-background dark:text-foreground' : '')}>{data.user.name}</small>
                   <small className={twMerge('text-muted-foreground', data.is_highlight ? 'text-[oklch(70.8%_0_0)]' : '')}>{data.type}</small>
                 </div>
-                <picture className="grid size-11 place-content-center overflow-hidden rounded-xs bg-muted text-muted-foreground">
+                <picture className="grid size-11 place-content-center overflow-hidden rounded-sm bg-muted text-muted-foreground">
                   {data.user.avatar ? <img src={data.user.avatar} alt={data.user.avatar} className="inset-0 object-cover" /> : data.user.sort_name}
                 </picture>
               </div>

@@ -152,18 +152,18 @@ const ColorPalette = () => {
   return (
     <ComponentContainer title="Color Palette">
       <small>Basic</small>
-      <div className="mb-2 flex flex-wrap gap-2 *:grid *:size-12 *:place-content-center *:rounded-xs *:border *:text-white">
+      <div className="mb-2 flex flex-wrap gap-2 *:grid *:size-12 *:place-content-center *:rounded-sm *:border *:text-white">
         <div className="bg-background" title="Background"></div>
         <div className="bg-foreground" title="Foreground"></div>
       </div>
       <small>Gray shades</small>
-      <div className="mb-2 flex flex-wrap gap-2 *:grid *:size-12 *:place-content-center *:rounded-xs *:border *:text-white">
+      <div className="mb-2 flex flex-wrap gap-2 *:grid *:size-12 *:place-content-center *:rounded-sm *:border *:text-white">
         <div className="bg-border" title="Border"></div>
         <div className="bg-muted" title="Muted"></div>
         <div className="bg-muted-foreground" title="Muted Foreground"></div>
       </div>
       <small>Accent</small>
-      <div className="flex flex-wrap gap-2 *:grid *:size-12 *:place-content-center *:rounded-xs *:border *:text-white">
+      <div className="flex flex-wrap gap-2 *:grid *:size-12 *:place-content-center *:rounded-sm *:border *:text-white">
         <div className="border bg-accent-50"></div>
         <div className="border bg-accent-100"></div>
         <div className="border bg-accent-200"></div>
