@@ -21,7 +21,7 @@ const NavBar = () => {
   return (
     <>
       <nav className="sticky top-0 z-9999999 col-span-12 flex h-16 items-center border-b bg-background">
-        <div className="pad-x mx-auto flex h-full w-full max-w-[1512px] items-center lg:border-x">
+        <div className="px-4 lg:px-8 mx-auto flex h-full w-full max-w-[90rem] items-center">
           <NavLink to={'/'}>
             <p className="text-xl font-bold text-accent">
               JP <span>SAPARA</span>
@@ -171,13 +171,13 @@ const ProductPopover = () => {
       className="peer max-h-max -translate-y-4 border-t-0 opacity-0 transition-all transition-discrete ease-in-out open:translate-y-0 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
       handlePopoverToggle={handlePopoverToggle}
     >
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-4">
         <p className="font-medium">Featured products</p>
         <button popoverTarget="product-popover" popoverTargetAction="hide" className="text-muted-foreground">
           Close
         </button>
       </div>
-      <div className="-mx-4 mt-6 grid gap-x-4 lg:grid-cols-4">
+      <div className="-mx-4 mt-6 grid lg:grid-cols-4">
         {FeaturedProducts.map((product) => (
           <a href={product.url} target="_blank" rel="noopener noreferrer" className="contents" key={`featured-product-${product.name}`}>
             <div className="group flex flex-col rounded-xs p-4 hover:bg-muted/30 dark:hover:bg-muted/40">

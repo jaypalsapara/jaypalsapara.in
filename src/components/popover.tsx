@@ -12,7 +12,7 @@ const Popover = ({ children, id, className, handlePopoverToggle }: PopoverProps)
   return (
     <div
       id={id}
-      className={twMerge('pad-x top-16 left-1/2 h-[calc(100dvh-4rem)] w-full max-w-[1512px] -translate-x-1/2 border bg-background py-14', className)}
+      className={twMerge('top-16 left-1/2 h-[calc(100dvh-4rem)] w-full max-w-[90rem] -translate-x-1/2 border bg-background p-4 lg:px-8 lg:py-4 ', className)}
       onBeforeToggle={handlePopoverToggle}
       popover="auto"
       ref={popoverRef}

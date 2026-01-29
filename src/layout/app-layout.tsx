@@ -41,7 +41,7 @@ const AppLayout = () => {
     <>
       <LoaderBarContainer>
         <NavBar />
-        <div className="mx-auto min-h-screen max-w-[1512px] bg-background lg:border-x">
+        <div className="mx-auto min-h-screen max-w-[90rem] bg-background lg:border-x">
           {/* Header */}
           {/* Body */}
           <Outlet />

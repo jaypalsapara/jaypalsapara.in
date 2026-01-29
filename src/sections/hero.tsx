@@ -8,30 +8,36 @@ const HeroSection = () => {
   return (
     <Wrapper className="pb-14 lg:pb-18">
       {/* Heading */}
-      <div className="col-span-full mt-10 lg:mt-18"></div>
+      <div className="col-span-full mt-10 lg:mt-16"></div>
       <div className="col-span-full hidden justify-end md:flex">
         <Link to={'/about'}>
           <picture className="relative overflow-hidden rounded-xs">
             {/* <span className="absolute top-0 right-0 z-10 m-2 block size-2.5 rounded-xs border-t-2 border-r-2 border-accent"></span> */}
             <img src="images/me/me-light-cover.avif" alt="" className="aspect-video w-36 object-cover lg:w-62 dark:hidden" />
             <img src="images/me/me-dark-cover.avif" alt="" className="hidden aspect-video w-36 object-cover lg:w-62 dark:block" />
-            <p className="mt-1.5 text-end text-sm text-muted-foreground lg:text-base">Freelancer</p>
+            <p className="mt-1.5 text-end text-sm text-muted-foreground lg:text-base">Jaypal Sapara</p>
           </picture>
         </Link>
       </div>
       {/* Availability */}
-      <div className="col-span-full mt-12 hidden items-center gap-3 md:invisible md:flex lg:mt-18">
+      <div className="col-span-full mt-12 hidden items-center gap-3 md:invisible md:flex lg:mt-16">
         <CalendarClock className="text-accent" />
         <p className="text-muted-foreground">
           Available from 1<sup>st</sup> December
         </p>
       </div>
-      <h1 className="col-span-full mt-6">
+      <h1 className="col-span-full mt-6 text-balance">
         <div className="highlight-line before:top-1.5 lg:before:top-3"></div>
-        hi, i’m Jaypal a
+        {/* V1 */}
+        {/* hi, i’m Jaypal a
         <br />
         <span className="text-accent">Full Stack</span>
-        <br className="md:hidden" /> web developer
+        <br className="md:hidden" /> web developer */}
+        {/* V2 */}
+        I’m a full-stack developer
+        <br /> <span className="text-accent">building result-driven web applications</span>
+        {/* V3 */}
+        {/* A full-stack developer <br /> <span className="text-accent">building web solutions for your vision</span> */}
       </h1>
       {/* Subtitle */}
       <p className="col-span-4 mt-6 lg:col-span-6">

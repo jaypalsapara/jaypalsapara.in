@@ -7,7 +7,7 @@
   {
     "name": "Deployment",
     "icon": "CloudUpload",
-    "description": "Deploy projects on a Linux-based server. Run it smoothly and securely in a production environment."
+    "description": "Deploy projects on a Linux-based server. Run it smoothly and securely in a production."
   },
   {
     "name": "Bug Fixing",
