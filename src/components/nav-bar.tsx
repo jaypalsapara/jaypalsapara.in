@@ -168,7 +168,7 @@ const ProductPopover = () => {
   return (
     <Popover
       id="product-popover"
-      className="peer max-h-max -translate-y-4 border-t-0 opacity-0 transition-all transition-discrete ease-in-out open:translate-y-0 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
+      className="peer max-h-max -translate-y-4 rounded-sm opacity-0 transition-all transition-discrete ease-in-out open:-translate-y-2 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
       handlePopoverToggle={handlePopoverToggle}
     >
       <div className="flex justify-between mt-4">
