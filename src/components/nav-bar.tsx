@@ -21,13 +21,13 @@ const NavBar = () => {
   return (
     <>
       <nav className="sticky top-0 z-9999999 col-span-12 flex h-16 items-center border-b bg-background">
-        <div className="px-4 lg:px-8 mx-auto flex h-full w-full max-w-[90rem] items-center gap-x-6">
+        <div className="mx-auto flex h-full w-full max-w-[90rem] items-center gap-x-6 px-4 lg:px-8">
           <NavLink to={'/'}>
             <p className="text-xl font-bold text-accent">
               JP <span>SAPARA</span>
             </p>
           </NavLink>
-          <ul className="mr-auto ms-6 hidden items-center gap-6 text-muted-foreground *:font-medium lg:flex">
+          <ul className="ms-6 mr-auto hidden items-center gap-6 text-muted-foreground *:font-medium lg:flex">
             <li>
               <NavLink to={'/'} onClick={() => start()} className={handleLinkClassName}>
                 Home
@@ -171,7 +171,7 @@ const ProductPopover = () => {
       className="peer max-h-max -translate-y-4 rounded-sm opacity-0 transition-all transition-discrete ease-in-out open:-translate-y-2 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
       handlePopoverToggle={handlePopoverToggle}
     >
-      <div className="flex justify-between mt-4">
+      <div className="mt-4 flex justify-between">
         <p className="font-medium">Featured products</p>
         <button popoverTarget="product-popover" popoverTargetAction="hide" className="text-muted-foreground">
           Close
