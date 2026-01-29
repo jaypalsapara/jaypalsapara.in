@@ -197,6 +197,11 @@
     background-color: var(--color-background);
     @apply bg-[radial-gradient(color-mix(in_oklab,var(--color-border)_30%,transparent)_0.063rem,transparent_0.063rem)] bg-size-[1rem_1rem] md:bg-[radial-gradient(color-mix(in_oklab,var(--color-border)_50%,transparent)_0.078rem,transparent_0.078rem)];
   }
+  .line-background {
+    background-image: repeating-linear-gradient(45deg, var(--color-border) 0, var(--color-border) 1px, transparent 0, transparent 50%);
+    background-size: 10px 10px;
+    background-color: var(--color-background);
+  }
 }
 
 @layer components {
