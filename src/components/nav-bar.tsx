@@ -21,13 +21,13 @@ const NavBar = () => {
   return (
     <>
       <nav className="sticky top-0 z-9999999 col-span-12 flex h-16 items-center border-b bg-background">
-        <div className="px-4 lg:px-8 mx-auto flex h-full w-full max-w-[90rem] items-center">
+        <div className="px-4 lg:px-8 mx-auto flex h-full w-full max-w-[90rem] items-center gap-x-6">
           <NavLink to={'/'}>
             <p className="text-xl font-bold text-accent">
               JP <span>SAPARA</span>
             </p>
           </NavLink>
-          <ul className="mr-8 ml-auto hidden items-center gap-6 text-muted-foreground *:font-medium lg:flex">
+          <ul className="mr-auto ms-6 hidden items-center gap-6 text-muted-foreground *:font-medium lg:flex">
             <li>
               <NavLink to={'/'} onClick={() => start()} className={handleLinkClassName}>
                 Home
@@ -54,12 +54,12 @@ const NavBar = () => {
               </button>
             </li>
           </ul>
+          <AppearanceToggle className="hidden size-7 place-content-center lg:grid" />
           <a href={'mailto:' + EMAIL} target="_blank" className="hidden lg:block">
             <Button className="font-medium" variant="outline">
               Contact me
             </Button>
           </a>
-          <AppearanceToggle className="ms-5.5 hidden size-7 place-content-center lg:grid" />
           <button
             id="mobile-nav-toggle"
             className="group relative ms-auto size-10 *:absolute *:w-[calc(100%-1rem)] *:-translate-1/2 *:border *:border-muted-foreground lg:hidden"
