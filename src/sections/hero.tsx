@@ -15,7 +15,7 @@ const HeroSection = () => {
             {/* <span className="absolute top-0 right-0 z-10 m-2 block size-2.5 rounded-sm border-t-2 border-r-2 border-accent"></span> */}
             <img src="images/me/me-light-cover.avif" alt="" className="aspect-video w-40 rounded-xs object-cover lg:w-66 dark:hidden" />
             <img src="images/me/me-dark-cover.avif" alt="" className="hidden aspect-video w-40 rounded-xs object-cover lg:w-66 dark:block" />
-            <p className="mt-1.5 text-end text-sm text-muted-foreground lg:text-base">Jaypal Sapara</p>
+            <p className="mt-0.5 text-end text-sm text-muted-foreground lg:text-base">Jaypal Sapara</p>
           </picture>
         </Link>
       </div>
@@ -63,7 +63,7 @@ const HeroSection = () => {
             {/* <span className="absolute top-0 right-0 z-10 m-2 block size-2.5 rounded-sm border-t-2 border-r-2 border-accent"></span> */}
             <img src="images/me/me-light-cover.avif" alt="" className="aspect-video rounded-xs object-cover dark:hidden" />
             <img src="images/me/me-dark-cover.avif" alt="" className="hidden aspect-video rounded-xs object-cover dark:block" />
-            <p className="mt-1.5 text-center text-sm text-muted-foreground lg:text-base">Jaypal Sapara</p>
+            <p className="mt-0.5 text-center text-sm text-muted-foreground lg:text-base">Jaypal Sapara</p>
           </picture>
         </Link>
       </div>
