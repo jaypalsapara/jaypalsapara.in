@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 
 const HeroSection = () => {
   return (
-    <Wrapper className="pb-14 lg:pb-18">
+    <Wrapper className="pb-14 lg:pb-36">
       {/* Heading */}
       <div className="col-span-full mt-10 lg:mt-16"></div>
       <div className="col-span-full hidden justify-end md:flex">
