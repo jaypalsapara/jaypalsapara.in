@@ -105,10 +105,10 @@ const MobileNavPopover = () => {
       <div className="flex">
         <AppearanceToggle className="ms-auto grid size-7 place-content-center" />
       </div>
-      <ul className="mt-8 flex flex-col gap-6 text-muted-foreground *:font-medium *:not-last:border-b *:*:hover:text-foreground">
+      <ul className="mt-8 flex flex-col gap-4 text-muted-foreground *:font-medium *:not-last:border-b *:*:hover:text-foreground">
         <li>
           <NavLink to={'/'} onClick={() => start()} className={handleLinkClassName}>
-            <div className="flex items-center justify-between pb-2 text-3xl">
+            <div className="flex items-center justify-between pb-2 text-2xl">
               Home
               <ArrowUpRight />
             </div>
@@ -116,7 +116,7 @@ const MobileNavPopover = () => {
         </li>
         <li>
           <PrefetchNavLink to={'/about'} onClick={() => start()} className={handleLinkClassName}>
-            <div className="flex items-center justify-between pb-2 text-3xl">
+            <div className="flex items-center justify-between pb-2 text-2xl">
               About
               <ArrowUpRight />
             </div>
@@ -124,14 +124,14 @@ const MobileNavPopover = () => {
         </li>
         <li>
           <PrefetchNavLink to={'/works'} onClick={() => start()} className={handleLinkClassName}>
-            <div className="flex items-center justify-between pb-2 text-3xl">
+            <div className="flex items-center justify-between pb-2 text-2xl">
               Work
               <ArrowUpRight />
             </div>
           </PrefetchNavLink>
         </li>
         <li>
-          <button popoverTarget="product-popover" popoverTargetAction="toggle" className="flex w-full items-center justify-between pb-2 text-3xl">
+          <button popoverTarget="product-popover" popoverTargetAction="toggle" className="flex w-full items-center justify-between pb-2 text-2xl">
             Products
           </button>
         </li>
