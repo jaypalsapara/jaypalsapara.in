@@ -28,6 +28,9 @@ const FeaturedProject = () => {
             className="peer floating-trigger not-first:*:border-t"
           >
             <Wrapper className="items-center py-5 lg:py-9 lg:transition-colors lg:hover:bg-muted/25">
+              <picture className="col-span-4 mb-4 block lg:hidden">
+                <img src={data.thumbnail} alt="" className="aspect-video w-full rounded-sm" />
+              </picture>
               <p className="col-span-1 hidden lg:block">{index + 1}</p>
               <h3 className="col-span-3 truncate lg:col-span-7">{data.name}</h3>
               <p className="col-span-3 hidden lg:block">{data.type}</p>
@@ -37,7 +40,7 @@ const FeaturedProject = () => {
             </Wrapper>
           </PrefetchLink>
         ))}
-        <FloatingImages thumbnails={thumbnails} />
+        {window.innerWidth >= 1024 && <FloatingImages thumbnails={thumbnails} />}
       </SectionContent>
     </>
   );
