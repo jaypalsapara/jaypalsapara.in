@@ -4,7 +4,7 @@ import Jaypal from '@/components/jaypal';
 import PrefetchLink from '@/components/prefetch-link';
 import SVG from '@/components/svg';
 import Wrapper from '@/components/wrapper';
-import { EMAIL, UPWORK_URL } from '@/data/defines';
+import { EMAIL, FIVERR_URL, UPWORK_URL } from '@/data/defines';
 import SocialLinks from '@/data/social-links.json';
 import { useLoaderBar } from '@/hooks/use-loader-bar';
 import '@/styles/jaypal.css';
@@ -34,7 +34,15 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="flex items-center justify-between border-b py-4 font-medium transition-colors hover:border-foreground hover:text-foreground lg:py-2.5"
             >
-              Hire me on upwork <ArrowUpRight />
+              Hire me on Upwork <ArrowUpRight />
+            </a>
+            <a
+              href={FIVERR_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between border-b py-4 font-medium transition-colors hover:border-foreground hover:text-foreground lg:py-2.5"
+            >
+              Hire me on Fiverr <ArrowUpRight />
             </a>
           </div>
           <div className="mt-14 -ml-1 flex flex-wrap gap-4">
