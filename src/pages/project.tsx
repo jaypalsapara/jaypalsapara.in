@@ -49,7 +49,7 @@ const Page = () => {
     <>
       <Wrapper className="pb-14 lg:pb-18">
         <h1 className="col-span-full mt-14 lg:mt-16">
-          <div className="highlight-line before:top-1.5 lg:before:top-3"></div>
+          <div className="highlight-line before:-top-0.5 lg:before:top-3"></div>
           {data.title}
         </h1>
         <p className="col-span-4 mt-10 text-muted-foreground lg:col-span-6 lg:mt-12" dangerouslySetInnerHTML={{ __html: data.description }} />

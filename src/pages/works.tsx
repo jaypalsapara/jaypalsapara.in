@@ -28,7 +28,7 @@ const Page = () => {
     <>
       <Wrapper className="pb-14 lg:pb-18">
         <h1 className="col-span-full mt-14 lg:mt-16">
-          <div className="highlight-line before:top-1.5 lg:before:top-3"></div>
+          <div className="highlight-line before:-top-0.5 lg:before:top-3"></div>
           Creating next level digital products
         </h1>
         <p className="col-span-4 mt-10 lg:col-span-5 lg:mt-12">

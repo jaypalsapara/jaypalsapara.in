@@ -113,22 +113,22 @@
   }
 
   h1 {
-    @apply text-5xl leading-[1.2] tracking-tight lg:text-6xl lg:leading-[1.25];
+    @apply text-4xl leading-[1.2] tracking-tight lg:text-6xl lg:leading-[1.25];
   }
   h2 {
-    @apply text-4xl leading-[1.15] tracking-tight lg:text-5xl lg:leading-[1.5];
+    @apply text-3xl leading-[1.15] tracking-tight lg:text-5xl lg:leading-[1.5];
   }
   h3 {
-    @apply text-3xl tracking-tight lg:text-4xl;
+    @apply text-2xl tracking-tight lg:text-4xl;
   }
   h4 {
-    @apply text-2xl lg:text-3xl;
+    @apply text-xl lg:text-3xl;
   }
   h5 {
-    @apply text-xl lg:text-2xl;
+    @apply text-lg lg:text-2xl;
   }
   h6 {
-    @apply text-lg lg:text-xl;
+    @apply text-base lg:text-xl;
   }
   p {
     @apply text-base leading-relaxed text-pretty;

@@ -12,9 +12,9 @@ const buttonVariants = cva('cursor-pointer border-transparent transition-colors 
       ghost: 'bg-transparent hover:bg-black/7 dark:hover:bg-white/7',
     },
     size: {
-      default: ' px-4 py-2 text-base lg:text-sm font-medium',
-      small: 'px-2 py-1 text-base lg:text-sm',
-      tiny: 'px-1.5 py-0.5 text-sm lg:text-xs tracking-wide',
+      default: ' px-4 py-2 h-9 text-base lg:text-sm font-medium',
+      small: 'px-2 py-1 h-8 text-base lg:text-sm',
+      tiny: 'px-1.5 py-0.5 h-7 text-sm lg:text-xs tracking-wide',
     },
   },
   defaultVariants: {

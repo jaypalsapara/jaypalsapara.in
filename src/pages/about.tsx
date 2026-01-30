@@ -12,7 +12,7 @@ const About = () => {
     <>
       <Wrapper className="pb-14 lg:pb-16">
         <h1 className="col-span-full mt-14 lg:mt-16">
-          <div className="highlight-line before:top-1.5 lg:before:top-3"></div>
+          <div className="highlight-line before:-top-0.5 lg:before:top-3"></div>
           It’s me, <span className="text-accent">Jaypal Sapara.</span> Always excited to learn new things in the computer world.
         </h1>
         <p className="col-span-4 mt-10 lg:col-span-5 lg:mt-12">

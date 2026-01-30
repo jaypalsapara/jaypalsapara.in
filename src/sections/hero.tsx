@@ -27,7 +27,7 @@ const HeroSection = () => {
         </p>
       </div>
       <h1 className="col-span-full mt-6 text-balance">
-        <div className="highlight-line before:top-1.5 lg:before:top-3"></div>
+        <div className="highlight-line before:-top-0.5 lg:before:top-3"></div>
         {/* V1 */}
         {/* hi, i’m Jaypal a
         <br />
