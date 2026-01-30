@@ -1,3 +1,4 @@
+import NDALockLabel from '@/components/nda-lock-label';
 import PrefetchLink from '@/components/prefetch-link';
 import Wrapper from '@/components/wrapper';
 import { useLoaderBar } from '@/hooks/use-loader-bar';
@@ -36,14 +37,21 @@ const Page = () => {
         </p>
         <div className="col-span-full mt-14 grid gap-x-4 gap-y-12 lg:mt-18 lg:grid-cols-2">
           {data.map((project) => (
-            <PrefetchLink to={`/project/${project.id}`} onClick={() => start()} className="group" key={`works-${project.id}`}>
+            <PrefetchLink
+              to={project.is_lock ? '' : `/project/${project.id}`}
+              interaction={!project.is_lock}
+              onClick={() => start()}
+              className={project.is_lock ? 'cursor-default' : 'group'}
+              key={`works-${project.id}`}
+            >
               <div>
-                <picture className="grid aspect-video overflow-hidden rounded-sm">
+                <picture className="relative grid aspect-video overflow-hidden rounded-sm">
+                  {project.is_lock && <NDALockLabel />}
                   <img src={project.thumbnail} alt="" className="inset-0 aspect-video object-cover transition-transform group-hover:scale-105" />
                 </picture>
                 <div className="mt-2 flex items-center justify-between">
                   <p>{project.name}</p>
-                  <ArrowUpRight />
+                  {!project.is_lock && <ArrowUpRight />}
                 </div>
               </div>
             </PrefetchLink>

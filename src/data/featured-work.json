@@ -1,32 +1,37 @@
 [
   {
+    "id": "betfqri",
+    "name": "BetFqri",
+    "type": "Full-Stack",
+    "thumbnail": "/images/projects/betfqri/thumbnail-blur.avif",
+    "is_lock": true
+  },
+  {
     "id": "ypca",
     "name": "Yellow Pages California",
     "type": "Full-Stack",
-    "thumbnail": "/images/projects/ypca/thumbnail.avif"
+    "thumbnail": "/images/projects/ypca/thumbnail.avif",
+    "is_lock": false
   },
   {
     "id": "1234-text",
     "name": "1234Text",
     "type": "Backend",
-    "thumbnail": "/images/projects/1234text/thumbnail.avif"
+    "thumbnail": "/images/projects/1234text/thumbnail.avif",
+    "is_lock": false
   },
   {
     "id": "simpsi-govern",
     "name": "Simpsi Govern",
     "type": "Full-Stack",
-    "thumbnail": "/images/projects/simpsi-govern/thumbnail.avif"
+    "thumbnail": "/images/projects/simpsi-govern/thumbnail.avif",
+    "is_lock": false
   },
   {
     "id": "convert-to-webp",
     "name": "Convert2Webp",
     "type": "Full-Stack",
-    "thumbnail": "/images/projects/convert-to-webp/thumbnail.avif"
-  },
-  {
-    "id": "js-minifier",
-    "name": "JavaScript Minifier",
-    "type": "Frontend",
-    "thumbnail": "/images/projects/javascript-minifier/thumbnail.avif"
+    "thumbnail": "/images/projects/convert-to-webp/thumbnail.avif",
+    "is_lock": false
   }
 ]

@@ -1,7 +1,13 @@
 import '@/styles/floating-images.css';
 import { useEffect, useRef } from 'react';
+import NDALockLabel from './nda-lock-label';
 
-const FloatingImages = ({ thumbnails }: { thumbnails: string[] }) => {
+export type FloatingThumbnails = {
+  path: string;
+  is_lock: boolean;
+};
+
+const FloatingImages = ({ thumbnails }: { thumbnails: FloatingThumbnails[] }) => {
   const floating = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     if (!floating.current) return;
@@ -56,13 +62,15 @@ const FloatingImages = ({ thumbnails }: { thumbnails: string[] }) => {
       aria-hidden="true"
     >
       <div className="floating-image-wrapper flex w-full shrink-0 flex-col bg-muted transition-transform duration-300 ease-in-out will-change-transform">
-        {thumbnails.map((path, index) => (
+        {thumbnails.map((thumbnail, index) => (
           <span
             key={`floating-child-${index}`}
             id={`floating-child-${index}`}
-            className={`grid aspect-video w-full shrink-0 place-content-center text-5xl text-white`}
+            className={`relative grid aspect-video w-full shrink-0 place-content-center text-5xl text-white`}
           >
-            <img src={path} alt="" className="h-full w-full object-cover" />
+            {thumbnail.is_lock && <NDALockLabel />}
+
+            <img src={thumbnail.path} alt="" className="h-full w-full object-cover" />
           </span>
         ))}
       </div>

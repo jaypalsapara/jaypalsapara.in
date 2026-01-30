@@ -43,7 +43,8 @@ const Page = () => {
     queryFn: () => import(`@/data/all-projects.json`).then((res) => res.default),
   });
 
-  const nextProject = AllProjects.at(AllProjects.findIndex((project) => project.id === id) + 1) || AllProjects.at(0);
+  const projects = AllProjects.filter((project) => !project.is_lock);
+  const nextProject = projects.at(projects.findIndex((project) => project.id === id) + 1) || projects.at(0);
 
   return (
     <>
