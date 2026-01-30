@@ -32,7 +32,7 @@ const FeaturedProject = () => {
                 <img src={data.thumbnail} alt="" className="aspect-video w-full rounded-sm" />
               </picture>
               <p className="col-span-1 hidden lg:block">{index + 1}</p>
-              <h3 className="col-span-3 truncate lg:col-span-7">{data.name}</h3>
+              <h3 className="col-span-3 text-lg tracking-normal lg:tracking-tight lg:text-4xl truncate lg:col-span-7">{data.name}</h3>
               <p className="col-span-3 hidden lg:block">{data.type}</p>
               <div className="-col-end-1 flex justify-end">
                 <ArrowUpRight />
