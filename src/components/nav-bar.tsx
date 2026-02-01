@@ -1,4 +1,5 @@
 import AppearanceToggle from '@/components/appearance-toggle';
+import { EMAIL } from '@/data/defines';
 import FeaturedProducts from '@/data/featured-product.json';
 import SocialLinks from '@/data/social-links.json';
 import { useLoaderBar } from '@/hooks/use-loader-bar';
@@ -8,6 +9,7 @@ import { ArrowUpRight, ChevronDown } from 'lucide-react';
 import { type ToggleEvent } from 'react';
 import { NavLink, type NavLinkRenderProps } from 'react-router';
 import Badge from './badge';
+import Button from './button';
 import Cube from './cube';
 import Popover from './popover';
 import PrefetchNavLink from './prefetch-navlink';
@@ -58,11 +60,11 @@ const NavBar = () => {
             </li>
           </ul>
           <AppearanceToggle className="hidden size-7 place-content-center lg:grid" />
-          {/* <a href={'mailto:' + EMAIL} target="_blank" className="hidden lg:block">
+          <a href={'mailto:' + EMAIL} target="_blank" className="hidden lg:block">
             <Button className="font-medium" variant="outline">
               Email me
             </Button>
-          </a> */}
+          </a>
           <button
             id="mobile-nav-toggle"
             className="group relative ms-auto size-10 *:absolute *:w-[calc(100%-1rem)] *:-translate-1/2 *:border *:border-muted-foreground lg:hidden"
@@ -156,11 +158,11 @@ const MobileNavPopover = () => {
             </a>
           </li>
         ))}
-        {/* <li>
+        <li className="mt-4">
           <a href={'mailto:' + EMAIL} target="_blank">
             <Button className="w-full font-medium">Email me</Button>
           </a>
-        </li> */}
+        </li>
       </ul>
     </Popover>
   );
