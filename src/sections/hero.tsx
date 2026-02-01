@@ -46,7 +46,7 @@ const HeroSection = () => {
       </p>
       {/* CTA */}
       <div className="col-span-4 mt-14 lg:col-span-12">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center">
           <a href={SCHEDULE_CALL_URL} target="_blank" rel="noopener noreferrer">
             <Button className="w-full">Schedule a call</Button>
           </a>
