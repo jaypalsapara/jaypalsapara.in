@@ -20,12 +20,12 @@ export default function Footer() {
       <Wrapper className="pt-18">
         {/* Col-1 */}
         <div className="col-span-4 lg:col-span-6">
-          <p className="max-w-sm font-medium">Let's connect and embark on an exciting web development journey together!</p>
+          <p className="max-w-sm font-medium">Let’s connect and embark on an exciting web development journey together!</p>
 
           <div className="mt-4 flex flex-wrap items-center gap-2 lg:max-w-md">
             <a href={'mailto:' + EMAIL} target="_blank" rel="noopener noreferrer">
               <Button>
-                Let's discuss <ArrowRight className="stroke-2" />
+                Let’s discuss <ArrowRight className="stroke-2" />
               </Button>
             </a>
           </div>

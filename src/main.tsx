@@ -9,6 +9,7 @@ import './index.css';
 
 const Home = lazy(() => import('@/pages/home'));
 const About = lazy(() => import('@/pages/about'));
+const Contact = lazy(() => import('@/pages/contact'));
 const Project = lazy(() => import('@/pages/project'));
 const Works = lazy(() => import('@/pages/works'));
 const Ui = lazy(() => import('@/pages/ui'));
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
           new Image().src = '/images/about/img-1.avif';
           new Image().src = '/images/about/img-2.avif';
         },
+      },
+      {
+        path: '/contact',
+        Component: Contact,
       },
       {
         path: '/project/:id',

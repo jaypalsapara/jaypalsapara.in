@@ -44,6 +44,11 @@ const NavBar = () => {
               </PrefetchNavLink>
             </li>
             <li>
+              <NavLink to={'/contact'} onClick={() => start()} className={handleLinkClassName}>
+                Contact
+              </NavLink>
+            </li>
+            <li>
               <button
                 id="product-popover-toggle"
                 popoverTarget="product-popover"
@@ -55,11 +60,11 @@ const NavBar = () => {
             </li>
           </ul>
           <AppearanceToggle className="hidden size-7 place-content-center lg:grid" />
-          <a href={'mailto:' + EMAIL} target="_blank" className="hidden lg:block">
+          {/* <a href={'mailto:' + EMAIL} target="_blank" className="hidden lg:block">
             <Button className="font-medium" variant="outline">
-              Contact me
+              Email me
             </Button>
-          </a>
+          </a> */}
           <button
             id="mobile-nav-toggle"
             className="group relative ms-auto size-10 *:absolute *:w-[calc(100%-1rem)] *:-translate-1/2 *:border *:border-muted-foreground lg:hidden"
@@ -131,6 +136,14 @@ const MobileNavPopover = () => {
           </PrefetchNavLink>
         </li>
         <li>
+          <NavLink to={'/contact'} onClick={() => start()} className={handleLinkClassName}>
+            <div className="flex items-center justify-between pb-2 text-2xl">
+              Contact
+              <ArrowUpRight />
+            </div>
+          </NavLink>
+        </li>
+        <li>
           <button popoverTarget="product-popover" popoverTargetAction="toggle" className="flex w-full items-center justify-between pb-2 text-2xl">
             Products
           </button>
@@ -145,11 +158,11 @@ const MobileNavPopover = () => {
             </a>
           </li>
         ))}
-        <li>
+        {/* <li>
           <a href={'mailto:' + EMAIL} target="_blank">
-            <Button className="w-full font-medium">Contact</Button>
+            <Button className="w-full font-medium">Email me</Button>
           </a>
-        </li>
+        </li> */}
       </ul>
     </Popover>
   );
