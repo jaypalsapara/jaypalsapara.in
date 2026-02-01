@@ -1,5 +1,4 @@
 import AppearanceToggle from '@/components/appearance-toggle';
-import { EMAIL } from '@/data/defines';
 import FeaturedProducts from '@/data/featured-product.json';
 import SocialLinks from '@/data/social-links.json';
 import { useLoaderBar } from '@/hooks/use-loader-bar';
@@ -9,7 +8,6 @@ import { ArrowUpRight, ChevronDown } from 'lucide-react';
 import { type ToggleEvent } from 'react';
 import { NavLink, type NavLinkRenderProps } from 'react-router';
 import Badge from './badge';
-import Button from './button';
 import Cube from './cube';
 import Popover from './popover';
 import PrefetchNavLink from './prefetch-navlink';
