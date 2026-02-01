@@ -1,14 +1,16 @@
 import Badge from '@/components/badge';
+import Button from '@/components/button';
+import CopyEmail from '@/components/copy-email';
 import FooterClock from '@/components/footer-clock';
 import Jaypal from '@/components/jaypal';
 import PrefetchLink from '@/components/prefetch-link';
 import SVG from '@/components/svg';
 import Wrapper from '@/components/wrapper';
-import { EMAIL, FIVERR_URL, UPWORK_URL } from '@/data/defines';
+import { EMAIL } from '@/data/defines';
 import SocialLinks from '@/data/social-links.json';
 import { useLoaderBar } from '@/hooks/use-loader-bar';
 import '@/styles/jaypal.css';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
 
 export default function Footer() {
@@ -18,33 +20,16 @@ export default function Footer() {
       <Wrapper className="pt-18">
         {/* Col-1 */}
         <div className="col-span-4 lg:col-span-6">
-          <p className="max-w-lg text-muted-foreground">Let's connect and embark on an exciting web development journey together!</p>
-          <div className="mt-4 lg:max-w-md">
-            <a
-              href={'mailto:' + EMAIL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between border-b py-4 font-medium transition-colors hover:border-foreground hover:text-foreground lg:py-2.5"
-            >
-              {EMAIL} <ArrowUpRight />
-            </a>
-            <a
-              href={UPWORK_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between border-b py-4 font-medium transition-colors hover:border-foreground hover:text-foreground lg:py-2.5"
-            >
-              Hire me on Upwork <ArrowUpRight />
-            </a>
-            <a
-              href={FIVERR_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between border-b py-4 font-medium transition-colors hover:border-foreground hover:text-foreground lg:py-2.5"
-            >
-              Hire me on Fiverr <ArrowUpRight />
+          <p className="max-w-sm font-medium">Let's connect and embark on an exciting web development journey together!</p>
+
+          <div className="mt-4 flex flex-wrap items-center gap-2 lg:max-w-md">
+            <a href={'mailto:' + EMAIL} target="_blank" rel="noopener noreferrer">
+              <Button>
+                Let's discuss <ArrowRight className="stroke-2" />
+              </Button>
             </a>
           </div>
+          <CopyEmail className="mt-5 max-w-max" />
           <div className="mt-14 -ml-1 flex flex-wrap gap-4">
             {SocialLinks.map((social) => (
               <a href={social.url} target="_blank" rel="noopener noreferrer" className="group" key={`social-${social.name}`}>
