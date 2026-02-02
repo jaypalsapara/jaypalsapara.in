@@ -40,12 +40,14 @@ const AppLayout = () => {
   return (
     <>
       <LoaderBarContainer>
-        <NavBar />
-        <div className="mx-auto min-h-screen max-w-[90rem] bg-background lg:border-x">
-          {/* Header */}
-          {/* Body */}
-          <Outlet />
-          {/* Footer */}
+        <div>
+          <NavBar />
+          <div className="mx-auto min-h-screen max-w-[90rem] bg-background lg:border-x">
+            {/* Body */}
+            <Outlet />
+          </div>
+        </div>
+        <div className="mx-auto max-w-[90rem] bg-background">
           <OverflowLine />
           <Footer />
         </div>

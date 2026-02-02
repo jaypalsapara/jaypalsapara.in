@@ -23,13 +23,13 @@ export default function Footer() {
           <p className="max-w-sm font-medium">Let’s connect and embark on an exciting web development journey together!</p>
 
           <div className="mt-4 flex flex-wrap items-center gap-2 lg:max-w-md">
-            <a href={'mailto:' + EMAIL} target="_blank" rel="noopener noreferrer" className='w-full md:w-auto'>
-              <Button className='w-full'>
+            <a href={'mailto:' + EMAIL} target="_blank" rel="noopener noreferrer" className="w-full md:w-auto">
+              <Button className="w-full">
                 Let’s discuss <ArrowRight className="stroke-2" />
               </Button>
             </a>
           </div>
-          <CopyEmail className="mt-5 max-w-max" />
+          <CopyEmail className="mt-8 max-w-max" />
           <div className="mt-14 -ml-1 flex flex-wrap gap-4">
             {SocialLinks.map((social) => (
               <a href={social.url} target="_blank" rel="noopener noreferrer" className="group" key={`social-${social.name}`}>
@@ -49,7 +49,7 @@ export default function Footer() {
         </div>
         {/* Col-2 */}
         <div className="col-span-4 mt-14 lg:col-span-2 lg:mt-0">
-          <ul className="space-y-3 text-muted-foreground">
+          <ul className="space-y-4 text-muted-foreground">
             <li className="font-medium text-foreground">Pages</li>
             <li>
               <Link to={'/'} onClick={() => start()} className="hover:text-foreground">
@@ -83,7 +83,7 @@ export default function Footer() {
         </div>
         {/* Col-3 */}
         <div className="col-span-4 mt-14 lg:col-span-2 lg:mt-0">
-          <ul className="space-y-3 text-muted-foreground">
+          <ul className="space-y-4 text-muted-foreground">
             <li className="font-medium text-foreground">Contribute</li>
             <li>
               <a
@@ -99,7 +99,7 @@ export default function Footer() {
         </div>
         {/* Col-4 */}
         <div className="col-span-4 mt-14 lg:col-span-2 lg:mt-0">
-          <ul className="space-y-3 text-muted-foreground">
+          <ul className="space-y-4 text-muted-foreground">
             <FooterClock />
           </ul>
         </div>
