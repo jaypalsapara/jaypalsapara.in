@@ -13,6 +13,7 @@ import Button from './button';
 import Cube from './cube';
 import Popover from './popover';
 import PrefetchNavLink from './prefetch-navlink';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './tabs';
 
 const handleLinkClassName = ({ isActive }: NavLinkRenderProps) => [isActive ? 'text-foreground' : null, 'hover:text-foreground'].join(' ');
 const NavBar = () => {
@@ -67,7 +68,7 @@ const NavBar = () => {
           </a>
           <button
             id="mobile-nav-toggle"
-            className="group relative ms-auto size-10 *:absolute *:w-[calc(100%-1rem)] *:-translate-1/2 *:border *:border-muted-foreground lg:hidden"
+            className="group relative ms-auto size-6 *:absolute *:w-full *:-translate-1/2 *:border *:border-muted-foreground lg:hidden"
             popoverTarget="mobile-nav-popover"
             popoverTargetAction="toggle"
             aria-label="Nav menu toggle"
@@ -107,63 +108,97 @@ const MobileNavPopover = () => {
       handlePopoverToggle={handlePopoverToggle}
       className="-translate-y-4 border-t-0 opacity-0 transition-all transition-discrete ease-in-out open:translate-y-0 open:opacity-100 max-md:border-x-0 starting:open:-translate-y-4 starting:open:opacity-0"
     >
-      <div className="flex">
-        <AppearanceToggle className="ms-auto grid size-7 place-content-center" />
-      </div>
-      <ul className="mt-8 flex flex-col gap-4 text-muted-foreground *:font-medium *:not-last:border-b *:*:hover:text-foreground">
-        <li>
-          <NavLink to={'/'} onClick={() => start()} className={handleLinkClassName}>
-            <div className="flex items-center justify-between pb-2 text-2xl">
-              Home
-              <ArrowUpRight />
-            </div>
-          </NavLink>
-        </li>
-        <li>
-          <PrefetchNavLink to={'/about'} onClick={() => start()} className={handleLinkClassName}>
-            <div className="flex items-center justify-between pb-2 text-2xl">
-              About
-              <ArrowUpRight />
-            </div>
-          </PrefetchNavLink>
-        </li>
-        <li>
-          <PrefetchNavLink to={'/works'} onClick={() => start()} className={handleLinkClassName}>
-            <div className="flex items-center justify-between pb-2 text-2xl">
-              Work
-              <ArrowUpRight />
-            </div>
-          </PrefetchNavLink>
-        </li>
-        <li>
-          <NavLink to={'/contact'} onClick={() => start()} className={handleLinkClassName}>
-            <div className="flex items-center justify-between pb-2 text-2xl">
-              Contact
-              <ArrowUpRight />
-            </div>
-          </NavLink>
-        </li>
-        <li>
-          <button popoverTarget="product-popover" popoverTargetAction="toggle" className="flex w-full items-center justify-between pb-2 text-2xl">
-            Products
-          </button>
-        </li>
-        {SocialLinks.map((link) => (
-          <li className="border-dashed" key={`nav-social-${link.name}`}>
-            <a href={link.url} target="_blank" rel="noopener noreferrer">
-              <div className="flex items-center justify-between pb-2 font-mono">
-                {link.name}
-                <ArrowUpRight />
-              </div>
-            </a>
-          </li>
-        ))}
-        <li className="mt-4">
-          <a href={'mailto:' + EMAIL} target="_blank">
-            <Button className="w-full font-medium">Email me</Button>
-          </a>
-        </li>
-      </ul>
+      <Tabs defaultValue="Menu">
+        <div className="flex items-center justify-between">
+          <TabsList className="w-full">
+            <TabsTrigger value="Menu">Menu</TabsTrigger>
+            <TabsTrigger value="Product">Product</TabsTrigger>
+          </TabsList>
+          <AppearanceToggle className="ms-4 grid place-content-center" />
+        </div>
+        <TabsContent value="Menu">
+          <ul className="mt-8 flex flex-col gap-4 text-muted-foreground *:font-medium *:not-last:border-b *:*:hover:text-foreground">
+            <li>
+              <NavLink to={'/'} onClick={() => start()} className={handleLinkClassName}>
+                <div className="flex items-center justify-between pb-2 text-2xl">
+                  Home
+                  <ArrowUpRight />
+                </div>
+              </NavLink>
+            </li>
+            <li>
+              <PrefetchNavLink to={'/about'} onClick={() => start()} className={handleLinkClassName}>
+                <div className="flex items-center justify-between pb-2 text-2xl">
+                  About
+                  <ArrowUpRight />
+                </div>
+              </PrefetchNavLink>
+            </li>
+            <li>
+              <PrefetchNavLink to={'/works'} onClick={() => start()} className={handleLinkClassName}>
+                <div className="flex items-center justify-between pb-2 text-2xl">
+                  Work
+                  <ArrowUpRight />
+                </div>
+              </PrefetchNavLink>
+            </li>
+            <li>
+              <NavLink to={'/contact'} onClick={() => start()} className={handleLinkClassName}>
+                <div className="flex items-center justify-between pb-2 text-2xl">
+                  Contact
+                  <ArrowUpRight />
+                </div>
+              </NavLink>
+            </li>
+            {SocialLinks.map((link) => (
+              <li className="border-dashed" key={`nav-social-${link.name}`}>
+                <a href={link.url} target="_blank" rel="noopener noreferrer">
+                  <div className="flex items-center justify-between pb-2 font-mono">
+                    {link.name}
+                    <ArrowUpRight />
+                  </div>
+                </a>
+              </li>
+            ))}
+            <li className="mt-4">
+              <a href={'mailto:' + EMAIL} target="_blank">
+                <Button className="w-full font-medium">Email me</Button>
+              </a>
+            </li>
+          </ul>
+        </TabsContent>
+        <TabsContent value="Product">
+          <div className="-mx-4 mt-6 grid lg:grid-cols-4">
+            {FeaturedProducts.map((product) => (
+              <a href={product.url} target="_blank" rel="noopener noreferrer" className="contents" key={`featured-product-nav-${product.name}`}>
+                <div className="group flex flex-col rounded-sm p-4 hover:bg-muted/30 dark:hover:bg-muted/40">
+                  <div className="col-span-4 flex gap-5 lg:flex-col lg:gap-y-2 xl:flex-row">
+                    <Cube
+                      name={product.name}
+                      icon={product.logo}
+                      variant="fat"
+                      style={
+                        {
+                          '--cube-color': `${product.color}`,
+                          '--cube-base': '0.9rem',
+                        } as CSSVariables
+                      }
+                      className="ms-7 mt-8.5"
+                    />
+                    <div className="flex flex-col">
+                      <div className="mt-2 flex flex-wrap items-center gap-1">
+                        <p className="line-clamp-1 font-medium">{product.name}</p>
+                        {isFuture(product.new_until) && <Badge children="New" />}
+                      </div>
+                      <small className="mt-1 line-clamp-2 text-pretty text-muted-foreground">{product.subtitle}</small>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </TabsContent>
+      </Tabs>
     </Popover>
   );
 };

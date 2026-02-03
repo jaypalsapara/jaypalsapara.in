@@ -2,18 +2,15 @@ import Cube from '@/components/cube';
 import SectionBadge from '@/components/section-badge';
 import SectionContent from '@/components/section-content';
 import SectionHeader from '@/components/sectoin-header';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/tabs';
 import Wrapper from '@/components/wrapper';
 import IntegrateData from '@/data/integration.json';
 import TechData from '@/data/technologies.json';
 import type { CSSVariables } from '@/types/global';
 import { Code2 } from 'lucide-react';
-import { Activity, useState, type ReactNode } from 'react';
-import { twMerge } from 'tailwind-merge';
-
-const tabs = ['Core', 'Add-on'];
+import { type ReactNode } from 'react';
 
 const Technologies = () => {
-  const [activeTab, setActiveTab] = useState('Core');
   return (
     <>
       <SectionBadge Icon={Code2} title="Ecosystem" />
@@ -24,86 +21,73 @@ const Technologies = () => {
 
       {/* showcase */}
       <SectionContent className="mb-14 lg:mb-18">
-        <div className="pad-x">
-          <div className="flex gap-4 border-b">
-            {tabs.map((tab) => (
-              <label
-                htmlFor=""
-                key={`tab-${tab}`}
-                className={twMerge(
-                  'border-b-2 border-b-transparent pb-4 text-muted-foreground',
-                  activeTab === tab && 'border-b-foreground font-medium text-foreground',
-                )}
-                onClick={() => setActiveTab(tab)}
-              >
-                {tab}
-              </label>
-            ))}
+        <Tabs defaultValue="Core">
+          <div className="pad-x">
+            <TabsList>
+              <TabsTrigger value="Core">Core</TabsTrigger>
+              <TabsTrigger value="Add-on">Add-on</TabsTrigger>
+            </TabsList>
           </div>
-        </div>
-
-        {/* Tech */}
-        <Activity mode={activeTab === 'Core' ? 'visible' : 'hidden'}>
-          <Wrapper className="mt-9 lg:mt-12" hidden={activeTab !== 'Core'}>
-            {Object.entries(TechData).map(([group, data]) => (
-              <Row key={`tech-group-${group}`}>
-                <GroupColumn name={group} />
-                <ItemsColumn>
-                  {data?.map((tech) => (
-                    <a href={tech.url} target="_blank" rel="noopener noreferrer" key={`technology-${tech.name}`}>
-                      <CubeWrapper>
-                        <Cube
-                          name={tech.name}
-                          icon={tech.icon}
-                          style={
-                            {
-                              '--cube-color': `${tech.color}`,
-                              '--cube-base': '0.9rem',
-                            } as CSSVariables
-                          }
-                          className="ms-4 mt-6"
-                        />
-                        <CubeDetails name={tech.name} type={tech.type} />
-                      </CubeWrapper>
-                    </a>
-                  ))}
-                </ItemsColumn>
-              </Row>
-            ))}
-          </Wrapper>
-        </Activity>
-
-        {/* Integrate */}
-        <Activity mode={activeTab === 'Add-on' ? 'visible' : 'hidden'}>
-          <Wrapper className="mt-9 lg:mt-12" hidden={activeTab !== 'Add-on'}>
-            {Object.entries(IntegrateData).map(([group, data]) => (
-              <Row key={`int-group-${group}`}>
-                <GroupColumn name={group} />
-                <ItemsColumn>
-                  {data?.map((tech) => (
-                    <a href={tech.url} target="_blank" rel="noopener noreferrer" key={`integrate-${tech.name}`}>
-                      <CubeWrapper>
-                        <Cube
-                          name={tech.name}
-                          icon={tech.icon}
-                          variant="thin"
-                          style={
-                            {
-                              '--cube-color': `${tech.color}`,
-                              '--cube-base': '0.9rem',
-                            } as CSSVariables
-                          }
-                          className="ms-4 mt-6"
-                        />
-                        <CubeDetails name={tech.name} type={tech.type} />
-                      </CubeWrapper>
-                    </a>
-                  ))}
-                </ItemsColumn>
-              </Row>
-            ))}
-          </Wrapper>
-        </Activity>
+          <TabsContent value="Core">
+            <Wrapper className="mt-9 lg:mt-12">
+              {Object.entries(TechData).map(([group, data]) => (
+                <Row key={`tech-group-${group}`}>
+                  <GroupColumn name={group} />
+                  <ItemsColumn>
+                    {data?.map((tech) => (
+                      <a href={tech.url} target="_blank" rel="noopener noreferrer" key={`technology-${tech.name}`}>
+                        <CubeWrapper>
+                          <Cube
+                            name={tech.name}
+                            icon={tech.icon}
+                            style={
+                              {
+                                '--cube-color': `${tech.color}`,
+                                '--cube-base': '0.9rem',
+                              } as CSSVariables
+                            }
+                            className="ms-4 mt-6"
+                          />
+                          <CubeDetails name={tech.name} type={tech.type} />
+                        </CubeWrapper>
+                      </a>
+                    ))}
+                  </ItemsColumn>
+                </Row>
+              ))}
+            </Wrapper>
+          </TabsContent>
+          <TabsContent value="Add-on">
+            <Wrapper className="mt-9 lg:mt-12">
+              {Object.entries(IntegrateData).map(([group, data]) => (
+                <Row key={`int-group-${group}`}>
+                  <GroupColumn name={group} />
+                  <ItemsColumn>
+                    {data?.map((tech) => (
+                      <a href={tech.url} target="_blank" rel="noopener noreferrer" key={`integrate-${tech.name}`}>
+                        <CubeWrapper>
+                          <Cube
+                            name={tech.name}
+                            icon={tech.icon}
+                            variant="thin"
+                            style={
+                              {
+                                '--cube-color': `${tech.color}`,
+                                '--cube-base': '0.9rem',
+                              } as CSSVariables
+                            }
+                            className="ms-4 mt-6"
+                          />
+                          <CubeDetails name={tech.name} type={tech.type} />
+                        </CubeWrapper>
+                      </a>
+                    ))}
+                  </ItemsColumn>
+                </Row>
+              ))}
+            </Wrapper>
+          </TabsContent>
+        </Tabs>
       </SectionContent>
     </>
   );
