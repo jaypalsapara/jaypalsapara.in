@@ -99,6 +99,8 @@
   }
 
   html {
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
     font-feature-settings:
       'ss02' 1,
       'ss05' 1,
