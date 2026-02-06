@@ -2,19 +2,10 @@ import LoadingBlock from '@/components/loading-block';
 import { initializeTheme } from '@/hooks/use-appearance';
 import AppLayout from '@/layout/app-layout';
 import { QueryClient } from '@tanstack/react-query';
-import { lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router';
+import { About, Changelog, Contact, Home, PageNotFound, Project, Ui, Works } from './constants/lazy-pages';
 import './index.css';
-
-const Home = lazy(() => import('@/pages/home'));
-const About = lazy(() => import('@/pages/about'));
-const Contact = lazy(() => import('@/pages/contact'));
-const Project = lazy(() => import('@/pages/project'));
-const Works = lazy(() => import('@/pages/works'));
-const Ui = lazy(() => import('@/pages/ui'));
-const PageNotFound = lazy(() => import('@/pages/page-not-found'));
-const Changelog = lazy(() => import(`@/pages/changelog`));
 
 const router = createBrowserRouter([
   {

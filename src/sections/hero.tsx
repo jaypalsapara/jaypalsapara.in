@@ -1,4 +1,5 @@
 import Button from '@/components/button';
+import PrefetchLink from '@/components/prefetch-link';
 import Wrapper from '@/components/wrapper';
 import { EMAIL, SCHEDULE_CALL_URL } from '@/data/defines';
 import { CalendarClock } from 'lucide-react';
@@ -10,14 +11,14 @@ const HeroSection = () => {
       {/* Heading */}
       <div className="col-span-full mt-10 lg:mt-16"></div>
       <div className="col-span-full hidden justify-end md:flex">
-        <Link to={'/about'}>
+        <PrefetchLink to={'/about'}>
           <picture className="relative overflow-hidden rounded-sm">
             {/* <span className="absolute top-0 right-0 z-10 m-2 block size-2.5 rounded-sm border-t-2 border-r-2 border-accent"></span> */}
             <img src="images/me/me-light-cover.avif" alt="" className="aspect-video w-40 rounded-xs object-cover lg:w-66 dark:hidden" />
             <img src="images/me/me-dark-cover.avif" alt="" className="hidden aspect-video w-40 rounded-xs object-cover lg:w-66 dark:block" />
             <p className="mt-0.5 text-end text-sm text-muted-foreground lg:text-base">Jaypal Sapara</p>
           </picture>
-        </Link>
+        </PrefetchLink>
       </div>
       {/* Availability */}
       <div className="col-span-full mt-12 hidden items-center gap-3 md:invisible md:flex lg:mt-16">
