@@ -112,7 +112,7 @@ const MobileNavPopover = () => {
         <div className="flex items-center justify-between">
           <TabsList className="w-full">
             <TabsTrigger value="Menu">Menu</TabsTrigger>
-            <TabsTrigger value="Product">Product</TabsTrigger>
+            <TabsTrigger value="Product">Products</TabsTrigger>
           </TabsList>
           <AppearanceToggle className="ms-4 grid place-content-center" />
         </div>
