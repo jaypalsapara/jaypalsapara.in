@@ -27,7 +27,6 @@ const ReadyToBuild = () => {
         />
       </div>
       <div className="relative grid place-content-center [grid-area:1/1]">
-        <small className="absolute right-0 m-2 hidden text-muted-foreground italic lg:block">Scroll doesn’t work inside the rectangle</small>
         <div className="text-center">
           <h2 className="font-medium">Ready to build?</h2>
           <p className="text-muted-foreground">Create the incredible with Jaypal</p>

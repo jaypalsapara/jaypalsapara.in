@@ -1,4 +1,4 @@
-import Matter from 'matter-js';
+import Matter, { type Mouse } from 'matter-js';
 import { useEffect, useRef, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
@@ -14,6 +14,10 @@ interface FallingTextProps {
   highlightClasses?: string;
   showBounds?: boolean;
   showPositions?: boolean;
+}
+
+interface ExtendedMouse extends Mouse {
+  mousewheel: EventListener;
 }
 
 const FallingText: React.FC<FallingTextProps> = ({
@@ -150,6 +154,7 @@ const FallingText: React.FC<FallingTextProps> = ({
       },
     });
     render.mouse = mouse;
+    mouse.element.removeEventListener('wheel', (mouse as ExtendedMouse).mousewheel); // Prevent from scrolling issue
 
     World.add(engine.world, [floor, leftWall, rightWall, ceiling, mouseConstraint, ...wordBodies.map((wb) => wb.body)]);
 
@@ -189,7 +194,7 @@ const FallingText: React.FC<FallingTextProps> = ({
   return (
     <div
       ref={containerRef}
-      className="relative z-[1] h-full w-full cursor-grab overflow-hidden pt-8 text-center active:cursor-grabbing"
+      className="relative z-1 h-full w-full cursor-grab overflow-hidden pt-8 text-center active:cursor-grabbing"
       onClick={trigger === 'click' ? handleTrigger : undefined}
       onMouseEnter={trigger === 'hover' ? handleTrigger : undefined}
     >
