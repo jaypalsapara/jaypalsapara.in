@@ -2,7 +2,7 @@
   {
     "datetime": "2026-02-06 13:00:00",
     "title": "Bug fixes and improvements",
-    "body": ["- Fixed scroll issue in 'ready to build' section", "- Update mobile nav menu"]
+    "body": ["- Add new overview number", "- Fixed scroll issue in 'ready to build' section", "- Update mobile nav menu"]
   },
   {
     "datetime": "2026-01-29 17:00:00",
