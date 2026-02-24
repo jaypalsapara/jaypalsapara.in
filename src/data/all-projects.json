@@ -1,5 +1,11 @@
 [
   {
+    "id": "bet-fqri",
+    "name": "Bet Fqri",
+    "type": "Full-Stack",
+    "thumbnail": "/images/projects/bet-fqri/thumbnail.avif"
+  },
+  {
     "id": "ypca",
     "name": "Yellow Pages California",
     "type": "Full-Stack",

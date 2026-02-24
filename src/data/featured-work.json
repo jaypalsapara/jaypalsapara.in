@@ -1,5 +1,11 @@
 [
   {
+    "id": "bet-fqri",
+    "name": "Bet Fqri",
+    "type": "Full-Stack",
+    "thumbnail": "/images/projects/bet-fqri/thumbnail.avif"
+  },
+  {
     "id": "ypca",
     "name": "Yellow Pages California",
     "type": "Full-Stack",
@@ -16,12 +22,6 @@
     "name": "Simpsi Govern",
     "type": "Full-Stack",
     "thumbnail": "/images/projects/simpsi-govern/thumbnail.avif"
-  },
-  {
-    "id": "convert-to-webp",
-    "name": "Convert2Webp",
-    "type": "Full-Stack",
-    "thumbnail": "/images/projects/convert-to-webp/thumbnail.avif"
   },
   {
     "id": "js-minifier",
