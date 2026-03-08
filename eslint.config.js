@@ -13,15 +13,11 @@ export default defineConfig([
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
+      reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
       eslintConfigPrettier
+
     ],
-    plugins: {
-      'react-hooks': reactHooks
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-    },
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
