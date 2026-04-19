@@ -18,4 +18,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-createRoot(document.getElementById('root')!).render(<RouterProvider router={router} />);
+const App = () => <RouterProvider router={router} />;
+
+createRoot(document.getElementById('root')!).render(<App />);
+
+export default App;
