@@ -1,6 +1,7 @@
 import Footer from '@/components/footer';
 import Header from '@/components/header';
 import NavBar from '@/components/navbar';
+import ScreenIndicator from '@/components/screen-indicator';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { Geist_Mono, Instrument_Sans } from 'next/font/google';
@@ -29,7 +30,8 @@ export default function RootLayout({
         <Header />
         <NavBar />
         {children}
-        <Footer />
+        
+        <ScreenIndicator />
       </body>
     </html>
   );
