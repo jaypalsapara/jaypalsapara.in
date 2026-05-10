@@ -7,7 +7,7 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <>
-      <main className="flex w-full flex-1 flex-col relative isolate starting:opacity-0 opacity-100 transition-opacity duration-350 delay-300 ease-in">
+      <main className="flex w-full flex-1 flex-col relative isolate">
         <div className="grid xl:grid-cols-2 py-8 px-4 absolute w-full">
           <div className="xl:col-start-2">
             <H1 className="font-bold max-w-[16ch]">Builds result-driven web & applications</H1>
