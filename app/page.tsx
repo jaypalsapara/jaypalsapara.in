@@ -7,11 +7,11 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <>
-      <main className="flex w-full flex-1 flex-col relative isolate">
+      <main className="flex w-full flex-1 flex-col relative isolate starting:opacity-0 opacity-100 transition-opacity duration-350 delay-300 ease-in">
         <div className="grid xl:grid-cols-2 py-8 px-4 absolute w-full">
           <div className="xl:col-start-2">
-            <H1 className="font-bold max-w-[16ch]">Builds result-driven web applications</H1>
-            <Button className="w-44 h-10 mt-9">
+            <H1 className="font-bold max-w-[16ch]">Builds result-driven web & applications</H1>
+            <Button className="w-44 h-10 mt-9 rounded-full">
               <ArrowRight className="size-6" strokeLinejoin="miter" strokeLinecap="square" />
             </Button>
           </div>

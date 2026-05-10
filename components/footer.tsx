@@ -43,7 +43,7 @@ export default function Footer({ navigation }: { navigation: NavLink }) {
       </div>
       <div className="bg-gray-100 grow relative">
         <div className="pt-10 px-6">
-          <Link href={navigation.path} className="text-7xl tracking-tighter font-bold top-0">
+          <Link href={navigation.path} className="text-5xl lg:text-6xl xl:text-7xl tracking-tighter font-bold top-0">
             <span className="absolute inset-0"></span>
             <span className="font-normal">Next—</span>
             {navigation.name}
