@@ -22,7 +22,7 @@ const socialLinks: ReferenceLink[] = [
 export default function Footer({ navigation }: { navigation: NavLink }) {
   return (
     <footer className="min-h-screen flex flex-col border-t">
-      <div className="px-4 py-28 grid grid-cols-2">
+      <div className="px-4 py-16 lg:py-28 grid lg:grid-cols-2 gap-y-6">
         <div>
           <H4 className="max-w-[18ch]">Reach out to connect or collaborate</H4>
           <H4 className="font-medium">
