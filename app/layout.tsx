@@ -36,7 +36,6 @@ export default function RootLayout({
         <Header />
         <NavBar />
         {children}
-
         <ScreenIndicator />
       </body>
     </html>

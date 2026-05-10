@@ -5,7 +5,7 @@ export default function H4({ children, className, ...props }: PropsWithChildren<
   return (
     <h4
       className={cn(
-        'text-balance text-2xl lg:text-[1.625rem] leading-tight xl:leading-[1.2] xl:text-3xl tracking-tighter',
+        'text-balance text-2xl lg:text-[1.625rem] leading-tight xl:leading-[1.2] xl:text-3xl tracking-tight',
         className,
       )}
       {...props}
