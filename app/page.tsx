@@ -22,7 +22,7 @@ export default function Home() {
           width={3840}
           height={2160}
           priority
-          className="-z-1 min-h-210 object-cover"
+          className="-z-1 min-h-210 object-cover w-full"
         />
       </main>
       <Footer navigation={{ name: 'About', path: '/about' }} />
