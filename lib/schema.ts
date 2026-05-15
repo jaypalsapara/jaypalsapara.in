@@ -30,10 +30,10 @@ export const experiencesToProjectsTable = sqliteTable(
   {
     experienceId: integer('experience_id')
       .notNull()
-      .references(() => experiencesTable.id),
+      .references(() => experiencesTable.id, { onDelete: 'cascade' }),
     projectId: text('project_id')
       .notNull()
-      .references(() => projectsTable.id),
+      .references(() => projectsTable.id, { onDelete: 'cascade' }),
   },
   (table) => [primaryKey({ columns: [table.experienceId, table.projectId] })],
 );
