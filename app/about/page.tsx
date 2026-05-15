@@ -84,38 +84,7 @@ export default function About() {
                   </div>
                 </div>
                 <div className="mt-5">
-                  <p className="text-lg font-semibold">Independent</p>
-                  <p className="text-xs">Freelance and partnerships</p>
-                  <p className="mt-4 text-muted-foreground text-lg tracking-tight text-pretty">
-                    For over the years I have partnered independently with teams and brands to accelerate, envision or
-                    simply help develop things like apps, websites.
-                  </p>
-                  <div className="grid grid-cols-3 gap-2 mt-10">
-                    <div className="group relative">
-                      <div className="w-full aspect-square overflow-hidden rounded-xl grid [grid-template-areas:stack] *:[grid-area:stack] isolate">
-                        <div className="bg-muted-foreground/10 py-1 px-2.5 rounded-full z-10 justify-self-end self-start mt-3 mr-3 hidden group-hover:flex">
-                          <p className="text-muted-foreground font-semibold text-[10px] uppercase">Case Study</p>
-                        </div>
-                        <Image
-                          src="/images/projects/ypca/thumbnail-square.png"
-                          alt="Hero section image"
-                          width={1560}
-                          height={1560}
-                          priority
-                          className="object-cover group-hover:scale-105 transition-transform"
-                        />
-                      </div>
-                      <div className="px-2 mt-4">
-                        <p className="text-xs font-medium">
-                          <Link href={'#'}>
-                            <span className="absolute inset-0"></span>
-                            Yellow Pages California
-                          </Link>
-                        </p>
-                        <p className="text-xs font-medium text-muted-foreground">Website</p>
-                      </div>
-                    </div>
-                  </div>
+                  <Experience />
                 </div>
               </div>
             </div>
@@ -126,3 +95,42 @@ export default function About() {
     </>
   );
 }
+
+const Experience = () => {
+  return (
+    <div>
+      <p className="text-lg font-semibold">Independent</p>
+      <p className="text-xs">Freelance and partnerships</p>
+      <p className="mt-4 text-muted-foreground text-lg tracking-tight text-pretty">
+        For over the years I have partnered independently with teams and brands to accelerate, envision or simply help
+        develop things like apps, websites.
+      </p>
+      <div className="grid grid-cols-3 gap-2 mt-10">
+        <div className="group relative">
+          <div className="w-full aspect-square overflow-hidden rounded-xl grid [grid-template-areas:stack] *:[grid-area:stack] isolate">
+            <div className="bg-muted-foreground/10 py-1 px-2.5 rounded-full z-10 justify-self-end self-start mt-3 mr-3 hidden group-hover:flex">
+              <p className="text-muted-foreground font-semibold text-[10px] uppercase">Case Study</p>
+            </div>
+            <Image
+              src="/images/projects/ypca/thumbnail-square.png"
+              alt="Hero section image"
+              width={1560}
+              height={1560}
+              priority
+              className="object-cover group-hover:scale-105 transition-transform"
+            />
+          </div>
+          <div className="px-2 mt-4">
+            <p className="text-xs font-medium">
+              <Link href={'#'}>
+                <span className="absolute inset-0"></span>
+                Yellow Pages California
+              </Link>
+            </p>
+            <p className="text-xs font-medium text-muted-foreground">Website</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

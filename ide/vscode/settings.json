@@ -1,0 +1,10 @@
+{
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 120,
+  "json.schemas": [
+    {
+      "fileMatch": ["projects.json"],
+      "url": "/json_schemas/projects.schema.json"
+    }
+  ]
+}
