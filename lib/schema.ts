@@ -10,6 +10,8 @@ export const experiencesTable = sqliteTable('experiences', {
   name: text().notNull(),
   role: text().notNull(),
   description: text().notNull(),
+  start_at: integer('start_at', { mode: 'timestamp' }).notNull(),
+  end_at: integer('end_at', { mode: 'timestamp' }),
 });
 
 /**
@@ -24,7 +26,9 @@ export const projectsTable = sqliteTable('projects', {
   category: text().notNull(),
 });
 
-// Experience to Projects pivot
+/**
+ * Pivot: Experiences to Projects
+ */
 export const experiencesToProjectsTable = sqliteTable(
   'experiences_to_projects',
   {
@@ -38,22 +42,24 @@ export const experiencesToProjectsTable = sqliteTable(
   (table) => [primaryKey({ columns: [table.experienceId, table.projectId] })],
 );
 
-// Relations many-to-many
+// Relations of experiences
 export const experienceRelations = relations(experiencesTable, ({ many }) => ({
-  experiencesToProjects: many(experiencesToProjectsTable),
+  experiencesToProjects: many(experiencesToProjectsTable), // Connect to the pivot many-to-many
 }));
 
+// Relations of projects
 export const projectsRelations = relations(projectsTable, ({ many }) => ({
-  experiencesToProjects: many(experiencesToProjectsTable),
+  experiencesToProjects: many(experiencesToProjectsTable), // Connect to the pivot many-to-many
 }));
 
+// Relations of pivot: Experiences to Projects
 export const experiencesToProjectsRelations = relations(experiencesToProjectsTable, ({ one }) => ({
   experience: one(experiencesTable, {
     fields: [experiencesToProjectsTable.experienceId],
     references: [experiencesTable.id],
-  }),
+  }), // Connect to the experiences
   project: one(projectsTable, {
     fields: [experiencesToProjectsTable.projectId],
     references: [projectsTable.id],
-  }),
+  }), // Connect to the projects
 }));

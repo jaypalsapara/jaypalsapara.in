@@ -2,10 +2,28 @@ import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import H4 from '@/components/h4';
 import P from '@/components/p';
+import ProjectSquare from '@/components/project-square';
+import { db } from '@/lib/db';
+import { ExperiencesProps, ProjectsProps } from '@/types/table';
 import Image from 'next/image';
-import Link from 'next/link';
 
-export default function About() {
+export default async function About() {
+  // Fetch experiences data with projects info
+  const experiences = (
+    await db.query.experiencesTable.findMany({
+      with: {
+        experiencesToProjects: {
+          with: {
+            project: true,
+          },
+        },
+      },
+    })
+  ).map((exp) => {
+    const { experiencesToProjects, ...rest } = exp;
+    return { ...rest, projects: experiencesToProjects.map((e) => e.project) as ProjectsProps[] };
+  });
+
   return (
     <>
       <main className="flex w-full flex-1 flex-col relative">
@@ -69,24 +87,9 @@ export default function About() {
               <H4 className="sticky top-14">Work Experience</H4>
             </div>
             <div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-4 justify-between">
-                  <Image
-                    src="/images/independent-logo.svg"
-                    alt="Hero section image"
-                    width={80}
-                    height={80}
-                    priority
-                    className="object-cover size-17 rounded-xl"
-                  />
-                  <div className="bg-secondary py-2 px-4 rounded-full">
-                    <p className="text-secondary-foreground font-semibold text-xs tracking-tight">2024 - Present</p>
-                  </div>
-                </div>
-                <div className="mt-5">
-                  <Experience />
-                </div>
-              </div>
+              {experiences.map((experience) => (
+                <Experience key={`experience-${experience.id}`} data={experience} />
+              ))}
             </div>
           </div>
         </div>
@@ -96,39 +99,32 @@ export default function About() {
   );
 }
 
-const Experience = () => {
+const Experience = ({ data }: { data: ExperiencesProps & { projects: ProjectsProps[] } }) => {
   return (
-    <div>
-      <p className="text-lg font-semibold">Independent</p>
-      <p className="text-xs">Freelance and partnerships</p>
-      <p className="mt-4 text-muted-foreground text-lg tracking-tight text-pretty">
-        For over the years I have partnered independently with teams and brands to accelerate, envision or simply help
-        develop things like apps, websites.
-      </p>
-      <div className="grid grid-cols-3 gap-2 mt-10">
-        <div className="group relative">
-          <div className="w-full aspect-square overflow-hidden rounded-xl grid [grid-template-areas:stack] *:[grid-area:stack] isolate">
-            <div className="bg-muted-foreground/10 py-1 px-2.5 rounded-full z-10 justify-self-end self-start mt-3 mr-3 hidden group-hover:flex">
-              <p className="text-muted-foreground font-semibold text-[10px] uppercase">Case Study</p>
-            </div>
-            <Image
-              src="/images/projects/ypca/thumbnail-square.png"
-              alt="Hero section image"
-              width={1560}
-              height={1560}
-              priority
-              className="object-cover group-hover:scale-105 transition-transform"
-            />
-          </div>
-          <div className="px-2 mt-4">
-            <p className="text-xs font-medium">
-              <Link href={'#'}>
-                <span className="absolute inset-0"></span>
-                Yellow Pages California
-              </Link>
-            </p>
-            <p className="text-xs font-medium text-muted-foreground">Website</p>
-          </div>
+    <div className="flex flex-col">
+      <div className="flex items-center gap-4 justify-between">
+        <Image
+          src={`/images/companies/${data.thumbnail}`}
+          alt={`${data.name} Logo`}
+          width={80}
+          height={80}
+          priority
+          className="object-cover size-17 rounded-xl"
+        />
+        <div className="bg-secondary py-2 px-4 rounded-full">
+          <p className="text-secondary-foreground font-semibold text-xs tracking-tight">
+            {data.start_at.getFullYear()} - {data.end_at ? data.end_at.getFullYear() : 'Present'}
+          </p>
+        </div>
+      </div>
+      <div className="mt-5">
+        <p className="text-lg font-semibold">{data.name}</p>
+        <p className="text-xs">{data.role}</p>
+        <p className="mt-4 text-muted-foreground text-lg tracking-tight text-pretty">{data.description}</p>
+        <div className="grid grid-cols-3 gap-2 mt-10">
+          {data.projects.map((project) => (
+            <ProjectSquare key={`project-square-${project.id}`} data={project} />
+          ))}
         </div>
       </div>
     </div>
