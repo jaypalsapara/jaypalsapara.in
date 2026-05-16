@@ -74,3 +74,17 @@ export const achievementsTable = sqliteTable('achievements', {
   subtitle: text().notNull(),
   description: text(),
 });
+
+/**
+ * Testimonial table
+ */
+export const testimonialsTable = sqliteTable('testimonials', {
+  id: int().primaryKey({ autoIncrement: true }),
+  avatar: text().notNull(),
+  name: text().notNull(),
+  subtitle: text().notNull(),
+  rating: integer().notNull(),
+  description: text().notNull(),
+  is_highlighted: integer({ mode: 'boolean' }).notNull().default(false),
+  sequence: integer().notNull(),
+});

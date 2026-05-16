@@ -1,5 +1,6 @@
 import Achievements from '@/components/blocks/achievements';
 import Info from '@/components/blocks/info';
+import Testimonial from '@/components/blocks/testimonial';
 import WorkExperience from '@/components/blocks/work-experience';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
@@ -55,6 +56,10 @@ export default async function About() {
             <Separator />
           </div>
           <Achievements />
+          <div className="px-4">
+            <Separator />
+          </div>
+          <Testimonial />
         </section>
       </main>
       <Footer navigation={{ name: 'About', path: '/about' }} />
