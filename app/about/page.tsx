@@ -1,7 +1,9 @@
+import Achievements from '@/components/blocks/achievements';
 import Info from '@/components/blocks/info';
 import WorkExperience from '@/components/blocks/work-experience';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
+import { Separator } from '@/components/ui/separator';
 import Image from 'next/image';
 
 export default async function About() {
@@ -46,9 +48,13 @@ export default async function About() {
           </div>
           <Info />
           <div className="px-4">
-            <hr />
+            <Separator />
           </div>
           <WorkExperience />
+          <div className="px-4">
+            <Separator />
+          </div>
+          <Achievements />
         </section>
       </main>
       <Footer navigation={{ name: 'About', path: '/about' }} />

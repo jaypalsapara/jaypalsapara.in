@@ -63,3 +63,14 @@ export const experiencesToProjectsRelations = relations(experiencesToProjectsTab
     references: [projectsTable.id],
   }), // Connect to the projects
 }));
+
+/**
+ * Achievements table
+ */
+export const achievementsTable = sqliteTable('achievements', {
+  id: int().primaryKey({ autoIncrement: true }),
+  thumbnail: text().notNull(),
+  name: text().notNull(),
+  subtitle: text().notNull(),
+  description: text(),
+});

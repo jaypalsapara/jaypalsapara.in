@@ -1,7 +1,7 @@
 import H4 from '@/components/h4';
 import ProjectSquare from '@/components/project-square';
 import { db } from '@/lib/db';
-import { ExperiencesProps, ProjectsProps } from '@/types/table';
+import { ExperienceProps, ProjectProps } from '@/types/table';
 import Image from 'next/image';
 
 export default async function WorkExperience() {
@@ -18,7 +18,7 @@ export default async function WorkExperience() {
     })
   ).map((exp) => {
     const { experiencesToProjects, ...rest } = exp;
-    return { ...rest, projects: experiencesToProjects.map((e) => e.project) as ProjectsProps[] };
+    return { ...rest, projects: experiencesToProjects.map((e) => e.project) as ProjectProps[] };
   });
   return (
     <div className="grid lg:grid-cols-2 px-4 py-6">
@@ -34,7 +34,7 @@ export default async function WorkExperience() {
   );
 }
 
-const Experience = ({ data }: { data: ExperiencesProps & { projects: ProjectsProps[] } }) => {
+const Experience = ({ data }: { data: ExperienceProps & { projects: ProjectProps[] } }) => {
   return (
     <div className="flex flex-col">
       <div className="flex items-center gap-4 justify-between">
@@ -43,8 +43,7 @@ const Experience = ({ data }: { data: ExperiencesProps & { projects: ProjectsPro
           alt={`${data.name} Logo`}
           width={80}
           height={80}
-          priority
-          className="object-cover size-17 rounded-xl"
+          className="object-cover size-12 lg:size-17 rounded-xl"
         />
         <div className="bg-secondary py-2 px-4 rounded-full">
           <p className="text-secondary-foreground font-semibold text-xs tracking-tight">

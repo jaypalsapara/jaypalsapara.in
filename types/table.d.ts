@@ -1,4 +1,5 @@
-import { experiencesTable, projectsTable } from '@/lib/schema';
+import { achievementsTable, experiencesTable, projectsTable } from '@/lib/schema';
 
-export type ExperiencesProps = typeof experiencesTable.$inferSelect;
-export type ProjectsProps = typeof projectsTable.$inferSelect;
+export type ExperienceProps = typeof experiencesTable.$inferSelect;
+export type ProjectProps = typeof projectsTable.$inferSelect;
+export type AchievementProps = typeof achievementsTable.$inferSelect;
