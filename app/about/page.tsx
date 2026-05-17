@@ -36,7 +36,7 @@ export default async function About() {
               width={1152}
               height={1152}
               priority
-              className="object-cover min-h-170 rounded-xl hidden lg:block"
+              className="object-cover min-h-170 rounded-xl hidden lg:block w-full"
             />
             <Image
               src="/images/me.png"
@@ -44,7 +44,7 @@ export default async function About() {
               width={1363}
               height={1363}
               priority
-              className="object-cover min-h-170 rounded-xl"
+              className="object-cover min-h-170 rounded-xl w-full"
             />
           </div>
           <Info />

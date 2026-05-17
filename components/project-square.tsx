@@ -1,8 +1,8 @@
-import { ProjectsProps } from '@/types/table';
+import { ProjectProps } from '@/types/table';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function ProjectSquare({ data }: { data: ProjectsProps }) {
+export default function ProjectSquare({ data }: { data: ProjectProps }) {
   return (
     <div className="group relative">
       <div className="w-full aspect-square overflow-hidden rounded-xl grid [grid-template-areas:stack] *:[grid-area:stack] isolate">
