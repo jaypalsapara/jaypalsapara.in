@@ -46,7 +46,6 @@ const Testimonials = async () => {
               alt={`${testimonial.name} Avatar`}
               width={48}
               height={48}
-              priority
               className="object-cover rounded-lg size-8 lg:size-10"
             />
           </div>
