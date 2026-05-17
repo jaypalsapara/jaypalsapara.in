@@ -135,3 +135,11 @@
     @apply font-sans;
   }
 }
+
+@utility optical-normal {
+  font-variation-settings: 'opsz' 14;
+}
+
+@utility optical-display {
+  font-variation-settings: 'opsz' 32;
+}
