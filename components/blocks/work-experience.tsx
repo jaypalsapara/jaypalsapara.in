@@ -25,7 +25,7 @@ export default async function WorkExperience() {
       <div>
         <H4 className="sticky top-14">Work Experience</H4>
       </div>
-      <div>
+      <div className='space-y-14'>
         {experiences.map((experience) => (
           <Experience key={`experience-${experience.id}`} data={experience} />
         ))}
@@ -36,7 +36,7 @@ export default async function WorkExperience() {
 
 const Experience = ({ data }: { data: ExperienceProps & { projects: ProjectProps[] } }) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col not-last:border-b not-last:pb-14">
       <div className="flex items-center gap-4 justify-between">
         <Image
           src={`/images/companies/${data.thumbnail}`}
