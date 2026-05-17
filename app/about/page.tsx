@@ -1,5 +1,6 @@
 import Achievements from '@/components/blocks/achievements';
 import Info from '@/components/blocks/info';
+import Technologies from '@/components/blocks/technologies';
 import Testimonial from '@/components/blocks/testimonial';
 import WorkExperience from '@/components/blocks/work-experience';
 import Footer from '@/components/footer';
@@ -56,6 +57,10 @@ export default async function About() {
             <Separator />
           </div>
           <Achievements />
+          <div className="px-4">
+            <Separator />
+          </div>
+          <Technologies />
           <div className="px-4">
             <Separator />
           </div>

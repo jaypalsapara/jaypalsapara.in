@@ -88,3 +88,31 @@ export const testimonialsTable = sqliteTable('testimonials', {
   is_highlighted: integer({ mode: 'boolean' }).notNull().default(false),
   sequence: integer().notNull(),
 });
+
+/**
+ * Technologies
+ */
+export const technologiesTable = sqliteTable('technologies', {
+  id: int().primaryKey({ autoIncrement: true }),
+  slug: text().notNull(),
+  icon: text().notNull(),
+  name: text().notNull(),
+  color: text().notNull(),
+  url: text().notNull(),
+  type: text({
+    enum: [
+      'framework',
+      'language',
+      'library',
+      'sql_database',
+      'non_sql_database',
+      'service',
+      'server',
+      'api',
+      'design',
+    ],
+  }).notNull(),
+  category: text({
+    enum: ['backend', 'frontend', 'database', 'cloud', 'tools'],
+  }).notNull(),
+});
