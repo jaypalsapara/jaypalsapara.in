@@ -12,7 +12,7 @@ export default function Testimonial() {
       <div>
         <H4 className="sticky top-14">Testimonials</H4>
       </div>
-      <div className="">
+      <div className="@container">
         <Testimonials />
       </div>
     </div>
@@ -22,7 +22,7 @@ export default function Testimonial() {
 const Testimonials = async () => {
   const testimonials: TestimonialProps[] = await db.query.testimonialsTable.findMany();
   return (
-    <div className="grid grid-cols-3 gap-x-4 gap-y-6">
+    <div className="grid @2xl:grid-cols-2 gap-x-4 gap-y-6">
       {testimonials.map((testimonial) => (
         <div
           key={`testimonial-${testimonial.id}`}
