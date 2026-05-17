@@ -20,7 +20,7 @@ const TechnologiesGrid = async () => {
   const technologies: TechnologyProps[] = await db.query.technologiesTable.findMany();
   const technologiesGroup = Object.groupBy(technologies, (tech) => tech.category) as Record<string, TechnologyProps[]>;
   return (
-    <div className="space-y-10">
+    <div className="space-y-14">
       {Object.keys(technologiesGroup).map((group) => (
         <div key={`tech-group-${group}`} className="flex flex-col gap-4">
           <div className="capitalize text-muted-foreground">{group}</div>
@@ -40,7 +40,7 @@ const TechnologiesGrid = async () => {
                   />
                 </div>
                 <div>
-                  <p className="text-sm font-medium">{tech.name}</p>
+                  <p className="text-sm lg:text-base font-medium">{tech.name}</p>
                   <p className="text-sm text-muted-foreground">{tech.type}</p>
                 </div>
               </div>
