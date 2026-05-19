@@ -25,7 +25,7 @@ export default async function WorkExperience() {
       <div>
         <H4 className="sticky top-14">Work Experience</H4>
       </div>
-      <div className='space-y-14'>
+      <div className="space-y-14">
         {experiences.map((experience) => (
           <Experience key={`experience-${experience.id}`} data={experience} />
         ))}
