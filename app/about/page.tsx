@@ -67,7 +67,7 @@ export default async function About() {
           <Testimonial />
         </section>
       </main>
-      <Footer navigation={{ name: 'About', path: '/about' }} />
+      <Footer navigation={{ name: 'Work', path: '/work' }} />
     </>
   );
 }

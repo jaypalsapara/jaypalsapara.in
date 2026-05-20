@@ -5,8 +5,8 @@ import Link from 'next/link';
 export default function ProjectSquare({ data }: { data: ProjectProps }) {
   return (
     <div className="group relative">
-      <div className="w-full aspect-square overflow-hidden rounded-xl grid [grid-template-areas:stack] *:[grid-area:stack] isolate">
-        <div className="bg-muted-foreground/10 py-1 px-2.5 rounded-full z-10 justify-self-end self-start mt-3 mr-3 hidden group-hover:flex">
+      <div className="w-full aspect-square overflow-hidden rounded-xl grid [grid-template-areas:'stack'] *:[grid-area:'stack'] isolate">
+        <div className="bg-muted-foreground/10 py-1 px-2.5 rounded-full z-10 mt-3 mr-3 hidden group-hover:flex absolute justify-self-end self-start">
           <p className="text-muted-foreground font-semibold text-[10px] uppercase">Case Study</p>
         </div>
         <Image
@@ -15,7 +15,7 @@ export default function ProjectSquare({ data }: { data: ProjectProps }) {
           width={1560}
           height={1560}
           priority
-          className="object-cover group-hover:scale-105 transition-transform"
+          className="object-cover group-hover:scale-105 transition-transform size-full"
         />
       </div>
       <div className="px-2 mt-4">
