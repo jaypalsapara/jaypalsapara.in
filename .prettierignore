@@ -2,3 +2,5 @@
 build
 coverage
 components/ui
+database
+node_modules
