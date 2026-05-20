@@ -15,7 +15,7 @@ export default function ProjectSquare({ data }: { data: ProjectProps }) {
           width={1560}
           height={1560}
           priority
-          className="object-cover group-hover:scale-105 transition-transform size-full"
+          className="object-cover group-hover:scale-105 transition-transform size-full ease-in-out duration-300"
         />
       </div>
       <div className="px-2 mt-4">
