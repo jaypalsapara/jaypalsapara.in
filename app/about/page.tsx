@@ -60,10 +60,6 @@ export default async function About() {
           <div className="px-4">
             <Separator />
           </div>
-          <Technologies />
-          <div className="px-4">
-            <Separator />
-          </div>
           <Testimonial />
         </section>
       </main>

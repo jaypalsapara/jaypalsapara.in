@@ -27,7 +27,7 @@ export default function Service() {
           <Services />
         </section>
       </main>
-      <Footer navigation={{ name: 'Home', path: '/home' }} />
+      <Footer navigation={{ name: 'Feed', path: '/feed' }} />
     </>
   );
 }

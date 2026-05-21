@@ -12,6 +12,10 @@ const pages: NavLink[] = [
     path: '/',
   },
   {
+    name: 'Feed',
+    path: '/feed',
+  },
+  {
     name: 'About',
     path: '/about',
   },
