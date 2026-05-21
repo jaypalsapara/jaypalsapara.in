@@ -22,7 +22,7 @@ export default function Testimonial() {
 const Testimonials = async () => {
   const testimonials: TestimonialProps[] = await db.query.testimonialsTable.findMany();
   return (
-    <div className="grid @2xl:grid-cols-2 gap-x-4 gap-y-6">
+    <div className="grid @2xl:grid-cols-2 gap-x-4 gap-y-2">
       {testimonials.map((testimonial) => (
         <div
           key={`testimonial-${testimonial.id}`}
