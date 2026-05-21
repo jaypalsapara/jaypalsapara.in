@@ -29,7 +29,7 @@ export default function Work() {
           <RecentWork />
         </section>
       </main>
-      <Footer navigation={{ name: 'Services', path: '/about' }} />
+      <Footer navigation={{ name: 'Service', path: '/service' }} />
     </>
   );
 }

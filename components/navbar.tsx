@@ -19,6 +19,10 @@ const pages: NavLink[] = [
     name: 'Work',
     path: '/work',
   },
+  {
+    name: 'Service',
+    path: '/service',
+  },
 ];
 
 export default function NavBar() {
