@@ -30,7 +30,7 @@ const ListOfServices = async () => {
       {technologies.map((tech) => (
         <div
           key={`technology-${tech.id}`}
-          className="grid grid-cols-subgrid col-span-full [counter-increment:index] before:content-[counter(index)] before:col-span-3 relative has-[a]:hover:bg-muted before:text-end before:self-start before:max-w-[2ch] px-2 transition-colors will-change-['background-color'] group"
+          className="grid grid-cols-subgrid col-span-full [counter-increment:index] before:content-[counter(index)] before:col-span-3 relative has-[a]:hover:bg-muted/50 before:text-end before:self-start before:max-w-[2ch] px-2 transition-colors will-change-['background-color'] group before:text-sm"
         >
           <p className="text-sm text-muted-foreground col-span-3">{tech.type}</p>
           <div className="col-span-6 flex items-center justify-between">
