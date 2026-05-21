@@ -7,9 +7,9 @@ import H1 from '../h1';
 
 export default function Services() {
   return (
-    <div className="grid lg:grid-cols-2 pt-8 pb-16 lg:pb-24 px-4 w-full">
+    <div className="grid lg:grid-cols-2 pt-8 px-4 w-full">
       <div className="lg:col-start-2">
-        <H1 className="font-bold">Technologies</H1>
+        <H1 className="font-bold">All tech</H1>
       </div>
       <div className="col-span-full mt-10">
         <ListOfServices />
