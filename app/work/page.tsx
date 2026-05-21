@@ -1,4 +1,5 @@
 import CaseStudies from '@/components/blocks/case-studies';
+import RecentWork from '@/components/blocks/recent-work';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import { IdeaText } from '@/components/idea-text';
@@ -23,6 +24,9 @@ export default function Work() {
         </section>
         <section className="flex flex-col">
           <CaseStudies />
+        </section>
+        <section className="flex flex-col">
+          <RecentWork />
         </section>
       </main>
       <Footer navigation={{ name: 'Services', path: '/about' }} />
