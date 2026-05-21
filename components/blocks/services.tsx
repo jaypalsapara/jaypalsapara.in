@@ -1,4 +1,5 @@
 import { db } from '@/lib/db';
+import { keyLabel } from '@/lib/key-labels';
 import { technologiesTable } from '@/lib/schema';
 import { TechnologyProps } from '@/types/table';
 import { ArrowRight } from 'lucide-react';
@@ -32,7 +33,7 @@ const ListOfServices = async () => {
           key={`technology-${tech.id}`}
           className="grid grid-cols-subgrid col-span-full [counter-increment:index] before:content-[counter(index)]  relative has-[a]:hover:bg-muted/50 before:text-end before:self-start before:max-w-[2ch] px-2 transition-colors will-change-['background-color'] group before:text-sm before:col-span-2 md:before:col-span-3"
         >
-          <p className="text-sm text-muted-foreground col-span-4 md:col-span-3">{tech.type}</p>
+          <p className="text-sm text-muted-foreground col-span-4 md:col-span-3">{keyLabel[tech.type] || tech.type}</p>
           <div className="col-span-6 flex items-center justify-between">
             <div className="flex items-center">
               <Image
@@ -42,7 +43,7 @@ const ListOfServices = async () => {
                 height={48}
                 className="object-contain opacity-0 group-hover:opacity-100 transition-all size-4 shrink-0 absolute  -translate-x-[calc(100%+0.9rem)] duration-300 ease-in-out group-hover:-translate-x-[calc(100%+0.6rem)]"
               />
-              <p className="text-sm font-medium ">
+              <p className="text-sm font-medium">
                 <a href={tech.url} target="_blank" rel="noopener noreferrer">
                   <span className="absolute inset-0"></span>
                   {tech.name}

@@ -1,0 +1,13 @@
+export const keyLabel = {
+  framework: 'Framework',
+  language: 'Language',
+  library: 'Library',
+  sql_database: 'SQL Database',
+  non_sql_database: 'Non-SQL Database',
+  local_database: 'Local Database',
+  service: 'Service',
+  server: 'Server',
+  version_control: 'Version Control',
+  api: 'API',
+  design: 'Design',
+} as const;
