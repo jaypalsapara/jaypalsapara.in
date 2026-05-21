@@ -23,16 +23,16 @@ const ListOfServices = async () => {
   return (
     <div className="grid grid-cols-12 [counter-reset:index] divide-y *:py-2 *:items-center">
       <div className="grid grid-cols-subgrid col-span-full font-medium text-xs px-2">
-        <p className="col-span-3 text-end self-start max-w-[3ch]">#</p>
-        <p className="col-span-3">Type</p>
+        <p className="col-span-2 md:col-span-3 text-end self-start max-w-[3ch]">#</p>
+        <p className="col-span-4 md:col-span-3">Type</p>
         <p className="col-span-6">Title</p>
       </div>
       {technologies.map((tech) => (
         <div
           key={`technology-${tech.id}`}
-          className="grid grid-cols-subgrid col-span-full [counter-increment:index] before:content-[counter(index)] before:col-span-3 relative has-[a]:hover:bg-muted/50 before:text-end before:self-start before:max-w-[2ch] px-2 transition-colors will-change-['background-color'] group before:text-sm"
+          className="grid grid-cols-subgrid col-span-full [counter-increment:index] before:content-[counter(index)]  relative has-[a]:hover:bg-muted/50 before:text-end before:self-start before:max-w-[2ch] px-2 transition-colors will-change-['background-color'] group before:text-sm before:col-span-2 md:before:col-span-3"
         >
-          <p className="text-sm text-muted-foreground col-span-3">{tech.type}</p>
+          <p className="text-sm text-muted-foreground col-span-4 md:col-span-3">{tech.type}</p>
           <div className="col-span-6 flex items-center justify-between">
             <div className="flex items-center">
               <Image
