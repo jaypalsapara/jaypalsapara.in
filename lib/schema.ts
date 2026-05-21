@@ -18,7 +18,8 @@ export const experiencesTable = sqliteTable('experiences', {
  * Projects table
  */
 export const projectsTable = sqliteTable('projects', {
-  id: text().primaryKey(),
+  id: int().primaryKey({ autoIncrement: true }),
+  slug: text().notNull(),
   thumbnail: text().notNull(),
   cover: text().notNull(),
   name: text().notNull(),
@@ -39,7 +40,7 @@ export const experiencesToProjectsTable = sqliteTable(
     experienceId: integer('experience_id')
       .notNull()
       .references(() => experiencesTable.id, { onDelete: 'cascade' }),
-    projectId: text('project_id')
+    projectId: integer('project_id')
       .notNull()
       .references(() => projectsTable.id, { onDelete: 'cascade' }),
   },

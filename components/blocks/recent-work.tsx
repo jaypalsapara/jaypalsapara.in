@@ -12,13 +12,13 @@ export default function RecentWork() {
         <H3 className="font-bold">Recent work</H3>
       </div>
       <div className="col-span-full mt-8">
-        <CaseStudiesProjects />
+        <ProjectsShowcase />
       </div>
     </div>
   );
 }
 
-const CaseStudiesProjects = async () => {
+const ProjectsShowcase = async () => {
   const projects: ProjectProps[] = await db
     .select()
     .from(projectsTable)

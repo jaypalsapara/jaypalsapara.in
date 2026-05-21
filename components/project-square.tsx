@@ -10,7 +10,7 @@ export default function ProjectSquare({ data }: { data: ProjectProps }) {
           <p className="text-muted-foreground font-semibold text-[10px] uppercase">Case Study</p>
         </div>
         <Image
-          src={`/images/projects/${data.id}/${data.thumbnail}`}
+          src={`/images/projects/${data.slug}/${data.thumbnail}`}
           alt={`${data.name} Thumbnail`}
           width={1560}
           height={1560}

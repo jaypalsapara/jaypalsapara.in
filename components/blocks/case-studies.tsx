@@ -12,13 +12,13 @@ export default function CaseStudies() {
         <H1 className="font-bold">Case studies</H1>
       </div>
       <div className="col-span-full mt-10">
-        <CaseStudiesProjects />
+        <ProjectsShowcase />
       </div>
     </div>
   );
 }
 
-const CaseStudiesProjects = async () => {
+const ProjectsShowcase = async () => {
   const projects: ProjectProps[] = await db
     .select()
     .from(projectsTable)
