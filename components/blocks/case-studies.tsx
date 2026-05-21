@@ -25,7 +25,7 @@ const ProjectsShowcase = async () => {
     .where(eq(projectsTable.as, 'case_study'))
     .orderBy(sql`sequence asc`);
   return (
-    <div className="grid grid-cols-2 gap-1">
+    <div className="grid md:grid-cols-2 gap-x-1 gap-y-8 sm:gap-y-12">
       {projects.map((project) => (
         <ProjectSquare key={`project-${project.id}`} data={project} />
       ))}
