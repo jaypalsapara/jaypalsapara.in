@@ -120,7 +120,7 @@ export const technologiesTable = sqliteTable('technologies', {
     ],
   }).notNull(),
   category: text({
-    enum: ['backend', 'frontend', 'database', 'cloud', 'tools'],
+    enum: ['backend', 'frontend', 'database', 'cloud', 'tool'],
   }).notNull(),
 });
 
