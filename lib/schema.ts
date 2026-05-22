@@ -123,3 +123,14 @@ export const technologiesTable = sqliteTable('technologies', {
     enum: ['backend', 'frontend', 'database', 'cloud', 'tools'],
   }).notNull(),
 });
+
+/**
+ * ability
+ */
+export const abilitiesTable = sqliteTable('abilities', {
+  id: int().primaryKey({ autoIncrement: true }),
+  icon: text().notNull(),
+  name: text().notNull(),
+  description: text().notNull(),
+  sequence: integer().notNull(),
+});
