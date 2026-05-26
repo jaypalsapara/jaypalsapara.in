@@ -1,6 +1,5 @@
 import Achievements from '@/components/blocks/achievements';
 import Info from '@/components/blocks/info';
-import Technologies from '@/components/blocks/technologies';
 import Testimonial from '@/components/blocks/testimonial';
 import WorkExperience from '@/components/blocks/work-experience';
 import Footer from '@/components/footer';
@@ -17,14 +16,16 @@ export default async function About() {
             <H1 className="font-bold">
               <span className="text-muted-foreground/50">Jaypal is a</span> developer,{' '}
               <span className="text-muted-foreground/50">based in</span>{' '}
-              <Image
-                src="/images/gujarat.png"
-                alt="Hero section image"
-                width={558}
-                height={447}
-                priority
-                className="object-contain h-14 lg:h-17 xl:h-18 w-max inline -mx-2.5"
-              />{' '}
+              <div className="inline-flex relative w-17 lg:w-21 xl:w-23 min-h-0 items-center -mx-2">
+                <Image
+                  src="/images/gujarat.png"
+                  alt="Hero section image"
+                  width={558}
+                  height={447}
+                  priority
+                  className="object-contain w-full inline absolute -bottom-3.5 lg:-bottom-4"
+                />
+              </div>{' '}
               Gujarat<span className="ms-1.5">,</span> <span className="text-muted-foreground/50">India.</span>
             </H1>
           </div>
