@@ -28,7 +28,7 @@ export const projectsTable = sqliteTable('projects', {
   as: text({ enum: ['case_study', 'personal', 'recent'] })
     .default('recent')
     .notNull(),
-  sequence: integer(),
+  sequence: integer().notNull(),
 });
 
 /**

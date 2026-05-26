@@ -20,7 +20,7 @@ export default function ProjectSquare({ data }: { data: ProjectProps }) {
       </div>
       <div className="px-2 mt-4">
         <p className="text-xs font-medium">
-          <Link href={'#'}>
+          <Link href={`/work/${data.slug}`}>
             <span className="absolute inset-0"></span>
             {data.name}
           </Link>
