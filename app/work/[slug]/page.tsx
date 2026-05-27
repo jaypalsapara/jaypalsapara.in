@@ -43,9 +43,23 @@ export default async function page({ params }: { params: Promise<{ slug: string 
             className="aspect-video object-cover rounded-xl"
           />
         </section>
-        <section className="grid lg:grid-cols-2 pt-22 px-4 w-full">
-          <div className="lg:col-start-2">
-            <P>{project.description}</P>
+        <section className="grid lg:grid-cols-2 py-22 px-4 w-full">
+          <div className="lg:col-start-2 space-y-6">
+            {project.description.split('\n').map((paragraph, index) => (
+              <P key={`project-${project.id}-description-paragraph-${index}`} className="text-xl xl:text-3xl">
+                {paragraph}
+              </P>
+            ))}
+          </div>
+          <div className="lg:col-start-2 space-y-4 mt-12">
+            {project.subordinate.split('\n').map((paragraph, index) => (
+              <P
+                key={`project-${project.id}-subordinate-paragraph-${index}`}
+                className="text-xs lg:text-sm xl:text-sm text-muted-foreground max-w-[50ch]"
+              >
+                {paragraph}
+              </P>
+            ))}
           </div>
         </section>
       </main>
