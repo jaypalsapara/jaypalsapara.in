@@ -3,9 +3,12 @@ import H1 from '@/components/h1';
 import P from '@/components/p';
 import { db } from '@/lib/db';
 import { projectsTable } from '@/lib/schema';
-import { ProjectProps } from '@/types/table';
+import { cn } from '@/lib/utils';
+import { ProjectProps, ShowcaseProps } from '@/types/table';
 import { and, asc, eq, gt } from 'drizzle-orm';
 import Image from 'next/image';
+
+type CurrentProjectProps = ProjectProps & { showcase: ShowcaseProps[] };
 
 type NextProjectProps = Pick<ProjectProps, 'name' | 'slug'> | undefined;
 
@@ -14,7 +17,10 @@ export default async function page({ params }: { params: Promise<{ slug: string 
 
   const project = (await db.query.projectsTable.findFirst({
     where: eq(projectsTable.slug, slug),
-  })) as ProjectProps;
+    with: {
+      showcase: true,
+    },
+  })) as CurrentProjectProps;
 
   const nextProject: NextProjectProps = await db.query.projectsTable.findFirst({
     where: and(eq(projectsTable.as, project.as), gt(projectsTable.sequence, project.sequence)),
@@ -62,6 +68,11 @@ export default async function page({ params }: { params: Promise<{ slug: string 
             ))}
           </div>
         </section>
+        <section className="flex flex-col px-4">
+          {project.showcase.map((showcase) => (
+            <Showcase key={`showcase-${showcase.id}-of-${showcase.projectId}`} showcase={showcase} project={project} />
+          ))}
+        </section>
       </main>
       {nextProject ? (
         <Footer navigation={{ name: nextProject.name, path: `/work/${nextProject.slug}` }} />
@@ -71,3 +82,39 @@ export default async function page({ params }: { params: Promise<{ slug: string 
     </>
   );
 }
+
+const Showcase = ({ showcase, project }: { showcase: ShowcaseProps; project: ProjectProps }) => {
+  return (
+    <div className="flex flex-col gap-4 pt-6 pb-4">
+      <div>
+        <div className="text-xs">
+          <p className="font-medium">{showcase.name}</p>
+          <p className="text-muted-foreground mt-px">{showcase.subtitle}</p>
+        </div>
+      </div>
+      <div className="">
+        {showcase.images.map((_, i) => (
+          <div
+            key={`showcase-${showcase.id}-block-${i}`}
+            className={cn('grid', {
+              'grid-cols-2': _.length == 2,
+              'grid-cols-3': _.length >= 3,
+            })}
+          >
+            {_.map((item) => (
+              <Image
+                key={`showcase-${showcase.id}-image-${item.name}`}
+                src={`/images/projects/${project.slug}/${item.name}`}
+                width={3840}
+                height={2160}
+                alt={`${item.name} Cover`}
+                priority
+                className="aspect-video object-cover rounded-xl"
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};

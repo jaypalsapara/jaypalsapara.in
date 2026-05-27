@@ -1,3 +1,4 @@
+import { ShowcaseImage } from '@/types/table';
 import { relations } from 'drizzle-orm';
 import { int, integer, primaryKey, sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
@@ -57,6 +58,7 @@ export const experienceRelations = relations(experiencesTable, ({ many }) => ({
 // Relations of projects
 export const projectsRelations = relations(projectsTable, ({ many }) => ({
   experiencesToProjects: many(experiencesToProjectsTable), // Connect to the pivot many-to-many
+  showcase: many(showcaseTable),
 }));
 
 // Relations of pivot: Experiences to Projects
@@ -136,3 +138,24 @@ export const abilitiesTable = sqliteTable('abilities', {
   description: text().notNull(),
   sequence: integer().notNull(),
 });
+
+/**
+ * Showcase
+ */
+export const showcaseTable = sqliteTable('showcase', {
+  id: int().primaryKey({ autoIncrement: true }),
+  projectId: integer('project_id')
+    .notNull()
+    .references(() => projectsTable.id, { onDelete: 'cascade' }),
+  name: text().notNull(),
+  subtitle: text(),
+  images: text({ mode: 'json' }).$type<ShowcaseImage>().notNull(),
+});
+
+// Relations of showcase
+export const showcaseRelations = relations(showcaseTable, ({ one }) => ({
+  project: one(projectsTable, {
+    fields: [showcaseTable.projectId],
+    references: [projectsTable.id],
+  }),
+}));
