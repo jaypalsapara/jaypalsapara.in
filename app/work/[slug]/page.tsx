@@ -97,8 +97,8 @@ const Showcase = ({ showcase, project }: { showcase: ShowcaseProps; project: Pro
           <div
             key={`showcase-${showcase.id}-block-${i}`}
             className={cn('grid', {
-              'grid-cols-2': _.length == 2,
-              'grid-cols-3': _.length >= 3,
+              'lg:grid-cols-2': _.length == 2,
+              'lg:grid-cols-3': _.length >= 3,
             })}
           >
             {_.map((item) => (
