@@ -1,14 +1,19 @@
 import { ProjectProps } from '@/types/table';
+import { Lock } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+
+const keyAsLabel = {
+  case_study: 'Case Study',
+  recent: 'Recent',
+  personal: 'Personal',
+} as const;
 
 export default function ProjectSquare({ data }: { data: ProjectProps }) {
   return (
     <div className="group relative">
       <div className="w-full aspect-square overflow-hidden rounded-xl grid [grid-template-areas:'stack'] *:[grid-area:'stack'] isolate">
-        <div className="bg-muted-foreground/10 py-1 px-2.5 rounded-full z-10 mt-3 mr-3 hidden group-hover:flex absolute justify-self-end self-start">
-          <p className="text-muted-foreground font-semibold text-[10px] uppercase">Case Study</p>
-        </div>
+        <ProjectLabel label={keyAsLabel[data.as]} isNda={data.is_under_nda} />
         <Image
           src={`/images/projects/${data.slug}/${data.thumbnail}`}
           alt={`${data.name} Thumbnail`}
@@ -20,13 +25,31 @@ export default function ProjectSquare({ data }: { data: ProjectProps }) {
       </div>
       <div className="px-2 mt-4">
         <p className="text-xs font-medium">
-          <Link href={`/work/${data.slug}`}>
-            <span className="absolute inset-0"></span>
-            {data.name}
-          </Link>
+          {data.is_under_nda ? (
+            data.name
+          ) : (
+            <Link href={`/work/${data.slug}`}>
+              <span className="absolute inset-0"></span>
+              {data.name}
+            </Link>
+          )}
         </p>
         <p className="text-xs font-medium text-muted-foreground">Website</p>
       </div>
     </div>
   );
 }
+
+const ProjectLabel = ({ label, isNda }: { label: string; isNda: boolean }) => {
+  return (
+    <div className="bg-muted-foreground/10 py-1 px-2.5 rounded-full z-10 mt-3 mr-3 hidden group-hover:flex absolute justify-self-end self-start text-[10px] items-center gap-2 uppercase font-medium text-muted-foreground">
+      {isNda ? (
+        <>
+          <Lock className="size-3" /> <span className="mt-px">Under NDA</span>
+        </>
+      ) : (
+        <span className="mt-px">{label}</span>
+      )}
+    </div>
+  );
+};

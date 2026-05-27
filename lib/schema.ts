@@ -30,6 +30,7 @@ export const projectsTable = sqliteTable('projects', {
     .default('recent')
     .notNull(),
   sequence: integer().notNull(),
+  is_under_nda: integer({ mode: 'boolean' }).default(false).notNull(),
 });
 
 /**
