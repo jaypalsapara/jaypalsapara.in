@@ -1,5 +1,11 @@
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Feed',
+  description: 'Showcase of outputs',
+};
 
 export default function Feed() {
   return (

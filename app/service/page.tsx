@@ -3,6 +3,13 @@ import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import InlineChip from '@/components/icon-chip';
 import { Code, Palette } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Service',
+  description:
+    'Versatile skill set across creative and technical domains. Providing reliable services to bring your ideas to life.',
+};
 
 export default function Service() {
   return (

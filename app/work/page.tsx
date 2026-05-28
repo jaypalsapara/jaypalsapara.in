@@ -3,6 +3,13 @@ import RecentWork from '@/components/blocks/recent-work';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import { IdeaText } from '@/components/idea-text';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Work',
+  description:
+    'I’m passionate about creating innovative and high-quality projects. Here, you’ll find my work and featuring the latest projects.',
+};
 
 export default function Work() {
   return (
