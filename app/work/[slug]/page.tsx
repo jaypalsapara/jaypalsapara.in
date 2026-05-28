@@ -92,24 +92,27 @@ const Showcase = ({ showcase, project }: { showcase: ShowcaseProps; project: Pro
           <p className="text-muted-foreground mt-px">{showcase.subtitle}</p>
         </div>
       </div>
-      <div className="">
+      <div className="space-y-1">
         {showcase.images.map((_, i) => (
           <div
             key={`showcase-${showcase.id}-block-${i}`}
-            className={cn('grid', {
+            className={cn('grid gap-1', {
               'lg:grid-cols-2': _.length == 2,
               'lg:grid-cols-3': _.length >= 3,
             })}
           >
-            {_.map((item) => (
+            {_.map((image) => (
               <Image
-                key={`showcase-${showcase.id}-image-${item.name}`}
-                src={`/images/projects/${project.slug}/${item.name}`}
-                width={3840}
-                height={2160}
-                alt={`${item.name} Cover`}
-                priority
-                className="aspect-video object-cover rounded-xl"
+                key={`showcase-${showcase.id}-image-${image.name}`}
+                src={`/images/projects/${project.slug}/${image.name}`}
+                width={image.resolution.w}
+                height={image.resolution.h}
+                alt={`${image.name}`}
+                loading="lazy"
+                className={cn('object-cover rounded-xl', {
+                  'aspect-video': image.ratio === '16:9',
+                  'aspect-3/2': image.ratio === '3:2',
+                })}
               />
             ))}
           </div>

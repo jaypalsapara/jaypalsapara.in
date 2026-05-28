@@ -18,4 +18,9 @@ export type ShowcaseProps = typeof showcaseTable.$inferSelect;
 
 export type ShowcaseImage = {
   name: string;
+  resolution: {
+    w: number;
+    h: number;
+  };
+  ratio: '16:9' | '3:2';
 }[][];
