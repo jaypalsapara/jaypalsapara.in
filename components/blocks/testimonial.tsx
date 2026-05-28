@@ -46,6 +46,7 @@ const Testimonials = async () => {
               alt={`${testimonial.name} Avatar`}
               width={48}
               height={48}
+              loading="lazy"
               className="object-cover rounded-lg size-8 lg:size-10"
             />
           </div>

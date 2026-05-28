@@ -22,7 +22,7 @@ export const IdeaText = () => {
           y: cloudY,
         }}
       >
-        <Image src={'/images/cloud.png'} width={256} height={256} alt="Cloud" className="drop-shadow-xl" />
+        <Image src={'/images/cloud.png'} width={256} height={256} alt="Cloud" priority className="drop-shadow-xl" />
       </motion.div>
     </div>
   );

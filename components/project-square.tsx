@@ -19,7 +19,7 @@ export default function ProjectSquare({ data }: { data: ProjectProps }) {
           alt={`${data.name} Thumbnail`}
           width={1560}
           height={1560}
-          priority
+          loading="lazy"
           className="object-cover group-hover:scale-105 transition-transform size-full ease-in-out duration-300"
         />
       </div>
