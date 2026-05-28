@@ -5,7 +5,14 @@ import WorkExperience from '@/components/blocks/work-experience';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import { Separator } from '@/components/ui/separator';
+import type { Metadata } from 'next';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: 'About',
+  description:
+    "Over the past years, as a web developer, I've worked with companies and clients to successfully help them reach their full potential and attract new customers.",
+};
 
 export default async function About() {
   return (
