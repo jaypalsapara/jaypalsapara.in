@@ -7,15 +7,15 @@ const email = 'hellojaypalsapara@gmail.com';
 const socialLinks: ReferenceLink[] = [
   {
     name: 'Twitter',
-    url: '#',
+    url: 'https://x.com/jaypal__sapara',
   },
   {
     name: 'GitHub',
-    url: '#',
+    url: 'https://github.com/jaypalsapara',
   },
   {
     name: 'LinkedIn',
-    url: '#',
+    url: 'https://www.linkedin.com/in/jaypalsapara',
   },
 ];
 
