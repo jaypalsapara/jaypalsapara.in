@@ -1,4 +1,5 @@
 import { NavLink, ReferenceLink } from '@/types/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 import H4 from './h4';
 
@@ -19,7 +20,7 @@ const socialLinks: ReferenceLink[] = [
   },
 ];
 
-export default function Footer({ navigation }: { navigation: NavLink }) {
+export default function Footer({ navigation, cover }: { navigation: NavLink; cover?: string }) {
   return (
     <footer className="min-h-screen flex flex-col border-t">
       <div className="px-4 py-16 lg:py-28 grid lg:grid-cols-2 gap-y-6">
@@ -41,8 +42,18 @@ export default function Footer({ navigation }: { navigation: NavLink }) {
           ))}
         </div>
       </div>
-      <div className="bg-gray-100 grow relative">
-        <div className="pt-10 px-6">
+      <div className="bg-gray-100 grow relative overflow-hidden isolate group/next">
+        {cover && (
+          <Image
+            width={3840}
+            height={2160}
+            loading="lazy"
+            src={cover}
+            alt={cover}
+            className="absolute inset-0 -z-1 group-hover/next:scale-100 scale-101 transition-[scale,filter] duration-300 will-change-[scale,filter] ease-in-out brightness-100 group-hover/next:brightness-80"
+          />
+        )}
+        <div className="pt-10 px-6 z-10">
           <Link href={navigation.path} className="text-5xl lg:text-6xl xl:text-7xl tracking-tighter font-bold top-0">
             <span className="absolute inset-0"></span>
             <span className="font-normal">Next — </span>
