@@ -143,3 +143,13 @@
 @utility optical-display {
   font-variation-settings: 'opsz' 32;
 }
+
+@utility grid-stack {
+  position: relative;
+  grid-template-areas: 'stack';
+}
+
+@utility stack {
+  position: absolute;
+  grid-area: 'stack';
+}

@@ -42,7 +42,7 @@ export default function Footer({ navigation, cover }: { navigation: NavLink; cov
           ))}
         </div>
       </div>
-      <div className="bg-gray-100 grow relative overflow-hidden isolate group/next">
+      <div className="bg-gray-100 grow grid-stack overflow-hidden isolate group/next">
         {cover && (
           <Image
             width={3840}
@@ -50,7 +50,7 @@ export default function Footer({ navigation, cover }: { navigation: NavLink; cov
             loading="lazy"
             src={cover}
             alt={cover}
-            className="absolute inset-0 -z-1 group-hover/next:scale-100 scale-101 transition-[scale,filter] duration-300 will-change-[scale,filter] ease-in-out brightness-100 group-hover/next:brightness-80"
+            className="stack size-full -z-1 group-hover/next:scale-100 scale-101 transition-[scale,filter] duration-300 will-change-[scale,filter] ease-in-out brightness-100 group-hover/next:brightness-80 object-cover"
           />
         )}
         <div className="pt-10 px-6 z-10">
