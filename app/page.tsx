@@ -26,7 +26,15 @@ export default function Home() {
           width={3840}
           height={2160}
           priority
-          className="-z-1 min-h-210 object-cover w-full"
+          className="-z-1 min-h-210 object-cover w-full hidden md:block"
+        />
+        <Image
+          src="/images/hero-bg-mobile.png"
+          alt="Hero section image"
+          width={2160}
+          height={2160}
+          priority
+          className="-z-1 min-h-210 object-cover w-full block md:hidden"
         />
       </main>
       <Footer navigation={{ name: 'About', path: '/about' }} />
