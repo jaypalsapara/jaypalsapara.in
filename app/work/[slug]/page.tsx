@@ -10,7 +10,7 @@ import Image from 'next/image';
 
 type CurrentProjectProps = ProjectProps & { showcase: ShowcaseProps[] };
 
-type NextProjectProps = Pick<ProjectProps, 'name' | 'slug' | 'cover'> | undefined;
+type NextProjectProps = Pick<ProjectProps, 'name' | 'slug' | 'cover' | 'footer_cover'> | undefined;
 
 export default async function page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -29,6 +29,7 @@ export default async function page({ params }: { params: Promise<{ slug: string 
       slug: true,
       name: true,
       cover: true,
+      footer_cover: true,
     },
   });
 
@@ -78,7 +79,7 @@ export default async function page({ params }: { params: Promise<{ slug: string 
       {nextProject ? (
         <Footer
           navigation={{ name: nextProject.name, path: `/work/${nextProject.slug}` }}
-          cover={`/images/projects/${nextProject.slug}/${nextProject.cover}`}
+          cover={`/images/projects/${nextProject.slug}/${nextProject.footer_cover}`}
         />
       ) : (
         <Footer navigation={{ name: 'Service', path: '/service' }} />

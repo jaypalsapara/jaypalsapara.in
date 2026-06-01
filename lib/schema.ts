@@ -23,6 +23,7 @@ export const projectsTable = sqliteTable('projects', {
   slug: text().notNull(),
   thumbnail: text().notNull(),
   cover: text().notNull(),
+  footer_cover: text().notNull(),
   name: text().notNull(),
   description: text().notNull(),
   subordinate: text().notNull(),

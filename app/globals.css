@@ -132,7 +132,7 @@
     cursor: pointer;
   }
   html {
-    @apply font-sans;
+    @apply scrollbar-thumb-zinc-400 scrollbar-track-zinc-200 font-sans;
   }
 }
 
