@@ -45,7 +45,7 @@ const ProjectLabel = ({ label, isNda }: { label: string; isNda: boolean }) => {
     <div className="bg-muted-foreground/10 py-1 px-2.5 rounded-full z-10 mt-3 mr-3 hidden group-hover:flex absolute justify-self-end self-start text-[10px] items-center gap-2 uppercase font-medium text-muted-foreground">
       {isNda ? (
         <>
-          <Lock className="size-3" /> <span className="mt-px">Under NDA</span>
+          <Lock className="size-3" /> <span className="mt-px">Locked</span>
         </>
       ) : (
         <span className="mt-px">{label}</span>
