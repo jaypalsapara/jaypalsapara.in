@@ -5,6 +5,10 @@ import WorkExperience from '@/components/blocks/work-experience';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import { Separator } from '@/components/ui/separator';
+import { db } from '@/lib/db';
+import { projectsTable } from '@/lib/schema';
+import { ProjectProps } from '@/types/table';
+import { eq } from 'drizzle-orm';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 
@@ -14,7 +18,18 @@ export const metadata: Metadata = {
     "Over the past years, as a web developer, I've worked with companies and clients to successfully help them reach their full potential and attract new customers.",
 };
 
+type CoverProjectProps = Pick<ProjectProps, 'name' | 'slug' | 'footer_cover'>;
+
 export default async function About() {
+  const project = (await db.query.projectsTable.findFirst({
+    where: eq(projectsTable.slug, 'bet-fqri'),
+    columns: {
+      slug: true,
+      name: true,
+      footer_cover: true,
+    },
+  })) as CoverProjectProps;
+
   return (
     <>
       <main className="flex w-full flex-1 flex-col relative">
@@ -71,7 +86,10 @@ export default async function About() {
           <Testimonial />
         </section>
       </main>
-      <Footer navigation={{ name: 'Work', path: '/work' }} />
+      <Footer
+        navigation={{ name: 'Work', path: '/work' }}
+        cover={`/images/projects/${project.slug}/${project.footer_cover}`}
+      />
     </>
   );
 }
