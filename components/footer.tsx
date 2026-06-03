@@ -46,7 +46,7 @@ export default function Footer({ navigation, cover }: { navigation: NavLink; cov
         {cover && (
           <Image
             width={3840}
-            height={2160}
+            height={1860}
             loading="lazy"
             src={cover}
             alt={cover}
