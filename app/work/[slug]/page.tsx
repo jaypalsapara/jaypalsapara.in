@@ -82,7 +82,7 @@ export default async function page({ params }: { params: Promise<{ slug: string 
           cover={`/images/projects/${nextProject.slug}/${nextProject.footer_cover}`}
         />
       ) : (
-        <Footer navigation={{ name: 'Service', path: '/service' }} />
+        <Footer navigation={{ name: 'Service', path: '/service' }} cover={`/images/services-footer-cover.png`} />
       )}
     </>
   );
