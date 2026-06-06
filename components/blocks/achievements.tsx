@@ -11,9 +11,8 @@ export default function Achievements() {
       <div>
         <H4 className="sticky top-14">Achievements</H4>
       </div>
-      <div>
-        <p className="text-muted-foreground text-lg tracking-tight text-pretty">Earned from excellent results</p>
-        <AchievementsGrid className="mt-10" />
+      <div className='mt-8 lg:mt-0'>
+        <AchievementsGrid />
       </div>
     </div>
   );

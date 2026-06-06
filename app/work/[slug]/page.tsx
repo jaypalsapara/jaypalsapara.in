@@ -41,7 +41,7 @@ export default async function page({ params }: { params: Promise<{ slug: string 
             <H1 className="font-bold">{project.name}</H1>
           </div>
         </section>
-        <section className="px-4">
+        <section className="px-4 mt-2 lg:mt-4">
           <Image
             src={`/images/projects/${project.slug}/${project.cover}`}
             width={3840}
@@ -51,7 +51,7 @@ export default async function page({ params }: { params: Promise<{ slug: string 
             className="aspect-video object-cover rounded-xl"
           />
         </section>
-        <section className="grid lg:grid-cols-2 py-22 px-4 w-full">
+        <section className="grid lg:grid-cols-2 py-14 lg:py-22 px-4 w-full">
           <div className="lg:col-start-2 space-y-6">
             {project.description.split('\n').map((paragraph, index) => (
               <P key={`project-${project.id}-description-paragraph-${index}`} className="text-xl xl:text-3xl">

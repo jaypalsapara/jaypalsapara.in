@@ -34,7 +34,7 @@ export default function Footer({ navigation, cover }: { navigation: NavLink; cov
         </div>
         <div>
           {socialLinks.map((item) => (
-            <H4 className="font-bold " key={`social-link-wrapper-${item.name}`}>
+            <H4 className="font-bold h-9 lg:h-auto" key={`social-link-wrapper-${item.name}`}>
               <a href={item.url} className="text-foreground hover:text-muted-foreground/50 transition-colors">
                 {item.name}
               </a>

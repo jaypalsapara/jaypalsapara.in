@@ -12,7 +12,7 @@ export default function Testimonial() {
       <div>
         <H4 className="sticky top-14">Testimonials</H4>
       </div>
-      <div className="@container">
+      <div className="@container mt-8 lg:mt-0">
         <Testimonials />
       </div>
     </div>

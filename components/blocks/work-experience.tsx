@@ -25,7 +25,7 @@ export default async function WorkExperience() {
       <div>
         <H4 className="sticky top-14">Work Experience</H4>
       </div>
-      <div className="space-y-14">
+      <div className="space-y-14 mt-8 lg:mt-0">
         {experiences.map((experience) => (
           <Experience key={`experience-${experience.id}`} data={experience} />
         ))}
@@ -52,10 +52,10 @@ const Experience = ({ data }: { data: ExperienceProps & { projects: ProjectProps
           </p>
         </div>
       </div>
-      <div className="mt-5">
+      <div className="mt-4 lg:mt-5">
         <p className="text-lg font-semibold">{data.name}</p>
         <p className="text-xs">{data.role}</p>
-        <p className="mt-4 text-muted-foreground text-lg tracking-tight text-pretty">{data.description}</p>
+        <p className="mt-4 text-muted-foreground md:text-lg tracking-tight text-pretty">{data.description}</p>
         <div className="grid grid-cols-3 gap-2 mt-10">
           {data.projects.map((project) => (
             <ProjectSquare key={`project-square-${project.id}`} data={project} />
