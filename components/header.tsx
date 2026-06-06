@@ -13,9 +13,8 @@ export default function Header() {
       </div>
       <div>
         <P className="leading-tight text-muted-foreground/50 tracking-tight group-hover/header:text-foreground transition-colors will-change-[color] ease-in">
-          Leading end-to-end project development aligned with the clients vision, including requirements consultation,
-          solution design, development, and deployment, and delivering scalable solutions with timely and seamless
-          execution.
+          Leading projects from concept to launch, translating client requirements into scalable solutions while
+          providing ongoing support and maintenance after deployment.
         </P>
       </div>
     </header>
