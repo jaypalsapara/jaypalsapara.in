@@ -30,7 +30,7 @@ const AchievementsGrid = async ({ className }: { className?: string }) => {
             alt={`${achievement.name} Logo`}
             width={80}
             height={80}
-            loading='lazy'
+            loading="lazy"
             className="object-cover size-12 lg:size-17 rounded-xl"
           />
           <div>
