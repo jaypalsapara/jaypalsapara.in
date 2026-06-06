@@ -2,8 +2,8 @@
 
 import { cn } from '@/lib/utils';
 import { NavLink } from '@/types/navigation';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import TransitionLink from './transition-link';
 import { Button } from './ui/button';
 
 const pages: NavLink[] = [
@@ -43,7 +43,7 @@ export default function NavBar() {
               })}
               asChild
             >
-              <Link href={item.path}>{item.name}</Link>
+              <TransitionLink href={item.path}>{item.name}</TransitionLink>
             </Button>
           </li>
         ))}

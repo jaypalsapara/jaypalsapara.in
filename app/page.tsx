@@ -1,9 +1,9 @@
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
+import TransitionLink from '@/components/transition-link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -13,10 +13,10 @@ export default function Home() {
           <div className="xl:col-start-2">
             <H1 className="font-bold max-w-[16ch]">Builds result-driven web applications</H1>
             <Button className="w-44 h-10 mt-9 rounded-full" asChild>
-              <Link href={'/work'}>
+              <TransitionLink href={'/work'}>
                 <span className="sr-only">Work</span>
                 <ArrowRight className="size-6" strokeLinejoin="miter" strokeLinecap="square" />
-              </Link>
+              </TransitionLink>
             </Button>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { ProjectProps } from '@/types/table';
 import { Lock } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import TransitionLink from './transition-link';
 
 const keyAsLabel = {
   case_study: 'Case Study',
@@ -28,10 +29,10 @@ export default function ProjectSquare({ data }: { data: ProjectProps }) {
           {data.is_under_nda ? (
             data.name
           ) : (
-            <Link href={`/work/${data.slug}`}>
+            <TransitionLink href={`/work/${data.slug}`}>
               <span className="absolute inset-0"></span>
               {data.name}
-            </Link>
+            </TransitionLink>
           )}
         </p>
         <p className="text-xs font-medium text-muted-foreground">Website</p>

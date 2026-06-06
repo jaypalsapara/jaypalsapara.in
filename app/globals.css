@@ -134,6 +134,75 @@
   html {
     @apply font-sans;
   }
+
+  @property --view-transition-wipe-offset {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+  }
+
+  ::view-transition-group(root) {
+    z-index: auto !important;
+  }
+
+  ::view-transition-image-pair(root) {
+    isolation: isolate;
+    will-change: transform, mask-image, --view-transition-wipe-offset;
+    z-index: 1;
+  }
+
+  ::view-transition-old(root) {
+    z-index: 1;
+    animation-name: view-out;
+    animation-duration: 200ms;
+    animation-fill-mode: both;
+    backface-visibility: hidden;
+    mix-blend-mode: normal;
+    animation-timing-function: cubic-bezier(0.27, 0, 0.51, 1);
+  }
+
+  ::view-transition-new(root) {
+    z-index: 2;
+    animation-name: view-in;
+    animation-duration: 400ms;
+    animation-fill-mode: both;
+    backface-visibility: hidden;
+    mix-blend-mode: normal;
+    animation-timing-function: cubic-bezier(0.27, 0, 0.51, 1);
+    mask-image: linear-gradient(
+      90deg,
+      black calc(calc(0% - 100%) + calc(calc(100% + 100%) * var(--view-transition-wipe-offset))),
+      transparent calc(calc(100% + 100%) * var(--view-transition-wipe-offset))
+    );
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      black calc(calc(0% - 100%) + calc(calc(100% + 100%) * var(--view-transition-wipe-offset))),
+      transparent calc(calc(100% + 100%) * var(--view-transition-wipe-offset))
+    );
+  }
+
+  @keyframes view-in {
+    from {
+      opacity: 1;
+      transform: translate(0px, 0px) scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      --view-transition-wipe-offset: 0;
+    }
+    to {
+      opacity: 1;
+      transform: translate(0px, 0px) scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      --view-transition-wipe-offset: 1;
+    }
+  }
+  @keyframes view-out {
+    from {
+      opacity: 1;
+      transform: translate(0px, 0px) scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    to {
+      opacity: 1;
+      transform: translate(0px, 0px) scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+  }
 }
 
 @utility optical-normal {

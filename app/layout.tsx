@@ -1,6 +1,7 @@
 import Header from '@/components/header';
 import NavBar from '@/components/navbar';
 import ScreenIndicator from '@/components/screen-indicator';
+import ViewTransitionShell from '@/components/view-transition-shell';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { Geist_Mono } from 'next/font/google';
@@ -34,13 +35,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn('h-full', 'antialiased', geistMono.variable, 'font-sans', raveoSans.variable)}>
-      <body className="flex min-h-full flex-col">
-        <Header />
-        <NavBar />
-        {children}
-        <ScreenIndicator />
-      </body>
-    </html>
+    <ViewTransitionShell>
+      <html lang="en" className={cn('h-full', 'antialiased', geistMono.variable, 'font-sans', raveoSans.variable)}>
+        <body className="flex min-h-full flex-col">
+          <Header />
+          <NavBar />
+          {children}
+          <ScreenIndicator />
+        </body>
+      </html>
+    </ViewTransitionShell>
   );
 }

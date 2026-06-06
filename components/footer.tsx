@@ -1,7 +1,7 @@
 import { NavLink, ReferenceLink } from '@/types/navigation';
 import Image from 'next/image';
-import Link from 'next/link';
 import H4 from './h4';
+import TransitionLink from './transition-link';
 
 const email = 'hellojaypalsapara@gmail.com';
 
@@ -54,11 +54,14 @@ export default function Footer({ navigation, cover }: { navigation: NavLink; cov
           />
         )}
         <div className="pt-10 px-6 z-10">
-          <Link href={navigation.path} className="text-5xl lg:text-6xl xl:text-7xl tracking-tighter font-bold top-0">
+          <TransitionLink
+            href={navigation.path}
+            className="text-5xl lg:text-6xl xl:text-7xl tracking-tighter font-bold top-0"
+          >
             <span className="absolute inset-0"></span>
             <span className="font-normal">Next — </span>
             {navigation.name}
-          </Link>
+          </TransitionLink>
         </div>
       </div>
     </footer>
