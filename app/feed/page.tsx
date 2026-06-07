@@ -39,7 +39,7 @@ export default function Feed() {
             </H1>
           </div>
         </section>
-        <section className="px-4">
+        <section className="px-4 py-4">
           <MasonryLayout
             container="window"
             gap={4}

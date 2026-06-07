@@ -45,7 +45,7 @@ export default function MasonryLayout({
 
           setColumnCount(bp?.columns || 1);
 
-          setGutter(bp?.gap || 16);
+          setGutter(bp?.gap || gap);
         } else {
           setColumnCount(Math.max(1, Math.floor(targetContainer.clientWidth / columnWidth)));
         }
@@ -63,7 +63,7 @@ export default function MasonryLayout({
     }
 
     return () => observer.disconnect();
-  }, [items.length, columnWidth, breakpoints, container]);
+  }, [items.length, columnWidth, breakpoints, container, gap]);
 
   const masonryColumns = useMemo(() => {
     if (columnCount < 1) return;
