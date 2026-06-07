@@ -1,6 +1,6 @@
 'use client';
 
-import { Children, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
+import { Children, ComponentProps, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 
 type MasonryLayoutProps = {
   children: ReactNode;
@@ -8,6 +8,7 @@ type MasonryLayoutProps = {
   gap?: number;
   breakpoints?: Record<number, MasonryLayoutBreakpointsProps>;
   container?: 'parent' | 'window';
+  onReady?: () => void;
 };
 
 type MasonryLayoutBreakpointsProps = {
@@ -21,7 +22,9 @@ export default function MasonryLayout({
   columnWidth = 320,
   gap = 16,
   container = 'parent',
-}: MasonryLayoutProps) {
+  onReady,
+  ...props
+}: MasonryLayoutProps & ComponentProps<'div'>) {
   const items = Children.toArray(children);
 
   const measureRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -86,6 +89,12 @@ export default function MasonryLayout({
     return cols;
   }, [items, heights, columnCount, gap]);
 
+  useEffect(() => {
+    if (masonryColumns?.length) {
+      onReady?.();
+    }
+  }, [masonryColumns, onReady]);
+
   return (
     <>
       {/* Hidden measurement layer */}
@@ -121,6 +130,7 @@ export default function MasonryLayout({
           gridTemplateColumns: `repeat(${columnCount}, minmax(0,1fr))`,
           gap: gutter,
         }}
+        {...props}
       >
         {masonryColumns?.map((column, columnIndex) => (
           <div

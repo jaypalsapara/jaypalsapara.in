@@ -1,76 +1,80 @@
 'use client';
-import { useMemo } from 'react';
 
-type Item = {
-  id: number;
-  height: number;
-  title: string;
-};
+import { animate, inView } from 'motion/react';
+import MasonryLayout from '../masonry-layout';
 
 const items = [
-  { id: 1, height: 300, title: 'Item 1' },
-  { id: 2, height: 200, title: 'Item 2' },
-  { id: 3, height: 250, title: 'Item 3' },
-  { id: 4, height: 180, title: 'Item 4' },
-  { id: 5, height: 350, title: 'Item 5' },
-  { id: 6, height: 150, title: 'Item 6' },
-  { id: 7, height: 220, title: 'Item 7' },
-  { id: 8, height: 400, title: 'Item 8' },
+  { id: 1, title: 'Item 1', aspectRatio: '16 / 9' },
+  { id: 2, title: 'Item 2', aspectRatio: '1 / 1' },
+  { id: 3, title: 'Item 3', aspectRatio: '9 / 16' },
+  { id: 4, title: 'Item 4', aspectRatio: '2 / 1' },
+  { id: 5, title: 'Item 5', aspectRatio: '4 / 3' },
+  { id: 6, title: 'Item 6', aspectRatio: '16 / 9' },
+  { id: 7, title: 'Item 7', aspectRatio: '2 / 1' },
+  { id: 8, title: 'Item 8', aspectRatio: '1 / 1' },
+  { id: 1, title: 'Item 1', aspectRatio: '16 / 9' },
+  { id: 2, title: 'Item 2', aspectRatio: '1 / 1' },
+  { id: 3, title: 'Item 3', aspectRatio: '9 / 16' },
+  { id: 4, title: 'Item 4', aspectRatio: '2 / 1' },
+  { id: 5, title: 'Item 5', aspectRatio: '4 / 3' },
+  { id: 6, title: 'Item 6', aspectRatio: '16 / 9' },
+  { id: 7, title: 'Item 7', aspectRatio: '2 / 1' },
+  { id: 8, title: 'Item 8', aspectRatio: '1 / 1' },
 ];
 
 export default function FeedGrid() {
-  const columnCount = 3;
-  const gap = 16;
-  const columns = useMemo(() => {
-    const cols = Array.from({ length: columnCount }, () => ({
-      height: 0,
-      items: [] as Item[],
-    }));
-
-    for (const item of items) {
-      const shortestColumn = cols.reduce((a, b) => (a.height <= b.height ? a : b));
-
-      shortestColumn.items.push(item);
-
-      // Add item height to track column size
-      shortestColumn.height += item.height + gap;
-    }
-
-    return cols;
-  }, [items, columnCount, gap]);
   return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: `repeat(${columnCount}, minmax(0, 1fr))`,
-        gap,
+    <MasonryLayout
+      id={'container'}
+      container="window"
+      gap={4}
+      breakpoints={{
+        0: {
+          columns: 1,
+        },
+        1024: {
+          columns: 2,
+        },
+        1280: {
+          columns: 3,
+        },
+        1536: {
+          columns: 4,
+        },
+      }}
+      onReady={() => {
+        inView(`#container`, (element) => {
+          animate(
+            element,
+            { opacity: 1, y: 0 },
+            {
+              delay: 0.3,
+              onComplete: () => {
+                inView(`#container .target-card`, (element) => {
+                  animate(element, { opacity: 1, y: 0 });
+                });
+              },
+            },
+          );
+        });
       }}
     >
-      {columns.map((column, columnIndex) => (
+      {items.map((item) => (
         <div
-          key={columnIndex}
+          className="target-card"
+          key={item.id}
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap,
+            aspectRatio: item.aspectRatio,
+            borderRadius: 12,
+            background: '#e5e7eb',
+            padding: 16,
+            opacity: 0,
+            transform: 'translateY(20px)',
           }}
         >
-          {column.items.map((item) => (
-            <div
-              key={item.id}
-              style={{
-                height: item.height,
-                borderRadius: 12,
-                background: '#e5e7eb',
-                padding: 16,
-              }}
-            >
-              <h3>{item.title}</h3>
-              <p>Height: {item.height}px</p>
-            </div>
-          ))}
+          <h3>{item.title}</h3>
         </div>
       ))}
-    </div>
+    </MasonryLayout>
   );
 }
