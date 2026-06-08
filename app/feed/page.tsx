@@ -1,6 +1,9 @@
 import FeedGrid from '@/components/blocks/feed-grid';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
+import { db } from '@/lib/db';
+import { feedsTable } from '@/lib/schema';
+import { asc } from 'drizzle-orm';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -8,7 +11,8 @@ export const metadata: Metadata = {
   description: 'Showcase of outputs',
 };
 
-export default function Feed() {
+export default async function Feed() {
+  const feeds = await db.select().from(feedsTable).orderBy(asc(feedsTable.sequence));
   return (
     <>
       <main className="flex w-full flex-1 flex-col relative">
@@ -21,7 +25,7 @@ export default function Feed() {
           </div>
         </section>
         <section className="px-4 py-4 min-h-screen">
-          <FeedGrid />
+          <FeedGrid items={feeds} />
         </section>
       </main>
       <Footer navigation={{ name: 'About', path: '/about' }} />

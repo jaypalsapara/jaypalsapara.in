@@ -222,3 +222,17 @@
   position: absolute;
   grid-area: 'stack';
 }
+
+@utility pile {
+  display: grid;
+  grid-template-areas: 'pile';
+  place-items: center;
+  > * {
+    grid-area: pile;
+  }
+}
+@utility prose {
+  & > * + * {
+    margin-block-start: var(--prose-flow, 1em);
+  }
+}

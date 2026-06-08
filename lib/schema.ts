@@ -1,3 +1,4 @@
+import { ImageProps } from '@/types/assets';
 import { ShowcaseImage } from '@/types/table';
 import { relations } from 'drizzle-orm';
 import { int, integer, primaryKey, sqliteTable, text } from 'drizzle-orm/sqlite-core';
@@ -160,3 +161,14 @@ export const showcaseRelations = relations(showcaseTable, ({ one }) => ({
     references: [projectsTable.id],
   }),
 }));
+
+/**
+ * Feeds
+ */
+export const feedsTable = sqliteTable('feeds', {
+  id: int().primaryKey({ autoIncrement: true }),
+  name: text().notNull(),
+  image: text({ mode: 'json' }).$type<ImageProps>().notNull(),
+  sequence: integer().notNull(),
+  date: integer({ mode: 'timestamp' }),
+});

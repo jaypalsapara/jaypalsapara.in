@@ -1,6 +1,9 @@
 'use client';
 
+import { cn } from '@/lib/utils';
+import { FeedsProps } from '@/types/table';
 import { animate, inView } from 'motion/react';
+import Image from 'next/image';
 import MasonryLayout from '../masonry-layout';
 
 const items = [
@@ -22,7 +25,7 @@ const items = [
   { id: 8, title: 'Item 8', aspectRatio: '1 / 1' },
 ];
 
-export default function FeedGrid() {
+export default function FeedGrid({ items }: { items: FeedsProps[] }) {
   return (
     <MasonryLayout
       id={'container'}
@@ -61,18 +64,28 @@ export default function FeedGrid() {
     >
       {items.map((item) => (
         <div
-          className="target-card"
+          className="target-card rounded-xl overflow-hidden pile bg-muted"
           key={item.id}
           style={{
-            aspectRatio: item.aspectRatio,
-            borderRadius: 12,
-            background: '#e5e7eb',
-            padding: 16,
             opacity: 0,
             transform: 'translateY(20px)',
           }}
         >
-          <h3>{item.title}</h3>
+          <Image
+            src={`/images/feeds/${item.image.name}`}
+            alt={item.name}
+            width={item.image.resolution.w}
+            height={item.image.resolution.h}
+          />
+          <div
+            className={cn('flex self-end w-full p-3 items-center justify-between', {
+              'text-white': item.image?.color === 'white',
+              'text-black': item.image?.color === 'black',
+            })}
+          >
+            <p className={'text-sm font-medium'}>{item.name}</p>
+            {item.date && <p className={'text-xs opacity-50 font-medium'}>{item.date.getFullYear()}</p>}
+          </div>
         </div>
       ))}
     </MasonryLayout>
