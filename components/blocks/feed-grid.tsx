@@ -16,7 +16,7 @@ export default function FeedGrid({ items }: { items: FeedsProps[] }) {
         0: {
           columns: 1,
         },
-        1024: {
+        768: {
           columns: 2,
         },
         1280: {
