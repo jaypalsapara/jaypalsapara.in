@@ -6,25 +6,6 @@ import { animate, inView } from 'motion/react';
 import Image from 'next/image';
 import MasonryLayout from '../masonry-layout';
 
-const items = [
-  { id: 1, title: 'Item 1', aspectRatio: '16 / 9' },
-  { id: 2, title: 'Item 2', aspectRatio: '1 / 1' },
-  { id: 3, title: 'Item 3', aspectRatio: '9 / 16' },
-  { id: 4, title: 'Item 4', aspectRatio: '2 / 1' },
-  { id: 5, title: 'Item 5', aspectRatio: '4 / 3' },
-  { id: 6, title: 'Item 6', aspectRatio: '16 / 9' },
-  { id: 7, title: 'Item 7', aspectRatio: '2 / 1' },
-  { id: 8, title: 'Item 8', aspectRatio: '1 / 1' },
-  { id: 1, title: 'Item 1', aspectRatio: '16 / 9' },
-  { id: 2, title: 'Item 2', aspectRatio: '1 / 1' },
-  { id: 3, title: 'Item 3', aspectRatio: '9 / 16' },
-  { id: 4, title: 'Item 4', aspectRatio: '2 / 1' },
-  { id: 5, title: 'Item 5', aspectRatio: '4 / 3' },
-  { id: 6, title: 'Item 6', aspectRatio: '16 / 9' },
-  { id: 7, title: 'Item 7', aspectRatio: '2 / 1' },
-  { id: 8, title: 'Item 8', aspectRatio: '1 / 1' },
-];
-
 export default function FeedGrid({ items }: { items: FeedsProps[] }) {
   return (
     <MasonryLayout
