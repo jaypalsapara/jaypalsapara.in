@@ -45,7 +45,7 @@ export default function FeedGrid({ items }: { items: FeedsProps[] }) {
     >
       {items.map((item) => (
         <div
-          className="target-card rounded-xl overflow-hidden pile bg-muted"
+          className="target-card rounded-xl overflow-hidden pile bg-muted border border-border/10"
           key={item.id}
           style={{
             opacity: 0,
@@ -65,7 +65,7 @@ export default function FeedGrid({ items }: { items: FeedsProps[] }) {
               'text-black': item.image?.color === 'black',
             })}
           >
-            <p className={'text-sm font-medium'}>{item.name}</p>
+            <p className={'text-xs font-semibold'}>{item.name}</p>
             {item.date && <p className={'text-xs opacity-50 font-medium'}>{item.date.getFullYear()}</p>}
           </div>
         </div>

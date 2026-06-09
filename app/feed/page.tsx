@@ -19,8 +19,7 @@ export default async function Feed() {
         <section className="grid lg:grid-cols-2 pt-8 pb-16 lg:pb-24 px-4 w-full">
           <div className="lg:col-start-2">
             <H1 className="font-bold">
-              <span className="text-muted-foreground/50">An</span> archive of everything from early sketches to finished
-              products. All shared here to inspire you.
+              An archive of everything from early concepts to finished products. All shared here to inspire you.
             </H1>
           </div>
         </section>
