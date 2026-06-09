@@ -26,6 +26,7 @@ export default function FeedGrid({ items }: { items: FeedsProps[] }) {
           columns: 4,
         },
       }}
+      className="will-change-[transform,opacity]"
       onReady={() => {
         inView(`#container`, (element) => {
           animate(
@@ -45,7 +46,7 @@ export default function FeedGrid({ items }: { items: FeedsProps[] }) {
     >
       {items.map((item) => (
         <div
-          className="target-card rounded-xl overflow-hidden pile bg-muted border border-border/10"
+          className="target-card rounded-xl overflow-hidden pile bg-muted border border-border/10 will-change-[transform,opacity]"
           key={item.id}
           style={{
             opacity: 0,
