@@ -5,11 +5,13 @@ import WorkExperience from '@/components/blocks/work-experience';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import { Separator } from '@/components/ui/separator';
+import { APP_URL } from '@/constants/app';
 import { db } from '@/lib/db';
 import { projectsTable } from '@/lib/schema';
 import { ProjectProps } from '@/types/table';
 import { eq } from 'drizzle-orm';
 import type { Metadata } from 'next';
+import Head from 'next/head';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
@@ -33,6 +35,9 @@ export default async function About() {
   return (
     <>
       <main className="flex w-full flex-1 flex-col relative">
+        <Head>
+          <link rel="canonical" href={APP_URL + `/about`} key="canonical" />
+        </Head>
         <section className="grid lg:grid-cols-2 pt-8 pb-16 lg:pb-24 px-4 w-full">
           <div className="lg:col-start-2">
             <H1 className="font-bold">

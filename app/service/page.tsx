@@ -2,8 +2,10 @@ import Services from '@/components/blocks/services';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import InlineChip from '@/components/icon-chip';
+import { APP_URL } from '@/constants/app';
 import { Code, Palette } from 'lucide-react';
 import { Metadata } from 'next';
+import Head from 'next/head';
 
 export const metadata: Metadata = {
   title: 'Service',
@@ -15,6 +17,9 @@ export default function Service() {
   return (
     <>
       <main className="flex w-full flex-1 flex-col relative">
+        <Head>
+          <link rel="canonical" href={APP_URL + `/service`} key="canonical" />
+        </Head>
         <section className="grid lg:grid-cols-2 pt-8 pb-16 lg:pb-24 px-4 w-full">
           <div className="lg:col-start-2">
             <H1 className="font-bold">

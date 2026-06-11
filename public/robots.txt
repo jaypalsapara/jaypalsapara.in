@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /work/*
+
+User-agent: *
+Allow: /
+
+Sitemap: https://jaypalsapara.in/sitemap.xml
+Sitemap: https://www.jaypalsapara.in/sitemap.xml

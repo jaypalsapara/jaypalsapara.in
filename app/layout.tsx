@@ -2,6 +2,7 @@ import Header from '@/components/header';
 import NavBar from '@/components/navbar';
 import ScreenIndicator from '@/components/screen-indicator';
 import ViewTransitionShell from '@/components/view-transition-shell';
+import { APP_URL } from '@/constants/app';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { Geist_Mono } from 'next/font/google';
@@ -27,6 +28,19 @@ export const metadata: Metadata = {
     'Full-Stack Developer — I help clients, startups, and enterprises to transform their idea into a digital product, and take it forward, so that their customers can stay engaged.',
   keywords:
     'Full Stack Developer, Laravel Developer, PHP Developer, React Developer, CI/CD Pipeline, API Development, GitHub Actions, Testing Expert, Code Review, Webhook Integration, Database designer, Freelancer, System design, Backend Developer, Frontend Developer, SPA Development, Real-time Application, WebSockets, AI Integration, Technical Consultant, Developer for hire, Gujarat, Indian Developer, Jaypal Sapara, Saas Developer, Bug fixing, Optimization, SEO, Payment Integration, Cloud Development, Deployment, AWS Developer, DigitalOcean Developer, Stripe Integration,PayPal Integration, DevOps, MySQL Developer, Tailwind CSS, Server Handler, Server Engineer, SSR, SSG, Inertia.js Rest API Developer, Web Application Developer, Backend Architecture, Design System',
+  openGraph: {
+    title: 'Jaypal Sapara',
+    description:
+      'Full-Stack Developer — I help clients, startups, and enterprises to transform their idea into a digital product, and take it forward, so that their customers can stay engaged.',
+    type: 'website',
+    url: APP_URL,
+  },
+  authors: [{ name: 'Jaypal Sapara' }],
+  creator: 'Jaypal Sapara',
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

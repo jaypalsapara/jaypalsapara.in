@@ -1,11 +1,13 @@
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import P from '@/components/p';
+import { APP_URL } from '@/constants/app';
 import { db } from '@/lib/db';
 import { projectsTable } from '@/lib/schema';
 import { cn } from '@/lib/utils';
 import { ProjectProps, ShowcaseProps } from '@/types/table';
 import { and, asc, eq, gt } from 'drizzle-orm';
+import Head from 'next/head';
 import Image from 'next/image';
 
 type CurrentProjectProps = ProjectProps & { showcase: ShowcaseProps[] };
@@ -36,6 +38,9 @@ export default async function page({ params }: { params: Promise<{ slug: string 
   return (
     <>
       <main className="flex w-full flex-1 flex-col relative">
+        <Head>
+          <link rel="canonical" href={APP_URL + `/work/${slug}`} key="canonical" />
+        </Head>
         <section className="grid lg:grid-cols-2 pt-8 pb-6 lg:pb-8 px-4 w-full">
           <div className="lg:col-start-2">
             <H1 className="font-bold">{project.name}</H1>
