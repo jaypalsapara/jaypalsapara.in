@@ -31,7 +31,7 @@ export default function Footer({
   textColor?: 'white' | 'black';
 }) {
   return (
-    <footer className="min-h-screen flex flex-col border-t">
+    <footer className="h-screen flex flex-col border-t">
       <div className="px-4 py-16 lg:py-28 grid lg:grid-cols-2 gap-y-6">
         <div>
           <H4 className="max-w-[18ch]">Reach out to connect or collaborate</H4>
@@ -51,7 +51,7 @@ export default function Footer({
           ))}
         </div>
       </div>
-      <div className="bg-gray-100 grid grow grid-stack overflow-hidden isolate group/next">
+      <div className="bg-gray-100 grow pile overflow-hidden isolate group/next relative">
         {cover && (
           <Image
             width={3840}
@@ -59,10 +59,10 @@ export default function Footer({
             loading="lazy"
             src={cover}
             alt={cover}
-            className="stack size-full -z-1 group-hover/next:scale-[1.01] scale-103 transition-[scale,filter] duration-300 will-change-[scale,filter] ease-in-out brightness-100 group-hover/next:brightness-78 object-cover place-self-center"
+            className="absolute size-full object-center -z-1 group-hover/next:scale-[1.01] scale-103 transition-[scale,filter] duration-300 will-change-[scale,filter] ease-in-out brightness-100 group-hover/next:brightness-78 object-cover"
           />
         )}
-        <div className="pt-10 px-6 z-10">
+        <div className="pt-10 px-6 z-10 self-start justify-self-start">
           <TransitionLink
             href={navigation.path}
             className={cn('text-5xl lg:text-6xl xl:text-7xl tracking-tighter font-bold top-0', {
