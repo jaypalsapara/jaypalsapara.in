@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import { NavLink, ReferenceLink } from '@/types/navigation';
 import Image from 'next/image';
 import H4 from './h4';
@@ -20,7 +21,15 @@ const socialLinks: ReferenceLink[] = [
   },
 ];
 
-export default function Footer({ navigation, cover }: { navigation: NavLink; cover?: string }) {
+export default function Footer({
+  navigation,
+  cover,
+  textColor = 'black',
+}: {
+  navigation: NavLink;
+  cover?: string;
+  textColor?: 'white' | 'black';
+}) {
   return (
     <footer className="min-h-screen flex flex-col border-t">
       <div className="px-4 py-16 lg:py-28 grid lg:grid-cols-2 gap-y-6">
@@ -50,13 +59,16 @@ export default function Footer({ navigation, cover }: { navigation: NavLink; cov
             loading="lazy"
             src={cover}
             alt={cover}
-            className="stack size-full -z-1 group-hover/next:scale-[1.01] scale-102 transition-[scale,filter] duration-300 will-change-[scale,filter] ease-in-out brightness-100 group-hover/next:brightness-80 object-cover place-self-center"
+            className="stack size-full -z-1 group-hover/next:scale-[1.01] scale-103 transition-[scale,filter] duration-300 will-change-[scale,filter] ease-in-out brightness-100 group-hover/next:brightness-78 object-cover place-self-center"
           />
         )}
         <div className="pt-10 px-6 z-10">
           <TransitionLink
             href={navigation.path}
-            className="text-5xl lg:text-6xl xl:text-7xl tracking-tighter font-bold top-0"
+            className={cn('text-5xl lg:text-6xl xl:text-7xl tracking-tighter font-bold top-0', {
+              'text-black': textColor === 'black',
+              'text-white': textColor === 'white',
+            })}
           >
             <span className="absolute inset-0"></span>
             <span className="font-normal">Next — </span>
