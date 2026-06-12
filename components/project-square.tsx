@@ -12,8 +12,7 @@ const keyAsLabel = {
 export default function ProjectSquare({ data }: { data: ProjectProps }) {
   return (
     <div className="group relative">
-      <div className="w-full aspect-square overflow-hidden rounded-xl grid [grid-template-areas:'stack'] *:[grid-area:'stack'] isolate">
-        <ProjectLabel label={keyAsLabel[data.as]} isNda={data.is_under_nda} />
+      <div className="w-full aspect-square overflow-hidden rounded-xl pile isolate">
         <Image
           src={`/images/projects/${data.slug}/${data.thumbnail}`}
           alt={`${data.name} Thumbnail`}
@@ -22,6 +21,7 @@ export default function ProjectSquare({ data }: { data: ProjectProps }) {
           loading="lazy"
           className="object-cover group-hover:scale-105 transition-transform size-full ease-in-out duration-300"
         />
+        <ProjectLabel label={keyAsLabel[data.as]} isNda={data.is_under_nda} />
       </div>
       <div className="px-2 mt-4">
         <p className="text-xs font-medium">
@@ -42,7 +42,7 @@ export default function ProjectSquare({ data }: { data: ProjectProps }) {
 
 const ProjectLabel = ({ label, isNda }: { label: string; isNda: boolean }) => {
   return (
-    <div className="bg-muted-foreground/10 py-1 px-2.5 rounded-full z-10 mt-3 mr-3 hidden group-hover:flex absolute justify-self-end self-start text-[10px] items-center gap-2 uppercase font-medium text-muted-foreground">
+    <div className="bg-muted-foreground/10 py-1 px-2.5 rounded-full z-10 mt-3 mr-3 hidden group-hover:flex justify-self-end self-start text-[10px] items-center gap-2 uppercase font-medium text-muted-foreground">
       {isNda ? (
         <>
           <Lock className="size-3" /> <span className="mt-px">Locked</span>
