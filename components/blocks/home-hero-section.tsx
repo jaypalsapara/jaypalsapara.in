@@ -21,7 +21,7 @@ export default function HomeHeroSection() {
     >
       <div className="grid xl:grid-cols-2 py-8 px-4 absolute w-full">
         <div className="xl:col-start-2">
-          <H1 className="font-bold max-w-[16ch]">Web solutions that drive results</H1>
+          <H1 className="font-bold max-w-[16ch]">Web solutions that deliver results</H1>
           <Button className="w-44 h-10 mt-9 rounded-full" asChild>
             <TransitionLink href={'/work'}>
               <span className="sr-only">Work</span>

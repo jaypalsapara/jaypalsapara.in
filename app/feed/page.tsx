@@ -5,6 +5,7 @@ import { db } from '@/lib/db';
 import { feedsTable } from '@/lib/schema';
 import { asc } from 'drizzle-orm';
 import { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Feed',
@@ -19,7 +20,20 @@ export default async function Feed() {
         <section className="grid lg:grid-cols-2 pt-8 pb-16 lg:pb-24 px-4 w-full">
           <div className="lg:col-start-2">
             <H1 className="font-bold">
-              An archive of everything from early concepts to finished products. All shared here to inspire you.
+              <span className="text-muted-foreground/50">An</span>{' '}
+              <div className="inline-flex relative w-13 lg:w-17 xl:w-19 min-h-0 items-center -mx-1 lg:-mx-2">
+                <Image
+                  src="/images/folder.png"
+                  alt="Hero section image"
+                  width={256}
+                  height={256}
+                  priority
+                  className="object-contain w-full inline absolute -bottom-1.5 lg:-bottom-2"
+                />
+              </div>{' '}
+              archive <span className="text-muted-foreground/50">of everything from</span> early concepts{' '}
+              <span className="text-muted-foreground/50">to</span> finished products.{' '}
+              <span className="text-muted-foreground/50">All shared here to inspire you.</span>
             </H1>
           </div>
         </section>
