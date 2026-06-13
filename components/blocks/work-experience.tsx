@@ -44,7 +44,7 @@ const Experience = ({ data }: { data: ExperienceProps & { projects: ProjectProps
           width={80}
           height={80}
           loading="lazy"
-          className="object-cover size-12 lg:size-17 rounded-xl"
+          className="object-cover size-12 lg:size-17 rounded-lg lg:rounded-xl"
         />
         <div className="bg-secondary py-2 px-4 rounded-full">
           <p className="text-secondary-foreground font-semibold text-xs tracking-tight">

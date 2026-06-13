@@ -1,5 +1,6 @@
 import { db } from '@/lib/db';
 import { projectsTable } from '@/lib/schema';
+import { cn } from '@/lib/utils';
 import { ProjectProps } from '@/types/table';
 import { eq, sql } from 'drizzle-orm';
 import H3 from '../h3';
@@ -24,8 +25,18 @@ const ProjectsShowcase = async () => {
     .from(projectsTable)
     .where(eq(projectsTable.as, 'recent'))
     .orderBy(sql`sequence asc`);
+
+  const totalProjects = projects.length;
+
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-1">
+    <div
+      className={cn('grid grid-cols-2 gap-1', {
+        'lg:grid-cols-3': totalProjects === 3,
+        'lg:grid-cols-4': totalProjects === 4,
+        'lg:grid-cols-3 xl:grid-cols-5': totalProjects === 5,
+        'lg:grid-cols-4 xl:grid-cols-6': totalProjects >= 6,
+      })}
+    >
       {projects.map((project) => (
         <ProjectSquare key={`project-${project.id}`} data={project} />
       ))}

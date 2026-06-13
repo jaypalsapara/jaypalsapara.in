@@ -26,7 +26,7 @@ const Testimonials = async () => {
       {testimonials.map((testimonial) => (
         <div
           key={`testimonial-${testimonial.id}`}
-          className={cn('flex flex-col bg-muted p-4 rounded-lg', {
+          className={cn('flex flex-col bg-muted p-4 rounded-lg lg:rounded-xl', {
             'row-span-2 bg-foreground text-white': testimonial.is_highlighted,
           })}
         >
@@ -47,7 +47,7 @@ const Testimonials = async () => {
               width={48}
               height={48}
               loading="lazy"
-              className="object-cover rounded-lg size-8 lg:size-10"
+              className="object-cover rounded-md lg:rounded-lg size-8 lg:size-10"
             />
           </div>
         </div>

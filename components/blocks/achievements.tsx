@@ -30,7 +30,7 @@ const AchievementsGrid = async ({ className }: { className?: string }) => {
             width={80}
             height={80}
             loading="lazy"
-            className="object-cover size-12 lg:size-17 rounded-xl"
+            className="object-cover size-12 lg:size-17 rounded-lg lg:rounded-xl"
           />
           <div>
             <P className="tracking-tight">{achievement.name}</P>

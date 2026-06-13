@@ -44,7 +44,7 @@ export default function Service() {
           <Services />
         </section>
       </main>
-      <Footer navigation={{ name: 'Feed', path: '/feed' }} />
+      <Footer navigation={{ name: 'Feed', path: '/feed' }} cover={'/images/feed-footer-cover.png'} textColor='white' />
     </>
   );
 }
