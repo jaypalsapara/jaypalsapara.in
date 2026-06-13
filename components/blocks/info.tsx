@@ -13,10 +13,13 @@ export default function Info() {
           on building coherent brand experiences.
         </P>
         <P>
-          For the past years, he has worked with companies and clients. There, he helped establish the brand’s
-          credibility, reach its full potential, and attract new customers
+          Over the years, he has worked with companies, startups, and clients to strengthen their brand credibility,
+          drive growth, and attract new customers, consistently delivering results that exceeded expectations and earned
+          their trust.
         </P>
-        <P>Throughout his career, Jaypal has worked across SaaS, CMS, E-commerce, APIs, and Customs.</P>
+        <P>
+          Throughout his career, Jaypal has worked across SaaS, CMS, E-commerce, APIs, Directory, Blogs, and Customs.
+        </P>
       </div>
     </div>
   );

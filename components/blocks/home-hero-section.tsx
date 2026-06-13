@@ -35,7 +35,7 @@ export default function HomeHeroSection() {
         alt="Hero section image"
         width={3840}
         height={2160}
-        priority
+        fetchPriority="high"
         className="-z-1 min-h-210 object-cover w-full hidden md:block"
       />
       <Image
@@ -43,7 +43,7 @@ export default function HomeHeroSection() {
         alt="Hero section image"
         width={2160}
         height={2160}
-        priority
+        fetchPriority="high"
         className="-z-1 min-h-210 object-cover w-full block md:hidden"
       />
     </motion.main>
