@@ -27,7 +27,7 @@ export default async function Feed() {
           <FeedGrid items={feeds} />
         </section>
       </main>
-      <Footer navigation={{ name: 'About', path: '/about' }} />
+      <Footer navigation={{ name: 'About', path: '/about' }} cover={'/images/about-footer.png'} textColor={'white'} />
     </>
   );
 }
