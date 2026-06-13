@@ -1,8 +1,7 @@
 User-agent: *
-Disallow: /work/*
 
-User-agent: *
-Allow: /
+# Disallow to access
+Disallow: /work/*
 
 Sitemap: https://jaypalsapara.in/sitemap.xml
 Sitemap: https://www.jaypalsapara.in/sitemap.xml

@@ -98,6 +98,51 @@ export const getPersonalJsonLd = () => {
           dateModified: '2026-06-15',
           inLanguage: 'en',
         },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              item: {
+                '@id': APP_URL + '/',
+                name: 'Home',
+              },
+            },
+            {
+              '@type': 'ListItem',
+              position: 1,
+              item: {
+                '@id': APP_URL + '/feed',
+                name: 'Feed',
+              },
+            },
+            {
+              '@type': 'ListItem',
+              position: 1,
+              item: {
+                '@id': APP_URL + '/about',
+                name: 'About',
+              },
+            },
+            {
+              '@type': 'ListItem',
+              position: 1,
+              item: {
+                '@id': APP_URL + '/work',
+                name: 'Work',
+              },
+            },
+            {
+              '@type': 'ListItem',
+              position: 1,
+              item: {
+                '@id': APP_URL + '/service',
+                name: 'Service',
+              },
+            },
+          ],
+        },
       ],
     }),
   };
