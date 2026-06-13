@@ -4,6 +4,7 @@ import ScreenIndicator from '@/components/screen-indicator';
 import ViewTransitionShell from '@/components/view-transition-shell';
 import { APP_URL } from '@/constants/app';
 import { cn } from '@/lib/utils';
+import { GoogleTagManager } from '@next/third-parties/google';
 import type { Metadata } from 'next';
 import { Geist_Mono } from 'next/font/google';
 import localFont from 'next/font/local';
@@ -51,6 +52,7 @@ export default function RootLayout({
   return (
     <ViewTransitionShell>
       <html lang="en" className={cn('h-full', 'antialiased', geistMono.variable, 'font-sans', raveoSans.variable)}>
+        <GoogleTagManager gtmId="GTM-KPWN9HTK" />
         <body className="flex min-h-full flex-col">
           <Header />
           <NavBar />
