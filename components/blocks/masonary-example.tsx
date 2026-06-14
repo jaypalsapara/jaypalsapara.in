@@ -7,17 +7,6 @@ type Item = {
   title: string;
 };
 
-const items = [
-  { id: 1, height: 300, title: 'Item 1' },
-  { id: 2, height: 200, title: 'Item 2' },
-  { id: 3, height: 250, title: 'Item 3' },
-  { id: 4, height: 180, title: 'Item 4' },
-  { id: 5, height: 350, title: 'Item 5' },
-  { id: 6, height: 150, title: 'Item 6' },
-  { id: 7, height: 220, title: 'Item 7' },
-  { id: 8, height: 400, title: 'Item 8' },
-];
-
 export default function MasonryExample() {
   const columnCount = 3;
   const gap = 16;
@@ -37,7 +26,7 @@ export default function MasonryExample() {
     }
 
     return cols;
-  }, [items, columnCount, gap]);
+  }, [columnCount, gap]);
   return (
     <div
       style={{
