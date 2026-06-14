@@ -4,6 +4,11 @@ const nextConfig: NextConfig = {
   /* config options here */
   images: {
     formats: ['image/avif'],
+    localPatterns: [
+      {
+        pathname: '/images/**',
+      },
+    ],
   },
 };
 
