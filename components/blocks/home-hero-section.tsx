@@ -36,6 +36,7 @@ export default function HomeHeroSection() {
         width={3840}
         height={2160}
         fetchPriority="high"
+        loading='eager'
         className="-z-1 min-h-210 object-cover w-full hidden md:block"
       />
       <Image
@@ -44,6 +45,7 @@ export default function HomeHeroSection() {
         width={2160}
         height={2160}
         fetchPriority="high"
+        loading='eager'
         className="-z-1 min-h-210 object-cover w-full block md:hidden"
       />
     </motion.main>
