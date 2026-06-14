@@ -1,5 +1,6 @@
 'use client';
 
+import { sendGTMEvent } from '@next/third-parties/google';
 import { useTransitionRouter } from 'next-view-transitions';
 import Link, { LinkProps } from 'next/link';
 
@@ -14,6 +15,7 @@ export default function TransitionLink({ children, ...props }: TransitionLinkPro
       onClick={(e) => {
         e.preventDefault();
         router.push(props.href.toString());
+        sendGTMEvent({ event: 'page_view', location: props.href.toString() });
       }}
       {...props}
     >
