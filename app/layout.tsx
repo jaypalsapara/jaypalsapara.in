@@ -57,7 +57,7 @@ export default function RootLayout({
           <Header />
           <NavBar />
           {children}
-          <ScreenIndicator />
+          {/* <ScreenIndicator /> */}
         </body>
       </html>
     </ViewTransitionShell>
