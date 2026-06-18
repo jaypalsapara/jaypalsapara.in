@@ -2,6 +2,7 @@ import Header from '@/components/header';
 import NavBar from '@/components/navbar';
 import ScreenIndicator from '@/components/screen-indicator';
 import ViewTransitionShell from '@/components/view-transition-shell';
+import { isProduction } from '@/config/app';
 import { APP_URL } from '@/constants/app';
 import { cn } from '@/lib/utils';
 import { GoogleTagManager } from '@next/third-parties/google';
@@ -52,7 +53,7 @@ export default function RootLayout({
   return (
     <ViewTransitionShell>
       <html lang="en" className={cn('h-full', 'antialiased', geistMono.variable, 'font-sans', raveoSans.variable)}>
-        <GoogleTagManager gtmId="GTM-KPWN9HTK" />
+        {isProduction && <GoogleTagManager gtmId="GTM-KPWN9HTK" />}
         <body className="flex min-h-full flex-col">
           <Header />
           <NavBar />
