@@ -24,7 +24,7 @@ const STICKY_NOTES: StickyNote[] = [
 const BG_COLORS = ['bg-amber-200', 'bg-pink-200', 'bg-sky-200', 'bg-lime-200', 'bg-violet-200', 'bg-orange-200'];
 
 const SPAWN_INTERVAL_MS = 3000; // time between each new note appearing
-const MAX_VISIBLE = 5; // sliding window size
+const MAX_VISIBLE = 20; // sliding window size
 const NOTE_SIZE_PX = 160; // must match the `size-40` (10rem) note
 const EDGE_PADDING_PX = 16; // small gap so notes don't touch the very edge
 
@@ -74,12 +74,12 @@ const noteVariants: Variants = {
     scale: 1,
     y: 0,
     rotate: tilt,
-    transition: { duration: 0.2, ease: 'easeOut' },
+    transition: { duration: 0.2, ease: 'backOut' },
   }),
   exit: {
     opacity: 0,
     scale: 0.8,
-    transition: { duration: 0.3, ease: 'easeIn' },
+    transition: { duration: 0.2, ease: 'easeIn' },
   },
 };
 
@@ -125,7 +125,7 @@ function IdleNotesField() {
             top: `${vn.y}px`,
             zIndex: vn.key,
           }}
-          className={`size-40 p-4 rounded-sm shadow-lg flex flex-col gap-1 ${vn.color}`}
+          className={`size-40 p-4 rounded-sm shadow-sm flex flex-col gap-1 ${vn.color}`}
         >
           <span className="text-xs font-mono opacity-60">#{vn.note.id}</span>
           <span className="font-semibold text-sm">{vn.note.name}</span>
@@ -146,8 +146,8 @@ export default function IdleModeScreen() {
           className="fixed z-50 inset-0 overflow-hidden pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.3, ease: 'easeIn' }}
         >
           <IdleNotesField />
         </motion.div>
