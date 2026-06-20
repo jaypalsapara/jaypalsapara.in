@@ -60,7 +60,7 @@ export default function RootLayout({
           <NavBar />
           <MobileNav />
           {children}
-          <ScreenIndicator />
+          {!isProduction && <ScreenIndicator />}
         </body>
       </html>
     </ViewTransitionShell>
