@@ -24,7 +24,7 @@ export default function MobileNav() {
   return (
     <Drawer key={`drawer-${pathname}`} onOpenChange={setOpen} open={open}>
       <DrawerTrigger className="fixed bottom-4 z-40 -translate-x-1/2 left-1/2 rounded-full size-14 grid place-items-center bg-background text-foreground lg:hidden">
-        <Menu />
+        <Menu className="size-5" />
       </DrawerTrigger>
       <DrawerContent className="h-screen dark max-h-screen! rounded-none! lg:hidden">
         <motion.ul
