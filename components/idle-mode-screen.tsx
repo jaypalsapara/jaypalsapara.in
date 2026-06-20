@@ -11,7 +11,12 @@ interface StickyNote {
 }
 
 const STICKY_NOTES: StickyNote[] = [
-  { id: '1', name: 'Sarah Chen', description: 'Working on the new dashboard redesign' },
+  {
+    id: '1',
+    name: 'Sarah Chen',
+    description:
+      'Working on the new dashboard redesign Working on the new dashboard redesign Working on the new dashboard redesign Working on the new dashboard redesign Working on the new dashboard redesign Working on the new dashboard redesign Working on the new dashboard redesign Working on the new dashboard redesign',
+  },
   { id: '2', name: 'Marcus Lee', description: 'Fixed the payment gateway bug' },
   { id: '3', name: 'Priya Patel', description: 'Drafting Q3 roadmap proposal' },
   { id: '4', name: 'Tom Becker', description: 'Reviewing pull requests' },
@@ -25,8 +30,9 @@ const BG_COLORS = ['bg-amber-200', 'bg-pink-200', 'bg-sky-200', 'bg-lime-200', '
 
 const SPAWN_INTERVAL_MS = 3000;
 const MAX_VISIBLE = 20;
-const NOTE_SIZE_PX = 230;
+const NOTE_SIZE_PX = 256;
 const RANDOM_DELY = [0.05, 0.15, 0.25];
+const EDGE_PADDING_PX = 32;
 
 interface VisibleNote {
   key: number;
@@ -144,13 +150,15 @@ function IdleNotesField({ exiting, onAllExited }: { exiting: boolean; onAllExite
             width: NOTE_SIZE_PX,
             height: NOTE_SIZE_PX,
           }}
-          className={`rounded-sm p-4 shadow-sm flex flex-col gap-1 ${vn.color}`}
+          className={`rounded-sm p-4 shadow-sm pile ${vn.color}`}
         >
-          <span className="text-xs font-mono opacity-60">#{vn.note.id}</span>
-
-          <span className="text-sm font-semibold">{vn.note.name}</span>
-
-          <span className="text-xs leading-snug">{vn.note.description}</span>
+          {/* <span className="text-xs font-mono opacity-50 self-end justify-self-end">#{vn.note.id}</span> */}
+          <span className="text-base self-start justify-self-start leading-snug line-clamp-9">
+            {vn.note.description}
+          </span>
+          <span className="text-xs font-mono opacity-50 self-end justify-self-start truncate max-w-[14ch]">
+            {vn.note.name}
+          </span>
         </motion.div>
       ))}
     </AnimatePresence>
