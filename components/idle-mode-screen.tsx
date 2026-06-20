@@ -23,22 +23,23 @@ const STICKY_NOTES: StickyNote[] = [
 
 const BG_COLORS = ['bg-amber-200', 'bg-pink-200', 'bg-sky-200', 'bg-lime-200', 'bg-violet-200', 'bg-orange-200'];
 
-const SPAWN_INTERVAL_MS = 3000; // time between each new note appearing
-const MAX_VISIBLE = 20; // sliding window size
-const NOTE_SIZE_PX = 160; // must match the `size-40` (10rem) note
-const EDGE_PADDING_PX = 16; // small gap so notes don't touch the very edge
+const SPAWN_INTERVAL_MS = 3000;
+const MAX_VISIBLE = 20;
+const NOTE_SIZE_PX = 160;
+const RANDOM_DELY = [0.15, 0.25, 0.3];
 
 interface VisibleNote {
   key: number;
   note: StickyNote;
-  x: number; // px from left
-  y: number; // px from top
+  x: number;
+  y: number;
   tilt: number;
   color: string;
+  exitDelay: number;
 }
 
 function randomTilt() {
-  return Math.random() * 20 - 10; // -10deg to 10deg
+  return Math.random() * 20 - 10;
 }
 
 function randomColor() {
@@ -46,14 +47,13 @@ function randomColor() {
 }
 
 function randomPosition() {
-  if (typeof window === 'undefined') return { x: 0, y: 0 };
-
-  const maxX = Math.max(window.innerWidth - NOTE_SIZE_PX - EDGE_PADDING_PX * 2, 0);
-  const maxY = Math.max(window.innerHeight - NOTE_SIZE_PX - EDGE_PADDING_PX * 2, 0);
+  if (typeof window === 'undefined') {
+    return { x: 0, y: 0 };
+  }
 
   return {
-    x: EDGE_PADDING_PX + Math.random() * maxX,
-    y: EDGE_PADDING_PX + Math.random() * maxY,
+    x: Math.random() * (window.innerWidth - NOTE_SIZE_PX) - NOTE_SIZE_PX * 0.2,
+    y: Math.random() * (window.innerHeight - NOTE_SIZE_PX) - NOTE_SIZE_PX * 0.2,
   };
 }
 
@@ -64,71 +64,90 @@ function createNote(key: number, noteIndex: number): VisibleNote {
     ...randomPosition(),
     tilt: randomTilt(),
     color: randomColor(),
+    exitDelay: RANDOM_DELY[Math.floor(Math.random() * 3)],
   };
 }
 
 const noteVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.5, y: 0 },
+  hidden: {
+    opacity: 0,
+    scale: 0.5,
+  },
   visible: ({ tilt }: { tilt: number }) => ({
     opacity: 1,
     scale: 1,
-    y: 0,
     rotate: tilt,
-    transition: { duration: 0.2, ease: 'backOut' },
+    transition: {
+      duration: 0.25,
+      ease: 'backOut',
+    },
   }),
-  exit: {
+  exit: ({ exitDelay }: { exitDelay: number }) => ({
     opacity: 0,
-    scale: 0.8,
-    transition: { duration: 0.2, ease: 'easeIn' },
-  },
+    scale: 1,
+    y: 20,
+    transition: {
+      delay: exitDelay,
+      duration: 0.2,
+      ease: 'easeIn',
+    },
+  }),
 };
 
-// Only ever mounted while idle, so its state resets for free on unmount.
-function IdleNotesField() {
-  // Lazy initializer — safe even under Strict Mode's double-invoke,
-  // since React only keeps one of the two results.
+function IdleNotesField({ exiting, onAllExited }: { exiting: boolean; onAllExited: () => void }) {
   const [visibleNotes, setVisibleNotes] = useState<VisibleNote[]>(() => [createNote(0, 0)]);
   const noteIndexRef = useRef(1);
   const keyRef = useRef(1);
 
   useEffect(() => {
-    // Pure subscription: sets up a timer, no immediate setState call in
-    // the body. If Strict Mode mounts this twice, the first interval is
-    // cleared before it ever ticks, so only the surviving one fires.
+    if (exiting) {
+      (async () => {
+        setVisibleNotes([]);
+      })();
+      return;
+    }
+
     const interval = setInterval(() => {
       const newNote = createNote(keyRef.current, noteIndexRef.current);
+
       keyRef.current += 1;
       noteIndexRef.current += 1;
 
       setVisibleNotes((prev) => {
         const next = [...prev, newNote];
+
         return next.length > MAX_VISIBLE ? next.slice(next.length - MAX_VISIBLE) : next;
       });
     }, SPAWN_INTERVAL_MS);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [exiting]);
 
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={onAllExited}>
       {visibleNotes.map((vn) => (
         <motion.div
           key={vn.key}
-          custom={{ tilt: vn.tilt }}
+          custom={{
+            tilt: vn.tilt,
+            exitDelay: vn.exitDelay,
+          }}
           variants={noteVariants}
           initial="hidden"
           animate="visible"
           exit="exit"
           style={{
             position: 'absolute',
-            left: `${vn.x}px`,
-            top: `${vn.y}px`,
+            left: vn.x,
+            top: vn.y,
             zIndex: vn.key,
           }}
-          className={`size-40 p-4 rounded-sm shadow-sm flex flex-col gap-1 ${vn.color}`}
+          className={`size-40 rounded-sm p-4 shadow-sm flex flex-col gap-1 ${vn.color}`}
         >
           <span className="text-xs font-mono opacity-60">#{vn.note.id}</span>
-          <span className="font-semibold text-sm">{vn.note.name}</span>
+
+          <span className="text-sm font-semibold">{vn.note.name}</span>
+
           <span className="text-xs leading-snug">{vn.note.description}</span>
         </motion.div>
       ))}
@@ -139,19 +158,66 @@ function IdleNotesField() {
 export default function IdleModeScreen() {
   const isIdle = useIdle();
 
+  const [overlayVisible, setOverlayVisible] = useState(false);
+  const [childrenExited, setChildrenExited] = useState(false);
+
+  useEffect(() => {
+    if (isIdle) {
+      (async () => {
+        setOverlayVisible(true);
+        setChildrenExited(false);
+      })();
+    }
+  }, [isIdle]);
+
+  useEffect(() => {
+    if (!isIdle && childrenExited) {
+      (async () => {
+        setOverlayVisible(false);
+      })();
+    }
+  }, [isIdle, childrenExited]);
+
+  if (!overlayVisible) {
+    return null;
+  }
+
+  const shouldExitChildren = !isIdle;
+
   return (
-    <AnimatePresence>
-      {isIdle && (
-        <motion.div
-          className="fixed z-50 inset-0 overflow-hidden pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.3, ease: 'easeIn' }}
-        >
-          <IdleNotesField />
-        </motion.div>
-      )}
+    <AnimatePresence mode="wait">
+      <motion.div
+        key="idle-overlay"
+        className="fixed inset-0 z-50 overflow-hidden pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+        }}
+        exit={{
+          opacity: 0,
+        }}
+      >
+        {childrenExited && shouldExitChildren ? (
+          <motion.div
+            className="absolute inset-0"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onAnimationComplete={() => {
+              setOverlayVisible(false);
+            }}
+          />
+        ) : (
+          <IdleNotesField
+            exiting={shouldExitChildren}
+            onAllExited={() => {
+              if (shouldExitChildren) {
+                setChildrenExited(true);
+              }
+            }}
+          />
+        )}
+      </motion.div>
     </AnimatePresence>
   );
 }
