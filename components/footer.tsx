@@ -6,7 +6,7 @@ import TransitionLink from './transition-link';
 
 const email = 'hellojaypalsapara@gmail.com';
 
-const socialLinks: ReferenceLink[] = [
+export const SocialLinks: ReferenceLink[] = [
   {
     name: 'Twitter',
     url: 'https://x.com/jaypal__sapara',
@@ -42,7 +42,7 @@ export default function Footer({
           </H4>
         </div>
         <div>
-          {socialLinks.map((item) => (
+          {SocialLinks.map((item) => (
             <H4 className="font-bold h-9 lg:h-auto" key={`social-link-wrapper-${item.name}`}>
               <a href={item.url} className="text-foreground hover:text-muted-foreground/50 transition-colors">
                 {item.name}

@@ -51,6 +51,7 @@ export default async function About() {
                   height={447}
                   priority
                   className="object-contain w-full inline absolute -bottom-3.5 lg:-bottom-4"
+                  data-bg-placeholder="false"
                 />
               </div>{' '}
               Gujarat<span className="ms-1.5">,</span> <span className="text-muted-foreground/50">India.</span>

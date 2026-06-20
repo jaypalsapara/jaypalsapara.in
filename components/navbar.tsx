@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import TransitionLink from './transition-link';
 import { Button } from './ui/button';
 
-const pages: NavLink[] = [
+export const PagesLinks: NavLink[] = [
   {
     name: 'Home',
     path: '/',
@@ -32,9 +32,9 @@ const pages: NavLink[] = [
 export default function NavBar() {
   const pathname = usePathname();
   return (
-    <nav className="flex items-center h-14 sticky top-0 px-2 z-40 bg-background">
+    <nav className="items-center h-14 sticky top-0 px-2 z-40 bg-background md:flex hidden">
       <ul className="flex">
-        {pages.map((item) => (
+        {PagesLinks.map((item) => (
           <li key={`nav-link-wrapper-${item.name}`}>
             <Button
               variant={'ghost'}
