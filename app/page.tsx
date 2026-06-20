@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  console.log('VERCEL_REGION:', process.env.VERCEL_REGION);
   return (
     <>
       <Script id="personal-jsonld" type="application/ld+json" dangerouslySetInnerHTML={getPersonalJsonLd()} />
