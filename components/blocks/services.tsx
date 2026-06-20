@@ -8,6 +8,7 @@ import H1 from '../h1';
 
 type ListItemProps = {
   type: string;
+  typeSpan?: string;
   icon: string | null;
   name: string;
   url: string | null;
@@ -52,7 +53,8 @@ const ListOfTechnologies = async () => {
         return techs.map((tech) => (
           <ListItem
             key={`technology-${tech.id}`}
-            type={`${keyLabel[tech.type] || tech.type}`}
+            type={category}
+            typeSpan={keyLabel[tech.type] || tech.type}
             name={tech.name}
             icon={`/images/technologies/${tech.icon}`}
             url={tech.url}
@@ -85,10 +87,12 @@ const ListOfAbilities = async () => {
   );
 };
 
-const ListItem = ({ type, icon, name, url }: ListItemProps) => {
+const ListItem = ({ type, typeSpan, icon, name, url }: ListItemProps) => {
   return (
     <div className="grid grid-cols-subgrid col-span-full [counter-increment:index] before:content-[counter(index)]  relative has-[a]:hover:bg-muted/50 before:text-end before:self-start before:max-w-[2ch] px-2 transition-colors will-change-['background-color'] group before:text-sm before:col-span-2 md:before:col-span-3">
-      <p className="text-sm text-muted-foreground col-span-4 md:col-span-3 capitalize">{type}</p>
+      <p className="text-sm text-muted-foreground col-span-4 md:col-span-3 capitalize">
+        {type} {typeSpan && <span className="hidden md:inline">{typeSpan}</span>}
+      </p>
       <div className="col-span-6 flex items-center justify-between">
         <div className="flex items-center">
           {icon && (
