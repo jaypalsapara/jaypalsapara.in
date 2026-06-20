@@ -32,7 +32,7 @@ export const PagesLinks: NavLink[] = [
 export default function NavBar() {
   const pathname = usePathname();
   return (
-    <nav className="items-center h-14 sticky top-0 px-2 z-40 bg-background hidden lg:flex">
+    <nav className="items-center h-14 sticky top-0 px-2 z-40 bg-background md:flex hidden">
       <ul className="flex">
         {PagesLinks.map((item) => (
           <li key={`nav-link-wrapper-${item.name}`}>
