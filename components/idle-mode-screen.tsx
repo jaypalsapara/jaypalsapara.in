@@ -25,8 +25,8 @@ const BG_COLORS = ['bg-amber-200', 'bg-pink-200', 'bg-sky-200', 'bg-lime-200', '
 
 const SPAWN_INTERVAL_MS = 3000;
 const MAX_VISIBLE = 20;
-const NOTE_SIZE_PX = 160;
-const RANDOM_DELY = [0.15, 0.25, 0.3];
+const NOTE_SIZE_PX = 230;
+const RANDOM_DELY = [0.05, 0.15, 0.25];
 
 interface VisibleNote {
   key: number;
@@ -141,8 +141,10 @@ function IdleNotesField({ exiting, onAllExited }: { exiting: boolean; onAllExite
             left: vn.x,
             top: vn.y,
             zIndex: vn.key,
+            width: NOTE_SIZE_PX,
+            height: NOTE_SIZE_PX,
           }}
-          className={`size-40 rounded-sm p-4 shadow-sm flex flex-col gap-1 ${vn.color}`}
+          className={`rounded-sm p-4 shadow-sm flex flex-col gap-1 ${vn.color}`}
         >
           <span className="text-xs font-mono opacity-60">#{vn.note.id}</span>
 
