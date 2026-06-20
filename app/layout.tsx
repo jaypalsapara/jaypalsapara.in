@@ -1,4 +1,5 @@
 import Header from '@/components/header';
+import MobileNav from '@/components/mobile-nav';
 import NavBar from '@/components/navbar';
 import ScreenIndicator from '@/components/screen-indicator';
 import ViewTransitionShell from '@/components/view-transition-shell';
@@ -57,6 +58,7 @@ export default function RootLayout({
         <body className="flex min-h-full flex-col">
           <Header />
           <NavBar />
+          <MobileNav />
           {children}
           <ScreenIndicator />
         </body>
