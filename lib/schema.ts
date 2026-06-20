@@ -26,6 +26,7 @@ export const projectsTable = sqliteTable('projects', {
   cover: text().notNull(),
   footer_cover: text().notNull(),
   name: text().notNull(),
+  subtitle: text().notNull(),
   description: text().notNull(),
   subordinate: text().notNull(),
   category: text().notNull(),

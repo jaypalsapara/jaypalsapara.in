@@ -37,7 +37,7 @@ export default function ProjectSquare({ data }: { data: ProjectProps }) {
             </TransitionLink>
           )}
         </p>
-        <p className="text-xs font-medium text-muted-foreground">Website</p>
+        <p className="text-[0.625rem] md:text-xs font-medium text-muted-foreground">{data.subtitle}</p>
       </div>
     </div>
   );
