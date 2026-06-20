@@ -29,6 +29,7 @@ export default async function Feed() {
                   height={256}
                   priority
                   className="object-contain w-full inline absolute -bottom-1.5 lg:-bottom-2"
+                  data-bg-placeholder="false"
                 />
               </div>{' '}
               archive <span className="text-muted-foreground/50">of everything from</span> early concepts{' '}

@@ -135,6 +135,10 @@
     @apply font-sans;
   }
 
+  img:not([data-bg-placeholder='false']) {
+    background-color: var(--muted);
+  }
+
   @property --view-transition-wipe-offset {
     syntax: '<number>';
     inherits: false;

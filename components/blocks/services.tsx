@@ -55,6 +55,7 @@ const ListOfTechnologies = async () => {
                 height={48}
                 loading="lazy"
                 className="object-contain opacity-0 delay-[-75ms] group-hover:opacity-100 transition-all size-4 shrink-0 absolute  -translate-x-[calc(100%+0.9rem)] duration-300 ease-in-out group-hover:-translate-x-[calc(100%+0.6rem)]"
+                data-bg-placeholder="false"
               />
               <p className="text-sm font-medium">
                 <a href={tech.url} target="_blank" rel="noopener noreferrer">
@@ -98,6 +99,7 @@ const ListOfAbilities = async () => {
                 height={48}
                 loading="lazy"
                 className="object-contain opacity-0 delay-[-75ms] group-hover:opacity-100 transition-all size-4 shrink-0 absolute  -translate-x-[calc(100%+0.9rem)] duration-300 ease-in-out group-hover:-translate-x-[calc(100%+0.6rem)]"
+                data-bg-placeholder="false"
               />
               <p className="text-sm font-medium">{ability.name}</p>
             </div>
