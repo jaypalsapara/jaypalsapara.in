@@ -45,7 +45,7 @@ export default function ProjectSquare({ data }: { data: ProjectProps }) {
 
 const ProjectLabel = ({ label, isNda }: { label: string; isNda: boolean }) => {
   return (
-    <div className="bg-muted-foreground/10 py-1 px-2.5 rounded-full z-10 mt-3 mr-3 hidden group-focus-within:flex  group-hover:flex justify-self-end self-start text-[10px] items-center gap-2 uppercase font-medium text-muted-foreground">
+    <div className="bg-muted-foreground/10 py-1 px-2.5 rounded-full z-10 mt-3 mr-3 hidden pointer-coarse:group-focus-within:flex  group-hover:flex justify-self-end self-start text-[10px] items-center gap-2 uppercase font-medium text-muted-foreground">
       {isNda ? (
         <>
           <Lock className="size-3" /> <span className="mt-px">Locked</span>
