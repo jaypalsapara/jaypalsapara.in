@@ -15,7 +15,7 @@ interface StickyNote {
 const BG_COLORS = ['bg-amber-200', 'bg-pink-200', 'bg-sky-200', 'bg-lime-200', 'bg-violet-200', 'bg-orange-200'];
 
 const SPAWN_INTERVAL_MS = 3000;
-const MAX_VISIBLE = 20;
+const MAX_VISIBLE = 25;
 const NOTE_SIZE_PX = 256;
 const EDGE_OVERFLOW_PX = 0; // how far a note may spill past the viewport edge — 0 keeps it fully on-screen
 const EXIT_DELAY_OPTIONS_S = [0.05, 0.15, 0.25];
