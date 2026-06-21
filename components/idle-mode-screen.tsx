@@ -17,7 +17,7 @@ const BG_COLORS = ['bg-amber-200', 'bg-pink-200', 'bg-sky-200', 'bg-lime-200', '
 const SPAWN_INTERVAL_MS = 3000;
 const MAX_VISIBLE = 20;
 const NOTE_SIZE_PX = 256;
-const EDGE_OVERFLOW_PX = NOTE_SIZE_PX * 0; // how far a note may spill past the viewport edge
+const EDGE_OVERFLOW_PX = 0; // how far a note may spill past the viewport edge — 0 keeps it fully on-screen
 const EXIT_DELAY_OPTIONS_S = [0.05, 0.15, 0.25];
 
 interface VisibleNote {
@@ -53,7 +53,7 @@ function randomPosition() {
   };
 }
 
-function createNote(key: number, noteIndex: number, note: StickyNote): VisibleNote {
+function createNote(key: number, note: StickyNote): VisibleNote {
   return {
     key,
     note,
@@ -89,15 +89,13 @@ interface IdleNotesFieldProps {
 // fresh idle session — no manual reset needed.
 function IdleNotesField({ exiting, onAllExited }: IdleNotesFieldProps) {
   const stickyNotes: StickyNote[] = useMemo(() => shuffle(StickyNotesData), []);
-  const [visibleNotes, setVisibleNotes] = useState<VisibleNote[]>(() => [
-    createNote(0, 0, stickyNotes[0 % stickyNotes.length]),
-  ]);
+  const [visibleNotes, setVisibleNotes] = useState<VisibleNote[]>(() => [createNote(0, stickyNotes[0])]);
   const noteIndexRef = useRef(1);
   const keyRef = useRef(1);
 
   const spawnNote = useEffectEvent(() => {
     const note = stickyNotes[noteIndexRef.current % stickyNotes.length];
-    const newNote = createNote(keyRef.current, noteIndexRef.current, note);
+    const newNote = createNote(keyRef.current, note);
 
     keyRef.current += 1;
     noteIndexRef.current += 1;
@@ -110,7 +108,7 @@ function IdleNotesField({ exiting, onAllExited }: IdleNotesFieldProps) {
 
   useEffect(() => {
     // Don't spawn while exiting. No setState here — when `exiting` flips
-    // true, React runs the *previous* render's cleanup (clearInterval)
+    // true, React runs the previous render's cleanup (clearInterval)
     // automatically before this body runs again, so the interval still
     // stops correctly without us calling anything directly.
     if (exiting) return;
