@@ -1,8 +1,10 @@
 'use client';
 
+import StickyNotesData from '@/database/sticky-notes.json';
 import { useIdle } from '@/hooks/use-idle';
+import { shuffle } from '@/lib/utils';
 import { AnimatePresence, motion, type Variants } from 'motion/react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useEffectEvent, useMemo, useRef, useState } from 'react';
 
 interface StickyNote {
   id: string;
@@ -10,29 +12,12 @@ interface StickyNote {
   description: string;
 }
 
-const STICKY_NOTES: StickyNote[] = [
-  {
-    id: '1',
-    name: 'Sarah Chen',
-    description:
-      'Working on the new dashboard redesign Working on the new dashboard redesign Working on the new dashboard redesign Working on the new dashboard redesign Working on the new dashboard redesign Working on the new dashboard redesign Working on the new dashboard redesign Working on the new dashboard redesign',
-  },
-  { id: '2', name: 'Marcus Lee', description: 'Fixed the payment gateway bug' },
-  { id: '3', name: 'Priya Patel', description: 'Drafting Q3 roadmap proposal' },
-  { id: '4', name: 'Tom Becker', description: 'Reviewing pull requests' },
-  { id: '5', name: 'Aisha Khan', description: 'User research interviews this week' },
-  { id: '6', name: 'Diego Ramirez', description: 'Onboarding new hires' },
-  { id: '7', name: 'Emma Wilson', description: 'Updating API documentation' },
-  { id: '8', name: 'Noah Kim', description: 'Performance optimization sprint' },
-];
-
 const BG_COLORS = ['bg-amber-200', 'bg-pink-200', 'bg-sky-200', 'bg-lime-200', 'bg-violet-200', 'bg-orange-200'];
 
 const SPAWN_INTERVAL_MS = 3000;
 const MAX_VISIBLE = 20;
 const NOTE_SIZE_PX = 256;
 const RANDOM_DELY = [0.05, 0.15, 0.25];
-const EDGE_PADDING_PX = 32;
 
 interface VisibleNote {
   key: number;
@@ -63,10 +48,10 @@ function randomPosition() {
   };
 }
 
-function createNote(key: number, noteIndex: number): VisibleNote {
+function createNote(key: number, noteIndex: number, note: StickyNote): VisibleNote {
   return {
     key,
-    note: STICKY_NOTES[noteIndex % STICKY_NOTES.length],
+    note: note,
     ...randomPosition(),
     tilt: randomTilt(),
     color: randomColor(),
@@ -91,7 +76,7 @@ const noteVariants: Variants = {
   exit: ({ exitDelay }: { exitDelay: number }) => ({
     opacity: 0,
     scale: 1,
-    y: 20,
+    y: 40,
     transition: {
       delay: exitDelay,
       duration: 0.2,
@@ -101,9 +86,27 @@ const noteVariants: Variants = {
 };
 
 function IdleNotesField({ exiting, onAllExited }: { exiting: boolean; onAllExited: () => void }) {
-  const [visibleNotes, setVisibleNotes] = useState<VisibleNote[]>(() => [createNote(0, 0)]);
+  const STICKY_NOTES: StickyNote[] = useMemo(() => shuffle(StickyNotesData), []);
+  const [visibleNotes, setVisibleNotes] = useState<VisibleNote[]>(() => [
+    createNote(0, 0, STICKY_NOTES[0 % STICKY_NOTES.length]),
+  ]);
   const noteIndexRef = useRef(1);
   const keyRef = useRef(1);
+
+  const spawnNote = useEffectEvent(() => {
+    const note = STICKY_NOTES[noteIndexRef.current % STICKY_NOTES.length];
+
+    const newNote = createNote(keyRef.current, noteIndexRef.current, note);
+
+    keyRef.current += 1;
+    noteIndexRef.current += 1;
+
+    setVisibleNotes((prev) => {
+      const next = [...prev, newNote];
+
+      return next.length > MAX_VISIBLE ? next.slice(next.length - MAX_VISIBLE) : next;
+    });
+  });
 
   useEffect(() => {
     if (exiting) {
@@ -113,18 +116,7 @@ function IdleNotesField({ exiting, onAllExited }: { exiting: boolean; onAllExite
       return;
     }
 
-    const interval = setInterval(() => {
-      const newNote = createNote(keyRef.current, noteIndexRef.current);
-
-      keyRef.current += 1;
-      noteIndexRef.current += 1;
-
-      setVisibleNotes((prev) => {
-        const next = [...prev, newNote];
-
-        return next.length > MAX_VISIBLE ? next.slice(next.length - MAX_VISIBLE) : next;
-      });
-    }, SPAWN_INTERVAL_MS);
+    const interval = setInterval(spawnNote, SPAWN_INTERVAL_MS);
 
     return () => clearInterval(interval);
   }, [exiting]);
@@ -153,7 +145,7 @@ function IdleNotesField({ exiting, onAllExited }: { exiting: boolean; onAllExite
           className={`rounded-sm p-4 shadow-sm pile ${vn.color}`}
         >
           {/* <span className="text-xs font-mono opacity-50 self-end justify-self-end">#{vn.note.id}</span> */}
-          <span className="text-base self-start justify-self-start leading-snug line-clamp-9">
+          <span className="text-base self-start justify-self-start leading-snug line-clamp-9 text-pretty">
             {vn.note.description}
           </span>
           <span className="text-xs font-mono opacity-50 self-end justify-self-start truncate max-w-[14ch]">

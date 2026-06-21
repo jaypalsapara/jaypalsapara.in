@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-export function useIdle(timeout = 1000) {
+export function useIdle(timeout = 10_000) {
   const [isIdle, setIsIdle] = useState(false);
 
   useEffect(() => {
