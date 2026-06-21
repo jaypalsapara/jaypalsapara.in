@@ -12,7 +12,7 @@ interface StickyNote {
   description: string;
 }
 
-const BG_COLORS = ['bg-amber-200', 'bg-pink-200', 'bg-sky-200', 'bg-lime-200', 'bg-violet-200', 'bg-orange-200'];
+const BG_COLORS = ['bg-amber-300', 'bg-pink-300', 'bg-sky-300', 'bg-lime-300', 'bg-violet-300', 'bg-orange-300'];
 
 const SPAWN_INTERVAL_MS = 3000;
 const MAX_VISIBLE = 25;
@@ -140,7 +140,7 @@ function IdleNotesField({ exiting, onAllExited }: IdleNotesFieldProps) {
             width: NOTE_SIZE_PX,
             height: NOTE_SIZE_PX,
           }}
-          className={`rounded-sm p-4 shadow-sm pile ${vn.color}`}
+          className={`rounded-sm p-4 drop-shadow-sm shadow-md pile ${vn.color}`}
         >
           <span className="text-base self-start justify-self-start leading-snug line-clamp-9 text-pretty">
             {vn.note.description}
