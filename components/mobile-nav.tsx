@@ -26,7 +26,10 @@ export default function MobileNav() {
   return (
     isMobile && (
       <Drawer key={`drawer-${pathname}`} onOpenChange={setOpen} open={open}>
-        <DrawerTrigger className="fixed bottom-4 z-40 -translate-x-1/2 left-1/2 rounded-full size-14 grid place-items-center bg-secondary text-secondary-foreground">
+        <DrawerTrigger
+          className="fixed bottom-4 z-40 -translate-x-1/2 left-1/2 rounded-full size-14 grid place-items-center bg-secondary text-secondary-foreground"
+          aria-label="Menu open"
+        >
           <Menu className="size-5" />
         </DrawerTrigger>
         <DrawerContent className="h-dvh dark max-h-dvh! rounded-none!">
@@ -61,7 +64,7 @@ export default function MobileNav() {
             </li>
           </motion.ul>
           <DrawerFooter>
-            <DrawerClose className="mx-auto size-14 grid place-items-center bg-foreground text-background rounded-full">
+            <DrawerClose className="mx-auto size-14 grid place-items-center bg-foreground text-background rounded-full"  aria-label="Menu close">
               <X />
             </DrawerClose>
           </DrawerFooter>
