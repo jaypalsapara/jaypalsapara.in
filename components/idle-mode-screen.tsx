@@ -173,13 +173,7 @@ export default function IdleModeScreen() {
   return (
     <AnimatePresence>
       {isShowing && (
-        <motion.div
-          className="fixed inset-0 z-50 overflow-hidden pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, ease: 'easeIn' }}
-        >
+        <motion.div className="fixed inset-0 z-51 overflow-hidden pointer-events-none! select-none!">
           <IdleNotesField exiting={!isIdle} onAllExited={() => setIsShowing(false)} />
         </motion.div>
       )}
