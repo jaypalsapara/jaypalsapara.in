@@ -1,4 +1,5 @@
 import Header from '@/components/header';
+import IdleModeScreen from '@/components/idle-mode-screen';
 import MobileNav from '@/components/mobile-nav';
 import NavBar from '@/components/navbar';
 import ScreenIndicator from '@/components/screen-indicator';
@@ -56,6 +57,7 @@ export default function RootLayout({
       <html lang="en" className={cn('h-full', 'antialiased', geistMono.variable, 'font-sans', raveoSans.variable)}>
         {isProduction && <GoogleTagManager gtmId="GTM-KPWN9HTK" />}
         <body className="flex min-h-full flex-col">
+          <IdleModeScreen />
           <Header />
           <NavBar />
           <MobileNav />
