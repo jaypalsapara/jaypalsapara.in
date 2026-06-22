@@ -25,7 +25,7 @@ export default function HomeHeroSection() {
           alt="Hero section image"
           width={3840}
           height={2160}
-          fetchPriority="high"
+          priority
           loading="eager"
           className="min-h-210 object-cover size-full hidden md:block"
         />
@@ -34,7 +34,7 @@ export default function HomeHeroSection() {
           alt="Hero section image"
           width={2160}
           height={2160}
-          fetchPriority="high"
+          priority
           loading="eager"
           className="min-h-210 object-cover size-full block md:hidden"
         />
