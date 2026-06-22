@@ -51,7 +51,7 @@ export default function MobileNav() {
               </li>
             ))}
 
-            <li className="flex gap-4 pt-6">
+            <li className="flex gap-4 pt-10">
               {SocialLinks.map((item) => (
                 <a
                   href={item.url}
@@ -64,7 +64,10 @@ export default function MobileNav() {
             </li>
           </motion.ul>
           <DrawerFooter>
-            <DrawerClose className="mx-auto size-14 grid place-items-center bg-foreground text-background rounded-full"  aria-label="Menu close">
+            <DrawerClose
+              className="mx-auto size-14 grid place-items-center bg-foreground text-background rounded-full"
+              aria-label="Menu close"
+            >
               <X />
             </DrawerClose>
           </DrawerFooter>
