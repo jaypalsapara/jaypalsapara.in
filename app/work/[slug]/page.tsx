@@ -53,7 +53,7 @@ export default async function page({ params }: { params: Promise<{ slug: string 
             height={2160}
             alt={`${project.name} Cover`}
             priority
-            className="aspect-video object-cover rounded-lg lg:rounded-xl"
+            className="aspect-video object-cover rounded-lg lg:rounded-xl w-full"
           />
         </section>
         <section className="grid lg:grid-cols-2 py-14 lg:py-22 px-4 w-full">
@@ -119,7 +119,7 @@ const Showcase = ({ showcase, project }: { showcase: ShowcaseProps; project: Pro
                 height={image.resolution.h}
                 alt={`${image.name}`}
                 loading="lazy"
-                className={cn('object-cover rounded-lg lg:rounded-xl', {
+                className={cn('object-cover rounded-lg lg:rounded-xl w-full', {
                   'aspect-video': image.ratio === '16:9',
                   'aspect-3/2': image.ratio === '3:2',
                 })}
