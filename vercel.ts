@@ -4,6 +4,7 @@ export const config: VercelConfig = {
   git: {
     deploymentEnabled: {
       dev: false,
+      'dev-*': false,
     },
   },
 };
