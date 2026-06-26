@@ -111,7 +111,7 @@ const ListOfIntegration = async () => {
           typeSpan={keyLabel[plugin.type] || plugin.type}
           name={plugin.name}
           icon={`/images/icons/${plugin.icon}`}
-          url={null}
+          url={plugin.url}
         />
       ))}
     </div>
