@@ -35,8 +35,11 @@ export default function Footer({
       <div className="px-4 py-16 lg:py-28 grid lg:grid-cols-2 gap-y-6">
         <div>
           <H4 className="max-w-[18ch]">Reach out to connect or collaborate</H4>
-          <H4 className="font-medium">
-            <a href={'mailto:' + email} className="text-muted-foreground/50 hover:text-foreground transition-colors">
+          <H4 className="font-medium grid max-w-max">
+            <a
+              href={'mailto:' + email}
+              className="text-muted-foreground/50 hover:text-foreground transition-colors truncate"
+            >
               {email}
             </a>
           </H4>
@@ -53,14 +56,16 @@ export default function Footer({
       </div>
       <div className="bg-gray-100 grow pile overflow-hidden isolate group/next relative">
         {cover && (
-          <Image
-            width={3840}
-            height={1860}
-            loading="lazy"
-            src={cover}
-            alt={cover}
-            className="absolute size-full object-center -z-1 group-hover/next:scale-[1.01] scale-103 transition-[scale,filter] duration-300 will-change-[scale,filter] ease-in-out brightness-100 group-hover/next:brightness-78 object-cover"
-          />
+          <div className="min-h-0 overflow-hidden self-stretch justify-self-stretch">
+            <Image
+              width={3840}
+              height={1860}
+              loading="lazy"
+              src={cover}
+              alt={cover}
+              className="size-full -z-1 group-hover/next:scale-[1.01] scale-103 transition-[scale,filter] duration-300 will-change-[scale,filter] ease-in-out brightness-100 group-hover/next:brightness-78 object-cover"
+            />
+          </div>
         )}
         <div className="pt-10 px-6 z-10 self-start justify-self-start">
           <TransitionLink

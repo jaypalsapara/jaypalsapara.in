@@ -1,7 +1,8 @@
 import { db } from '@/lib/db';
 import { keyLabel } from '@/lib/key-labels';
-import { abilitiesTable, technologiesTable } from '@/lib/schema';
-import { AbilityProps, TechnologyProps } from '@/types/table';
+import { abilitiesTable, pluginsTable, technologiesTable } from '@/lib/schema';
+import { AbilityProps, PluginsProps, TechnologyProps } from '@/types/table';
+import { asc } from 'drizzle-orm';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import H1 from '../h1';
@@ -23,6 +24,14 @@ export default function Services() {
         </div>
         <div className="col-span-full mt-10">
           <ListOfAbilities />
+        </div>
+      </div>
+      <div className="grid lg:grid-cols-2 pt-8 px-4 w-full">
+        <div className="lg:col-start-2">
+          <H1 className="font-bold">Integration</H1>
+        </div>
+        <div className="col-span-full mt-10">
+          <ListOfIntegration />
         </div>
       </div>
       <div className="grid lg:grid-cols-2 pt-8 px-4 w-full">
@@ -81,6 +90,28 @@ const ListOfAbilities = async () => {
           name={ability.name}
           icon={`/images/icons/${ability.icon}`}
           url={null}
+        />
+      ))}
+    </div>
+  );
+};
+const ListOfIntegration = async () => {
+  const plugins: PluginsProps[] = await db.select().from(pluginsTable).orderBy(asc(pluginsTable.sequence));
+  return (
+    <div className="grid grid-cols-12 [counter-reset:index] divide-y *:py-2 *:items-center">
+      <div className="grid grid-cols-subgrid col-span-full font-medium text-xs px-2">
+        <p className="col-span-2 md:col-span-3 text-end self-start max-w-[3ch]">#</p>
+        <p className="col-span-4 md:col-span-3">Type</p>
+        <p className="col-span-6">Title</p>
+      </div>
+      {plugins.map((plugin) => (
+        <ListItem
+          key={`plugin-${plugin.id}`}
+          type={'Service'}
+          typeSpan={keyLabel[plugin.type] || plugin.type}
+          name={plugin.name}
+          icon={`/images/icons/${plugin.icon}`}
+          url={plugin.url}
         />
       ))}
     </div>

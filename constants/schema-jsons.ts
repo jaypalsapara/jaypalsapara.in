@@ -3,21 +3,15 @@ import { APP_URL } from './app';
 import { GITHUB_URL, LINKED_IN_URL, TWITTER_URL } from './links';
 
 /**
- * Personal Schema
+ * Home page schema
  *
  * @returns
  */
-export const getPersonalJsonLd = () => {
+export const getHomePageJsonLd = () => {
   return {
     __html: JSON.stringify({
       '@context': 'https://schema.org',
       '@graph': [
-        {
-          '@type': 'Organization',
-          '@id': APP_URL + '/#organization',
-          name: 'Freelance',
-          url: APP_URL,
-        },
         {
           '@type': 'Person',
           '@id': APP_URL + '/#person',
@@ -26,12 +20,11 @@ export const getPersonalJsonLd = () => {
             'Full-Stack Developer — I help clients, startups, and enterprises to transform their idea into a digital product, and take it forward, so that their customers can stay engaged.',
           email: EMAIL,
           url: APP_URL,
-          image: APP_URL + `/images/me.png`,
-          jobTitle: 'Full Stack Developer',
-          worksFor: {
-            '@type': 'Organization',
-            name: 'Freelancer',
+          image: {
+            '@type': 'ImageObject',
+            url: APP_URL + `/images/me.png`,
           },
+          jobTitle: 'Full Stack Developer',
           nationality: 'Indian',
           gender: 'Male',
           knowsAbout: [
@@ -94,10 +87,28 @@ export const getPersonalJsonLd = () => {
             '@type': 'ImageObject',
             url: APP_URL + '/images/og-image.png',
           },
+          mainEntity: {
+            '@id': APP_URL + '/#person',
+          },
           datePublished: '2026-06-15',
-          dateModified: '2026-06-15',
+          dateModified: new Date().toISOString(),
           inLanguage: 'en',
         },
+      ],
+    }),
+  };
+};
+
+/**
+ * About page schema
+ *
+ * @returns
+ */
+export const getAboutPageJsonLd = () => {
+  return {
+    __html: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
         {
           '@type': 'BreadcrumbList',
           itemListElement: [
@@ -111,34 +122,118 @@ export const getPersonalJsonLd = () => {
             },
             {
               '@type': 'ListItem',
-              position: 1,
-              item: {
-                '@id': APP_URL + '/feed',
-                name: 'Feed',
-              },
-            },
-            {
-              '@type': 'ListItem',
-              position: 1,
+              position: 2,
               item: {
                 '@id': APP_URL + '/about',
                 name: 'About',
               },
             },
+          ],
+        },
+      ],
+    }),
+  };
+};
+
+/**
+ * Work page schema
+ *
+ * @returns
+ */
+export const getWorkPageJsonLd = () => {
+  return {
+    __html: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
             {
               '@type': 'ListItem',
               position: 1,
+              item: {
+                '@id': APP_URL + '/',
+                name: 'Home',
+              },
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
               item: {
                 '@id': APP_URL + '/work',
                 name: 'Work',
               },
             },
+          ],
+        },
+      ],
+    }),
+  };
+};
+
+/**
+ * Service page schema
+ *
+ * @returns
+ */
+export const getServicePageJsonLd = () => {
+  return {
+    __html: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
             {
               '@type': 'ListItem',
               position: 1,
               item: {
+                '@id': APP_URL + '/',
+                name: 'Home',
+              },
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              item: {
                 '@id': APP_URL + '/service',
                 name: 'Service',
+              },
+            },
+          ],
+        },
+      ],
+    }),
+  };
+};
+
+/**
+ * Feed page schema
+ *
+ * @returns
+ */
+export const getFeedPageJsonLd = () => {
+  return {
+    __html: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              item: {
+                '@id': APP_URL + '/',
+                name: 'Home',
+              },
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              item: {
+                '@id': APP_URL + '/feed',
+                name: 'Feed',
               },
             },
           ],

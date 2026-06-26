@@ -173,3 +173,22 @@ export const feedsTable = sqliteTable('feeds', {
   sequence: integer().notNull(),
   date: integer({ mode: 'timestamp' }),
 });
+
+/**
+ * Plugins
+ */
+export const pluginsTable = sqliteTable('plugins', {
+  id: int().primaryKey({ autoIncrement: true }),
+  slug: text().notNull(),
+  icon: text().notNull(),
+  name: text().notNull(),
+  color: text().notNull(),
+  url: text().notNull(),
+  sequence: integer().notNull(),
+  type: text({
+    enum: ['payments', 'authentication', 'real_time', 'geospatial'],
+  }).notNull(),
+  category: text({
+    enum: ['service', 'security'],
+  }).notNull(),
+});

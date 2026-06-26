@@ -6,6 +6,7 @@ import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import { Separator } from '@/components/ui/separator';
 import { APP_URL } from '@/constants/app';
+import { getAboutPageJsonLd } from '@/constants/schema-jsons';
 import { db } from '@/lib/db';
 import { projectsTable } from '@/lib/schema';
 import { ProjectProps } from '@/types/table';
@@ -13,6 +14,7 @@ import { eq } from 'drizzle-orm';
 import type { Metadata } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -34,6 +36,7 @@ export default async function About() {
 
   return (
     <>
+      <Script id="about-jsonld" type="application/ld+json" dangerouslySetInnerHTML={getAboutPageJsonLd()} />
       <main className="flex w-full flex-1 flex-col relative">
         <Head>
           <link rel="canonical" href={APP_URL + `/about`} key="canonical" />

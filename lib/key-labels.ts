@@ -10,4 +10,8 @@ export const keyLabel = {
   version_control: 'Version Control',
   api: 'API',
   design: 'Design',
+  payments: 'Payment Getway',
+  authentication: 'Authentication',
+  real_time: 'Real-Time',
+  geospatial: 'Geospatial',
 } as const;

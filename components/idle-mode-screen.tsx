@@ -12,10 +12,10 @@ interface StickyNote {
   description: string;
 }
 
-const BG_COLORS = ['bg-amber-200', 'bg-pink-200', 'bg-sky-200', 'bg-lime-200', 'bg-violet-200', 'bg-orange-200'];
+const BG_COLORS = ['bg-amber-300', 'bg-pink-300', 'bg-sky-300', 'bg-lime-300', 'bg-violet-300', 'bg-orange-300'];
 
 const SPAWN_INTERVAL_MS = 3000;
-const MAX_VISIBLE = 20;
+const MAX_VISIBLE = 25;
 const NOTE_SIZE_PX = 256;
 const EDGE_OVERFLOW_PX = 0; // how far a note may spill past the viewport edge — 0 keeps it fully on-screen
 const EXIT_DELAY_OPTIONS_S = [0.05, 0.15, 0.25];
@@ -140,7 +140,7 @@ function IdleNotesField({ exiting, onAllExited }: IdleNotesFieldProps) {
             width: NOTE_SIZE_PX,
             height: NOTE_SIZE_PX,
           }}
-          className={`rounded-sm p-4 shadow-sm pile ${vn.color}`}
+          className={`rounded-sm p-4 drop-shadow-sm shadow-md pile ${vn.color}`}
         >
           <span className="text-base self-start justify-self-start leading-snug line-clamp-9 text-pretty">
             {vn.note.description}
@@ -173,13 +173,7 @@ export default function IdleModeScreen() {
   return (
     <AnimatePresence>
       {isShowing && (
-        <motion.div
-          className="fixed inset-0 z-50 overflow-hidden pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, ease: 'easeIn' }}
-        >
+        <motion.div className="fixed inset-0 z-51 overflow-hidden pointer-events-none! select-none! isolate">
           <IdleNotesField exiting={!isIdle} onAllExited={() => setIsShowing(false)} />
         </motion.div>
       )}

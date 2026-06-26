@@ -10,7 +10,7 @@ import Image from 'next/image';
 export default function HomeHeroSection() {
   return (
     <motion.main
-      className="flex w-full flex-1 flex-col relative isolate"
+      className="w-full pile relative isolate min-h-dvh"
       initial={{
         opacity: 0,
       }}
@@ -19,7 +19,27 @@ export default function HomeHeroSection() {
         transition: { ease: [0.39, 0.575, 0.565, 1.0], delay: 0.4 },
       }}
     >
-      <div className="grid xl:grid-cols-2 py-8 px-4 absolute w-full">
+      <div className="size-full">
+        <Image
+          src="/images/hero-bg.png"
+          alt="Hero section image"
+          width={3840}
+          height={2160}
+          priority
+          loading="eager"
+          className="min-h-210 object-cover size-full hidden md:block"
+        />
+        <Image
+          src="/images/hero-bg-mobile.png"
+          alt="Hero section image"
+          width={2160}
+          height={2160}
+          priority
+          loading="eager"
+          className="min-h-210 object-cover size-full block md:hidden"
+        />
+      </div>
+      <div className="grid xl:grid-cols-2 py-8 px-4 w-full self-start">
         <div className="xl:col-start-2">
           <H1 className="font-bold max-w-[16ch]">Web solutions that deliver results</H1>
           <Button className="w-44 h-10 mt-9 rounded-full" asChild>
@@ -30,24 +50,6 @@ export default function HomeHeroSection() {
           </Button>
         </div>
       </div>
-      <Image
-        src="/images/hero-bg.png"
-        alt="Hero section image"
-        width={3840}
-        height={2160}
-        fetchPriority="high"
-        loading="eager"
-        className="-z-1 min-h-210 object-cover w-full hidden md:block"
-      />
-      <Image
-        src="/images/hero-bg-mobile.png"
-        alt="Hero section image"
-        width={2160}
-        height={2160}
-        fetchPriority="high"
-        loading="eager"
-        className="-z-1 min-h-210 object-cover w-full block md:hidden"
-      />
     </motion.main>
   );
 }

@@ -1,11 +1,13 @@
 import FeedGrid from '@/components/blocks/feed-grid';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
+import { getFeedPageJsonLd } from '@/constants/schema-jsons';
 import { db } from '@/lib/db';
 import { feedsTable } from '@/lib/schema';
 import { asc } from 'drizzle-orm';
 import { Metadata } from 'next';
 import Image from 'next/image';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Feed',
@@ -16,6 +18,7 @@ export default async function Feed() {
   const feeds = await db.select().from(feedsTable).orderBy(asc(feedsTable.sequence));
   return (
     <>
+      <Script id="feed-jsonld" type="application/ld+json" dangerouslySetInnerHTML={getFeedPageJsonLd()} />
       <main className="flex w-full flex-1 flex-col relative">
         <section className="grid lg:grid-cols-2 pt-8 pb-16 lg:pb-24 px-4 w-full">
           <div className="lg:col-start-2">
