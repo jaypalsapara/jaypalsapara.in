@@ -4,7 +4,7 @@ import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import { IdeaText } from '@/components/idea-text';
 import { APP_URL } from '@/constants/app';
-import { getServicePageJsonLd } from '@/constants/schema-jsons';
+import { getWorkPageJsonLd } from '@/constants/schema-jsons';
 import { Metadata } from 'next';
 import Head from 'next/head';
 import Script from 'next/script';
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function Work() {
   return (
     <>
-      <Script id="service-jsonld" type="application/ld+json" dangerouslySetInnerHTML={getServicePageJsonLd()} />
+      <Script id="service-jsonld" type="application/ld+json" dangerouslySetInnerHTML={getWorkPageJsonLd()} />
       <main className="flex w-full flex-1 flex-col relative">
         <Head>
           <link rel="canonical" href={APP_URL + `/work`} key="canonical" />
