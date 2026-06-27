@@ -40,19 +40,21 @@ export interface OptimizerConfig {
 
 type OutputFormat = 'webp' | 'avif';
 
-interface ManifestEntry {
-  /** relative path inside outputDir  */
-  file: string;
-  hash: string;
-  /** versioned filename  e.g. image.a1b2c3d4.webp */
-  versioned: string;
-  width: number | null;
-  format: OutputFormat;
-  sourceFile: string;
-  byteSize: number;
-}
-
-type Manifest = Record<string, ManifestEntry>;
+/**
+ * Hash is derived from the source file — same for webp and avif of the same image.
+ *
+ * {
+ *   "demo-image": {
+ *     "original": "demo-image-a1b2c3d4",
+ *     "1920":     "demo-image-1920-a1b2c3d4"
+ *   }
+ * }
+ *
+ * Files on disk: demo-image-a1b2c3d4.webp  demo-image-a1b2c3d4.avif
+ * Append the format extension you need when referencing the file.
+ */
+type ManifestImageEntry = Record<string, string>; // widthKey → basename (no ext)
+type Manifest = Record<string, ManifestImageEntry>; // imageKey → variants
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -60,6 +62,11 @@ const DEFAULT_EXTENSIONS = ['jpg', 'jpeg', 'png', 'gif', 'tiff', 'webp'];
 
 function resolvedExtensions(cfg: OptimizerConfig): Set<string> {
   return new Set((cfg.extensions ?? DEFAULT_EXTENSIONS).map((e) => e.toLowerCase().replace(/^\./, '')));
+}
+
+/** Replace spaces (and runs of spaces) with a single '-' */
+function slugify(name: string): string {
+  return name.replace(/\s+/g, '-');
 }
 
 async function hashFile(filePath: string): Promise<string> {
@@ -129,23 +136,33 @@ async function runWithConcurrency<T>(
 
 interface ProcessTask {
   srcPath: string;
-  destPath: string;
+  outDir: string;
   format: OutputFormat;
   width: number | null;
   formatOptions: AvifOptions | WebpOptions;
   inputDir: string;
   outputDir: string;
+  /** Slugified base name used as the manifest top-level key, e.g. "demo-image" */
+  imageKey: string;
+  /** Manifest width key: "original" or pixel value as string e.g. "1920" */
+  widthKey: string;
+  /** Final basename without extension — shared across formats, e.g. "demo-image-a1b2c3d4" */
+  finalBasename: string;
 }
 
 async function processOne(task: ProcessTask, manifest: Manifest): Promise<void> {
-  const { srcPath, destPath, format, width, formatOptions } = task;
+  const { srcPath, outDir, format, width, formatOptions, imageKey, widthKey, finalBasename, outputDir } = task;
 
-  // Skip if output already exists
+  // Skip if the output file for this specific format already exists on disk
+  const finalPath = path.join(outputDir, outDir.replace(outputDir, ''), `${finalBasename}.${format}`);
+  const destPath = path.join(outDir, `${finalBasename}.${format}`);
   if (await fileExists(destPath)) {
+    if (!manifest[imageKey]) manifest[imageKey] = {};
+    manifest[imageKey][widthKey] = finalBasename;
     return;
   }
 
-  await ensureDir(path.dirname(destPath));
+  await ensureDir(outDir);
 
   let pipeline = sharp(srcPath);
 
@@ -161,24 +178,9 @@ async function processOne(task: ProcessTask, manifest: Manifest): Promise<void> 
 
   await pipeline.toFile(destPath);
 
-  // Build manifest entry
-  const hash = await hashFile(destPath);
-  const parsed = path.parse(destPath);
-  const versioned = path.join(parsed.dir, `${parsed.name}.${hash}${parsed.ext}`);
-  const stat = await fs.stat(destPath);
-
-  const relDest = path.relative(task.outputDir, destPath);
-  const relSrc = path.relative(task.inputDir, srcPath);
-
-  manifest[relDest] = {
-    file: relDest,
-    hash,
-    versioned: path.relative(task.outputDir, versioned),
-    width,
-    format,
-    sourceFile: relSrc,
-    byteSize: stat.size,
-  };
+  // Write into manifest — basename only, no extension
+  if (!manifest[imageKey]) manifest[imageKey] = {};
+  manifest[imageKey][widthKey] = finalBasename;
 }
 
 // ─── Public API ───────────────────────────────────────────────────────────────
@@ -191,7 +193,7 @@ export async function optimizeImages(cfg: OptimizerConfig): Promise<void> {
 
   await ensureDir(cfg.outputDir);
 
-  // Load existing manifest so we don't re-hash already-processed files
+  // Load existing manifest so we don't re-process already-converted files
   let manifest: Manifest = {};
   if (await fileExists(manifestPath)) {
     try {
@@ -223,14 +225,15 @@ export async function optimizeImages(cfg: OptimizerConfig): Promise<void> {
       continue;
     }
 
+    // Hash the SOURCE file once — shared by all format/width variants of this image
+    const srcHash = await hashFile(srcPath);
+
     // Determine widths to generate
     let widthsToProcess: (number | null)[];
     if (cfg.widths && cfg.widths.length > 0) {
-      // Only widths smaller than the original; always add null (original size)
       const meta = await sharp(srcPath).metadata();
       const originalWidth = meta.width ?? Infinity;
       const smallerWidths = cfg.widths.filter((w) => w < originalWidth);
-      // We still produce an original-size variant alongside the smaller ones
       widthsToProcess = [...smallerWidths, null];
     } else {
       widthsToProcess = [null];
@@ -238,21 +241,28 @@ export async function optimizeImages(cfg: OptimizerConfig): Promise<void> {
 
     const relPath = path.relative(cfg.inputDir, srcPath);
     const parsed = path.parse(relPath);
+    const slugName = slugify(parsed.name);
+    const imageKey = parsed.dir ? `${parsed.dir.replace(/\\/g, '/')}/${slugName}` : slugName;
+    const outDir = path.join(cfg.outputDir, parsed.dir);
 
     for (const format of enabledFormats) {
       for (const width of widthsToProcess) {
-        const suffix = width !== null ? `@${width}w` : '';
-        const destName = `${parsed.name}${suffix}.${format}`;
-        const destPath = path.join(cfg.outputDir, parsed.dir, destName);
+        const widthKey = width !== null ? String(width) : 'original';
+        const widthSegment = width !== null ? `-${width}` : '';
+        // basename is the same for .webp and .avif — only extension differs
+        const finalBasename = `${slugName}${widthSegment}-${srcHash}`;
 
         tasks.push({
           srcPath,
-          destPath,
+          outDir,
           format,
           width,
           formatOptions: cfg.formats[format] as AvifOptions | WebpOptions,
           inputDir: cfg.inputDir,
           outputDir: cfg.outputDir,
+          imageKey,
+          widthKey,
+          finalBasename,
         });
       }
     }
@@ -272,15 +282,17 @@ export async function optimizeImages(cfg: OptimizerConfig): Promise<void> {
 
   const runnables = tasks.map((task) => async () => {
     try {
-      const existed = await fileExists(task.destPath);
+      const destPath = path.join(task.outDir, `${task.finalBasename}.${task.format}`);
+      const existed = await fileExists(destPath);
       await processOne(task, manifest);
       if (existed) {
         skipped++;
       } else {
         processed++;
+        console.log(`  ✓ ${task.finalBasename}.${task.format}`);
       }
     } catch (err) {
-      const msg = `❌  ${path.relative(task.inputDir, task.srcPath)} → ${path.basename(task.destPath)}: ${(err as Error).message}`;
+      const msg = `❌  ${path.relative(task.inputDir, task.srcPath)} → ${task.widthKey} (${task.format}): ${(err as Error).message}`;
       errors.push(msg);
       console.error(msg);
     }
