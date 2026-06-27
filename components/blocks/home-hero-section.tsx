@@ -1,12 +1,11 @@
 'use client';
 
 import H1 from '@/components/h1';
+import Picture from '@/components/picture';
 import TransitionLink from '@/components/transition-link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
-import Image from 'next/image';
-import OptimizedImage from '../optimized-image';
 
 export default function HomeHeroSection() {
   return (
@@ -21,32 +20,24 @@ export default function HomeHeroSection() {
       }}
     >
       <div className="size-full">
-        <OptimizedImage
-          imageKey="hero-bg"
+        <Picture
+          srcKey="hero-bg"
           alt="Hero section image"
           width={3840}
           height={2160}
-          priority
+          loading="eager"
+          fetchPriority="high"
           className="min-h-210 object-cover size-full hidden md:block"
         />
-        {/* <Image
-          src="/images/hero-bg.png"
-          alt="Hero section image"
-          width={3840}
-          height={2160}
-          priority
-          loading="eager"
-          className="min-h-210 object-cover size-full hidden md:block"
-        /> */}
-        {/* <Image
-          src="/images/hero-bg-mobile.png"
+        <Picture
+          srcKey="hero-bg-mobile"
           alt="Hero section image"
           width={2160}
           height={2160}
-          priority
           loading="eager"
+          fetchPriority="high"
           className="min-h-210 object-cover size-full block md:hidden"
-        /> */}
+        />
       </div>
       <div className="grid xl:grid-cols-2 py-8 px-4 w-full self-start">
         <div className="xl:col-start-2">

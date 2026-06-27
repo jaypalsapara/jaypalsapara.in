@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Script id="home-jsonld" type="application/ld+json" dangerouslySetInnerHTML={getHomePageJsonLd()} />
       <HomeHeroSection />
-      <Footer navigation={{ name: 'About', path: '/about' }} cover={'/images/about-footer.png'} textColor={'white'} />
+      <Footer navigation={{ name: 'About', path: '/about' }} cover={'about-footer'} textColor={'white'} />
     </>
   );
 }
