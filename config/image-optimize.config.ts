@@ -3,14 +3,14 @@ import { OptimizerConfig } from '@/lib/image-optimizer';
 const config: OptimizerConfig = {
   // ── Directories ────────────────────────────────────────────────────────────
   inputDir: './public/images',
-  outputDir: './public/build/images',
+  outputDir: './public/assets/images',
 
   // ── Performance ────────────────────────────────────────────────────────────
   /** How many images to process in parallel */
   concurrency: 4,
 
   /** Skip files smaller than this (bytes). 0 = process everything */
-  minFileSize: 10_000, // 10 KB
+  minFileSize: 0, // 10_000 = 10 KB
 
   // ── Source extensions to pick up ───────────────────────────────────────────
   /** Omit to use defaults: jpg, jpeg, png, gif, tiff, webp */
@@ -42,11 +42,11 @@ const config: OptimizerConfig = {
    * The original size is always included as well.
    * Remove this key entirely to skip width variants.
    */
-  // widths: [320, 640, 960, 1280, 1920],
+  widths: [1920],
 
   // ── Manifest ───────────────────────────────────────────────────────────────
   /** Where to write the manifest JSON for cache busting */
-  manifestPath: './public/build/manifest.json',
+  manifestPath: './public/assets/images/manifest.json',
 };
 
 export default config;

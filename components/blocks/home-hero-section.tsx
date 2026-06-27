@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import Image from 'next/image';
+import OptimizedImage from '../optimized-image';
 
 export default function HomeHeroSection() {
   return (
@@ -20,7 +21,15 @@ export default function HomeHeroSection() {
       }}
     >
       <div className="size-full">
-        <Image
+        <OptimizedImage
+          imageKey="hero-bg"
+          alt="Hero section image"
+          width={3840}
+          height={2160}
+          priority
+          className="min-h-210 object-cover size-full hidden md:block"
+        />
+        {/* <Image
           src="/images/hero-bg.png"
           alt="Hero section image"
           width={3840}
@@ -28,8 +37,8 @@ export default function HomeHeroSection() {
           priority
           loading="eager"
           className="min-h-210 object-cover size-full hidden md:block"
-        />
-        <Image
+        /> */}
+        {/* <Image
           src="/images/hero-bg-mobile.png"
           alt="Hero section image"
           width={2160}
@@ -37,7 +46,7 @@ export default function HomeHeroSection() {
           priority
           loading="eager"
           className="min-h-210 object-cover size-full block md:hidden"
-        />
+        /> */}
       </div>
       <div className="grid xl:grid-cols-2 py-8 px-4 w-full self-start">
         <div className="xl:col-start-2">
