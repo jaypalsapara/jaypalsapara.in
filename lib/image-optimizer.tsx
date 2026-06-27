@@ -140,6 +140,8 @@ interface ProcessTask {
   format: OutputFormat;
   width: number | null;
   formatOptions: AvifOptions | WebpOptions;
+  inputDir: string;
+  outputDir: string;
   /** Slugified base name used as the manifest top-level key, e.g. "demo-image" */
   imageKey: string;
   /** Manifest width key: "original" or pixel value as string e.g. "1920" */
@@ -149,9 +151,10 @@ interface ProcessTask {
 }
 
 async function processOne(task: ProcessTask, manifest: Manifest): Promise<void> {
-  const { srcPath, outDir, format, width, formatOptions, imageKey, widthKey, finalBasename } = task;
+  const { srcPath, outDir, format, width, formatOptions, imageKey, widthKey, finalBasename, outputDir } = task;
 
   // Skip if the output file for this specific format already exists on disk
+  const finalPath = path.join(outputDir, outDir.replace(outputDir, ''), `${finalBasename}.${format}`);
   const destPath = path.join(outDir, `${finalBasename}.${format}`);
   if (await fileExists(destPath)) {
     if (!manifest[imageKey]) manifest[imageKey] = {};
@@ -216,11 +219,11 @@ export async function optimizeImages(cfg: OptimizerConfig): Promise<void> {
   const tasks: ProcessTask[] = [];
 
   for (const srcPath of images) {
-    // const stat = await fs.stat(srcPath);
-    // if (stat.size < minFileSize) {
-    //   console.log(`  ⏭  Skipping (too small): ${path.relative(cfg.inputDir, srcPath)}`);
-    //   continue;
-    // }
+    const stat = await fs.stat(srcPath);
+    if (stat.size < minFileSize) {
+      console.log(`  ⏭  Skipping (too small): ${path.relative(cfg.inputDir, srcPath)}`);
+      continue;
+    }
 
     // Hash the SOURCE file once — shared by all format/width variants of this image
     const srcHash = await hashFile(srcPath);
@@ -255,6 +258,8 @@ export async function optimizeImages(cfg: OptimizerConfig): Promise<void> {
           format,
           width,
           formatOptions: cfg.formats[format] as AvifOptions | WebpOptions,
+          inputDir: cfg.inputDir,
+          outputDir: cfg.outputDir,
           imageKey,
           widthKey,
           finalBasename,
