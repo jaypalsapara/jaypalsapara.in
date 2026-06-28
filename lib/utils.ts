@@ -24,3 +24,7 @@ export function shuffle<T>(array: T[]): T[] {
 
   return result;
 }
+
+export function slugify(name: string): string {
+  return name.replace(/\s+/g, '-');
+}
