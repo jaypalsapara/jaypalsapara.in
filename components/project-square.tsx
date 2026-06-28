@@ -11,7 +11,7 @@ const keyAsLabel = {
 
 export default function ProjectSquare({ data }: { data: ProjectProps }) {
   return (
-    <div className="group relative">
+    <div className="group relative" data-nosnippet>
       <div className="w-full aspect-square overflow-hidden rounded-lg lg:rounded-xl pile isolate">
         <Image
           src={`/images/projects/${data.slug}/${data.thumbnail}`}
