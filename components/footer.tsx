@@ -1,8 +1,10 @@
+'use client';
+
 import { cn } from '@/lib/utils';
 import { NavLink, ReferenceLink } from '@/types/navigation';
-import Image from 'next/image';
 import H4 from './h4';
 import TransitionLink from './transition-link';
+import { CldImage } from 'next-cloudinary';
 
 const email = 'hellojaypalsapara@gmail.com';
 
@@ -57,7 +59,7 @@ export default function Footer({
       <div className="bg-gray-100 grow pile overflow-hidden isolate group/next relative">
         {cover && (
           <div className="min-h-0 overflow-hidden self-stretch justify-self-stretch">
-            <Image
+            <CldImage
               width={3840}
               height={1860}
               loading="lazy"

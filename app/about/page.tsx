@@ -12,6 +12,7 @@ import { projectsTable } from '@/lib/schema';
 import { ProjectProps } from '@/types/table';
 import { eq } from 'drizzle-orm';
 import type { Metadata } from 'next';
+import { CldImage } from 'next-cloudinary';
 import Head from 'next/head';
 import Image from 'next/image';
 import Script from 'next/script';
@@ -63,12 +64,12 @@ export default async function About() {
         </section>
         <section className="flex flex-col gap-y-12">
           <div className="grid lg:grid-cols-2 px-4 gap-1">
-            <Image
-              src="/images/desk.png"
+            <CldImage
+              src="images/desk.png"
               alt="Hero section image"
               width={1152}
               height={1152}
-              priority
+              preload
               className="object-cover min-h-170 rounded-lg lg:rounded-xl hidden lg:block w-full"
             />
             <Image

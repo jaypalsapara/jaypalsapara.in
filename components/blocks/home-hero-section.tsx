@@ -5,6 +5,7 @@ import TransitionLink from '@/components/transition-link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { CldImage } from 'next-cloudinary';
 import Image from 'next/image';
 
 export default function HomeHeroSection() {
@@ -20,21 +21,21 @@ export default function HomeHeroSection() {
       }}
     >
       <div className="size-full">
-        <Image
-          src="/images/hero-bg.png"
+        <CldImage
+          src="images/hero-bg.png"
           alt="Hero section image"
           width={3840}
           height={2160}
-          priority
+          preload
           loading="eager"
           className="min-h-210 object-cover size-full hidden md:block"
         />
-        <Image
-          src="/images/hero-bg-mobile.png"
+        <CldImage
+          src="images/hero-bg-mobile.png"
           alt="Hero section image"
           width={2160}
           height={2160}
-          priority
+          preload
           loading="eager"
           className="min-h-210 object-cover size-full block md:hidden"
         />
