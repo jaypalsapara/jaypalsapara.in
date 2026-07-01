@@ -1,6 +1,6 @@
+import ClientCldImage from '@/components/client-cld-image';
 import { ProjectProps } from '@/types/table';
 import { Lock } from 'lucide-react';
-import Image from 'next/image';
 import TransitionLink from './transition-link';
 
 const keyAsLabel = {
@@ -13,7 +13,7 @@ export default function ProjectSquare({ data }: { data: ProjectProps }) {
   return (
     <div className="group relative" data-nosnippet>
       <div className="w-full aspect-square overflow-hidden rounded-lg lg:rounded-xl pile isolate">
-        <Image
+        <ClientCldImage
           src={`/images/projects/${data.slug}/${data.thumbnail}`}
           alt={`${data.name} Thumbnail`}
           width={1560}

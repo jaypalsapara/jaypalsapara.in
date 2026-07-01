@@ -1,10 +1,10 @@
+import ClientCldImage from '@/components/client-cld-image';
 import { db } from '@/lib/db';
 import { keyLabel } from '@/lib/key-labels';
 import { abilitiesTable, pluginsTable, technologiesTable } from '@/lib/schema';
 import { AbilityProps, PluginsProps, TechnologyProps } from '@/types/table';
 import { asc } from 'drizzle-orm';
 import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
 import H1 from '../h1';
 
 type ListItemProps = {
@@ -75,7 +75,7 @@ const ListOfTechnologies = async () => {
 };
 
 const ListOfAbilities = async () => {
-  const abilities: AbilityProps[] = await db.select().from(abilitiesTable);
+  const abilities: AbilityProps[] = await db.select().from(abilitiesTable).orderBy(asc(abilitiesTable.sequence));
   return (
     <div className="grid grid-cols-12 [counter-reset:index] divide-y *:py-2 *:items-center">
       <div className="grid grid-cols-subgrid col-span-full font-medium text-xs px-2">
@@ -127,7 +127,7 @@ const ListItem = ({ type, typeSpan, icon, name, url }: ListItemProps) => {
       <div className="col-span-6 flex items-center justify-between">
         <div className="flex items-center">
           {icon && (
-            <Image
+            <ClientCldImage
               src={icon}
               alt={`${name} Icon`}
               width={48}

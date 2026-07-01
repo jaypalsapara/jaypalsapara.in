@@ -1,9 +1,9 @@
+import ClientCldImage from '@/components/client-cld-image';
 import H4 from '@/components/h4';
 import P from '@/components/p';
 import { db } from '@/lib/db';
 import { cn } from '@/lib/utils';
 import { AchievementProps } from '@/types/table';
-import Image from 'next/image';
 
 export default function Achievements() {
   return (
@@ -24,7 +24,7 @@ const AchievementsGrid = async ({ className }: { className?: string }) => {
     <div className={cn('flex gap-6 flex-wrap', className)}>
       {achievements.map((achievement) => (
         <div key={`achievement-${achievement.id}`} className="flex items-center gap-4 w-full md:w-72">
-          <Image
+          <ClientCldImage
             src={`/images/${achievement.thumbnail}`}
             alt={`${achievement.name} Logo`}
             width={80}

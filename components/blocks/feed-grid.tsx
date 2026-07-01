@@ -1,9 +1,9 @@
 'use client';
 
+import ClientCldImage from '@/components/client-cld-image';
 import { cn } from '@/lib/utils';
 import { FeedsProps } from '@/types/table';
 import { animate, inView } from 'motion/react';
-import Image from 'next/image';
 import MasonryLayout from '../masonry-layout';
 
 export default function FeedGrid({ items }: { items: FeedsProps[] }) {
@@ -53,7 +53,7 @@ export default function FeedGrid({ items }: { items: FeedsProps[] }) {
             transform: 'translateY(20px)',
           }}
         >
-          <Image
+          <ClientCldImage
             src={`/images/feeds/${item.image.name}`}
             alt={item.name}
             width={item.image.resolution.w}

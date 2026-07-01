@@ -1,6 +1,8 @@
+'use client';
+
+import ClientCldImage from '@/components/client-cld-image';
 import { cn } from '@/lib/utils';
 import { NavLink, ReferenceLink } from '@/types/navigation';
-import Image from 'next/image';
 import H4 from './h4';
 import TransitionLink from './transition-link';
 
@@ -57,7 +59,7 @@ export default function Footer({
       <div className="bg-gray-100 grow pile overflow-hidden isolate group/next relative">
         {cover && (
           <div className="min-h-0 overflow-hidden self-stretch justify-self-stretch">
-            <Image
+            <ClientCldImage
               width={3840}
               height={1860}
               loading="lazy"

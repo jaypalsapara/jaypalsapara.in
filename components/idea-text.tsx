@@ -1,7 +1,7 @@
 'use client';
 
+import ClientCldImage from '@/components/client-cld-image';
 import { motion, useScroll, useTransform } from 'motion/react';
-import Image from 'next/image';
 
 export const IdeaText = () => {
   const { scrollY } = useScroll();
@@ -22,7 +22,7 @@ export const IdeaText = () => {
           y: cloudY,
         }}
       >
-        <Image
+        <ClientCldImage
           src={'/images/cloud.png'}
           width={256}
           height={256}
