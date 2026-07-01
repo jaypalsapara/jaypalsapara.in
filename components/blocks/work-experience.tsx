@@ -1,8 +1,8 @@
+import ClientCldImage from '@/components/client-cld-image';
 import H4 from '@/components/h4';
 import ProjectSquare from '@/components/project-square';
 import { db } from '@/lib/db';
 import { ExperienceProps, ProjectProps } from '@/types/table';
-import ClientCldImage from '@/components/client-cld-image';
 
 export default async function WorkExperience() {
   // Fetch experiences data with projects info

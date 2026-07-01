@@ -1,7 +1,7 @@
+import ClientCldImage from '@/components/client-cld-image';
 import { db } from '@/lib/db';
 import { cn } from '@/lib/utils';
 import { TestimonialProps } from '@/types/table';
-import ClientCldImage from '@/components/client-cld-image';
 import H4 from '../h4';
 import P from '../p';
 import RatingStars from '../rating-stars';

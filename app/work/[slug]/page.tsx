@@ -1,3 +1,4 @@
+import ClientCldImage from '@/components/client-cld-image';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import P from '@/components/p';
@@ -8,7 +9,6 @@ import { cn } from '@/lib/utils';
 import { ProjectProps, ShowcaseProps } from '@/types/table';
 import { and, asc, eq, gt } from 'drizzle-orm';
 import Head from 'next/head';
-import ClientCldImage from '@/components/client-cld-image';
 
 type CurrentProjectProps = ProjectProps & { showcase: ShowcaseProps[] };
 
@@ -53,7 +53,7 @@ export default async function page({ params }: { params: Promise<{ slug: string 
             height={2160}
             alt={`${project.name} Cover`}
             preload
-            fetchPriority='high'
+            fetchPriority="high"
             className="aspect-video object-cover rounded-lg lg:rounded-xl w-full"
           />
         </section>

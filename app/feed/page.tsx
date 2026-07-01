@@ -1,4 +1,5 @@
 import FeedGrid from '@/components/blocks/feed-grid';
+import ClientCldImage from '@/components/client-cld-image';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import { getFeedPageJsonLd } from '@/constants/schema-jsons';
@@ -6,7 +7,6 @@ import { db } from '@/lib/db';
 import { feedsTable } from '@/lib/schema';
 import { asc } from 'drizzle-orm';
 import { Metadata } from 'next';
-import ClientCldImage from '@/components/client-cld-image';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
