@@ -75,7 +75,7 @@ const ListOfTechnologies = async () => {
 };
 
 const ListOfAbilities = async () => {
-  const abilities: AbilityProps[] = await db.select().from(abilitiesTable);
+  const abilities: AbilityProps[] = await db.select().from(abilitiesTable).orderBy(asc(abilitiesTable.sequence));
   return (
     <div className="grid grid-cols-12 [counter-reset:index] divide-y *:py-2 *:items-center">
       <div className="grid grid-cols-subgrid col-span-full font-medium text-xs px-2">
