@@ -6,7 +6,7 @@ import { db } from '@/lib/db';
 import { feedsTable } from '@/lib/schema';
 import { asc } from 'drizzle-orm';
 import { Metadata } from 'next';
-import Image from 'next/image';
+import ClientCldImage from '@/components/client-cld-image';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
@@ -25,12 +25,12 @@ export default async function Feed() {
             <H1 className="font-bold">
               <span className="text-muted-foreground/50">An</span>{' '}
               <div className="inline-flex relative w-13 lg:w-17 xl:w-19 min-h-0 items-center -mx-1 lg:-mx-2">
-                <Image
+                <ClientCldImage
                   src="/images/folder.png"
                   alt="Hero section image"
                   width={256}
                   height={256}
-                  priority
+                  preload
                   className="object-contain w-full inline absolute -bottom-1.5 lg:-bottom-2"
                   data-bg-placeholder="false"
                 />

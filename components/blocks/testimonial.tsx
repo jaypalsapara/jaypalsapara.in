@@ -1,7 +1,7 @@
 import { db } from '@/lib/db';
 import { cn } from '@/lib/utils';
 import { TestimonialProps } from '@/types/table';
-import Image from 'next/image';
+import ClientCldImage from '@/components/client-cld-image';
 import H4 from '../h4';
 import P from '../p';
 import RatingStars from '../rating-stars';
@@ -41,7 +41,7 @@ const Testimonials = async () => {
               <P className="text-sm lg:text-base xl:text-base font-medium">{testimonial.name}</P>
               <P className="text-xs lg:text-sm xl:text-sm">{testimonial.subtitle}</P>
             </div>
-            <Image
+            <ClientCldImage
               src={`/images/reviewers/${testimonial.avatar}`}
               alt={`${testimonial.name} Avatar`}
               width={48}

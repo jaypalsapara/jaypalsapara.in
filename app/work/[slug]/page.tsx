@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 import { ProjectProps, ShowcaseProps } from '@/types/table';
 import { and, asc, eq, gt } from 'drizzle-orm';
 import Head from 'next/head';
-import Image from 'next/image';
+import ClientCldImage from '@/components/client-cld-image';
 
 type CurrentProjectProps = ProjectProps & { showcase: ShowcaseProps[] };
 
@@ -47,12 +47,13 @@ export default async function page({ params }: { params: Promise<{ slug: string 
           </div>
         </section>
         <section className="px-4 mt-2 lg:mt-4">
-          <Image
+          <ClientCldImage
             src={`/images/projects/${project.slug}/${project.cover}`}
             width={3840}
             height={2160}
             alt={`${project.name} Cover`}
-            priority
+            preload
+            fetchPriority='high'
             className="aspect-video object-cover rounded-lg lg:rounded-xl w-full"
           />
         </section>
@@ -112,7 +113,7 @@ const Showcase = ({ showcase, project }: { showcase: ShowcaseProps; project: Pro
             })}
           >
             {_.map((image) => (
-              <Image
+              <ClientCldImage
                 key={`showcase-${showcase.id}-image-${image.name}`}
                 src={`/images/projects/${project.slug}/${image.name}`}
                 width={image.resolution.w}

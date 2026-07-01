@@ -1,12 +1,11 @@
 'use client';
 
+import ClientCldImage from '@/components/client-cld-image';
 import H1 from '@/components/h1';
 import TransitionLink from '@/components/transition-link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
-import { CldImage } from 'next-cloudinary';
-import Image from 'next/image';
 
 export default function HomeHeroSection() {
   return (
@@ -21,8 +20,8 @@ export default function HomeHeroSection() {
       }}
     >
       <div className="size-full">
-        <CldImage
-          src="images/hero-bg.png"
+        <ClientCldImage
+          src="/images/hero-bg.png"
           alt="Hero section image"
           width={3840}
           height={2160}
@@ -30,8 +29,8 @@ export default function HomeHeroSection() {
           loading="eager"
           className="min-h-210 object-cover size-full hidden md:block"
         />
-        <CldImage
-          src="images/hero-bg-mobile.png"
+        <ClientCldImage
+          src="/images/hero-bg-mobile.png"
           alt="Hero section image"
           width={2160}
           height={2160}
