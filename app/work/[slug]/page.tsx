@@ -14,6 +14,19 @@ type CurrentProjectProps = ProjectProps & { showcase: ShowcaseProps[] };
 
 type NextProjectProps = Pick<ProjectProps, 'name' | 'slug' | 'cover' | 'footer_cover'> | undefined;
 
+export async function generateStaticParams() {
+  const projects = await db
+    .select({
+      id: projectsTable.id,
+      slug: projectsTable.slug,
+    })
+    .from(projectsTable);
+
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
+
 export default async function page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
