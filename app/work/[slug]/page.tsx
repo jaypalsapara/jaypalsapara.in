@@ -53,7 +53,6 @@ export default async function page({ params }: { params: Promise<{ slug: string 
             height={2160}
             alt={`${project.name} Cover`}
             preload
-            fetchPriority="high"
             className="aspect-video object-cover rounded-lg lg:rounded-xl w-full"
           />
         </section>
