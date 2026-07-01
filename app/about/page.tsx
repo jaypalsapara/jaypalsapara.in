@@ -2,17 +2,19 @@ import Achievements from '@/components/blocks/achievements';
 import Info from '@/components/blocks/info';
 import Testimonial from '@/components/blocks/testimonial';
 import WorkExperience from '@/components/blocks/work-experience';
+import ClientCldImage from '@/components/client-cld-image';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import { Separator } from '@/components/ui/separator';
 import { APP_URL } from '@/constants/app';
+import { getAboutPageJsonLd } from '@/constants/schema-jsons';
 import { db } from '@/lib/db';
 import { projectsTable } from '@/lib/schema';
 import { ProjectProps } from '@/types/table';
 import { eq } from 'drizzle-orm';
 import type { Metadata } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -34,6 +36,7 @@ export default async function About() {
 
   return (
     <>
+      <Script id="about-jsonld" type="application/ld+json" dangerouslySetInnerHTML={getAboutPageJsonLd()} />
       <main className="flex w-full flex-1 flex-col relative">
         <Head>
           <link rel="canonical" href={APP_URL + `/about`} key="canonical" />
@@ -44,12 +47,12 @@ export default async function About() {
               <span className="text-muted-foreground/50">Jaypal is a</span> developer,{' '}
               <span className="text-muted-foreground/50">based in</span>{' '}
               <div className="inline-flex relative w-17 lg:w-21 xl:w-23 min-h-0 items-center -mx-2">
-                <Image
+                <ClientCldImage
                   src="/images/gujarat.png"
                   alt="Hero section image"
                   width={558}
                   height={447}
-                  priority
+                  preload
                   className="object-contain w-full inline absolute -bottom-3.5 lg:-bottom-4"
                   data-bg-placeholder="false"
                 />
@@ -60,20 +63,20 @@ export default async function About() {
         </section>
         <section className="flex flex-col gap-y-12">
           <div className="grid lg:grid-cols-2 px-4 gap-1">
-            <Image
+            <ClientCldImage
               src="/images/desk.png"
               alt="Hero section image"
               width={1152}
               height={1152}
-              priority
+              preload
               className="object-cover min-h-170 rounded-lg lg:rounded-xl hidden lg:block w-full"
             />
-            <Image
+            <ClientCldImage
               src="/images/me.png"
               alt="Hero section image"
               width={1363}
               height={1363}
-              priority
+              preload
               className="object-cover min-h-170 rounded-lg lg:rounded-xl w-full"
             />
           </div>

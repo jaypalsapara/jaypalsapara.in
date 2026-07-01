@@ -13,7 +13,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: APP_URL + '/about',
       lastModified: new Date(),
       changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: APP_URL + '/work',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
       priority: 0.8,
+    },
+    {
+      url: APP_URL + '/service',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
+      url: APP_URL + '/feed',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.6,
     },
   ];
 }
