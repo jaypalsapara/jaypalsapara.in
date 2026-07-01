@@ -1,8 +1,8 @@
+import ClientCldImage from '@/components/client-cld-image';
 import H4 from '@/components/h4';
 import ProjectSquare from '@/components/project-square';
 import { db } from '@/lib/db';
 import { ExperienceProps, ProjectProps } from '@/types/table';
-import Image from 'next/image';
 
 export default async function WorkExperience() {
   // Fetch experiences data with projects info
@@ -38,7 +38,7 @@ const Experience = ({ data }: { data: ExperienceProps & { projects: ProjectProps
   return (
     <div className="flex flex-col not-last:border-b not-last:pb-14">
       <div className="flex items-center gap-4 justify-between">
-        <Image
+        <ClientCldImage
           src={`/images/companies/${data.thumbnail}`}
           alt={`${data.name} Logo`}
           width={80}
