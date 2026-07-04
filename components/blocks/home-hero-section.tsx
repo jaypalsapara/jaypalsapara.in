@@ -27,6 +27,7 @@ export default function HomeHeroSection() {
           height={2160}
           preload
           loading="eager"
+          fetchPriority='high'
           className="min-h-210 object-cover size-full hidden md:block"
         />
         <ClientCldImage
@@ -36,6 +37,7 @@ export default function HomeHeroSection() {
           height={2160}
           preload
           loading="eager"
+          fetchPriority='high'
           className="min-h-210 object-cover size-full block md:hidden"
         />
       </div>
