@@ -40,12 +40,12 @@ export default function Work() {
                   <IdeaText />
                 </HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">to</HeadingChild>
-                <HeadingChild>
+                <HeadingChild className="-ms-2">
                   <div className="inline-flex bg-yellow-300 px-6 items-center justify-center rounded-full">
                     <span>final_fixed</span>
                   </div>
                 </HeadingChild>
-                <HeadingChild>product.</HeadingChild>
+                <HeadingChild className="-ms-2.5">product.</HeadingChild>
               </HeadingParent>
             </H1>
           </div>

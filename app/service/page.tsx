@@ -40,7 +40,7 @@ export default function Service() {
                     </InlineChip>
                   </div>
                 </HeadingChild>
-                <HeadingChild className="text-muted-foreground/50">and</HeadingChild>
+                <HeadingChild>and</HeadingChild>
                 <HeadingChild>technical</HeadingChild>
                 <HeadingChild>
                   <div className="inline-flex relative w-20 lg:w-24 xl:w-28">

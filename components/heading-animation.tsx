@@ -31,7 +31,7 @@ export const HeadingParent = ({ children }: PropsWithChildren) => {
 
 export const HeadingChild = ({ children, ...props }: PropsWithChildren & ComponentProps<typeof motion.span>) => {
   return (
-    <motion.span variants={headingChild} style={{ display: 'inline-block', marginRight: '0.165em' }} {...props}>
+    <motion.span variants={headingChild} style={{ display: 'inline-block', marginRight: '0.16em' }} {...props}>
       {children}
     </motion.span>
   );
