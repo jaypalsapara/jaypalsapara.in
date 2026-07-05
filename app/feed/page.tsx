@@ -47,7 +47,7 @@ export default async function Feed() {
                 <HeadingChild>concepts</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">to</HeadingChild>
                 <HeadingChild>finished</HeadingChild>
-                <HeadingChild>products.</HeadingChild>
+                <HeadingChild className='me-[0.125em]'>products.</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">All</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">shared</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">here</HeadingChild>

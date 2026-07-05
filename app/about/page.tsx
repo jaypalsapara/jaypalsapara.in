@@ -49,7 +49,7 @@ export default async function About() {
                 <HeadingChild className="text-muted-foreground/50">Jaypal</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">is</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">a</HeadingChild>
-                <HeadingChild>developer,</HeadingChild>
+                <HeadingChild className='me-[0.125em]'>developer,</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">based</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">in</HeadingChild>
                 <HeadingChild>
@@ -65,7 +65,7 @@ export default async function About() {
                     />
                   </div>
                 </HeadingChild>
-                <HeadingChild>
+                <HeadingChild className='me-[0.125em]'>
                   Gujarat<span className="ms-1.5">,</span>
                 </HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">India.</HeadingChild>

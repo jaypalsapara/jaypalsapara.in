@@ -1,10 +1,2 @@
-import { createClient } from '@libsql/client';
-import { drizzle } from 'drizzle-orm/libsql';
-import * as schema from './schema';
-
-const client = createClient({
-  url: process.env.TURSO_DATABASE_URL!,
-  authToken: process.env.TURSO_AUTH_TOKEN!,
-});
-
-export const db = drizzle(client, { schema });
+export const db =
+  process.env.DATABASE_DRIVER === 'turso' ? (await import('@/lib/db-turso')).db : (await import('@/lib/db-sqlite')).db;

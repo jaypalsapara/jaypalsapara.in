@@ -39,13 +39,13 @@ export default function Work() {
                 <HeadingChild>
                   <IdeaText />
                 </HeadingChild>
-                <HeadingChild className="text-muted-foreground/50">to</HeadingChild>
-                <HeadingChild className="-ms-2">
+                <HeadingChild className="text-muted-foreground/50 me-[0.05em]">to</HeadingChild>
+                <HeadingChild className='me-0'>
                   <div className="inline-flex bg-yellow-300 px-6 items-center justify-center rounded-full">
                     <span>final_fixed</span>
                   </div>
                 </HeadingChild>
-                <HeadingChild className="-ms-2.5">product.</HeadingChild>
+                <HeadingChild>product.</HeadingChild>
               </HeadingParent>
             </H1>
           </div>

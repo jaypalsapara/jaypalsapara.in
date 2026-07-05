@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { motion, stagger, Variants } from 'motion/react';
 import { ComponentProps, PropsWithChildren } from 'react';
 
@@ -29,9 +30,13 @@ export const HeadingParent = ({ children }: PropsWithChildren) => {
   );
 };
 
-export const HeadingChild = ({ children, ...props }: PropsWithChildren & ComponentProps<typeof motion.span>) => {
+export const HeadingChild = ({
+  children,
+  className,
+  ...props
+}: PropsWithChildren & ComponentProps<typeof motion.span>) => {
   return (
-    <motion.span variants={headingChild} style={{ display: 'inline-block', marginRight: '0.16em' }} {...props}>
+    <motion.span variants={headingChild} className={cn('inline-block me-[0.16em]', className)} {...props}>
       {children}
     </motion.span>
   );

@@ -19,7 +19,6 @@
 
 # production
 /build
-/public/build
 
 # misc
 .DS_Store
@@ -44,3 +43,11 @@ next-env.d.ts
 
 # ide
 /.vscode
+
+# assets
+/storage
+/public/storage
+
+# database
+*.db-shm
+*.db-wal
