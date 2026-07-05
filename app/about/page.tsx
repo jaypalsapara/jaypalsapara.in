@@ -69,7 +69,7 @@ export default async function About() {
               width={1152}
               height={1152}
               preload
-              fetchPriority='high'
+              fetchPriority="high"
               className="object-cover min-h-170 rounded-lg lg:rounded-xl hidden lg:block w-full"
             />
             <ClientCldImage
@@ -78,7 +78,7 @@ export default async function About() {
               width={1363}
               height={1363}
               preload
-              fetchPriority='high'
+              fetchPriority="high"
               className="object-cover min-h-170 rounded-lg lg:rounded-xl w-full"
             />
           </div>
