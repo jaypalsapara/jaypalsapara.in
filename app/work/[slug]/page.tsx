@@ -3,24 +3,14 @@ import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import P from '@/components/p';
 import { APP_URL } from '@/constants/app';
-import { db } from '@/lib/db';
-import { projectsTable } from '@/lib/schema';
+import { getGenerateStaticParams, getNextProjectFromProject, getProjectWhereSlug } from '@/dal/project-dal';
 import { cn } from '@/lib/utils';
+import { CurrentProjectProps, NextProjectProps } from '@/types/dal';
 import { ProjectProps, ShowcaseProps } from '@/types/table';
-import { and, asc, eq, gt } from 'drizzle-orm';
 import Head from 'next/head';
 
-type CurrentProjectProps = ProjectProps & { showcase: ShowcaseProps[] };
-
-type NextProjectProps = Pick<ProjectProps, 'name' | 'slug' | 'cover' | 'footer_cover'> | undefined;
-
 export async function generateStaticParams() {
-  const projects = await db
-    .select({
-      id: projectsTable.id,
-      slug: projectsTable.slug,
-    })
-    .from(projectsTable);
+  const projects = await getGenerateStaticParams();
 
   return projects.map((project) => ({
     slug: project.slug,
@@ -30,23 +20,9 @@ export async function generateStaticParams() {
 export default async function page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
-  const project = (await db.query.projectsTable.findFirst({
-    where: eq(projectsTable.slug, slug),
-    with: {
-      showcase: true,
-    },
-  })) as CurrentProjectProps;
+  const project: CurrentProjectProps = await getProjectWhereSlug(slug);
 
-  const nextProject: NextProjectProps = await db.query.projectsTable.findFirst({
-    where: and(eq(projectsTable.as, project.as), gt(projectsTable.sequence, project.sequence)),
-    orderBy: asc(projectsTable.sequence),
-    columns: {
-      slug: true,
-      name: true,
-      cover: true,
-      footer_cover: true,
-    },
-  });
+  const nextProject: NextProjectProps = await getNextProjectFromProject(project);
 
   return (
     <>

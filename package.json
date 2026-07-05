@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint . --fix",
     "format": "prettier --write .",
+    "type:check": "tsc --noEmit",
     "db:check": "drizzle-kit check",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",

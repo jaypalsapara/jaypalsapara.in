@@ -9,10 +9,7 @@ import { HeadingChild, HeadingParent } from '@/components/heading-animation';
 import { Separator } from '@/components/ui/separator';
 import { APP_URL } from '@/constants/app';
 import { getAboutPageJsonLd } from '@/constants/schema-jsons';
-import { db } from '@/lib/db';
-import { projectsTable } from '@/lib/schema';
-import { ProjectProps } from '@/types/table';
-import { eq } from 'drizzle-orm';
+import { getCoverProject } from '@/dal/project-dal';
 import type { Metadata } from 'next';
 import Head from 'next/head';
 import Script from 'next/script';
@@ -23,17 +20,8 @@ export const metadata: Metadata = {
     "Over the past years, as a web developer, I've worked with companies and clients to successfully help them reach their full potential and attract new customers.",
 };
 
-type CoverProjectProps = Pick<ProjectProps, 'name' | 'slug' | 'footer_cover'>;
-
 export default async function About() {
-  const project = (await db.query.projectsTable.findFirst({
-    where: eq(projectsTable.slug, 'bet-fqri'),
-    columns: {
-      slug: true,
-      name: true,
-      footer_cover: true,
-    },
-  })) as CoverProjectProps;
+  const project = await getCoverProject();
 
   return (
     <>
@@ -49,7 +37,7 @@ export default async function About() {
                 <HeadingChild className="text-muted-foreground/50">Jaypal</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">is</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">a</HeadingChild>
-                <HeadingChild className='me-[0.125em]'>developer,</HeadingChild>
+                <HeadingChild className="me-[0.125em]">developer,</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">based</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">in</HeadingChild>
                 <HeadingChild>
@@ -65,7 +53,7 @@ export default async function About() {
                     />
                   </div>
                 </HeadingChild>
-                <HeadingChild className='me-[0.125em]'>
+                <HeadingChild className="me-[0.125em]">
                   Gujarat<span className="ms-1.5">,</span>
                 </HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">India.</HeadingChild>

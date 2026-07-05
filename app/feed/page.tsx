@@ -4,9 +4,7 @@ import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import { HeadingChild, HeadingParent } from '@/components/heading-animation';
 import { getFeedPageJsonLd } from '@/constants/schema-jsons';
-import { db } from '@/lib/db';
-import { feedsTable } from '@/lib/schema';
-import { asc } from 'drizzle-orm';
+import { getFeeds } from '@/dal/feed-dal';
 import { Metadata } from 'next';
 import Script from 'next/script';
 
@@ -16,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Feed() {
-  const feeds = await db.select().from(feedsTable).orderBy(asc(feedsTable.sequence));
+  const feeds = await getFeeds();
   return (
     <>
       <Script id="feed-jsonld" type="application/ld+json" dangerouslySetInnerHTML={getFeedPageJsonLd()} />
@@ -47,7 +45,7 @@ export default async function Feed() {
                 <HeadingChild>concepts</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">to</HeadingChild>
                 <HeadingChild>finished</HeadingChild>
-                <HeadingChild className='me-[0.125em]'>products.</HeadingChild>
+                <HeadingChild className="me-[0.125em]">products.</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">All</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">shared</HeadingChild>
                 <HeadingChild className="text-muted-foreground/50">here</HeadingChild>

@@ -1,25 +1,12 @@
 import ClientCldImage from '@/components/client-cld-image';
 import H4 from '@/components/h4';
 import ProjectSquare from '@/components/project-square';
-import { db } from '@/lib/db';
+import { getExperiences } from '@/dal/experience-dal';
 import { ExperienceProps, ProjectProps } from '@/types/table';
 
 export default async function WorkExperience() {
   // Fetch experiences data with projects info
-  const experiences = (
-    await db.query.experiencesTable.findMany({
-      with: {
-        experiencesToProjects: {
-          with: {
-            project: true,
-          },
-        },
-      },
-    })
-  ).map((exp) => {
-    const { experiencesToProjects, ...rest } = exp;
-    return { ...rest, projects: experiencesToProjects.map((e) => e.project) as ProjectProps[] };
-  });
+  const experiences = await getExperiences();
   return (
     <div className="grid lg:grid-cols-2 px-4 py-6">
       <div>
