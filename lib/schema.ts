@@ -1,6 +1,8 @@
 import { ImageProps } from '@/types/assets';
 import { ShowcaseImage } from '@/types/table';
-import { relations } from 'drizzle-orm';
+
+import { defineRelations } from 'drizzle-orm';
+
 import { int, integer, primaryKey, sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
 /**
@@ -52,29 +54,6 @@ export const experiencesToProjectsTable = sqliteTable(
   },
   (table) => [primaryKey({ columns: [table.experienceId, table.projectId] })],
 );
-
-// Relations of experiences
-export const experienceRelations = relations(experiencesTable, ({ many }) => ({
-  experiencesToProjects: many(experiencesToProjectsTable), // Connect to the pivot many-to-many
-}));
-
-// Relations of projects
-export const projectsRelations = relations(projectsTable, ({ many }) => ({
-  experiencesToProjects: many(experiencesToProjectsTable), // Connect to the pivot many-to-many
-  showcase: many(showcaseTable),
-}));
-
-// Relations of pivot: Experiences to Projects
-export const experiencesToProjectsRelations = relations(experiencesToProjectsTable, ({ one }) => ({
-  experience: one(experiencesTable, {
-    fields: [experiencesToProjectsTable.experienceId],
-    references: [experiencesTable.id],
-  }), // Connect to the experiences
-  project: one(projectsTable, {
-    fields: [experiencesToProjectsTable.projectId],
-    references: [projectsTable.id],
-  }), // Connect to the projects
-}));
 
 /**
  * Achievements table
@@ -155,14 +134,6 @@ export const showcaseTable = sqliteTable('showcase', {
   images: text({ mode: 'json' }).$type<ShowcaseImage>().notNull(),
 });
 
-// Relations of showcase
-export const showcaseRelations = relations(showcaseTable, ({ one }) => ({
-  project: one(projectsTable, {
-    fields: [showcaseTable.projectId],
-    references: [projectsTable.id],
-  }),
-}));
-
 /**
  * Feeds
  */
@@ -192,3 +163,66 @@ export const pluginsTable = sqliteTable('plugins', {
     enum: ['service', 'security'],
   }).notNull(),
 });
+
+/**
+ * Relations (RQBv2 — drizzle-orm v1)
+ *
+ * All relations are consolidated here using defineRelations().
+ * Pass `relations` to your drizzle instance:
+ *   import { relations } from './schema';
+ *   const db = drizzle(url, { relations });
+ */
+export const relations = defineRelations(
+  {
+    experiencesTable,
+    projectsTable,
+    experiencesToProjectsTable,
+    showcaseTable,
+    achievementsTable,
+    testimonialsTable,
+    technologiesTable,
+    abilitiesTable,
+    feedsTable,
+    pluginsTable,
+  },
+  (r) => ({
+    // Experiences: many-to-many with projects (via pivot), and direct pivot access
+    experiencesTable: {
+      projects: r.many.projectsTable({
+        from: r.experiencesTable.id.through(r.experiencesToProjectsTable.experienceId),
+        to: r.projectsTable.id.through(r.experiencesToProjectsTable.projectId),
+      }),
+      experiencesToProjects: r.many.experiencesToProjectsTable(),
+    },
+
+    // Projects: many-to-many with experiences (via pivot), and one-to-many with showcase
+    projectsTable: {
+      experiences: r.many.experiencesTable({
+        from: r.projectsTable.id.through(r.experiencesToProjectsTable.projectId),
+        to: r.experiencesTable.id.through(r.experiencesToProjectsTable.experienceId),
+      }),
+      experiencesToProjects: r.many.experiencesToProjectsTable(),
+      showcase: r.many.showcaseTable(),
+    },
+
+    // Pivot — joins back to both sides
+    experiencesToProjectsTable: {
+      experience: r.one.experiencesTable({
+        from: r.experiencesToProjectsTable.experienceId,
+        to: r.experiencesTable.id,
+      }),
+      project: r.one.projectsTable({
+        from: r.experiencesToProjectsTable.projectId,
+        to: r.projectsTable.id,
+      }),
+    },
+
+    // Showcase belongs to a project
+    showcaseTable: {
+      project: r.one.projectsTable({
+        from: r.showcaseTable.projectId,
+        to: r.projectsTable.id,
+      }),
+    },
+  }),
+);

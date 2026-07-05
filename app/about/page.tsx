@@ -97,10 +97,14 @@ export default async function About() {
           <Testimonial />
         </section>
       </main>
-      <Footer
-        navigation={{ name: 'Work', path: '/work' }}
-        cover={`/images/projects/${project.slug}/${project.footer_cover}`}
-      />
+      {project ? (
+        <Footer
+          navigation={{ name: 'Work', path: '/work' }}
+          cover={`/images/projects/${project.slug}/${project.footer_cover}`}
+        />
+      ) : (
+        <Footer navigation={{ name: 'Work', path: '/work' }} cover={``} />
+      )}
     </>
   );
 }
