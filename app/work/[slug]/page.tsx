@@ -5,9 +5,9 @@ import P from '@/components/p';
 import { APP_URL } from '@/constants/app';
 import { getGenerateStaticParams, getNextProjectFromProject, getProjectWhereSlug } from '@/dal/project-dal';
 import { cn } from '@/lib/utils';
-import { CurrentProjectProps, NextProjectProps } from '@/types/dal';
 import { ProjectProps, ShowcaseProps } from '@/types/table';
 import Head from 'next/head';
+import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
   const projects = await getGenerateStaticParams();
@@ -20,9 +20,11 @@ export async function generateStaticParams() {
 export default async function page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
-  const project: CurrentProjectProps = await getProjectWhereSlug(slug);
+  const project = await getProjectWhereSlug(slug);
 
-  const nextProject: NextProjectProps = await getNextProjectFromProject(project);
+  if (!project) return notFound();
+
+  const nextProject = await getNextProjectFromProject(project);
 
   return (
     <>

@@ -1,47 +1,55 @@
 import { db } from '@/lib/db';
-import { projectsTable } from '@/lib/schema';
-import { CoverProjectProps, CurrentProjectProps } from '@/types/dal';
-import { and, asc, eq, gt, sql } from 'drizzle-orm';
+import { CurrentProjectProps } from '@/types/dal';
 
 export async function getCoverProject() {
-  return (await db.query.projectsTable.findFirst({
-    where: eq(projectsTable.slug, 'bet-fqri'),
+  return await db.query.projectsTable.findFirst({
+    where: {
+      slug: 'bet-fqri',
+    },
     columns: {
       slug: true,
       name: true,
       footer_cover: true,
     },
-  })) as CoverProjectProps;
+  });
 }
 
 export async function getCaseStudyProjects() {
-  return await db
-    .select()
-    .from(projectsTable)
-    .where(eq(projectsTable.as, 'case_study'))
-    .orderBy(sql`sequence asc`);
+  return await db.query.projectsTable.findMany({
+    where: {
+      as: 'case_study',
+    },
+    orderBy: {
+      sequence: 'asc',
+    },
+  });
 }
 
 export async function getRecentProjects() {
-  return await db
-    .select()
-    .from(projectsTable)
-    .where(eq(projectsTable.as, 'recent'))
-    .orderBy(sql`sequence asc`);
+  return await db.query.projectsTable.findMany({
+    where: {
+      as: 'recent',
+    },
+    orderBy: {
+      sequence: 'asc',
+    },
+  });
 }
 
 export async function getGenerateStaticParams() {
-  return await db
-    .select({
-      id: projectsTable.id,
-      slug: projectsTable.slug,
-    })
-    .from(projectsTable);
+  return await db.query.projectsTable.findMany({
+    columns: {
+      id: true,
+      slug: true,
+    },
+  });
 }
 
 export async function getProjectWhereSlug(slug: string) {
   return await db.query.projectsTable.findFirst({
-    where: eq(projectsTable.slug, slug),
+    where: {
+      slug: slug,
+    },
     with: {
       showcase: true,
     },
@@ -50,8 +58,21 @@ export async function getProjectWhereSlug(slug: string) {
 
 export async function getNextProjectFromProject(project: CurrentProjectProps) {
   return await db.query.projectsTable.findFirst({
-    where: and(eq(projectsTable.as, project.as), gt(projectsTable.sequence, project.sequence)),
-    orderBy: asc(projectsTable.sequence),
+    where: {
+      AND: [
+        {
+          as: project.as,
+        },
+        {
+          sequence: {
+            gt: project.sequence,
+          },
+        },
+      ],
+    },
+    orderBy: {
+      sequence: 'asc',
+    },
     columns: {
       slug: true,
       name: true,
