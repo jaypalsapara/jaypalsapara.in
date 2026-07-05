@@ -5,6 +5,7 @@ import WorkExperience from '@/components/blocks/work-experience';
 import ClientCldImage from '@/components/client-cld-image';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
+import { HeadingChild, HeadingParent } from '@/components/heading-animation';
 import { Separator } from '@/components/ui/separator';
 import { APP_URL } from '@/constants/app';
 import { getAboutPageJsonLd } from '@/constants/schema-jsons';
@@ -44,20 +45,31 @@ export default async function About() {
         <section className="grid lg:grid-cols-2 pt-8 pb-16 lg:pb-24 px-4 w-full">
           <div className="lg:col-start-2">
             <H1 className="font-bold">
-              <span className="text-muted-foreground/50">Jaypal is a</span> developer,{' '}
-              <span className="text-muted-foreground/50">based in</span>{' '}
-              <div className="inline-flex relative w-17 lg:w-21 xl:w-23 min-h-0 items-center -mx-2">
-                <ClientCldImage
-                  src="/images/gujarat.png"
-                  alt="Hero section image"
-                  width={558}
-                  height={447}
-                  preload
-                  className="object-contain w-full inline absolute -bottom-3.5 lg:-bottom-4"
-                  data-bg-placeholder="false"
-                />
-              </div>{' '}
-              Gujarat<span className="ms-1.5">,</span> <span className="text-muted-foreground/50">India.</span>
+              <HeadingParent>
+                <HeadingChild className="text-muted-foreground/50">Jaypal</HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">is</HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">a</HeadingChild>
+                <HeadingChild>developer,</HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">based</HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">in</HeadingChild>
+                <HeadingChild>
+                  <div className="inline-flex relative w-17 lg:w-21 xl:w-23 min-h-0 items-center -mx-2">
+                    <ClientCldImage
+                      src="/images/gujarat.png"
+                      alt="Hero section image"
+                      width={558}
+                      height={447}
+                      preload
+                      className="object-contain w-full inline absolute -bottom-3.5 lg:-bottom-4"
+                      data-bg-placeholder="false"
+                    />
+                  </div>
+                </HeadingChild>
+                <HeadingChild>
+                  Gujarat<span className="ms-1.5">,</span>
+                </HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">India.</HeadingChild>
+              </HeadingParent>
             </H1>
           </div>
         </section>
