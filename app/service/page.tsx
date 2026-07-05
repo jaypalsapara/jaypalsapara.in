@@ -1,6 +1,7 @@
 import Services from '@/components/blocks/services';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
+import { HeadingChild, HeadingParent } from '@/components/heading-animation';
 import InlineChip from '@/components/icon-chip';
 import { APP_URL } from '@/constants/app';
 import { getServicePageJsonLd } from '@/constants/schema-jsons';
@@ -26,20 +27,34 @@ export default function Service() {
         <section className="grid lg:grid-cols-2 pt-8 pb-16 lg:pb-24 px-4 w-full">
           <div className="lg:col-start-2">
             <H1 className="font-bold">
-              <span className="text-muted-foreground/50">Possess</span> skills{' '}
-              <span className="text-muted-foreground/50">in both</span> creative{' '}
-              <div className="inline-flex relative w-20 lg:w-24 xl:w-28">
-                <InlineChip className="bg-blue-500 absolute -bottom-0.5 lg:-bottom-1 xl:-bottom-1.5">
-                  <Palette className="size-4 lg:size-5 xl:size-6" />
-                </InlineChip>
-              </div>{' '}
-              and technical{' '}
-              <div className="inline-flex relative w-20 lg:w-24 xl:w-28">
-                <InlineChip className="bg-amber-500 absolute -bottom-0.5 lg:-bottom-1 xl:-bottom-1.5">
-                  <Code className="size-4 lg:size-5 xl:size-6" />
-                </InlineChip>
-              </div>{' '}
-              <span className="text-muted-foreground/50">areas and offer</span> reliable services.
+              <HeadingParent>
+                <HeadingChild className="text-muted-foreground/50">Possess</HeadingChild>
+                <HeadingChild>skills</HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">in</HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">both</HeadingChild>
+                <HeadingChild>creative</HeadingChild>
+                <HeadingChild>
+                  <div className="inline-flex relative w-20 lg:w-24 xl:w-28">
+                    <InlineChip className="bg-blue-500 absolute -bottom-0.5 lg:-bottom-1 xl:-bottom-1.5">
+                      <Palette className="size-4 lg:size-5 xl:size-6" />
+                    </InlineChip>
+                  </div>
+                </HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">and</HeadingChild>
+                <HeadingChild>technical</HeadingChild>
+                <HeadingChild>
+                  <div className="inline-flex relative w-20 lg:w-24 xl:w-28">
+                    <InlineChip className="bg-amber-500 absolute -bottom-0.5 lg:-bottom-1 xl:-bottom-1.5">
+                      <Code className="size-4 lg:size-5 xl:size-6" />
+                    </InlineChip>
+                  </div>
+                </HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">areas</HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">and</HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">offer</HeadingChild>
+                <HeadingChild>reliable</HeadingChild>
+                <HeadingChild>services.</HeadingChild>
+              </HeadingParent>
             </H1>
           </div>
         </section>
