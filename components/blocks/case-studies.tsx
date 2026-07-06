@@ -1,7 +1,5 @@
-import { db } from '@/lib/db';
-import { projectsTable } from '@/lib/schema';
+import { getCaseStudyProjects } from '@/dal/project-dal';
 import { ProjectProps } from '@/types/table';
-import { eq, sql } from 'drizzle-orm';
 import H1 from '../h1';
 import ProjectSquare from '../project-square';
 
@@ -19,11 +17,7 @@ export default function CaseStudies() {
 }
 
 const ProjectsShowcase = async () => {
-  const projects: ProjectProps[] = await db
-    .select()
-    .from(projectsTable)
-    .where(eq(projectsTable.as, 'case_study'))
-    .orderBy(sql`sequence asc`);
+  const projects: ProjectProps[] = await getCaseStudyProjects();
   return (
     <div className="grid md:grid-cols-2 gap-x-1 gap-y-8 sm:gap-y-12">
       {projects.map((project) => (

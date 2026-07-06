@@ -1,5 +1,5 @@
 import ClientCldImage from '@/components/client-cld-image';
-import { db } from '@/lib/db';
+import { getTestimonials } from '@/dal/testimonial-dal';
 import { cn } from '@/lib/utils';
 import { TestimonialProps } from '@/types/table';
 import H4 from '../h4';
@@ -20,7 +20,7 @@ export default function Testimonial() {
 }
 
 const Testimonials = async () => {
-  const testimonials: TestimonialProps[] = await db.query.testimonialsTable.findMany();
+  const testimonials: TestimonialProps[] = await getTestimonials();
   return (
     <div className="grid @2xl:grid-cols-2 gap-x-4 gap-y-2" data-nosnippet>
       {testimonials.map((testimonial) => (

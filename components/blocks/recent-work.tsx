@@ -1,8 +1,6 @@
-import { db } from '@/lib/db';
-import { projectsTable } from '@/lib/schema';
+import { getRecentProjects } from '@/dal/project-dal';
 import { cn } from '@/lib/utils';
 import { ProjectProps } from '@/types/table';
-import { eq, sql } from 'drizzle-orm';
 import H3 from '../h3';
 import ProjectSquare from '../project-square';
 
@@ -20,11 +18,7 @@ export default function RecentWork() {
 }
 
 const ProjectsShowcase = async () => {
-  const projects: ProjectProps[] = await db
-    .select()
-    .from(projectsTable)
-    .where(eq(projectsTable.as, 'recent'))
-    .orderBy(sql`sequence asc`);
+  const projects: ProjectProps[] = await getRecentProjects();
 
   const totalProjects = projects.length;
 

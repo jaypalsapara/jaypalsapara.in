@@ -1,9 +1,9 @@
 import ClientCldImage from '@/components/client-cld-image';
-import { db } from '@/lib/db';
+import { getAbilities } from '@/dal/ability-dal';
+import { getIntegrations } from '@/dal/integration-dal';
+import { getTechnologies } from '@/dal/technology-dal';
 import { keyLabel } from '@/lib/key-labels';
-import { abilitiesTable, pluginsTable, technologiesTable } from '@/lib/schema';
 import { AbilityProps, PluginsProps, TechnologyProps } from '@/types/table';
-import { asc } from 'drizzle-orm';
 import { ArrowRight } from 'lucide-react';
 import H1 from '../h1';
 
@@ -47,7 +47,7 @@ export default function Services() {
 }
 
 const ListOfTechnologies = async () => {
-  const technologies: TechnologyProps[] = await db.select().from(technologiesTable);
+  const technologies: TechnologyProps[] = await getTechnologies();
   const collections = Object.groupBy(technologies, (tech) => tech.category);
 
   return (
@@ -75,7 +75,7 @@ const ListOfTechnologies = async () => {
 };
 
 const ListOfAbilities = async () => {
-  const abilities: AbilityProps[] = await db.select().from(abilitiesTable).orderBy(asc(abilitiesTable.sequence));
+  const abilities: AbilityProps[] = await getAbilities();
   return (
     <div className="grid grid-cols-12 [counter-reset:index] divide-y *:py-2 *:items-center">
       <div className="grid grid-cols-subgrid col-span-full font-medium text-xs px-2">
@@ -95,8 +95,9 @@ const ListOfAbilities = async () => {
     </div>
   );
 };
+
 const ListOfIntegration = async () => {
-  const plugins: PluginsProps[] = await db.select().from(pluginsTable).orderBy(asc(pluginsTable.sequence));
+  const plugins: PluginsProps[] = await getIntegrations();
   return (
     <div className="grid grid-cols-12 [counter-reset:index] divide-y *:py-2 *:items-center">
       <div className="grid grid-cols-subgrid col-span-full font-medium text-xs px-2">

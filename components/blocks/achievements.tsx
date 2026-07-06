@@ -1,7 +1,7 @@
 import ClientCldImage from '@/components/client-cld-image';
 import H4 from '@/components/h4';
 import P from '@/components/p';
-import { db } from '@/lib/db';
+import { getAchievements } from '@/dal/achievement-dal';
 import { cn } from '@/lib/utils';
 import { AchievementProps } from '@/types/table';
 
@@ -19,7 +19,7 @@ export default function Achievements() {
 }
 
 const AchievementsGrid = async ({ className }: { className?: string }) => {
-  const achievements: AchievementProps[] = await db.query.achievementsTable.findMany();
+  const achievements: AchievementProps[] = await getAchievements();
   return (
     <div className={cn('flex gap-6 flex-wrap', className)}>
       {achievements.map((achievement) => (

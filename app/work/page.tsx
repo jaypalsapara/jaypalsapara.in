@@ -2,6 +2,7 @@ import CaseStudies from '@/components/blocks/case-studies';
 import RecentWork from '@/components/blocks/recent-work';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
+import { HeadingChild, HeadingParent } from '@/components/heading-animation';
 import { IdeaText } from '@/components/idea-text';
 import { APP_URL } from '@/constants/app';
 import { getWorkPageJsonLd } from '@/constants/schema-jsons';
@@ -26,14 +27,26 @@ export default function Work() {
         <section className="grid lg:grid-cols-2 pt-8 pb-16 lg:pb-24 px-4 w-full">
           <div className="lg:col-start-2">
             <H1 className="font-bold">
-              <span className="text-muted-foreground/50">I</span> develop{' '}
-              <span className="text-muted-foreground/50">and</span> deploy{' '}
-              <span className="text-muted-foreground/50">web and experience from</span> <IdeaText />{' '}
-              <span className="text-muted-foreground/50 me-1">to</span>
-              <div className="inline-flex bg-yellow-300 px-6 items-center justify-center rounded-full">
-                <span>final_fixed</span>
-              </div>
-              product.
+              <HeadingParent>
+                <HeadingChild className="text-muted-foreground/50">I</HeadingChild>
+                <HeadingChild>develop</HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">and</HeadingChild>
+                <HeadingChild>deploy</HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">web</HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">and</HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">experience</HeadingChild>
+                <HeadingChild className="text-muted-foreground/50">from</HeadingChild>
+                <HeadingChild>
+                  <IdeaText />
+                </HeadingChild>
+                <HeadingChild className="text-muted-foreground/50 me-[0.05em]">to</HeadingChild>
+                <HeadingChild className="me-0">
+                  <div className="inline-flex bg-yellow-300 px-6 items-center justify-center rounded-full">
+                    <span>final_fixed</span>
+                  </div>
+                </HeadingChild>
+                <HeadingChild>product.</HeadingChild>
+              </HeadingParent>
             </H1>
           </div>
         </section>

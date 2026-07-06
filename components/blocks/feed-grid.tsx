@@ -50,7 +50,7 @@ export default function FeedGrid({ items }: { items: FeedsProps[] }) {
           key={item.id}
           style={{
             opacity: 0,
-            transform: 'translateY(20px)',
+            transform: 'translateY(40px)',
           }}
         >
           <ClientCldImage

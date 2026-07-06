@@ -3,24 +3,14 @@ import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import P from '@/components/p';
 import { APP_URL } from '@/constants/app';
-import { db } from '@/lib/db';
-import { projectsTable } from '@/lib/schema';
+import { getGenerateStaticParams, getNextProjectFromProject, getProjectWhereSlug } from '@/dal/project-dal';
 import { cn } from '@/lib/utils';
 import { ProjectProps, ShowcaseProps } from '@/types/table';
-import { and, asc, eq, gt } from 'drizzle-orm';
 import Head from 'next/head';
-
-type CurrentProjectProps = ProjectProps & { showcase: ShowcaseProps[] };
-
-type NextProjectProps = Pick<ProjectProps, 'name' | 'slug' | 'cover' | 'footer_cover'> | undefined;
+import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
-  const projects = await db
-    .select({
-      id: projectsTable.id,
-      slug: projectsTable.slug,
-    })
-    .from(projectsTable);
+  const projects = await getGenerateStaticParams();
 
   return projects.map((project) => ({
     slug: project.slug,
@@ -30,23 +20,11 @@ export async function generateStaticParams() {
 export default async function page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
-  const project = (await db.query.projectsTable.findFirst({
-    where: eq(projectsTable.slug, slug),
-    with: {
-      showcase: true,
-    },
-  })) as CurrentProjectProps;
+  const project = await getProjectWhereSlug(slug);
 
-  const nextProject: NextProjectProps = await db.query.projectsTable.findFirst({
-    where: and(eq(projectsTable.as, project.as), gt(projectsTable.sequence, project.sequence)),
-    orderBy: asc(projectsTable.sequence),
-    columns: {
-      slug: true,
-      name: true,
-      cover: true,
-      footer_cover: true,
-    },
-  });
+  if (!project) return notFound();
+
+  const nextProject = await getNextProjectFromProject(project);
 
   return (
     <>
@@ -55,8 +33,9 @@ export default async function page({ params }: { params: Promise<{ slug: string 
           <link rel="canonical" href={APP_URL + `/work/${slug}`} key="canonical" />
         </Head>
         <section className="grid lg:grid-cols-2 pt-8 pb-6 lg:pb-8 px-4 w-full">
-          <div className="lg:col-start-2">
+          <div className="lg:col-start-2 flex justify-between gap-4">
             <H1 className="font-bold">{project.name}</H1>
+            <P className="self-end text-muted-foreground/50">{project.started_at.getFullYear()}</P>
           </div>
         </section>
         <section className="px-4 mt-2 lg:mt-4">
