@@ -37,6 +37,8 @@ export const projectsTable = sqliteTable('projects', {
     .notNull(),
   sequence: integer().notNull(),
   is_under_nda: integer({ mode: 'boolean' }).default(false).notNull(),
+  started_at: integer({ mode: 'timestamp' }).notNull(),
+  ended_at: integer({ mode: 'timestamp' }),
 });
 
 /**

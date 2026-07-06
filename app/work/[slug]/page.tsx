@@ -33,8 +33,9 @@ export default async function page({ params }: { params: Promise<{ slug: string 
           <link rel="canonical" href={APP_URL + `/work/${slug}`} key="canonical" />
         </Head>
         <section className="grid lg:grid-cols-2 pt-8 pb-6 lg:pb-8 px-4 w-full">
-          <div className="lg:col-start-2">
+          <div className="lg:col-start-2 flex justify-between gap-4">
             <H1 className="font-bold">{project.name}</H1>
+            <P className="self-end text-muted-foreground/50">{project.started_at.getFullYear()}</P>
           </div>
         </section>
         <section className="px-4 mt-2 lg:mt-4">
