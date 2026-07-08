@@ -1,7 +1,8 @@
 import H1 from '@/components/h1';
 import P from '@/components/p';
 import TransitionLink from '@/components/transition-link';
-import { Button } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { ArrowLeft } from 'lucide-react';
 
 export default function NotFound() {
@@ -16,12 +17,10 @@ export default function NotFound() {
             <P className="mt-10 max-w-[40ch] text-muted-foreground">
               This page may have been moved or deleted. Return home to continue browsing.
             </P>
-            <Button className="w-44 h-10 mt-9 rounded-full" asChild>
-              <TransitionLink href={'/'}>
-                <span className="sr-only">Home</span>
-                <ArrowLeft className="size-6" strokeLinejoin="miter" strokeLinecap="square" />
-              </TransitionLink>
-            </Button>
+            <TransitionLink href={'/'} className={cn(buttonVariants({ className: 'w-44 h-10 mt-9 rounded-full' }))}>
+              <span className="sr-only">Home</span>
+              <ArrowLeft className="size-6" strokeLinejoin="miter" strokeLinecap="square" />
+            </TransitionLink>
           </div>
         </section>
       </main>
