@@ -218,16 +218,6 @@
   font-variation-settings: 'opsz' 32;
 }
 
-@utility grid-stack {
-  position: relative;
-  grid-template-areas: 'stack';
-}
-
-@utility stack {
-  position: absolute;
-  grid-area: 'stack';
-}
-
 @utility pile {
   display: grid;
   grid-template-areas: 'pile';
@@ -236,6 +226,7 @@
     grid-area: pile;
   }
 }
+
 @utility prose {
   & > * + * {
     margin-block-start: var(--prose-flow, 1em);
