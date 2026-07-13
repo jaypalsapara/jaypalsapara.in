@@ -3,7 +3,8 @@
 import ClientCldImage from '@/components/client-cld-image';
 import H1 from '@/components/h1';
 import TransitionLink from '@/components/transition-link';
-import { Button } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -44,12 +45,10 @@ export default function HomeHeroSection() {
       <div className="grid xl:grid-cols-2 py-8 px-4 w-full self-start">
         <div className="xl:col-start-2">
           <H1 className="font-bold max-w-[16ch]">Web solutions that deliver results</H1>
-          <Button className="w-44 h-10 mt-9 rounded-full" asChild>
-            <TransitionLink href={'/work'}>
-              <span className="sr-only">Work</span>
-              <ArrowRight className="size-6" strokeLinejoin="miter" strokeLinecap="square" />
-            </TransitionLink>
-          </Button>
+          <TransitionLink href={'/work'} className={cn(buttonVariants({ className: 'w-44 h-10 mt-9 rounded-full' }))}>
+            <span className="sr-only">Work</span>
+            <ArrowRight className="size-6" strokeLinejoin="miter" strokeLinecap="square" />
+          </TransitionLink>
         </div>
       </div>
     </motion.main>

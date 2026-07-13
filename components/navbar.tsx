@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { NavLink } from '@/types/navigation';
 import { usePathname } from 'next/navigation';
 import TransitionLink from './transition-link';
-import { Button } from './ui/button';
+import { buttonVariants } from './ui/button';
 
 export const PagesLinks: NavLink[] = [
   {
@@ -36,15 +36,17 @@ export default function NavBar() {
       <ul className="flex">
         {PagesLinks.map((item) => (
           <li key={`nav-link-wrapper-${item.name}`}>
-            <Button
-              variant={'ghost'}
-              className={cn('text-muted-foreground px-2 optical-display', {
-                'text-foreground': pathname === item.path,
-              })}
-              asChild
+            <TransitionLink
+              href={item.path}
+              className={cn(
+                buttonVariants({ variant: 'ghost', className: 'text-muted-foreground px-2 optical-display' }),
+                {
+                  'text-foreground': pathname === item.path,
+                },
+              )}
             >
-              <TransitionLink href={item.path}>{item.name}</TransitionLink>
-            </Button>
+              {item.name}
+            </TransitionLink>
           </li>
         ))}
       </ul>

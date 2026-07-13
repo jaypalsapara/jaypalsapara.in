@@ -5,7 +5,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'motion/react';
 import { usePathname } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { CSSProperties, useEffect, useRef, useState } from 'react';
 import { SocialLinks } from './footer';
 import { PagesLinks } from './navbar';
 import TransitionLink from './transition-link';
@@ -32,13 +32,20 @@ export default function MobileNav() {
         >
           <Menu className="size-5" />
         </DrawerTrigger>
-        <DrawerContent className="h-dvh dark max-h-dvh! rounded-none!">
+        <DrawerContent
+          className="h-dvh dark bg-background text-foreground max-h-dvh! rounded-none!"
+          style={
+            {
+              '--drawer-bleed-background': 'var(--background)',
+            } as CSSProperties
+          }
+        >
           <motion.ul
             className="flex flex-col mx-auto items-center py-12 gap-y-4 grow justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              delay: 0.15,
+              delay: 0.2,
               duration: 0.4,
               ease: 'easeOut',
             }}
