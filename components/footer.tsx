@@ -65,7 +65,7 @@ export default function Footer({
               loading="lazy"
               src={cover}
               alt={cover}
-              className="size-full -z-1 group-hover/next:scale-[1.01] scale-103 transition-[scale,filter] duration-300 will-change-[scale,filter] ease-in-out brightness-100 group-hover/next:brightness-78 object-cover"
+              className="size-full -z-1 group-active/next:scale-[1.01] group-hover/next:scale-[1.01] scale-103 transition-[scale,filter] duration-300 will-change-[scale,filter] ease-in-out brightness-100 group-hover/next:brightness-78 object-cover"
             />
           </div>
         )}
