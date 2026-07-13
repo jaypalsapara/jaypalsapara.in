@@ -31,6 +31,7 @@ export const projectsTable = sqliteTable('projects', {
   subtitle: text().notNull(),
   description: text().notNull(),
   subordinate: text().notNull(),
+  url: text(),
   category: text().notNull(),
   as: text({ enum: ['case_study', 'personal', 'recent'] })
     .default('recent')
