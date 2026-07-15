@@ -7,7 +7,7 @@ export default function Info() {
       <div className="hidden lg:block">
         <H4 className="sticky top-14">Info</H4>
       </div>
-      <div className="*:text-xl md:*:text-2xl lg:*:text-[1.625rem] *:leading-tight xl:*:leading-[1.2] xl:*:text-3xl *:tracking-tight space-y-6">
+      <div className="*:text-xl md:*:text-2xl lg:*:text-[1.625rem] *:leading-tight xl:*:leading-[1.2] xl:*:text-3xl  space-y-6">
         <P>
           Jaypal is a developer based in Gujarat, India. His work spans web and mobile applications—always with a focus
           on building coherent brand experiences.

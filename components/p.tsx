@@ -4,7 +4,7 @@ import { PropsWithChildren } from 'react';
 export default function P({ children, className, ...props }: PropsWithChildren<{ className?: string }>) {
   return (
     <p
-      className={cn('text-base lg:text-lg xl:text-xl leading-normal text-pretty tracking-tight', className)}
+      className={cn('text-base lg:text-lg xl:text-xl leading-normal text-pretty tracking-[-0.0225em]', className)}
       {...props}
     >
       {children}
