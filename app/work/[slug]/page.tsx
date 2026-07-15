@@ -59,6 +59,17 @@ export default async function page({ params }: { params: Promise<{ slug: string 
             ))}
           </div>
 
+          <div className="lg:col-start-2 space-y-4 mt-12">
+            {project.subordinate.split('\n').map((paragraph, index) => (
+              <P
+                key={`project-${project.id}-subordinate-paragraph-${index}`}
+                className="text-xs lg:text-sm xl:text-sm text-muted-foreground max-w-[50ch]"
+              >
+                {paragraph}
+              </P>
+            ))}
+          </div>
+
           {project.url && (
             <div className="lg:col-start-2 mt-12">
               <a
@@ -71,17 +82,6 @@ export default async function page({ params }: { params: Promise<{ slug: string 
               </a>
             </div>
           )}
-
-          <div className="lg:col-start-2 space-y-4 mt-12">
-            {project.subordinate.split('\n').map((paragraph, index) => (
-              <P
-                key={`project-${project.id}-subordinate-paragraph-${index}`}
-                className="text-xs lg:text-sm xl:text-sm text-muted-foreground max-w-[50ch]"
-              >
-                {paragraph}
-              </P>
-            ))}
-          </div>
         </section>
         <section className="flex flex-col px-4">
           {project.showcase.map((showcase) => (
