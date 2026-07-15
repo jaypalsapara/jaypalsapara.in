@@ -22,7 +22,7 @@ export default function Testimonial() {
 const Testimonials = async () => {
   const testimonials: TestimonialProps[] = await getTestimonials();
   return (
-    <div className="grid @2xl:grid-cols-2 gap-x-4 gap-y-2" data-nosnippet>
+    <div className="grid @2xl:grid-cols-2 gap-4" data-nosnippet>
       {testimonials.map((testimonial) => (
         <div
           key={`testimonial-${testimonial.id}`}
