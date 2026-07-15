@@ -2,10 +2,12 @@ import ClientCldImage from '@/components/client-cld-image';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import P from '@/components/p';
+import { buttonVariants } from '@/components/ui/button';
 import { APP_URL } from '@/constants/app';
 import { getGenerateStaticParams, getNextProjectFromProject, getProjectWhereSlug } from '@/dal/project-dal';
 import { cn } from '@/lib/utils';
 import { ProjectProps, ShowcaseProps } from '@/types/table';
+import { ArrowUpRight } from 'lucide-react';
 import Head from 'next/head';
 import { notFound } from 'next/navigation';
 
@@ -56,6 +58,20 @@ export default async function page({ params }: { params: Promise<{ slug: string 
               </P>
             ))}
           </div>
+
+          {project.url && (
+            <div className="lg:col-start-2 mt-12">
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(buttonVariants({ className: 'rounded-full group/visit' }))}
+              >
+                Visit the website <ArrowUpRight data-icon="inline-end" />
+              </a>
+            </div>
+          )}
+
           <div className="lg:col-start-2 space-y-4 mt-12">
             {project.subordinate.split('\n').map((paragraph, index) => (
               <P
