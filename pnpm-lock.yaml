@@ -96,8 +96,8 @@ importers:
         specifier: ^4.3.0
         version: 4.3.0(prettier@3.9.5)(typescript@6.0.3)
       prettier-plugin-tailwindcss:
-        specifier: ^0.8.0
-        version: 0.8.0(prettier-plugin-organize-imports@4.3.0(prettier@3.9.5)(typescript@6.0.3))(prettier@3.9.5)
+        specifier: ^0.8.1
+        version: 0.8.1(prettier-plugin-organize-imports@4.3.0(prettier@3.9.5)(typescript@6.0.3))(prettier@3.9.5)
       tailwindcss:
         specifier: ^4.3.2
         version: 4.3.2
@@ -2458,9 +2458,9 @@ packages:
     resolution:
       { integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow== }
 
-  electron-to-chromium@1.5.389:
+  electron-to-chromium@1.5.392:
     resolution:
-      { integrity: sha512-cEto7aeOqBfU1D+c5py5pE+ooscKE75JifxLBdFUZsqAxRS6y7kebtxAZvICszSl05gPjYHDTjY+lXpyGvpJbg== }
+      { integrity: sha512-1yQq3VQCZRwsnYc67Oc+1fge6Lwtn0hzi6zmEVkB61Zx21kTbwJAW4dFLadl5Rc1tKhG/kSpYXnfiAhu0f0a1g== }
 
   emoji-regex@10.6.0:
     resolution:
@@ -3353,9 +3353,9 @@ packages:
     resolution:
       { integrity: sha512-YYVDInQKFJfR/xa3ojUTl8c2KoTwiL1R5Wg9YCydwH0x0B9grbzlg5HC7mMjCtUJjbQ/YnGEZIhI5tCgfTb4Hw== }
 
-  js-base64@3.8.1:
+  js-base64@3.9.1:
     resolution:
-      { integrity: sha512-5xVjhUZlHHeuO2W7w2rDFj/Kl1xLX+HjZxdOQwCsUOifl6UaoH1o1wsbsTMz+r0aeC7gCijvru02j6TfKZWzKg== }
+      { integrity: sha512-U73qptcvf/HIOauFOmqT3a0mDUp0MYlfd15oqoe9kqZt5XhiXVb+HG09sLvI9PQ9tZIBFS4nlErai8zbWazP0g== }
 
   js-tokens@4.0.0:
     resolution:
@@ -4022,9 +4022,9 @@ packages:
       vue-tsc:
         optional: true
 
-  prettier-plugin-tailwindcss@0.8.0:
+  prettier-plugin-tailwindcss@0.8.1:
     resolution:
-      { integrity: sha512-V8ITGH87yuBDF6JpEZTOVlUz/saAwqb8f3HRgUj8Lh+tGCcrmorhsLpYqzygwFwK0PE2Ib6Mv3M7T/uE2tZV1g== }
+      { integrity: sha512-iaFMYqDsE4ffdDkn5qup0j5f2aCEBFZrdrZnvu9QKTlWx/iGPeQ4HHu7b7fCPMxeo9nwQBiOAh2nSypdFYWJkw== }
     engines: { node: '>=20.19' }
     peerDependencies:
       '@ianvs/prettier-plugin-sort-imports': '*'
@@ -4794,9 +4794,9 @@ packages:
     resolution:
       { integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ== }
 
-  ws@8.21.0:
+  ws@8.21.1:
     resolution:
-      { integrity: sha512-Vsp28b7DRcimFQvrqu2Wek3z1iYxDCWqHYB8Qsnk/S4RfaCQzPGPyBNuVjJV3cd6UiKtUtp6sNM77gWvzcCH+g== }
+      { integrity: sha512-+0NTnW77fFN/DjQi6k/Sq/Yvk4Sgajw7urW8V+asjXnRgDs9gyGkdb7EzgfhA4goXsRIZKE28fzIXBHEzhuiWw== }
     engines: { node: '>=10.0.0' }
     peerDependencies:
       bufferutil: ^4.0.1
@@ -5498,7 +5498,7 @@ snapshots:
     dependencies:
       '@libsql/core': 0.17.4
       '@libsql/hrana-client': 0.10.0
-      js-base64: 3.8.1
+      js-base64: 3.9.1
       libsql: 0.5.29
       promise-limit: 2.7.0
     transitivePeerDependencies:
@@ -5507,7 +5507,7 @@ snapshots:
 
   '@libsql/core@0.17.4':
     dependencies:
-      js-base64: 3.8.1
+      js-base64: 3.9.1
 
   '@libsql/darwin-arm64@0.5.29':
     optional: true
@@ -5518,7 +5518,7 @@ snapshots:
   '@libsql/hrana-client@0.10.0':
     dependencies:
       '@libsql/isomorphic-ws': 0.1.5
-      js-base64: 3.8.1
+      js-base64: 3.9.1
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -5526,7 +5526,7 @@ snapshots:
   '@libsql/isomorphic-ws@0.1.5':
     dependencies:
       '@types/ws': 8.18.1
-      ws: 8.21.0
+      ws: 8.21.1
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
@@ -6250,7 +6250,7 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.10.43
       caniuse-lite: 1.0.30001805
-      electron-to-chromium: 1.5.389
+      electron-to-chromium: 1.5.392
       node-releases: 2.0.51
       update-browserslist-db: 1.2.3(browserslist@4.28.6)
 
@@ -6482,7 +6482,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.389: {}
+  electron-to-chromium@1.5.392: {}
 
   emoji-regex@10.6.0: {}
 
@@ -7402,7 +7402,7 @@ snapshots:
 
   jose@6.2.3: {}
 
-  js-base64@3.8.1: {}
+  js-base64@3.9.1: {}
 
   js-tokens@4.0.0: {}
 
@@ -7899,7 +7899,7 @@ snapshots:
       prettier: 3.9.5
       typescript: 6.0.3
 
-  prettier-plugin-tailwindcss@0.8.0(prettier-plugin-organize-imports@4.3.0(prettier@3.9.5)(typescript@6.0.3))(prettier@3.9.5):
+  prettier-plugin-tailwindcss@0.8.1(prettier-plugin-organize-imports@4.3.0(prettier@3.9.5)(typescript@6.0.3))(prettier@3.9.5):
     dependencies:
       prettier: 3.9.5
     optionalDependencies:
@@ -8657,7 +8657,7 @@ snapshots:
 
   wrappy@1.0.2: {}
 
-  ws@8.21.0: {}
+  ws@8.21.1: {}
 
   wsl-utils@0.3.1:
     dependencies:
