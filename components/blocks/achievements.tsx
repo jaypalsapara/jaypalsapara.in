@@ -33,8 +33,8 @@ const AchievementsGrid = async ({ className }: { className?: string }) => {
             className="object-cover size-12 lg:size-17 rounded-lg lg:rounded-xl"
           />
           <div>
-            <P className="tracking-tight">{achievement.name}</P>
-            <p className="text-sm lg:text-base tracking-tight text-muted-foreground">{achievement.subtitle}</p>
+            <P>{achievement.name}</P>
+            <p className="text-sm lg:text-base tracking-[-0.0225em] text-muted-foreground">{achievement.subtitle}</p>
           </div>
         </div>
       ))}

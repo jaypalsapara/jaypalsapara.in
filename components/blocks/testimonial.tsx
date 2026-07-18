@@ -22,24 +22,24 @@ export default function Testimonial() {
 const Testimonials = async () => {
   const testimonials: TestimonialProps[] = await getTestimonials();
   return (
-    <div className="grid @2xl:grid-cols-2 gap-x-4 gap-y-2" data-nosnippet>
+    <div className="grid @2xl:grid-cols-2 gap-4" data-nosnippet>
       {testimonials.map((testimonial) => (
         <div
           key={`testimonial-${testimonial.id}`}
-          className={cn('flex flex-col bg-muted p-4 rounded-lg lg:rounded-xl', {
+          className={cn('flex flex-col bg-muted p-5 lg:p-6 rounded-lg lg:rounded-xl', {
             'row-span-2 bg-foreground text-white': testimonial.is_highlighted,
           })}
         >
           <div className="flex">
             <RatingStars rating={testimonial.rating} />
           </div>
-          <P className="mt-4 text-sm lg:text-base xl:text-lg">
+          <P className="mt-4 text-base lg:text-base xl:text-lg">
             <q>{testimonial.description}</q>
           </P>
           <div className="flex justify-between mt-auto pt-4">
             <div className="flex flex-col">
               <P className="text-sm lg:text-base xl:text-base font-medium">{testimonial.name}</P>
-              <P className="text-xs lg:text-sm xl:text-sm">{testimonial.subtitle}</P>
+              <P className="text-xs lg:text-sm xl:text-sm text-muted-foreground">{testimonial.subtitle}</P>
             </div>
             <ClientCldImage
               src={`/images/reviewers/${testimonial.avatar}`}
@@ -47,7 +47,7 @@ const Testimonials = async () => {
               width={48}
               height={48}
               loading="lazy"
-              className="object-cover rounded-md lg:rounded-lg size-8 lg:size-10"
+              className="object-cover rounded-sm lg:rounded-md size-9 lg:size-10"
             />
           </div>
         </div>

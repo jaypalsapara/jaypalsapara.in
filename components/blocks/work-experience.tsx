@@ -34,7 +34,7 @@ const Experience = ({ data }: { data: ExperienceProps & { projects: ProjectProps
           className="object-cover size-12 lg:size-17 rounded-lg lg:rounded-xl"
         />
         <div className="bg-secondary py-2 px-4 rounded-full">
-          <p className="text-secondary-foreground font-semibold text-xs tracking-tight">
+          <p className="text-secondary-foreground font-semibold text-xs tracking-[-0.0225em]">
             {data.start_at.getFullYear()} - {data.end_at ? data.end_at.getFullYear() : 'Present'}
           </p>
         </div>
@@ -42,7 +42,7 @@ const Experience = ({ data }: { data: ExperienceProps & { projects: ProjectProps
       <div className="mt-4 lg:mt-5">
         <p className="text-lg font-semibold">{data.name}</p>
         <p className="text-xs">{data.role}</p>
-        <p className="mt-4 text-muted-foreground md:text-lg tracking-tight text-pretty">{data.description}</p>
+        <p className="mt-4 text-muted-foreground md:text-lg tracking-[-0.0225em] text-pretty">{data.description}</p>
         <div className="grid grid-cols-3 gap-2 mt-10">
           {data.projects.map((project) => (
             <ProjectSquare key={`project-square-${project.id}`} data={project} />
