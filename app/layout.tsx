@@ -38,6 +38,7 @@ export const metadata: Metadata = {
       'Full-Stack Developer — I help clients, startups, and enterprises to transform their idea into a digital product, and take it forward, so that their customers can stay engaged.',
     type: 'website',
     url: APP_URL,
+    siteName: 'Jaypal Sapara',
   },
   authors: [{ name: 'Jaypal Sapara' }],
   creator: 'Jaypal Sapara',

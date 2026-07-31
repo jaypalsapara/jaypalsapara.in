@@ -1,0 +1,43 @@
+# Jaypal Sapara
+
+Website: https://jaypalsapara.in
+
+Jaypal Sapara is a full stack developer specializing in Laravel backend development, React frontends, SaaS platforms, REST APIs, payment integrations, scalable web applications, and system architecture.
+
+## Services
+
+- Laravel Development
+- Full Stack Web Development
+- SaaS Development
+- REST API Development
+- Payment Gateway Integration
+- Third-party API Integration
+- System Architecture
+- Performance Optimization
+- Server Deployment
+- SEO Optimization
+
+## Primary Technologies
+
+- Laravel
+- PHP
+- React
+- TypeScript
+- Inertia.js
+- Tailwind CSS
+- MySQL
+- Redis
+- Nginx
+
+## Important Pages
+
+About: https://jaypalsapara.in/about
+Work: https://jaypalsapara.in/work
+Services: https://jaypalsapara.in/service
+
+## Social
+
+GitHub: https://github.com/jaypalsapara
+LinkedIn: https://linkedin.com/in/jaypalsapara
+Twitter: https://x.com/jaypal__sapara
+Upwork: https://www.upwork.com/freelancers/~01c82ba1bdfd7ed735?mp_source=share
