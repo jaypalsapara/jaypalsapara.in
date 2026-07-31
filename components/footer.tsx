@@ -1,6 +1,7 @@
 'use client';
 
 import ClientCldImage from '@/components/client-cld-image';
+import { GITHUB_URL, LINKED_IN_URL, TWITTER_URL } from '@/constants/links';
 import { cn } from '@/lib/utils';
 import { NavLink, ReferenceLink } from '@/types/navigation';
 import H4 from './h4';
@@ -11,15 +12,15 @@ const email = 'hellojaypalsapara@gmail.com';
 export const SocialLinks: ReferenceLink[] = [
   {
     name: 'Twitter',
-    url: 'https://x.com/jaypal__sapara',
+    url: TWITTER_URL,
   },
   {
     name: 'GitHub',
-    url: 'https://github.com/jaypalsapara',
+    url: GITHUB_URL,
   },
   {
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/jaypalsapara',
+    url: LINKED_IN_URL,
   },
 ];
 

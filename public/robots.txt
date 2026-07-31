@@ -5,3 +5,7 @@ Disallow: /work/*
 
 Sitemap: https://jaypalsapara.in/sitemap.xml
 Sitemap: https://www.jaypalsapara.in/sitemap.xml
+
+# LLM resources
+https://jaypalsapara.in/llms.txt
+https://jaypalsapara.in/llms-full.txt
