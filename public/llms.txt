@@ -1,8 +1,10 @@
 # Jaypal Sapara
 
-Website: https://jaypalsapara.in
+> Full stack developer specializing in Laravel backend development, React frontends, SaaS platforms, REST APIs, payment integrations, scalable web applications, and system architecture.
 
-Jaypal Sapara is a full stack developer specializing in Laravel backend development, React frontends, SaaS platforms, REST APIs, payment integrations, scalable web applications, and system architecture.
+## Website
+
+- [jaypalsapara.in](https://jaypalsapara.in): Official portfolio website.
 
 ## Services
 
@@ -31,13 +33,13 @@ Jaypal Sapara is a full stack developer specializing in Laravel backend developm
 
 ## Important Pages
 
-About: https://jaypalsapara.in/about
-Work: https://jaypalsapara.in/work
-Services: https://jaypalsapara.in/service
+- [About](https://jaypalsapara.in/about): Learn more about Jaypal Sapara.
+- [Work](https://jaypalsapara.in/work): Portfolio and completed projects.
+- [Services](https://jaypalsapara.in/service): Development services offered.
 
 ## Social
 
-GitHub: https://github.com/jaypalsapara
-LinkedIn: https://linkedin.com/in/jaypalsapara
-Twitter: https://x.com/jaypal__sapara
-Upwork: https://www.upwork.com/freelancers/~01c82ba1bdfd7ed735?mp_source=share
+- [GitHub](https://github.com/jaypalsapara): Open source projects.
+- [LinkedIn](https://linkedin.com/in/jaypalsapara): Professional profile.
+- [Twitter](https://x.com/jaypal__sapara): Updates and posts.
+- [Upwork](https://www.upwork.com/freelancers/~01c82ba1bdfd7ed735?mp_source=share): Freelance profile.
