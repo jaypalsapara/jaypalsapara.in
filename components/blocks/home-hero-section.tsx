@@ -77,7 +77,7 @@ export default function HomeHeroSection() {
             preload
             loading="eager"
             fetchPriority="high"
-            className="min-h-210 object-cover size-full"
+            className="min-h-210 object-cover size-full bg-background"
           />
         </Activity>
         <Activity mode={activeTab === 1 ? 'visible' : 'hidden'}>
@@ -87,7 +87,7 @@ export default function HomeHeroSection() {
             width={3840}
             height={2160}
             loading="lazy"
-            className="min-h-210 object-cover size-full"
+            className="min-h-210 object-cover size-full bg-background"
           />
         </Activity>
       </motion.div>
