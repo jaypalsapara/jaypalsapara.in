@@ -67,7 +67,7 @@ export default function HomeHeroSection() {
       >
         <ArrowRight className="size-4 text-background" />
       </motion.div>
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="size-full pointer-events-none">
+      <div className="size-full pointer-events-none">
         <Activity mode={activeTab === 0 ? 'visible' : 'hidden'}>
           <ClientCldImage
             src="/images/hero-bg.png"
@@ -90,7 +90,7 @@ export default function HomeHeroSection() {
             className="min-h-210 object-cover size-full bg-background"
           />
         </Activity>
-      </motion.div>
+      </div>
       <div data-slot="hero-text-section" className="grid xl:grid-cols-2 py-8 px-4 w-full self-start">
         <div className="xl:col-start-2">
           <H1 className="font-bold max-w-[16ch]">{tabsData[activeTab].title}</H1>
