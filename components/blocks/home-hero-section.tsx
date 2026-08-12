@@ -12,9 +12,17 @@ import { MouseEvent, useCallback, useState } from 'react';
 const tabsData = [
   {
     title: 'Web solutions that deliver results',
+    action: {
+      url: '/work',
+      title: 'Work',
+    },
   },
   {
-    title: 'Products that help in your work',
+    title: 'Services that turn your vision into results',
+    action: {
+      url: '/service',
+      title: 'Service',
+    },
   },
 ];
 
@@ -86,10 +94,10 @@ export default function HomeHeroSection() {
           <H1 className="font-bold max-w-[16ch]">{tabsData[activeTab].title}</H1>
           <div className="flex items-center mt-9 gap-6">
             <TransitionLink
-              href={'/work'}
+              href={tabsData[activeTab].action.url}
               className={cn(buttonVariants({ className: 'w-44 h-10 rounded-full cursor-none' }))}
             >
-              <span className="sr-only">Work</span>
+              <span className="sr-only">{tabsData[activeTab].action.title}</span>
               <ArrowRight className="size-6" strokeLinejoin="miter" strokeLinecap="square" />
             </TransitionLink>
             <div className="flex items-center gap-1">
