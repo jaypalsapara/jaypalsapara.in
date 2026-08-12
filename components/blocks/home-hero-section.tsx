@@ -7,7 +7,7 @@ import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
 import { motion, useMotionValue } from 'motion/react';
-import { MouseEvent, useCallback, useState } from 'react';
+import { Activity, MouseEvent, useCallback, useState } from 'react';
 
 const tabsData = [
   {
@@ -68,26 +68,28 @@ export default function HomeHeroSection() {
         <ArrowRight className="size-4 text-background" />
       </motion.div>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="size-full pointer-events-none">
-        <ClientCldImage
-          src="/images/hero-bg.png"
-          alt="Hero section image"
-          width={3840}
-          height={2160}
-          preload
-          loading="eager"
-          fetchPriority="high"
-          className="min-h-210 object-cover size-full hidden md:block"
-        />
-        <ClientCldImage
-          src="/images/hero-bg-mobile.png"
-          alt="Hero section image"
-          width={2160}
-          height={2160}
-          preload
-          loading="eager"
-          fetchPriority="high"
-          className="min-h-210 object-cover size-full block md:hidden"
-        />
+        <Activity mode={activeTab === 0 ? 'visible' : 'hidden'}>
+          <ClientCldImage
+            src="/images/hero-bg.png"
+            alt="Hero section image"
+            width={3840}
+            height={2160}
+            preload
+            loading="eager"
+            fetchPriority="high"
+            className="min-h-210 object-cover size-full"
+          />
+        </Activity>
+        <Activity mode={activeTab === 1 ? 'visible' : 'hidden'}>
+          <ClientCldImage
+            src="/images/hero-bg-service.png"
+            alt="Hero section image"
+            width={3840}
+            height={2160}
+            loading="lazy"
+            className="min-h-210 object-cover size-full"
+          />
+        </Activity>
       </motion.div>
       <div data-slot="hero-text-section" className="grid xl:grid-cols-2 py-8 px-4 w-full self-start">
         <div className="xl:col-start-2">
@@ -100,7 +102,7 @@ export default function HomeHeroSection() {
               <span className="sr-only">{tabsData[activeTab].action.title}</span>
               <ArrowRight className="size-6" strokeLinejoin="miter" strokeLinecap="square" />
             </TransitionLink>
-            <div className="flex items-center gap-1">
+            <div className="items-center gap-1 hidden md:flex">
               {Array.from({ length: tabsData.length }).map((_, i) => (
                 <div
                   key={`indicator-${i}`}
