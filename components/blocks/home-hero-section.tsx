@@ -67,8 +67,16 @@ export default function HomeHeroSection() {
       >
         <ArrowRight className="size-4 text-background" />
       </motion.div>
-      <div className="size-full pointer-events-none">
-        <Activity mode={activeTab === 0 ? 'visible' : 'hidden'}>
+
+      <Activity mode={activeTab === 0 ? 'visible' : 'hidden'}>
+        <motion.div
+          className="size-full pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            ease: 'easeIn',
+          }}
+        >
           <ClientCldImage
             src="/images/hero-bg.png"
             alt="Hero section image"
@@ -79,8 +87,17 @@ export default function HomeHeroSection() {
             fetchPriority="high"
             className="min-h-210 object-cover size-full bg-background"
           />
-        </Activity>
-        <Activity mode={activeTab === 1 ? 'visible' : 'hidden'}>
+        </motion.div>
+      </Activity>
+      <Activity mode={activeTab === 1 ? 'visible' : 'hidden'}>
+        <motion.div
+          className="size-full pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            ease: 'easeIn',
+          }}
+        >
           <ClientCldImage
             src="/images/hero-bg-service.png"
             alt="Hero section image"
@@ -89,9 +106,10 @@ export default function HomeHeroSection() {
             loading="lazy"
             className="min-h-210 object-cover size-full bg-background"
           />
-        </Activity>
-      </div>
-      <div data-slot="hero-text-section" className="grid xl:grid-cols-2 py-8 px-4 w-full self-start">
+        </motion.div>
+      </Activity>
+
+      <div data-slot="hero-text-section" className="grid xl:grid-cols-2 py-8 px-4 w-full self-start z-10">
         <div className="xl:col-start-2">
           <H1 className="font-bold max-w-[16ch]">{tabsData[activeTab].title}</H1>
           <div className="flex items-center mt-9 gap-6">
@@ -107,7 +125,7 @@ export default function HomeHeroSection() {
                 <div
                   key={`indicator-${i}`}
                   className={cn(
-                    'bg-muted-foreground/25 h-1 will-change-[width] ease transition-[width_color] w-5 inline-block rounded-full',
+                    'bg-muted-foreground/25 h-1 will-change-[width] ease transition-[width_color] w-5 inline-block rounded-full ease-[cubic-bezier(0,0.55,0.45,1)] duration-300',
                     {
                       'bg-foreground w-20': activeTab === i,
                     },
