@@ -1,4 +1,5 @@
 import ClientCldImage from '@/components/client-cld-image';
+import { cloudinaryUrl } from '@/lib/utils';
 import { ProjectProps } from '@/types/table';
 import { Lock } from 'lucide-react';
 import TransitionLink from './transition-link';
@@ -31,7 +32,13 @@ export default function ProjectSquare({ data }: { data: ProjectProps }) {
               {data.name}
             </a>
           ) : (
-            <TransitionLink href={`/work/${data.slug}`}>
+            <TransitionLink
+              href={`/work/${data.slug}`}
+              prefetchImages={cloudinaryUrl({
+                src: `/images/projects/${data.slug}/${data.cover}`,
+                width: 3840,
+              })}
+            >
               <span className="absolute inset-0"></span>
               {data.name}
             </TransitionLink>

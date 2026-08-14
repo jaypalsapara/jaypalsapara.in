@@ -1,4 +1,5 @@
 import { clsx, type ClassValue } from 'clsx';
+import { getCldImageUrl, GetCldImageUrlOptions } from 'next-cloudinary';
 import { twMerge } from 'tailwind-merge';
 
 export function cn(...inputs: ClassValue[]) {
@@ -24,3 +25,19 @@ export function shuffle<T>(array: T[]): T[] {
 
   return result;
 }
+
+export const prefetchImage = (src: string) => {
+  const image = new Image();
+  image.src = src;
+};
+
+export const cloudinaryUrl = (option: GetCldImageUrlOptions) => {
+  const constructOptions: GetCldImageUrlOptions = {
+    ...option,
+    crop: option.crop || 'limit',
+    format: option.format || 'auto',
+    quality: option.quality || 'auto',
+  };
+
+  return getCldImageUrl(constructOptions);
+};
