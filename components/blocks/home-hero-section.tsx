@@ -57,7 +57,7 @@ export default function HomeHeroSection() {
     >
       <motion.div
         className={cn(
-          'rounded-full left-0 top-0 self-start fixed z-20 opacity-0 group-hover/hero:opacity-100 -translate-1/2 bg-foreground pointer-events-none pile will-change-[width,height] ease-in transition-[width,height] ',
+          'rounded-full left-0 top-0 self-start fixed z-20 opacity-0 group-hover/hero:opacity-100 -translate-1/2 bg-foreground pointer-events-none pile will-change-[width,height,transform] ease-in transition-[width,height]',
           'size-10 group-active/hero:size-12!',
           'group-has-[[data-slot=hero-text-section]:hover]/hero:*:hidden',
           'group-has-[[data-slot=hero-text-section]:hover]/hero:size-4',

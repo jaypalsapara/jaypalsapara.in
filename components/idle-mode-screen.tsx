@@ -140,7 +140,7 @@ function IdleNotesField({ exiting, onAllExited }: IdleNotesFieldProps) {
             width: NOTE_SIZE_PX,
             height: NOTE_SIZE_PX,
           }}
-          className={`rounded-sm p-4 drop-shadow-sm shadow-md pile ${vn.color}`}
+          className={`rounded-sm p-4 drop-shadow-sm shadow-md pile will-change-[opacity,transform] ${vn.color}`}
         >
           <span className="text-base self-start justify-self-start leading-snug line-clamp-9 text-pretty">
             {vn.note.description}
@@ -171,12 +171,12 @@ export default function IdleModeScreen() {
   }
 
   return (
-    <AnimatePresence>
+    <>
       {isShowing && (
         <motion.div className="fixed inset-0 z-51 overflow-hidden pointer-events-none! select-none! isolate">
           <IdleNotesField exiting={!isIdle} onAllExited={() => setIsShowing(false)} />
         </motion.div>
       )}
-    </AnimatePresence>
+    </>
   );
 }
