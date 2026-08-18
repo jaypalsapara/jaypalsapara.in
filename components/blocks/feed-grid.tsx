@@ -59,6 +59,7 @@ export default function FeedGrid({ items }: { items: FeedsProps[] }) {
             width={item.image.resolution.w}
             height={item.image.resolution.h}
             loading="lazy"
+            className="size-full"
           />
           <div
             className={cn('flex self-end w-full p-3 items-center justify-between', {
