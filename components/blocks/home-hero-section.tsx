@@ -28,8 +28,8 @@ const tabsData = [
 
 export default function HomeHeroSection() {
   const [activeTab, setActiveTab] = useState(0);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+  const x = useMotionValue(-26);
+  const y = useMotionValue(-26);
 
   const handleTabChange = useCallback((e: MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLElement;
@@ -40,102 +40,103 @@ export default function HomeHeroSection() {
   }, []);
 
   return (
-    <motion.main
-      className="w-full pile relative isolate min-h-dvh select-none cursor-none group/hero"
-      onPointerMove={(e) => {
-        x.set(e.clientX);
-        y.set(e.clientY);
-      }}
-      onClick={handleTabChange}
-      initial={{
-        opacity: 0,
-      }}
-      animate={{
-        opacity: 1,
-        transition: { ease: [0.39, 0.575, 0.565, 1.0], delay: 0.4 },
-      }}
-    >
-      <motion.div
-        className={cn(
-          'rounded-full left-0 top-0 self-start fixed z-20 opacity-0 group-hover/hero:opacity-100 -translate-1/2 bg-foreground pointer-events-none pile will-change-[width,height,transform] ease-in transition-[width,height]',
-          'size-10 group-active/hero:size-12!',
-          'group-has-[[data-slot=hero-text-section]:hover]/hero:*:hidden',
-          'group-has-[[data-slot=hero-text-section]:hover]/hero:size-4',
-          'group-has-[[data-slot=hero-text-section]:active]/hero:size-6!',
-        )}
-        style={{ x, y }}
+    <>
+      <motion.main
+        className="w-full pile relative isolate min-h-dvh select-none cursor-none peer"
+        onPointerMove={(e) => {
+          x.set(e.clientX);
+          y.set(e.clientY);
+        }}
+        onClick={handleTabChange}
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+          transition: { ease: [0.39, 0.575, 0.565, 1.0], delay: 0.4 },
+        }}
       >
-        <ArrowRight className="size-4 text-background" />
-      </motion.div>
+        <Activity mode={activeTab === 0 ? 'visible' : 'hidden'}>
+          <motion.div
+            className="size-full pointer-events-none"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              ease: 'easeIn',
+            }}
+          >
+            <ClientCldImage
+              src="/images/hero-bg.png"
+              alt="Hero section image"
+              width={3840}
+              height={2160}
+              preload
+              loading="eager"
+              fetchPriority="high"
+              className="min-h-210 object-cover size-full bg-background"
+            />
+          </motion.div>
+        </Activity>
+        <Activity mode={activeTab === 1 ? 'visible' : 'hidden'}>
+          <motion.div
+            className="size-full pointer-events-none"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              ease: 'easeIn',
+            }}
+          >
+            <ClientCldImage
+              src="/images/hero-bg-service.png"
+              alt="Hero section image"
+              width={3840}
+              height={2160}
+              loading="lazy"
+              className="min-h-210 object-cover size-full bg-background"
+            />
+          </motion.div>
+        </Activity>
 
-      <Activity mode={activeTab === 0 ? 'visible' : 'hidden'}>
-        <motion.div
-          className="size-full pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            ease: 'easeIn',
-          }}
-        >
-          <ClientCldImage
-            src="/images/hero-bg.png"
-            alt="Hero section image"
-            width={3840}
-            height={2160}
-            preload
-            loading="eager"
-            fetchPriority="high"
-            className="min-h-210 object-cover size-full bg-background"
-          />
-        </motion.div>
-      </Activity>
-      <Activity mode={activeTab === 1 ? 'visible' : 'hidden'}>
-        <motion.div
-          className="size-full pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            ease: 'easeIn',
-          }}
-        >
-          <ClientCldImage
-            src="/images/hero-bg-service.png"
-            alt="Hero section image"
-            width={3840}
-            height={2160}
-            loading="lazy"
-            className="min-h-210 object-cover size-full bg-background"
-          />
-        </motion.div>
-      </Activity>
-
-      <div data-slot="hero-text-section" className="grid xl:grid-cols-2 py-8 px-4 w-full self-start z-10">
-        <div className="xl:col-start-2">
-          <H1 className="font-bold max-w-[16ch]">{tabsData[activeTab].title}</H1>
-          <div className="flex items-center mt-9 gap-6">
-            <TransitionLink
-              href={tabsData[activeTab].action.url}
-              className={cn(buttonVariants({ className: 'w-44 h-10 rounded-full cursor-none' }))}
-            >
-              <span className="sr-only">{tabsData[activeTab].action.title}</span>
-              <ArrowRight className="size-6" strokeLinejoin="miter" strokeLinecap="square" />
-            </TransitionLink>
-            <div className="items-center gap-1 hidden md:flex">
-              {Array.from({ length: tabsData.length }).map((_, i) => (
-                <div
-                  key={`indicator-${i}`}
-                  className={cn(
-                    'bg-muted-foreground/25 h-1 will-change-[width] ease transition-[width_color] w-5 inline-block rounded-full ease-[cubic-bezier(0,0.55,0.45,1)] duration-300',
-                    {
-                      'bg-foreground w-20': activeTab === i,
-                    },
-                  )}
-                ></div>
-              ))}
+        <div data-slot="hero-text-section" className="grid xl:grid-cols-2 py-8 px-4 w-full self-start z-10">
+          <div className="xl:col-start-2">
+            <H1 className="font-bold max-w-[16ch]">{tabsData[activeTab].title}</H1>
+            <div className="flex items-center mt-9 gap-6">
+              <TransitionLink
+                href={tabsData[activeTab].action.url}
+                className={cn(buttonVariants({ className: 'w-44 h-10 rounded-full cursor-none' }))}
+              >
+                <span className="sr-only">{tabsData[activeTab].action.title}</span>
+                <ArrowRight className="size-6" strokeLinejoin="miter" strokeLinecap="square" />
+              </TransitionLink>
+              <div className="items-center gap-1 hidden md:flex">
+                {Array.from({ length: tabsData.length }).map((_, i) => (
+                  <div
+                    key={`indicator-${i}`}
+                    className={cn(
+                      'bg-muted-foreground/25 h-1 will-change-[width] ease transition-[width_color] w-5 inline-block rounded-full ease-[cubic-bezier(0,0.55,0.45,1)] duration-300',
+                      {
+                        'bg-foreground w-20': activeTab === i,
+                      },
+                    )}
+                  ></div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </motion.main>
+      </motion.main>
+      <motion.div
+        className={cn(
+          'rounded-full self-start fixed z-20 opacity-0 peer-hover:opacity-100 -translate-1/2 bg-foreground pointer-events-none pile will-change-[width,height,transform] ease-in transition-[width,height]',
+          'size-10 peer-active:size-12!',
+          'peer-has-[[data-slot=hero-text-section]:hover]:*:hidden',
+          'peer-has-[[data-slot=hero-text-section]:hover]:size-4',
+          'peer-has-[[data-slot=hero-text-section]:active]:size-6!',
+        )}
+        style={{ x, y }}
+      >
+        <ArrowRight className="size-5 text-background" />
+      </motion.div>
+    </>
   );
 }

@@ -39,7 +39,7 @@ export default function NavBar() {
             <TransitionLink
               href={item.path}
               className={cn(
-                buttonVariants({ variant: 'ghost', className: 'text-muted-foreground px-2 optical-display' }),
+                buttonVariants({ variant: 'ghost', className: 'text-muted-foreground/60 px-2 optical-display' }),
                 {
                   'text-foreground': pathname === item.path,
                 },
