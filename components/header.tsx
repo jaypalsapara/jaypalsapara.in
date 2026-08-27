@@ -13,8 +13,8 @@ export default function Header() {
       </div>
       <div>
         <P className="leading-tight text-muted-foreground/50 group-hover/header:text-foreground transition-colors will-change-[color] ease-in">
-          Leading projects from concept to launch, translating client requirements into scalable solutions while
-          providing ongoing support and maintenance after deployment.
+          Design and develop web applications that drive outcomes. Fast performance, strong security, responsive
+          interfaces, and clean, maintainable code are the standard for every project.
         </P>
       </div>
     </header>
