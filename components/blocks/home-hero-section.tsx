@@ -44,7 +44,7 @@ export default function HomeHeroSection() {
   return (
     <>
       <motion.main
-        className="w-full pile relative isolate min-h-dvh select-none cursor-none peer overflow-hidden"
+        className="w-full pile relative isolate min-h-screen select-none cursor-none peer overflow-hidden"
         onPointerMove={(e) => {
           x.set(e.clientX);
           y.set(e.clientY);
