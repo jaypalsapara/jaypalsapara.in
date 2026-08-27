@@ -1,3 +1,7 @@
 'use client';
 
-export { CldImage as default } from 'next-cloudinary';
+import { motion } from 'motion/react';
+import { CldImage } from 'next-cloudinary';
+
+export const ClientCldImage = CldImage;
+export const MotionClientCldImage = motion.create(CldImage);

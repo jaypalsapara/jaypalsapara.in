@@ -1,6 +1,6 @@
 'use client';
 
-import ClientCldImage from '@/components/client-cld-image';
+import { MotionClientCldImage } from '@/components/client-cld-image';
 import H1 from '@/components/h1';
 import TransitionLink from '@/components/transition-link';
 import { buttonVariants } from '@/components/ui/button';
@@ -16,6 +16,7 @@ const tabsData = [
       url: '/work',
       title: 'Work',
     },
+    image: '/images/hero-bg.png',
   },
   {
     title: 'Services to build, fix & scale your product',
@@ -23,6 +24,7 @@ const tabsData = [
       url: '/service',
       title: 'Service',
     },
+    image: '/images/hero-bg-service.png',
   },
 ];
 
@@ -42,7 +44,7 @@ export default function HomeHeroSection() {
   return (
     <>
       <motion.main
-        className="w-full pile relative isolate min-h-dvh select-none cursor-none peer"
+        className="w-full pile relative isolate min-h-dvh select-none cursor-none peer overflow-hidden"
         onPointerMove={(e) => {
           x.set(e.clientX);
           y.set(e.clientY);
@@ -56,47 +58,27 @@ export default function HomeHeroSection() {
           transition: { ease: [0.39, 0.575, 0.565, 1.0], delay: 0.4 },
         }}
       >
-        <Activity mode={activeTab === 0 ? 'visible' : 'hidden'}>
-          <motion.div
-            className="size-full pointer-events-none"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              ease: 'easeIn',
-            }}
-          >
-            <ClientCldImage
-              src="/images/hero-bg.png"
-              alt="Hero section image"
-              width={3840}
-              height={2160}
-              preload
-              loading="eager"
-              fetchPriority="high"
-              className="min-h-210 object-cover size-full bg-background"
-            />
-          </motion.div>
-        </Activity>
-        <Activity mode={activeTab === 1 ? 'visible' : 'hidden'}>
-          <motion.div
-            className="size-full pointer-events-none"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              ease: 'easeIn',
-            }}
-          >
-            <ClientCldImage
-              src="/images/hero-bg-service.png"
-              alt="Hero section image"
-              width={3840}
-              height={2160}
-              loading="lazy"
-              className="min-h-210 object-cover size-full bg-background"
-            />
-          </motion.div>
-        </Activity>
-
+        <div className="absolute inset-0 flex items-center justify-center">
+          {tabsData.map((tab, index) => (
+            <Activity key={`tab-activity-${index}`} mode={activeTab === index ? 'visible' : 'hidden'}>
+              <MotionClientCldImage
+                src={tab.image}
+                alt={`${tab.title} hero section image`}
+                width={3840}
+                height={2560}
+                preload={index === 0}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                fetchPriority="high"
+                className="object-cover size-full bg-background pointer-events-none object-center will-change-transform"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  ease: 'easeIn',
+                }}
+              />
+            </Activity>
+          ))}
+        </div>
         <div data-slot="hero-text-section" className="grid xl:grid-cols-2 py-8 px-4 w-full self-start z-10">
           <div className="xl:col-start-2">
             <H1 className="font-bold max-w-[16ch]">{tabsData[activeTab].title}</H1>
@@ -113,7 +95,7 @@ export default function HomeHeroSection() {
                   <div
                     key={`indicator-${i}`}
                     className={cn(
-                      'bg-muted-foreground/25 h-1 will-change-[width] ease transition-[width_color] w-5 inline-block rounded-full ease-[cubic-bezier(0,0.55,0.45,1)] duration-300',
+                      'bg-muted-foreground/25 h-1 will-change-[width] ease transition-[width_color] w-5 inline-block rounded-full ease-[cubic-bezier(0.215, 0.610, 0.355, 1.000)] duration-300',
                       {
                         'bg-foreground w-20': activeTab === i,
                       },

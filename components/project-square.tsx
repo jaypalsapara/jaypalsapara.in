@@ -1,4 +1,4 @@
-import ClientCldImage from '@/components/client-cld-image';
+import { ClientCldImage } from '@/components/client-cld-image';
 import { ProjectProps } from '@/types/table';
 import { Lock } from 'lucide-react';
 import TransitionLink from './transition-link';

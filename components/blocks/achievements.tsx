@@ -1,4 +1,4 @@
-import ClientCldImage from '@/components/client-cld-image';
+import { ClientCldImage } from '@/components/client-cld-image';
 import H4 from '@/components/h4';
 import P from '@/components/p';
 import { getAchievements } from '@/dal/achievement-dal';

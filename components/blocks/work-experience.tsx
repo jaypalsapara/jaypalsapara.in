@@ -1,4 +1,4 @@
-import ClientCldImage from '@/components/client-cld-image';
+import { ClientCldImage } from '@/components/client-cld-image';
 import H4 from '@/components/h4';
 import ProjectSquare from '@/components/project-square';
 import { getExperiences } from '@/dal/experience-dal';

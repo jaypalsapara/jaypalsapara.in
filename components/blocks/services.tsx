@@ -1,4 +1,4 @@
-import ClientCldImage from '@/components/client-cld-image';
+import { ClientCldImage } from '@/components/client-cld-image';
 import { getAbilities } from '@/dal/ability-dal';
 import { getIntegrations } from '@/dal/integration-dal';
 import { getTechnologies } from '@/dal/technology-dal';

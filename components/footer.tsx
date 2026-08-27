@@ -1,6 +1,6 @@
 'use client';
 
-import ClientCldImage from '@/components/client-cld-image';
+import { ClientCldImage } from '@/components/client-cld-image';
 import { GITHUB_URL, LINKED_IN_URL, TWITTER_URL } from '@/constants/links';
 import { cn } from '@/lib/utils';
 import { NavLink, ReferenceLink } from '@/types/navigation';

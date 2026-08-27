@@ -1,4 +1,4 @@
-import ClientCldImage from '@/components/client-cld-image';
+import { ClientCldImage } from '@/components/client-cld-image';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import P from '@/components/p';

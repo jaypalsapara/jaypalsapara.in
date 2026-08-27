@@ -1,6 +1,6 @@
 'use client';
 
-import ClientCldImage from '@/components/client-cld-image';
+import { ClientCldImage } from '@/components/client-cld-image';
 import { motion, useScroll, useTransform } from 'motion/react';
 
 export const IdeaText = () => {

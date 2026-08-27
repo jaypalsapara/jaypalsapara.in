@@ -1,6 +1,6 @@
 'use client';
 
-import ClientCldImage from '@/components/client-cld-image';
+import { ClientCldImage } from '@/components/client-cld-image';
 import { cn } from '@/lib/utils';
 import { FeedsProps } from '@/types/table';
 import { animate, inView } from 'motion/react';

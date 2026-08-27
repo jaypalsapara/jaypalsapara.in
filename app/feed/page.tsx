@@ -1,5 +1,5 @@
 import FeedGrid from '@/components/blocks/feed-grid';
-import ClientCldImage from '@/components/client-cld-image';
+import { ClientCldImage } from '@/components/client-cld-image';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import { HeadingChild, HeadingParent } from '@/components/heading-animation';

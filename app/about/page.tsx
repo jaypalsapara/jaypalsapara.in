@@ -2,7 +2,7 @@ import Achievements from '@/components/blocks/achievements';
 import Info from '@/components/blocks/info';
 import Testimonial from '@/components/blocks/testimonial';
 import WorkExperience from '@/components/blocks/work-experience';
-import ClientCldImage from '@/components/client-cld-image';
+import { ClientCldImage } from '@/components/client-cld-image';
 import Footer from '@/components/footer';
 import H1 from '@/components/h1';
 import { HeadingChild, HeadingParent } from '@/components/heading-animation';

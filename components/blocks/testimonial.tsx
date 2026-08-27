@@ -1,4 +1,4 @@
-import ClientCldImage from '@/components/client-cld-image';
+import { ClientCldImage } from '@/components/client-cld-image';
 import { getTestimonials } from '@/dal/testimonial-dal';
 import { cn } from '@/lib/utils';
 import { TestimonialProps } from '@/types/table';
