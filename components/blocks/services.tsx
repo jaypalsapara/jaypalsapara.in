@@ -20,7 +20,7 @@ export default function Services() {
     <div className="flex flex-col gap-y-18">
       <div className="grid lg:grid-cols-2 pt-8 px-4 w-full">
         <div className="lg:col-start-2">
-          <H1 className="font-bold">Ability</H1>
+          <H1 className="font-bold">Capabilities</H1>
         </div>
         <div className="col-span-full mt-10">
           <ListOfAbilities />
@@ -28,7 +28,7 @@ export default function Services() {
       </div>
       <div className="grid lg:grid-cols-2 pt-8 px-4 w-full">
         <div className="lg:col-start-2">
-          <H1 className="font-bold">Integration</H1>
+          <H1 className="font-bold">Integrations</H1>
         </div>
         <div className="col-span-full mt-10">
           <ListOfIntegration />
@@ -36,7 +36,7 @@ export default function Services() {
       </div>
       <div className="grid lg:grid-cols-2 pt-8 px-4 w-full">
         <div className="lg:col-start-2">
-          <H1 className="font-bold">All tech</H1>
+          <H1 className="font-bold">Technologies</H1>
         </div>
         <div className="col-span-full mt-10">
           <ListOfTechnologies />

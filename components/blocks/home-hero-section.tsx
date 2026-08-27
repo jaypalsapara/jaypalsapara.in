@@ -11,14 +11,14 @@ import { Activity, MouseEvent, useCallback, useState } from 'react';
 
 const tabsData = [
   {
-    title: 'Web solutions that deliver results',
+    title: 'Web solutions that turn ideas into results',
     action: {
       url: '/work',
       title: 'Work',
     },
   },
   {
-    title: 'Services that turn your vision into results',
+    title: 'Services to build, fix & scale your product',
     action: {
       url: '/service',
       title: 'Service',
