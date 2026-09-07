@@ -1,7 +1,7 @@
 'use client';
 
 import { ClientCldImage } from '@/components/client-cld-image';
-import { GITHUB_URL, LINKED_IN_URL, TWITTER_URL } from '@/constants/links';
+import { GITHUB_URL, INSTAGRAM_URL, LINKED_IN_URL, TWITTER_URL } from '@/constants/links';
 import { cn } from '@/lib/utils';
 import { NavLink, ReferenceLink } from '@/types/navigation';
 import H4 from './h4';
@@ -13,6 +13,10 @@ export const SocialLinks: ReferenceLink[] = [
   {
     name: 'Twitter',
     url: TWITTER_URL,
+  },
+  {
+    name: 'Instagram',
+    url: INSTAGRAM_URL,
   },
   {
     name: 'GitHub',

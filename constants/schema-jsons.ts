@@ -1,6 +1,6 @@
 import { EMAIL } from './about-me';
 import { APP_URL } from './app';
-import { GITHUB_URL, LINKED_IN_URL, TWITTER_URL } from './links';
+import { GITHUB_URL, INSTAGRAM_URL, LINKED_IN_URL, TWITTER_URL } from './links';
 
 /**
  * Home page schema
@@ -57,7 +57,7 @@ export const getHomePageJsonLd = () => {
             'Database Design',
             'SQL',
           ],
-          sameAs: [GITHUB_URL, LINKED_IN_URL, TWITTER_URL],
+          sameAs: [GITHUB_URL, LINKED_IN_URL, TWITTER_URL, INSTAGRAM_URL],
         },
         {
           '@type': 'WebSite',

@@ -41,7 +41,7 @@ export default function MobileNav() {
           }
         >
           <motion.ul
-            className="flex flex-col mx-auto items-center py-12 gap-y-4 grow justify-center"
+            className="flex flex-col mx-auto items-center py-12 gap-y-4 grow justify-center px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -58,7 +58,7 @@ export default function MobileNav() {
               </li>
             ))}
 
-            <li className="flex gap-4 pt-10">
+            <li className="flex gap-4 pt-10 flex-wrap justify-center">
               {SocialLinks.map((item) => (
                 <a
                   href={item.url}
