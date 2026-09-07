@@ -26,6 +26,14 @@ const tabsData = [
     },
     image: '/images/hero-bg-service.png',
   },
+  {
+    title: 'Encrypt text or files with Encrypto',
+    action: {
+      url: 'https://jaypalsapara.github.io/encrypto/',
+      title: 'Encrypto',
+    },
+    image: '/images/encrypto-art.png',
+  },
 ];
 
 export default function HomeHeroSection() {
