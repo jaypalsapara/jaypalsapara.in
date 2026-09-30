@@ -4,3 +4,4 @@ coverage
 components/ui
 database
 node_modules
+pnpm-lock.yaml
