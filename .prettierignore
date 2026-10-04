@@ -1,0 +1,9 @@
+# Ignore artifacts:
+.next
+build
+components/ui
+coverage
+node_modules
+pnpm-lock.yaml
+
+
