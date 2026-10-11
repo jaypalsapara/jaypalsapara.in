@@ -1,7 +1,11 @@
+import { ThemeToggle } from '@/components/theme-toggle';
+
 export default function Home() {
   return (
     <div>
-      <main></main>
+      <main className='flex justify-center'>
+        <ThemeToggle />
+      </main>
     </div>
   );
 }
