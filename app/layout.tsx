@@ -1,11 +1,13 @@
 import { Providers } from '@/components/providers';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+const raveo = localFont({
+  src: '../public/fonts/raveo.woff2',
+  variable: '--font-sans',
+});
 
 const paperMono = localFont({
   src: '../public/fonts/paper-mono.woff2',
@@ -21,7 +23,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
-      className={cn('h-full', 'antialiased', paperMono.variable, 'font-sans', inter.variable)}
+      className={cn('h-full', 'antialiased', paperMono.variable, 'font-sans', raveo.variable)}
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-background">
