@@ -8,10 +8,11 @@ export default function Home() {
     return (
         <>
             <Container>
-                <h1 className="font-heading text-6xl leading-none font-semibold tracking-tight text-pretty">
+                <p className="font-mono text-sm text-foreground-light">[ Hi, I'm Jaypal Sapara ]</p>
+                <h1 className="mt-8 font-heading text-6xl leading-none font-semibold tracking-tight text-pretty">
                     I turn product ideas into shipped,
                     <br />
-                    <span className='text-primary'>revenue-generating web application.</span>
+                    <span className="text-primary">revenue-generating web application.</span>
                 </h1>
                 <p className="mt-8 max-w-[80ch] text-[1.063rem] text-pretty text-foreground-light">
                     Design and develop web applications that drive outcomes. Performance, strong security, responsive
