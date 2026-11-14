@@ -29,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         >
             <body className="flex min-h-full flex-col">
                 <Providers>{children}</Providers>
-                <ScreenIndicator position={'bottom-right'} />
+                <ScreenIndicator position={'bottom-right'} variant={'secondary'} />
             </body>
         </html>
     );

@@ -64,17 +64,17 @@
     --feature-single-story-a: 'cv01' 1;
     --feature-slashed-zero: 'zero' 1;
 
-    --color-primary-50: oklch(0.95 0.025 285.379);
-    --color-primary-100: oklch(0.876 0.064 285.379);
-    --color-primary-200: oklch(0.802 0.105 285.379);
-    --color-primary-300: oklch(0.727 0.147 285.379);
-    --color-primary-400: oklch(0.653 0.192 285.379);
-    --color-primary-500: oklch(0.579 0.239 285.379);
-    --color-primary-600: oklch(0.499 0.271 285.379);
-    --color-primary-700: oklch(0.419 0.228 285.379);
-    --color-primary-800: oklch(0.339 0.184 285.379);
-    --color-primary-900: oklch(0.259 0.141 285.379);
-    --color-primary-950: oklch(0.179 0.097 285.379);
+    --color-primary-50: oklch(0.97 0.014 254.604);
+    --color-primary-100: oklch(0.932 0.032 255.585);
+    --color-primary-200: oklch(0.882 0.059 254.128);
+    --color-primary-300: oklch(0.809 0.105 251.813);
+    --color-primary-400: oklch(0.707 0.165 254.624);
+    --color-primary-500: oklch(0.623 0.214 259.815);
+    --color-primary-600: oklch(0.546 0.245 262.881);
+    --color-primary-700: oklch(0.488 0.243 264.376);
+    --color-primary-800: oklch(0.424 0.199 265.638);
+    --color-primary-900: oklch(0.379 0.146 265.522);
+    --color-primary-950: oklch(0.282 0.091 267.935);
 
     --background-dark: oklch(0.985 0 0);
     --background-light: oklch(1 0 0);
@@ -100,7 +100,7 @@
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.579 0.239 285.379);
+    --primary: oklch(0.205 0 0);
     --primary-foreground: oklch(0.985 0 0);
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
@@ -135,8 +135,8 @@
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.205 0 0);
     --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.579 0.239 285.379);
-    --primary-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
     --secondary: oklch(0.269 0 0);
     --secondary-foreground: oklch(0.985 0 0);
     --muted: oklch(0.269 0 0);
@@ -216,7 +216,7 @@
     }
 
     body {
-        @apply bg-background-dark text-foreground;
+        @apply bg-background-dark text-foreground selection:bg-foreground selection:text-background;
     }
 
     button:not(:disabled),

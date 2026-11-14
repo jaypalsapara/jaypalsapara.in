@@ -11,7 +11,10 @@ export const indicatorVariant = cva(
     {
         variants: {
             variant: {
-                default: 'bg-neutral-200 text-neutral-950 dark:bg-neutral-800 dark:text-neutral-50',
+                default: 'bg-primary text-primary-foreground',
+                secondary: 'bg-secondary text-secondary-foreground',
+                outline: 'border bg-background text-foreground',
+                ghost: 'bg-transparent text-foreground',
             },
             position: {
                 'top-left': 'top-0 left-0',
