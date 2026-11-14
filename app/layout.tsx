@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import { ScreenIndicator } from '@/components/screen-indicator';
 
 const raveo = localFont({
     src: '../public/fonts/raveo.woff2',
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         >
             <body className="flex min-h-full flex-col">
                 <Providers>{children}</Providers>
+                <ScreenIndicator position={'bottom-right'} />
             </body>
         </html>
     );
