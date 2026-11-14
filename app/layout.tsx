@@ -26,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
             className={cn('h-full', 'antialiased', paperMono.variable, 'font-sans', raveo.variable)}
             suppressHydrationWarning
         >
-            <body className="flex min-h-full flex-col bg-background">
+            <body className="flex min-h-full flex-col">
                 <Providers>{children}</Providers>
             </body>
         </html>

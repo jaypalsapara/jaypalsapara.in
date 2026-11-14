@@ -5,20 +5,14 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --color-primary-50: var(--primary-50);
-    --color-primary-100: var(--primary-100);
-    --color-primary-200: var(--primary-200);
-    --color-primary-300: var(--primary-300);
-    --color-primary-400: var(--primary-400);
-    --color-primary-500: var(--primary-500);
-    --color-primary-600: var(--primary-600);
-    --color-primary-700: var(--primary-700);
-    --color-primary-800: var(--primary-800);
-    --color-primary-900: var(--primary-900);
-    --color-primary-950: var(--primary-950);
-
+    --color-background-dark: var(--background-dark);
     --color-background: var(--background);
+    --color-background-light: var(--background-light);
+
+    --color-foreground-dark: var(--foreground-dark);
     --color-foreground: var(--foreground);
+    --color-foreground-light: var(--foreground-light);
+    --color-foreground-lighter: var(--foreground-lighter);
 
     --font-sans: var(--font-sans);
     --font-mono: var(--font-paper-mono);
@@ -70,17 +64,33 @@
     --feature-single-story-a: 'cv01' 1;
     --feature-slashed-zero: 'zero' 1;
 
-    --primary-50: oklch(0.985 0 0);
-    --primary-100: oklch(0.97 0 0);
-    --primary-200: oklch(0.922 0 0);
-    --primary-300: oklch(0.87 0 0);
-    --primary-400: oklch(0.708 0 0);
-    --primary-500: oklch(0.556 0 0);
-    --primary-600: oklch(0.439 0 0);
-    --primary-700: oklch(0.371 0 0);
-    --primary-800: oklch(0.269 0 0);
-    --primary-900: oklch(0.205 0 0);
-    --primary-950: oklch(0.145 0 0);
+    --color-primary-50: oklch(0.95 0.025 285.379);
+    --color-primary-100: oklch(0.876 0.064 285.379);
+    --color-primary-200: oklch(0.802 0.105 285.379);
+    --color-primary-300: oklch(0.727 0.147 285.379);
+    --color-primary-400: oklch(0.653 0.192 285.379);
+    --color-primary-500: oklch(0.579 0.239 285.379);
+    --color-primary-600: oklch(0.499 0.271 285.379);
+    --color-primary-700: oklch(0.419 0.228 285.379);
+    --color-primary-800: oklch(0.339 0.184 285.379);
+    --color-primary-900: oklch(0.259 0.141 285.379);
+    --color-primary-950: oklch(0.179 0.097 285.379);
+
+    --background-dark: oklch(0.985 0 0);
+    --background-light: oklch(1 0 0);
+
+    --foreground-dark: oklch(0.145 0 0);
+    --foreground-light: oklch(0.439 0 0);
+    --foreground-lighter: oklch(0.708 0 0);
+}
+
+.dark {
+    --background-dark: oklch(0.145 0 0);
+    --background-light: oklch(0.205 0 0);
+
+    --foreground-dark: oklch(0.97 0 0);
+    --foreground-light: oklch(0.708 0 0);
+    --foreground-lighter: oklch(0.556 0 0);
 }
 
 :root {
@@ -90,7 +100,7 @@
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
+    --primary: oklch(0.579 0.239 285.379);
     --primary-foreground: oklch(0.985 0 0);
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
@@ -125,8 +135,8 @@
     --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.205 0 0);
     --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
+    --primary: oklch(0.419 0.228 285.379);
+    --primary-foreground: oklch(0.985 0 0);
     --secondary: oklch(0.269 0 0);
     --secondary-foreground: oklch(0.985 0 0);
     --muted: oklch(0.269 0 0);
