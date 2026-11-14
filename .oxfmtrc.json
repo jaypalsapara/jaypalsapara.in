@@ -1,0 +1,14 @@
+{
+    "$schema": "./node_modules/oxfmt/configuration_schema.json",
+    "semi": true,
+    "printWidth": 120,
+    "tabWidth": 4,
+    "singleQuote": true,
+    "singleAttributePerLine": false,
+    "htmlWhitespaceSensitivity": "css",
+    "ignorePatterns": [".next/**", "out/**", "build/**", "components/ui/**", "pnpm-lock.yaml", "next-env.d.ts"],
+    "sortTailwindcss": {
+        "functions": ["clsx", "cn", "cva"],
+        "stylesheet": "app/globals.css"
+    }
+}

@@ -1,3 +1,3 @@
 export default function Footer() {
-  return <footer className="px-2 overflow-x-clip"></footer>;
+    return <footer className="overflow-x-clip px-2"></footer>;
 }

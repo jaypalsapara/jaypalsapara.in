@@ -1,13 +1,13 @@
 import { cn } from 'cn';
-import { ComponentProps, PropsWithChildren } from 'react'
+import { ComponentProps, PropsWithChildren } from 'react';
 
 export default function Container({ children, className, ...props }: PropsWithChildren<ComponentProps<'div'>>) {
     return (
         <div
-            className={cn('border-x mx-auto max-w-screen md:max-w-5xl p-4 w-full py-12 screen-line-bottom', className)}
+            className={cn('screen-line-bottom mx-auto w-full max-w-screen border-x p-4 py-12 md:max-w-5xl', className)}
             {...props}
         >
             {children}
         </div>
-    )
+    );
 }

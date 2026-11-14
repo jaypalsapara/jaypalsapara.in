@@ -1,10 +1,10 @@
 import type { VercelConfig } from '@vercel/config/v1';
 
 export const config: VercelConfig = {
-  git: {
-    deploymentEnabled: {
-      dev: false,
-      'dev-*': false,
+    git: {
+        deploymentEnabled: {
+            dev: false,
+            'dev-*': false,
+        },
     },
-  },
 };

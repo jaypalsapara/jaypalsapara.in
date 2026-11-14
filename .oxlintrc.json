@@ -1,0 +1,26 @@
+{
+    "$schema": "./node_modules/oxlint/configuration_schema.json",
+    "plugins": ["typescript", "unicorn", "oxc"],
+    "categories": {
+        "correctness": "error"
+    },
+    "rules": {
+        "no-unused-vars": [
+            "error",
+            {
+                "fix": {
+                    "imports": "safe-fix",
+                    "variables": "off"
+                }
+            }
+        ]
+    },
+    "env": {
+        "builtin": true
+    },
+    "ignorePatterns": [".next/**", "out/**", "build/**", "next-env.d.ts"],
+    "options": {
+        "denyWarnings": true,
+        "typeAware": true
+    }
+}
