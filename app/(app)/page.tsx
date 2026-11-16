@@ -1,18 +1,8 @@
 import Container from '@/components/container';
-import {
-    Frame,
-    FrameAction,
-    FrameContent,
-    FrameDescription,
-    FrameFooter,
-    FrameHeader,
-    FrameIcon,
-    FrameTitle,
-} from '@/components/frame';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { EMAIL_ADDRESS } from '@/constants/basic';
 import { cn } from 'cn';
-import { ArrowUpRight, ShieldCheck } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function Home() {
     return (
@@ -49,17 +39,6 @@ export default function Home() {
                     </a>
                 </div>
             </Container>
-            <div className="aspect-video bg-white p-12">
-                <Frame size="sm">
-                    <FrameHeader>dd</FrameHeader>
-                    <FrameContent>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit excepturi facilis sed
-                        sapiente ducimus perspiciatis, deleniti expedita odio iusto libero eligendi maiores rem ea quia
-                        quam rerum dolorem molestiae quas.
-                    </FrameContent>
-                    <FrameFooter>Footer</FrameFooter>
-                </Frame>
-            </div>
         </>
     );
 }
